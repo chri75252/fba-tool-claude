@@ -1,0 +1,61 @@
+{
+  "title": "LiCB 10 PCS CR2016 3V Lithium Battery",
+  "original_price": 5.99,
+  "main_image": "https://m.media-amazon.com/images/I/81O7EhrWAlL._AC_SL1500_.jpg",
+  "thumbnails": [
+    "https://m.media-amazon.com/images/I/51chUSl-GDL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/410wRry3MuL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/51lTaxHlcxL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/51Lx6ofDFWL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/4163wRgKSIL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/51FxD4E7xkL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/51tdlYOHGIL._SL1500_.jpg"
+  ],
+  "high_res_gallery": [],
+  "amazon_product_details_section": {
+    "Batteries\n                                    ‏\n                                    :\n                                    ‎": "10 Lithium Metal batteries required. (included)",
+    "Is discontinued by manufacturer\n                                    ‏\n                                    :\n                                    ‎": "No",
+    "Product Dimensions\n                                    ‏\n                                    :\n                                    ‎": "20 x 10 x 1 cm; 8 g",
+    "Date First Available\n                                    ‏\n                                    :\n                                    ‎": "3 Jun. 2018",
+    "Manufacturer\n                                    ‏\n                                    :\n                                    ‎": "LiCB",
+    "ASIN\n                                    ‏\n                                    :\n                                    ‎": "B07DHMBXHV",
+    "Item model number\n                                    ‏\n                                    :\n                                    ‎": "LiCB-CR2016-10uk",
+    "Guaranteed software updates until\n                                    ‏\n                                    :\n                                    ‎": "unknown",
+    "Batteries\n                                    ‏": "‎ 10 Lithium Metal batteries required. (included)",
+    "Is discontinued by manufacturer\n                                    ‏": "‎ No",
+    "Product Dimensions\n                                    ‏": "‎ 20 x 10 x 1 cm; 8 g",
+    "Date First Available\n                                    ‏": "‎ 3 Jun. 2018",
+    "Manufacturer\n                                    ‏": "‎ LiCB",
+    "ASIN\n                                    ‏": "‎ B07DHMBXHV",
+    "Item model number\n                                    ‏": "‎ LiCB-CR2016-10uk",
+    "Guaranteed software updates until\n                                    ‏": "‎ unknown",
+    "Best Sellers Rank": "2,989 in Electronics & Photo (See Top 100 in Electronics & Photo) 481 in Disposable Household Batteries",
+    "Customer reviews": "4.5 4.5 out of 5 stars 2,540 ratings var dpAcrHasRegisteredArcLinkClickAction; P.when('A', 'ready').execute(function(A) { if (dpAcrHasRegisteredArcLinkClickAction !== true) { dpAcrHasRegisteredArcLinkClickAction = true; A.declarative( 'acrLink-click-metrics', 'click', { \"allowLinkDefault\": true }, function (event) { if (window.ue) { ue.count(\"acrLinkClickCount\", (ue.count(\"acrLinkClickCount\") || 0) + 1); } } ); } }); P.when('A', 'cf').execute(function(A) { A.declarative('acrStarsLink-click-metrics', 'click', { \"allowLinkDefault\" : true }, function(event){ if(window.ue) { ue.count(\"acrStarsLinkWithPopoverClickCount\", (ue.count(\"acrStarsLinkWithPopoverClickCount\") || 0) + 1); } }); });"
+  },
+  "date_first_available_from_details": "‎ 3 Jun. 2018",
+  "manufacturer_from_details": "‎ LiCB",
+  "asin_from_details": "B07DHMBXHV",
+  "prime_eligible": true,
+  "fulfilled_by_amazon": false,
+  "rating": 4.5,
+  "review_count": 2540,
+  "availability_text": "P.when(\"A\", \"load\").execute(\"aod-assets-loaded\", function(A){\n        function logAssetsNotLoaded() {\n            if (window.ueLogError) {\n                var customError = { message: 'Failed to load AOD assets for WDG: ce_display_on_website, Device: web' };\n                var additionalInfo = {\n                    logLevel : 'ERROR',\n                    attribution : 'aod_assets_not_loaded'\n                };\n                ueLogError (customError, additionalInfo);\n            }\n            if (window.ue && window.ue.count) {\n                window.ue.count(\"aod-assets-not-loaded\", 1);\n            }\n        }\n\n        function verifyAssetsLoaded() {\n            var assetsLoadedPageState = A.state('aod:assetsLoaded');\n            var logAssetsNotLoadedState = A.state('aod:logAssetsNotLoaded');\n\n            if((assetsLoadedPageState == null || !assetsLoadedPageState.isAodAssetsLoaded)\n                && (logAssetsNotLoadedState == null || !logAssetsNotLoadedState.isAodAssetsNotLoadedLogged)) {\n                A.state('aod:logAssetsNotLoaded', {isAodAssetsNotLoadedLogged: true});\n                logAssetsNotLoaded();\n            }\n        }\n\n        setTimeout(verifyAssetsLoaded, 50000)\n    });",
+  "in_stock": false,
+  "features": [
+    "High Quality: Tested under Strict Quality Control Standards. Grade A cells CR2016 Ensure Longer Battery Life and Long Lasting Power.",
+    "Get the Exact Fresh CR2016 Battery, Have Full 3 Volts Charge, 3 Years Shelf Life.",
+    "Primarily used in Watches, Computer motherboards, Calculators, PDAs, Electronic organizers, Garage door openers, Toys, Games, MP3 players, Digital voice recorders, Door chimes, Pet collars, LED lights, Sporting goods, Pedometers, Calorie counters, Stopwatches, Glucometers, Medical devices, and more.",
+    "If your device uses any of the following batteries, this is what you are looking for: CR2016, ECR2016, DL2016 ,LM2016, 2016, KCR2016, BR2016, KL2016, L2016 ,E-CR2016, KECR2016 ,FA SBT11 ,208-202 ,20-2084, 208-206, DL2016B ,BR2016-1W, CR2016-1W ,KCR2016 ,L10, LM2016.",
+    "What You Get: 10PCS CR2016 Batteries in Exact Blister Pack."
+  ],
+  "description_ai_fallback": null,
+  "specifications_ai_fallback": null,
+  "selleramp": {
+    "status": "SellerAmp panel not detected."
+  },
+  "keepa": {
+    "status": "No specific Keepa data points extracted beyond initial checks."
+  },
+  "asin_extracted_from_page": "B07DHMBXHV",
+  "asin_queried": "B07DHMBXHV"
+}

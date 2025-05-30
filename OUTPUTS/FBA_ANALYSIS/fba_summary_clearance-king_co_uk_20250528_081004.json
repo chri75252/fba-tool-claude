@@ -1,0 +1,12 @@
+{
+  "total_supplier_products": 1,
+  "products_analyzed_ean": 0,
+  "products_analyzed_title": 0,
+  "products_passed_triage": 0,
+  "products_rejected_by_triage": 0,
+  "products_previously_visited": 1,
+  "profitable_products": 0,
+  "errors": 0,
+  "start_time": "2025-05-28T08:10:04.689677",
+  "end_time": "2025-05-28T08:11:36.931525"
+}
