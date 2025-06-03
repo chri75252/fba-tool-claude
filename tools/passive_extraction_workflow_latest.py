@@ -13,14 +13,18 @@ import logging
 import json
 import sys
 import argparse
-from datetime import datetime
-from typing import Dict, Any, List, Optional, Tuple
+from datetime import datetime, timedelta
+from typing import Dict, Any, List, Optional, Tuple, Set, Union
 import re
 import time
 import xml.etree.ElementTree as ET
 import requests
 from urllib.parse import urlparse, parse_qs, urljoin
 import difflib # Added for enhanced title similarity
+import shutil
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from pathlib import Path # ADDED IMPORT
 
 # Assuming OpenAI client; ensure it's installed: pip install openai
 from openai import OpenAI
@@ -39,7 +43,7 @@ from configurable_supplier_scraper import ConfigurableSupplierScraper
 # Zero-token triage module available but not activated by default
 # from zero_token_triage_module import perform_zero_token_triage
 # Import FBA Calculator for accurate fee calculations
-from fba_calculator import FBACalculator
+# from tools.utils.fba_calculator import FBACalculator # Commented out
 from cache_manager import CacheManager
 
 from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
@@ -166,7 +170,9 @@ POST_NAVIGATION_STABILIZE_WAIT = int(os.getenv("STABILIZE_WAIT", "10"))
 import json
 
 # Initial constants and paths
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "C:\\Users\\chris\\Amazon-FBA-Agent-System\\OUTPUTS\\FBA_ANALYSIS")
+# Get the base directory path dynamically
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR = os.getenv("OUTPUT_DIR", os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS"))
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Load cache directories from config/system_config.json
@@ -184,14 +190,15 @@ def _load_cache_directories():
 cache_directories = _load_cache_directories()
 
 # Global constant for persistent linking map in dedicated directory
-LINKING_MAP_DIR = r"C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map"
+LINKING_MAP_DIR = os.path.join(OUTPUT_DIR, "Linking map")
 os.makedirs(LINKING_MAP_DIR, exist_ok=True)
 LINKING_MAP_PATH = os.path.join(LINKING_MAP_DIR, "linking_map.json")
 
 # Other directories
-SUPPLIER_CACHE_DIR = cache_directories.get("supplier_cache", os.path.join(OUTPUT_DIR, "supplier_cache"))
+SUPPLIER_CACHE_DIR = os.path.join(BASE_DIR, "OUTPUTS", "cached_products")
 AMAZON_CACHE_DIR = os.path.join(OUTPUT_DIR, "amazon_cache")
 AI_CATEGORY_CACHE_DIR = os.path.join(OUTPUT_DIR, "ai_category_cache")
+
 os.makedirs(SUPPLIER_CACHE_DIR, exist_ok=True)
 os.makedirs(AMAZON_CACHE_DIR, exist_ok=True)
 os.makedirs(AI_CATEGORY_CACHE_DIR, exist_ok=True)
@@ -821,8 +828,8 @@ class PassiveExtractionWorkflow:
             ai_client=self.ai_client, # Pass the ai_client (which could be None)
             openai_model_name=OPENAI_MODEL_NAME # OPENAI_MODEL_NAME is module-level, generally less critical than API key
         )
-        # Initialize FBA Calculator
-        self.fba_calculator = FBACalculator()
+        # Initialize FBA Calculator - Commented out
+        # self.fba_calculator = FBACalculator()
         self.supplier_cache_dir = SUPPLIER_CACHE_DIR
         self.amazon_cache_dir = AMAZON_CACHE_DIR
         self.max_cache_age_seconds = max_cache_age_hours * 3600
@@ -859,9 +866,9 @@ class PassiveExtractionWorkflow:
     # ──────────────────────── ③  Enhanced State tracking helpers ──────────────────────
     def _load_history(self):
         """Load comprehensive scraping history to prevent duplicate processing"""
-        if self.state_path and self.state_path.exists():
+        if self.state_path and Path(self.state_path).exists(): # MODIFIED HERE
             try:
-                history = json.loads(self.state_path.read_text())
+                history = json.loads(Path(self.state_path).read_text()) # AND HERE for consistency
                 # Ensure all required keys exist with backward compatibility
                 default_history = {
                     "categories_scraped": [],
@@ -909,15 +916,17 @@ class PassiveExtractionWorkflow:
             hist["last_scrape_timestamp"] = datetime.now().isoformat()
             
             # Use atomic write to prevent corruption
-            temp_path = f"{self.state_path}.tmp"
+            # Ensure self.state_path is a Path object for .with_suffix and os.replace
+            state_path_obj = Path(self.state_path)
+            temp_path = state_path_obj.with_suffix(".tmp")
             try:
                 with open(temp_path, 'w', encoding='utf-8') as f:
                     json.dump(hist, f, indent=2, ensure_ascii=False)
-                os.replace(temp_path, self.state_path)
+                os.replace(temp_path, state_path_obj) # Use Path object here too
                 log.debug(f"History saved with {len(hist.get('categories_scraped', []))} categories, {len(hist.get('pages_visited', []))} pages")
             except Exception as e:
                 log.error(f"Failed to save history: {e}")
-                if os.path.exists(temp_path):
+                if os.path.exists(temp_path): # os.path.exists is fine for string or Path
                     try:
                         os.remove(temp_path)
                     except:
@@ -1083,9 +1092,26 @@ Return ONLY valid JSON, no additional text."""
         # ---------- STRICT VALIDATION ----------
         try:
             ai = json.loads(raw.choices[0].message.content.strip())
+            # Fix: Add missing keys with default values instead of failing
             required = {"top_3_urls", "secondary_urls", "skip_urls"}
             if not required.issubset(ai):
-                raise KeyError(f"AI JSON missing keys: {required - set(ai)}")
+                self.log.warning(f"AI JSON missing keys: {required - set(ai)} - adding defaults")
+                # Add missing keys with defaults
+                if "top_3_urls" not in ai:
+                    ai["top_3_urls"] = [c["url"] for c in discovered_categories
+                                      if self._classify_url(c["url"]) == "friendly"
+                                      and c["url"] not in (previous_categories or [])][:3]
+                if "secondary_urls" not in ai:
+                    ai["secondary_urls"] = []
+                if "skip_urls" not in ai:
+                    ai["skip_urls"] = []
+            
+            # Ensure lists are actually lists
+            for key in ["top_3_urls", "secondary_urls", "skip_urls"]:
+                if not isinstance(ai[key], list):
+                    self.log.warning(f"AI JSON '{key}' is not a list - fixing")
+                    ai[key] = [ai[key]] if ai[key] else []
+                    
         except Exception as e:
             self.log.error("AI JSON invalid → %s – falling back to heuristic list", e)
             friendly_urls = [c["url"] for c in discovered_categories
@@ -1115,30 +1141,55 @@ Return ONLY valid JSON, no additional text."""
             basic_cats = await self.web_scraper.get_homepage_categories(supplier_url)
             discovered_categories = [{"name": url.split('/')[-1] or "category", "url": url} for url in basic_cats[:10]]
         
-        ai = await self._get_ai_suggested_categories_enhanced(
+        ai_suggestions = await self._get_ai_suggested_categories_enhanced(
             supplier_url, supplier_name, discovered_categories,
             previous_categories=hist["categories_scraped"],
             processed_products=hist["products_processed"],
         )
         
+        # Save AI category suggestions to cache
+        try:
+            Path(AI_CATEGORY_CACHE_DIR).mkdir(parents=True, exist_ok=True) # MODIFIED HERE
+            cache_file_path = Path(AI_CATEGORY_CACHE_DIR) / f"{supplier_name.replace('.', '_')}_ai_category_cache.json"
+            with open(cache_file_path, 'w', encoding='utf-8') as f:
+                json.dump(ai_suggestions, f, indent=2, ensure_ascii=False)
+            log.info(f"Saved AI category suggestions to {cache_file_path}")
+        except Exception as e:
+            log.error(f"Failed to save AI category suggestions: {e}")
+        
         # Record AI decision in history
-        self._record_ai_decision(hist, ai)
+        self._record_ai_decision(hist, ai_suggestions)
         
         # Update history with new categories
-        hist["categories_scraped"] += ai["top_3_urls"]
+        hist["categories_scraped"] += ai_suggestions["top_3_urls"]
         self._save_history(hist)
         
         pages = []
-        for url in ai["top_3_urls"]:
-            # Get subpages for each selected category
+
+        # First, validate that the AI-suggested URLs actually exist
+        self.log.info("Validating AI-suggested category URLs...")
+        valid_ai_urls = await self.web_scraper.filter_valid_urls(ai_suggestions["top_3_urls"])
+
+        if not valid_ai_urls:
+            self.log.warning("All AI-suggested URLs failed validation (404 errors). Falling back to known working categories.")
+            # Fallback to known working categories from config
+            fallback_categories = [
+                f"{supplier_url.rstrip('/')}/pound-lines.html",
+                f"{supplier_url.rstrip('/')}/household.html",
+                f"{supplier_url.rstrip('/')}/health-beauty.html"
+            ]
+            valid_ai_urls = await self.web_scraper.filter_valid_urls(fallback_categories)
+
+        for url in valid_ai_urls:
+            # Get subpages for each validated category
             subpages = await self.web_scraper.discover_subpages(url)
             pages.extend(subpages[:2])  # First 2 sub-pages per category
-        
-        # If no pages found, return the original URLs
+
+        # If no pages found, return the validated URLs
         if not pages:
-            pages = ai["top_3_urls"]
-            
-        log.info(f"Hierarchical selection returned {len(pages)} pages to scrape")
+            pages = valid_ai_urls
+
+        self.log.info(f"Hierarchical selection returned {len(pages)} pages to scrape (after URL validation)")
         return pages
 
     async def _fetch_sitemap_urls(self, base_url: str) -> List[str]:
@@ -1212,16 +1263,49 @@ Return ONLY valid JSON, no additional text."""
         log.info(f"Session ID: {session_id}")
         log.info(f"PRICE CRITERIA: Min Supplier Cost £{self.min_price}, Max Supplier Cost £{MAX_PRICE}")
 
+        # Handle cache clearing if configured
+        if hasattr(self, 'config') and self.config:
+            clear_cache_setting = self.config.get("system", {}).get("clear_cache", False)
+            if clear_cache_setting:
+                log.info("PassiveExtractionWorkflow: clear_cache=True, performing cache clear")
+                try:
+                    # Simple cache clearing - delete supplier cache files directly
+                    from pathlib import Path
+
+                    cache_dirs = [
+                        Path('OUTPUTS/cached_products'),
+                        Path('OUTPUTS/FBA_ANALYSIS/amazon_cache'),
+                    ]
+
+                    files_removed = 0
+                    for cache_dir in cache_dirs:
+                        if cache_dir.exists():
+                            for cache_file in cache_dir.glob('*.json'):
+                                try:
+                                    cache_file.unlink()
+                                    files_removed += 1
+                                    log.info(f"Removed cache file: {cache_file}")
+                                except Exception as e:
+                                    log.warning(f"Could not remove {cache_file}: {e}")
+
+                    log.info(f"Cache clearing completed. Removed {files_removed} files.")
+                    force_config_reload = True  # Force fresh scraping
+
+                except Exception as e:
+                    log.error(f"Error during cache clearing: {e}")
+                    # Continue anyway
+
         # State file to track last processed product index and categories
         from pathlib import Path
-        state_file_path = Path(OUTPUT_DIR) / f"{supplier_name.replace('.', '_')}_processing_state.json"
+        state_file_path = os.path.join(OUTPUT_DIR, f"{supplier_name.replace('.', '_')}_processing_state.json")
         self.state_path = state_file_path  # Set for use in helper methods
         self.last_processed_index = 0
 
         # Load previous state if resume is enabled
-        if resume_from_last and state_file_path.exists():
+        if resume_from_last and os.path.exists(state_file_path):
             try:
-                state_data = json.loads(state_file_path.read_text())
+                with open(state_file_path, 'r', encoding='utf-8') as f:
+                    state_data = json.load(f)
                 self.last_processed_index = state_data.get("last_processed_index", 0)
                 log.info(f"Resuming from index {self.last_processed_index} (previous run state found)")
             except Exception as e:
@@ -1366,43 +1450,47 @@ Return ONLY valid JSON, no additional text."""
                 log.info(f"Attempting Amazon search using EAN: {supplier_ean}")
                 self.results_summary["products_analyzed_ean"] += 1
                 
-                # Try to get from cache first using EAN (or ASIN derived from EAN)
-                # This part needs careful thought: EAN search might return different ASINs over time.
-                # Caching by ASIN is more reliable if EAN -> ASIN mapping is stable.
-                # For now, we search by EAN, get an ASIN, then cache by that ASIN.
-                
                 amazon_product_data_from_ean_search = await self.extractor.search_by_ean_and_extract_data(supplier_ean, product_data["title"])
                 
-                if amazon_product_data_from_ean_search and "error" not in amazon_product_data_from_ean_search and (amazon_product_data_from_ean_search.get("asin") or amazon_product_data_from_ean_search.get("asin_from_details")):
-                    asin_to_check = (amazon_product_data_from_ean_search.get("asin") or 
-                                     amazon_product_data_from_ean_search.get("asin_from_details"))
-                    log.info(f"EAN search successful for '{supplier_ean}' - found ASIN: {asin_to_check}")
+                potential_asin = None
+                if amazon_product_data_from_ean_search: # Ensure the result dict exists
+                    potential_asin = (amazon_product_data_from_ean_search.get("asin") or 
+                                      amazon_product_data_from_ean_search.get("asin_from_details") or
+                                      amazon_product_data_from_ean_search.get("asin_extracted_from_page") or
+                                      amazon_product_data_from_ean_search.get("asin_queried"))
+
+                if potential_asin:
+                    asin_to_check = potential_asin
+                    log.info(f"EAN search for '{supplier_ean}' identified ASIN: {asin_to_check}")
+
+                    # Log a warning if there was an error during full data extraction for this ASIN, but proceed with the ASIN
+                    if "error" in amazon_product_data_from_ean_search and amazon_product_data_from_ean_search["error"]:
+                        log.warning(f"Partial data for ASIN {asin_to_check} (from EAN {supplier_ean}). Error during full extraction: {amazon_product_data_from_ean_search['error']}. Proceeding with available data.")
                     
-                    # Check cache first
-                    cached_amazon_data = await self._get_cached_amazon_data_by_asin(asin_to_check) # type: ignore
+                    cached_amazon_data = await self._get_cached_amazon_data_by_asin(asin_to_check)
                     if cached_amazon_data:
                         amazon_product_data = cached_amazon_data
-                        log.info(f"Using cached Amazon data for ASIN: {asin_to_check} (from EAN search)")
+                        log.info(f"Using cached Amazon data for ASIN: {asin_to_check} (identified via EAN {supplier_ean})")
                     else:
-                        # Use the fresh EAN search data and cache it
-                        amazon_product_data = amazon_product_data_from_ean_search
-                        
-                        # Apply quick triage if enabled
+                        amazon_product_data = amazon_product_data_from_ean_search # Use the (potentially partial) data
+                        # Quick triage and caching logic (remains the same)
                         if self.enable_quick_triage and product_data.get("price"):
                             if self._passes_quick_triage(product_data.get("price"), amazon_product_data):
-                                await self._cache_amazon_data(asin_to_check, amazon_product_data, product_data, "EAN_search") # type: ignore
-                                log.info(f"Cached fresh Amazon data from EAN search for ASIN: {asin_to_check}")
+                                await self._cache_amazon_data(asin_to_check, amazon_product_data, product_data, "EAN_search_partial_ok")
+                                log.info(f"Cached (potentially partial) Amazon data from EAN search for ASIN: {asin_to_check}")
                             else:
                                 log.info(f"Skipping cache for ASIN {asin_to_check} - failed quick triage check")
                         else:
-                            await self._cache_amazon_data(asin_to_check, amazon_product_data, product_data, "EAN_search") # type: ignore
-                            log.info(f"Cached fresh Amazon data from EAN search for ASIN: {asin_to_check}")
-                elif amazon_product_data_from_ean_search and "error" in amazon_product_data_from_ean_search:
-                    log.warning(f"EAN search for '{supplier_ean}' failed or returned error: {amazon_product_data_from_ean_search.get('error')}")
-                    amazon_product_data = None  # Explicitly set to None
+                            await self._cache_amazon_data(asin_to_check, amazon_product_data, product_data, "EAN_search_partial_ok")
+                            log.info(f"Cached (potentially partial) Amazon data from EAN search for ASIN: {asin_to_check}")
+                
+                # This 'elif' handles cases where EAN search truly failed to identify any ASIN or had a critical error preventing ASIN identification.
+                elif amazon_product_data_from_ean_search and "error" in amazon_product_data_from_ean_search: 
+                    log.warning(f"EAN search for '{supplier_ean}' failed to identify an ASIN. Error: {amazon_product_data_from_ean_search.get('error')}")
+                    amazon_product_data = None
                 else:
-                    log.debug(f"EAN search for '{supplier_ean}' did not yield a usable ASIN.")
-                    amazon_product_data = None  # Explicitly set to None
+                    log.debug(f"EAN search for '{supplier_ean}' did not yield an ASIN or any usable data.")
+                    amazon_product_data = None
 
             if not amazon_product_data: # Fallback to title search if EAN search fails or no EAN
                 if supplier_ean: log.info(f"EAN search failed for '{product_data.get('title')}'. Falling back to title search.")
@@ -1496,9 +1584,11 @@ Return ONLY valid JSON, no additional text."""
                 log.debug(f"Match reasons: {match_validation.get('reasons', [])}")
         
         # D2: Stage-guard audit - Log triage stage completion
-        log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected")
-        if self.results_summary['products_passed_triage'] == 0 and len(products_to_analyze) > 0:
-            log.warning(f"STAGE-GUARD WARNING: Triage stage rejected all {len(products_to_analyze)} products. Check SellerAmp connectivity or criteria.")
+        log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected (Triage Setting: {'ENABLED' if self.enable_quick_triage else 'DISABLED'})")
+        if self.enable_quick_triage and self.results_summary['products_passed_triage'] == 0 and self.results_summary['products_rejected_by_triage'] > 0 and self.results_summary['products_rejected_by_triage'] == len(products_to_analyze):
+            log.warning(f"STAGE-GUARD WARNING: Triage was ENABLED and rejected all {len(products_to_analyze)} products processed in this batch. Check SellerAmp connectivity or criteria.")
+        elif not self.enable_quick_triage and len(products_to_analyze) > 0 and len(profitable_results) == 0 :
+             log.info(f"Triage was DISABLED. All {len(products_to_analyze)} products processed in this batch proceeded to full analysis. No profitable products found post-analysis in this batch.")
             
         # D2: Stage-guard audit - Log deep extraction stage completion
         total_deep_extractions = self.results_summary['products_passed_triage'] - self.results_summary['errors']
@@ -1532,7 +1622,7 @@ Return ONLY valid JSON, no additional text."""
             # Log final session summary with previously visited info
             if self.results_summary["products_previously_visited"] > 0:
                 log.info(f"📋 Session Summary: {self.results_summary['products_previously_visited']} products previously visited (resumed), "
-                        f"{self.results_summary['products_analyzed_ean'] + self.results_summary['products_analyzed_title']} newly analyzed, "
+                        f"{self.results_summary['products_analyzed_ean'] + self.results_summary['products_analyzed_title'] - self.results_summary['products_previously_visited']} newly analyzed, "
                         f"{self.results_summary['profitable_products']} profitable products found")
             else:
                 log.info(f"📋 Session Summary: {self.results_summary['products_analyzed_ean'] + self.results_summary['products_analyzed_title']} products analyzed, "
@@ -1541,20 +1631,31 @@ Return ONLY valid JSON, no additional text."""
         except Exception as e: 
             log.error(f"Error saving summary: {e}")
         
-        # Save to persistent linking map for Fix 2.6 (removed session-specific saving)
+        # Save to persistent linking map
         if self.linking_map:
-            self._save_linking_map()
+            self._save_linking_map() # This saves to the path defined in LINKING_MAP_PATH_PASSIVE
+            # The log message below was referencing a different path, corrected to be general.
             log.info(f"Persistent linking map updated with {len(self.linking_map)} entries")
         
         # Run integrated FBA Financial Calculator to generate detailed CSV report
+        # Assign instance/global directories to local vars before the try block for clarity
+        current_supplier_cache_dir = self.supplier_cache_dir
+        current_amazon_cache_dir = AMAZON_CACHE_DIR # Global in this file
+        current_output_dir = OUTPUT_DIR # Global in this file
+
         try:
             log.info("Running FBA_Financial_calculator run_calculations...")
-            from FBA_Financial_calculator import run_calculations
-            supplier_cache_file = os.path.join(self.supplier_cache_dir, f"{supplier_name.replace('.', '_')}_products_cache.json")
+            from FBA_Financial_calculator import run_calculations # Import locally
+            
+            # Use the local variables for paths
+            supplier_cache_file_path = os.path.join(current_supplier_cache_dir, f"{supplier_name.replace('.', '_')}_products_cache.json")
+            financial_reports_output_path = os.path.join(current_output_dir, "financial_reports")
+            os.makedirs(financial_reports_output_path, exist_ok=True)
+            
             financial_results = run_calculations(
-                supplier_cache_path=supplier_cache_file,
-                output_dir=OUTPUT_DIR,
-                amazon_scrape_dir=AMAZON_CACHE_DIR
+                supplier_cache_path=supplier_cache_file_path,
+                output_dir=financial_reports_output_path,
+                amazon_scrape_dir=current_amazon_cache_dir
             )
             log.info(f"FBA financial report generated at: {financial_results['statistics']['output_file']}")
         except Exception as e:
@@ -1661,7 +1762,7 @@ Return ONLY valid JSON, no additional text."""
         
         # Set up state tracking path
         from pathlib import Path
-        self.state_path = Path(OUTPUT_DIR) / f"{supplier_name.replace('.', '_')}_processing_state.json"
+        self.state_path = os.path.join(OUTPUT_DIR, f"{supplier_name.replace('.', '_')}_processing_state.json")
         
         # MODIFIED: Get supplier configuration from ConfigurableSupplierScraper
         supplier_config = self.web_scraper._get_selectors_for_domain(supplier_base_url) # type: ignore
@@ -1958,14 +2059,14 @@ Return ONLY valid JSON, no additional text."""
         return url
 
     def _calculate_roi_and_profit(self, combined_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Calculate ROI and profit using the FBA Calculator."""
+        """Calculate ROI and profit. FBACalculator usage is commented out."""
         metrics = {
             "supplier_cost_price": 0.0, "amazon_selling_price": 0.0,
             "estimated_amazon_fees": 0.0, "estimated_profit_per_unit": 0.0,
             "roi_percent_calculated": 0.0, "vat_on_purchase_estimated": 0.0,
             "vat_on_sale_estimated": 0.0, "costs_breakdown": {}, "revenue_breakdown": {},
             "estimated_monthly_sales": 0, # Initialize
-            "fba_calculator_result": {} # Store FBA calculator results
+            # "fba_calculator_result": {} # Commented out: Store FBA calculator results
         }
         try:
             supplier_price = combined_data["supplier_product_info"].get("price", 0.0)
@@ -1977,40 +2078,55 @@ Return ONLY valid JSON, no additional text."""
             metrics["supplier_cost_price"] = supplier_price
             metrics["amazon_selling_price"] = amazon_price
             
-            # Prepare product data for FBA calculator
-            amazon_info = combined_data["amazon_product_info"]
+            # Prepare product data for FBA calculator - Original section commented out
+            # amazon_info = combined_data["amazon_product_info"]
+            # weight = self._extract_weight_pounds(amazon_info)
+            # dimensions = self._extract_dimensions_inches(amazon_info)
+            # category = self._determine_product_category(amazon_info)
+            # fba_product_data = {
+            #     'weight': weight,
+            #     'dimensions': dimensions,
+            #     'category': category,
+            #     'price': amazon_price,
+            #     'is_media': self._is_media_product(amazon_info),
+            #     'monthly_units': 100  # Default estimate, will be updated later
+            # }
             
-            # Extract weight and dimensions from Amazon data
-            weight = self._extract_weight_pounds(amazon_info)
-            dimensions = self._extract_dimensions_inches(amazon_info)
-            category = self._determine_product_category(amazon_info)
+            # Calculate FBA fees using the calculator - Original section commented out
+            # fba_result = self.fba_calculator.calculate_fees(fba_product_data)
+            # if fba_result.get('error'):
+            #     log.warning(f"FBA calculator error: {fba_result['error']}. Falling back to estimation.")
+            #     # Fallback to old estimation method
+            #     fba_fee = self._estimate_fba_fee(amazon_info)
+            #     referral_fee = amazon_price * 0.15  # Default 15%
+            #     total_fees = fba_fee + referral_fee
+            # else:
+            #     # Use FBA calculator results
+            #     fba_fee = fba_result['fulfillment_fee']
+            #     referral_fee = fba_result['referral_fee']
+            #     total_fees = fba_result['total_fees']
+            #     metrics["fba_calculator_result"] = fba_result
+            #     log.info(f"FBA Calculator - Size tier: {fba_result['size_tier']}, Total fees: £{total_fees:.2f}")
+
+            # Placeholder for fees - assuming Keepa or other source will provide them
+            # TODO: Integrate fee data from Keepa/SellerAmp directly from combined_data["amazon_product_info"]
+            amazon_product_info = combined_data.get("amazon_product_info", {})
+            keepa_data = amazon_product_info.get("keepa", {})
             
-            # Prepare FBA calculator input
-            fba_product_data = {
-                'weight': weight,
-                'dimensions': dimensions,
-                'category': category,
-                'price': amazon_price,
-                'is_media': self._is_media_product(amazon_info),
-                'monthly_units': 100  # Default estimate, will be updated later
-            }
+            referral_fee_text = keepa_data.get("Referral Fee based on current Buy Box price", "0")
+            fba_pick_pack_fee_text = keepa_data.get("FBA Pick&Pack Fee", "0")
             
-            # Calculate FBA fees using the calculator
-            fba_result = self.fba_calculator.calculate_fees(fba_product_data)
-            
-            if fba_result.get('error'):
-                log.warning(f"FBA calculator error: {fba_result['error']}. Falling back to estimation.")
-                # Fallback to old estimation method
-                fba_fee = self._estimate_fba_fee(amazon_info)
-                referral_fee = amazon_price * 0.15  # Default 15%
-                total_fees = fba_fee + referral_fee
-            else:
-                # Use FBA calculator results
-                fba_fee = fba_result['fulfillment_fee']
-                referral_fee = fba_result['referral_fee']
-                total_fees = fba_result['total_fees']
-                metrics["fba_calculator_result"] = fba_result
-                log.info(f"FBA Calculator - Size tier: {fba_result['size_tier']}, Total fees: £{total_fees:.2f}")
+            try:
+                referral_fee = float(str(referral_fee_text).replace("£", "").replace("€", "").replace("$", "").strip())
+            except ValueError:
+                referral_fee = amazon_price * 0.15 # Fallback if parsing fails
+            try:
+                fba_fee = float(str(fba_pick_pack_fee_text).replace("£", "").replace("€", "").replace("$", "").strip())
+            except ValueError:
+                fba_fee = 3.50 # Fallback if parsing fails
+
+            total_fees = referral_fee + fba_fee
+            log.info(f"Using fees from Keepa (or fallback): Referral Fee £{referral_fee:.2f}, FBA Fee £{fba_fee:.2f}, Total £{total_fees:.2f}")
             
             # VAT calculations
             vat_rate = 0.20 # UK VAT rate
@@ -2487,6 +2603,13 @@ Return ONLY valid JSON, no additional text."""
                     pass
 
 async def run_workflow_main():
+    """
+    Main entry point for the passive extraction workflow.
+    Orchestrates cache clearing, workflow execution, and cleanup.
+    """
+    results = [] # Initialize results variable
+    workflow_instance = None
+    ai_client = None
     log.info("Initializing Passive Extraction Workflow...")
     
     # Parse command line arguments
@@ -2522,70 +2645,47 @@ async def run_workflow_main():
     cache_cleared = False
     supplier_cache_cleared = False
     
-    # Get cache configuration settings
+    # Get cache configuration settings - simplified approach
     clear_cache_setting = system_config.get("system", {}).get("clear_cache", False)
-    selective_cache_setting = system_config.get("system", {}).get("selective_cache_clear", False)
-    
-    # Determine cache clearing behavior based on user requirements:
-    # 1. clear_cache=False + selective_cache_clear=False → No clearing
-    # 2. clear_cache=False + selective_cache_clear=True → Selective clearing + AI trigger
-    # 3. clear_cache=True + selective_cache_clear=False → Full clearing
-    # 4. clear_cache=True + selective_cache_clear=True → Selective clearing
-    
-    should_perform_cache_operations = clear_cache_setting or selective_cache_setting
-    
-    if should_perform_cache_operations:
+    force_ai_suggestion_config = system_config.get("system", {}).get("force_ai_category_suggestion", False)
+
+    # Simple cache clearing logic: only clear if explicitly requested
+    cache_cleared = False
+    supplier_cache_cleared = False
+
+    if clear_cache_setting:
+        log.info("System config: clear_cache=True, performing cache clear")
         try:
-            cache_manager = CacheManager(system_config)
-            log.info(f"CacheManager initialized (clear_cache={clear_cache_setting}, selective_cache_clear={selective_cache_setting})")
-        except Exception as e:
-            log.error(f"Failed to initialize CacheManager: {e}")
-            cache_manager = None
-            
-        if cache_manager:
-            try:
-                if clear_cache_setting and selective_cache_setting:
-                    # Case 4: Both enabled - selective clearing
-                    log.info("System config: clear_cache=True + selective_cache_clear=True, performing selective cache clear")
-                    clearing_results = await cache_manager.clear_cache(strategy="smart_selective")
-                    cache_cleared = True
-                    # Check if supplier cache was cleared
-                    supplier_cache_cleared = any(
-                        result.files_removed > 0 
-                        for cache_type, result in clearing_results.items() 
-                        if 'supplier' in cache_type.lower()
-                    )
-                elif clear_cache_setting and not selective_cache_setting:
-                    # Case 3: Full clearing
-                    log.info("System config: clear_cache=True + selective_cache_clear=False, performing full cache clear")
-                    clearing_results = await cache_manager.clear_cache(strategy="size_based")
-                    cache_cleared = True
-                    supplier_cache_cleared = True
-                elif not clear_cache_setting and selective_cache_setting:
-                    # Case 2: User's primary use case - selective clearing with AI trigger
-                    log.info("System config: clear_cache=False + selective_cache_clear=True, performing selective cache clear only")
-                    clearing_results = await cache_manager.clear_cache(strategy="smart_selective")
-                    # For this case, we always trigger AI category progression regardless of files removed
-                    supplier_cache_cleared = True  # Force AI triggering as requested
-                # Case 1 (both False) is handled by not entering this block
-                     
-                # Log clearing results
-                for cache_type, result in clearing_results.items():
-                    if result.files_removed > 0:
-                        log.info(f"Cleared {cache_type}: {result.files_removed} files, {result.bytes_freed} bytes freed")
-                    elif result.errors:
-                        log.warning(f"Errors clearing {cache_type}: {result.errors}")
-                        
-            except Exception as e:
-                log.error(f"Error during cache clearing: {e}")
-                # Fallback to force config reload
-                supplier_cache_cleared = True
-                
-        # Treat as force reload for supplier cache if cleared
-        if cache_cleared:
+            # Simple cache clearing - delete supplier cache files directly
+            import os
+            from pathlib import Path
+
+            cache_dirs = [
+                Path('OUTPUTS/cached_products'),
+                Path('OUTPUTS/FBA_ANALYSIS/amazon_cache'),
+            ]
+
+            files_removed = 0
+            for cache_dir in cache_dirs:
+                if cache_dir.exists():
+                    for cache_file in cache_dir.glob('*.json'):
+                        try:
+                            cache_file.unlink()
+                            files_removed += 1
+                            log.info(f"Removed cache file: {cache_file}")
+                        except Exception as e:
+                            log.warning(f"Could not remove {cache_file}: {e}")
+
+            log.info(f"Cache clearing completed. Removed {files_removed} files.")
+            cache_cleared = True
+            supplier_cache_cleared = True
             force_config_reload = True
 
-    ai_client = None
+        except Exception as e:
+            log.error(f"Error during cache clearing: {e}")
+            # Continue anyway
+            supplier_cache_cleared = False
+
     if OPENAI_API_KEY:
         try:
             ai_client = OpenAI(api_key=OPENAI_API_KEY)
@@ -2596,9 +2696,9 @@ async def run_workflow_main():
     workflow_instance = PassiveExtractionWorkflow(chrome_debug_port=9222, ai_client=ai_client, max_cache_age_hours=168, min_price=min_price)
     workflow_instance.enable_quick_triage = enable_quick_triage
     
-    # Force AI category progression if supplier cache was cleared
-    if supplier_cache_cleared and ai_client:
-        log.info("Supplier cache was cleared - forcing AI category progression for fresh category discovery")
+    # Force AI category progression if supplier cache was cleared OR if force_ai_category_suggestion is true
+    if (supplier_cache_cleared or force_ai_suggestion_config) and ai_client:
+        log.info("Forcing AI category progression due to supplier cache clearing or explicit config setting.")
         workflow_instance.force_ai_category_progression = True
     else:
         workflow_instance.force_ai_category_progression = False
@@ -2612,33 +2712,29 @@ async def run_workflow_main():
             log.info("Force config reload enabled - supplier cache cleared")
         if debug_smoke:
             log.info("Debug smoke test enabled - will inject test product")
+        
+        # Assign the output of workflow_instance.run() to the results variable
         results = await workflow_instance.run(
             supplier_url=supplier_url, supplier_name=supplier_name,
             max_products_to_process=max_products, cache_supplier_data=True,
             force_config_reload=force_config_reload, debug_smoke=debug_smoke,
             resume_from_last=True
         )
+        
         if results: 
             log.info(f"Workflow completed. Found {len(results)} potentially profitable products.")
         else: 
             log.info("Workflow completed. No profitable products found.")
 
-        # Run integrated FBA Financial Calculator to generate detailed CSV report
-        try:
-            log.info("Running FBA_Financial_calculator run_calculations...")
-            from FBA_Financial_calculator import run_calculations
-            supplier_cache_file = os.path.join(workflow_instance.supplier_cache_dir, f"{supplier_name.replace('.', '_')}_products_cache.json")
-            financial_results = run_calculations(
-                supplier_cache_path=supplier_cache_file,
-                output_dir=OUTPUT_DIR,
-                amazon_scrape_dir=AMAZON_CACHE_DIR
-            )
-            log.info(f"FBA financial report generated at: {financial_results['statistics']['output_file']}")
-        except Exception as e:
-            log.error(f"Error running FBA_Financial_calculator: {e}")
+        # REMOVED the two redundant and problematic blocks that called FBA_Financial_calculator.run_calculations
+        # The call to FBA_Financial_calculator.run_calculations is correctly handled
+        # at the end of the PassiveExtractionWorkflow.run() method.
+
+        return results # Return the actual results from the workflow instance
 
     except Exception as e:
         log.critical(f"Unhandled exception in main workflow execution: {e}", exc_info=True)
+        return results # Return current results (likely empty) on critical failure
     finally:
         try:
             if hasattr(workflow_instance, 'extractor') and workflow_instance.extractor and \

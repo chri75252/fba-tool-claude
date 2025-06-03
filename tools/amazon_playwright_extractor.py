@@ -201,8 +201,14 @@ class AmazonExtractor:
         page: Optional[Page] = None 
         amazon_url = f"https://www.amazon.co.uk/dp/{asin}"
 
-        if not asin or not re.match(r"^B[0-9A-Z]{9}$", asin):
-            result["error"] = "Invalid or missing ASIN."; return result
+        # Validate ASIN format (Bxxxxxxxxx or 10-char ISBN)
+        if not asin or not (
+            re.match(r"^B[0-9A-Z]{9}$", asin) or 
+            re.match(r"^[0-9X]{10}$", asin) or  # ISBN-10 can end in X
+            re.match(r"^[A-Z0-9]{10}$", asin) # General 10-char alphanumeric as a fallback
+        ):
+            log.error(f"ASIN '{asin}' provided to extract_data is not a valid format (Bxxxxxxxxx or 10-char alphanumeric/ISBN). URL: {amazon_url}")
+            result["error"] = f"Invalid ASIN format: {asin}"; return result
         
         try:
             if not self.browser or not self.browser.is_connected(): await self.connect()
@@ -592,7 +598,32 @@ class AmazonExtractor:
         # ... (Price extraction logic as in amazon_playwright_extractor_fully_merged.py, with corrected regex for sold_badge)
         log.info("Extracting price details...")
         try:
-            price_selectors = ["#corePrice_feature_div .a-offscreen", "span.priceToPay .a-offscreen", ".a-price[data-a-size='xl'] .a-offscreen", ".a-price[data-a-size='core'] .a-offscreen", "#price_inside_buybox", "#priceblock_ourprice", "#priceblock_dealprice", ".offer-price", "#price", "span.apexPriceToPay .a-offscreen", ".priceToPay .a-price .a-offscreen", "span#priceblock_saleprice"]
+            price_selectors = [
+                # Primary Buy Box Price
+                "#corePrice_feature_div .a-offscreen", 
+                "span.priceToPay .a-offscreen", 
+                ".a-price[data-a-size='xl'] .a-offscreen", 
+                ".a-price[data-a-size='core'] .a-offscreen", 
+                "#price_inside_buybox",
+                "div#apex_desktop_usedAccordionRow .a-color-price", # Used price, but good to check
+                "div#corePriceDisplay_desktop_feature_div span.a-price.a-text-price span.a-offscreen", # Variation
+                "div#corePrice_feature_div span.a-price span.a-offscreen", # Another variation
+                "div#centerCol #priceblock_ourprice", # More specific to buybox
+                "div#centerCol #priceblock_dealprice", # Deals in buybox
+                "div#centerCol #priceblock_saleprice", # Sale price in buybox
+                "div#centerCol span.apexPriceToPay span.a-offscreen", # Apex price in buybox
+                # General Selectors
+                "#priceblock_ourprice", 
+                "#priceblock_dealprice", 
+                ".offer-price", 
+                "#price", 
+                "span.apexPriceToPay .a-offscreen", 
+                ".priceToPay .a-price .a-offscreen", 
+                "span#priceblock_saleprice",
+                # Selector for subscription price, if that's the only one available
+                "span#subscriptionPrice",
+                "span.reinventPricePriceToPayMargin.a-size-base span.a-offscreen" # Common for books
+            ]
             price_found = False
             for selector in price_selectors:
                 price_elem = await page.query_selector(selector)
@@ -1109,12 +1140,13 @@ class AmazonExtractor:
                                 match = re.search(r"([\d.]+)", value_text_content)
                                 value = float(match.group(1)) if match else value_text_content
                             elif any(k_word in key for k_word in ["Review Count", "Bought in past month", "Total Offer Count", "Number of Items", "Package - Quantity", "Item - Model (g)", "Package - Weight (g)"]):
-                                match = re.search(r"([\d,]+)\+?", value_text_content)
+                                match = re.search(r"([\d,]+)\\+?", value_text_content)
                                 value = self._parse_number(match.group(1)) if match else value_text_content
                             elif "Package - Dimension" in key: 
-                                value = value_text_content.split('\n')[0].strip() 
+                                value = value_text_content.split('\\n')[0].strip() 
                             elif "FBA Pick&Pack Fee" in key or "Referral Fee based on current Buy Box price" in key:
-                                match = re.search(r"[£$€]?\s*([\d.]+)", value_text_content)
+                                log.info(f"Found potential fee key '{key}' with raw value: '{value_text_content}' in Keepa AG Grid.") # ADDED
+                                match = re.search(r"[£$€]?\\s*([\\d.]+)", value_text_content)
                                 if match:
                                     value = self._parse_price(match.group(1))
                                 else:

@@ -1,0 +1,807 @@
+2025-06-01 12:50:26,969 - main_orchestrator - INFO - OpenAI client initialized for passive extraction workflow with model: gpt-4o-mini-2024-07-18
+2025-06-01 12:50:27,322 - main_orchestrator - INFO - OpenAI client initialized for Amazon extractor with model: gpt-4.1-mini-2025-04-14
+2025-06-01 12:50:27,322 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:50:27,323 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king - Copy
+2025-06-01 12:50:27,323 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king.co.uk
+2025-06-01 12:50:27,324 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Orchestrator initialized with mode: full_ai_workflow
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Test mode: False, Clear cache: True, Selective clear: False
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Bypass AI scraping: False
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Supplier parser enabled: False
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Starting analysis with passive extraction workflow...
+2025-06-01 12:50:27,324 - main_orchestrator - INFO - Starting cache clearing process...
+2025-06-01 12:50:27,325 - main_orchestrator - INFO - Cleared directory: cache\products
+2025-06-01 12:50:27,325 - main_orchestrator - INFO - Cleared directory: OUTPUTS\cached_products
+2025-06-01 12:50:27,333 - main_orchestrator - INFO - Cleared directory: OUTPUTS\FBA_ANALYSIS\amazon_cache
+2025-06-01 12:50:27,334 - main_orchestrator - INFO - Cleared directory: cache\analysis
+2025-06-01 12:50:27,334 - main_orchestrator - INFO - Cache clearing process completed.
+2025-06-01 12:50:27,858 - main_orchestrator - INFO - Executing passive extraction workflow...
+2025-06-01 12:50:27,858 - passive_extraction_workflow_latest - INFO - Initializing Passive Extraction Workflow...
+2025-06-01 12:50:27,860 - passive_extraction_workflow_latest - INFO - CacheManager initialized (clear_cache=True, selective_cache_clear=False)
+2025-06-01 12:50:27,861 - passive_extraction_workflow_latest - INFO - System config: clear_cache=True + selective_cache_clear=False, performing full cache clear
+2025-06-01 12:50:27,861 - cache_manager - INFO - Starting cache clearing with strategy: size_based
+2025-06-01 12:50:27,861 - cache_manager - INFO - Skipping currency_rates - clearing not needed
+2025-06-01 12:50:27,861 - cache_manager - INFO - Cleared currency_rates: 0 files, 0 bytes freed
+2025-06-01 12:50:27,862 - cache_manager - INFO - Skipping product_data - clearing not needed
+2025-06-01 12:50:27,862 - cache_manager - INFO - Cleared product_data: 0 files, 0 bytes freed
+2025-06-01 12:50:27,863 - cache_manager - INFO - Skipping analysis_results - clearing not needed
+2025-06-01 12:50:27,863 - cache_manager - INFO - Cleared analysis_results: 0 files, 0 bytes freed
+2025-06-01 12:50:27,863 - cache_manager - INFO - Skipping supplier_cache - clearing not needed
+2025-06-01 12:50:27,863 - cache_manager - INFO - Cleared supplier_cache: 0 files, 0 bytes freed
+2025-06-01 12:50:27,864 - cache_manager - INFO - Skipping amazon_cache - clearing not needed
+2025-06-01 12:50:27,864 - cache_manager - INFO - Cleared amazon_cache: 0 files, 0 bytes freed
+2025-06-01 12:50:27,864 - cache_manager - INFO - Skipping ai_category_cache - clearing not needed
+2025-06-01 12:50:27,864 - cache_manager - INFO - Cleared ai_category_cache: 0 files, 0 bytes freed
+2025-06-01 12:50:27,865 - cache_manager - INFO - Skipping linking_map - clearing not needed
+2025-06-01 12:50:27,865 - cache_manager - INFO - Cleared linking_map: 0 files, 0 bytes freed
+2025-06-01 12:50:28,235 - passive_extraction_workflow_latest - INFO - OpenAI client initialized with model gpt-4o-mini-2024-07-18
+2025-06-01 12:50:28,236 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 9 entries
+2025-06-01 12:50:28,236 - passive_extraction_workflow_latest - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
+2025-06-01 12:50:28,236 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:50:28,237 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 9 entries
+2025-06-01 12:50:28,237 - passive_extraction_workflow_latest - INFO - Loaded linking map with 9 entries
+2025-06-01 12:50:28,237 - passive_extraction_workflow_latest - INFO - Supplier cache was cleared - forcing AI category progression for fresh category discovery
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - Running workflow for clearance-king.co.uk with max 10 products. Price range ú0.1-ú20.0.
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - Force config reload enabled - supplier cache cleared
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - Session ID: clearance-king_co_uk_20250601_125028
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
+2025-06-01 12:50:28,238 - passive_extraction_workflow_latest - INFO - Resuming from index 18 (previous run state found)
+2025-06-01 12:50:28,239 - passive_extraction_workflow_latest - INFO - Extracting products from clearance-king.co.uk...
+2025-06-01 12:50:28,239 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk or https://www.clearance-king.co.uk
+2025-06-01 12:50:28,239 - passive_extraction_workflow_latest - INFO - Forcing AI category progression due to supplier cache clearing
+2025-06-01 12:50:28,239 - passive_extraction_workflow_latest - INFO - Extracting products from clearance-king.co.uk using two-step process.
+2025-06-01 12:50:28,239 - passive_extraction_workflow_latest - INFO - AI category progression enabled - using hierarchical category selection
+2025-06-01 12:50:28,240 - configurable_supplier_scraper - INFO - Extracting homepage categories from https://www.clearance-king.co.uk
+2025-06-01 12:50:28,240 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk (attempt 1/3)
+2025-06-01 12:50:30,305 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk (Size: 358143 bytes)
+2025-06-01 12:50:31,100 - configurable_supplier_scraper - INFO - Found 6 unique potential category URLs from homepage of https://www.clearance-king.co.uk
+2025-06-01 12:50:31,101 - configurable_supplier_scraper - INFO - Discovered 6 categories for https://www.clearance-king.co.uk
+2025-06-01 12:50:36,553 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:50:36,558 - passive_extraction_workflow_latest - INFO - Saved AI category suggestions to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\ai_category_cache\clearance-king_co_uk_ai_category_cache.json
+2025-06-01 12:50:36,564 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 12:50:36,564 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalogsearch/advanced/ (attempt 1/3)
+2025-06-01 12:50:36,890 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalogsearch/advanced/ (Size: 175083 bytes)
+2025-06-01 12:50:37,262 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/catalogsearch/advanced/ (depth 1): 1
+2025-06-01 12:50:37,262 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 12:50:37,570 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/books/educational-books.html (attempt 1/3)
+2025-06-01 12:50:37,993 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/books/educational-books.html (Size: 323867 bytes)
+2025-06-01 12:50:38,474 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/books/educational-books.html (depth 1): 1
+2025-06-01 12:50:38,474 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 12:50:38,582 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (attempt 1/3)
+2025-06-01 12:50:39,418 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (Size: 358143 bytes)
+2025-06-01 12:50:40,030 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (depth 1): 1
+2025-06-01 12:50:40,030 - passive_extraction_workflow_latest - INFO - Hierarchical selection returned 3 pages to scrape
+2025-06-01 12:50:40,030 - passive_extraction_workflow_latest - INFO - Processing 3 AI-suggested categories
+2025-06-01 12:50:40,030 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 12:50:40,030 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 12:50:40,030 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalogsearch/advanced/ (attempt 1/3)
+2025-06-01 12:50:40,370 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalogsearch/advanced/ (Size: 175083 bytes)
+2025-06-01 12:50:40,413 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:40,421 - passive_extraction_workflow_latest - WARNING - No product elements found on https://www.clearance-king.co.uk/catalogsearch/advanced/ (Page 1).
+2025-06-01 12:50:40,422 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 12:50:40,422 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 12:50:41,036 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/books/educational-books.html (attempt 1/3)
+2025-06-01 12:50:41,394 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/books/educational-books.html (Size: 323867 bytes)
+2025-06-01 12:50:41,488 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,499 - passive_extraction_workflow_latest - INFO - Found 23 product elements in category https://www.clearance-king.co.uk/books/educational-books.html, page 1
+2025-06-01 12:50:41,500 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,502 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,504 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,505 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,507 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,508 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,510 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,511 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,512 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,514 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,515 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,517 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,518 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,519 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,521 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,522 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,524 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,525 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,526 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,528 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,529 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,530 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,532 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,533 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,534 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,536 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,537 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,539 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,540 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,541 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,542 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,544 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,545 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,546 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,548 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,549 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,551 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,552 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,554 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,555 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,556 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,558 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,559 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,560 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,561 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,563 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:41,563 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PHYSICS AQA GCSE REVISION & EXAM PRACTICE BOOK from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html
+2025-06-01 12:50:41,563 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PHYSICS ALL EXAM BOARDS GCSE EXAM PRACTICE BOOK from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html
+2025-06-01 12:50:41,563 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: COMBINED SCIENCE GCSE HIGHER AQA PRACTICE EXAMS BOOK from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html
+2025-06-01 12:50:41,564 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: STARDOLL SUPERSTAR STYLIST: HARDBACK BOOK from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html
+2025-06-01 12:50:41,564 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: STARDOLL AUTUMN/WINTER TOP TREND: HARDBACK BOOK from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html
+2025-06-01 12:50:42,048 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html (attempt 1/3)
+2025-06-01 12:50:42,048 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html (attempt 1/3)
+2025-06-01 12:50:42,049 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html (attempt 1/3)
+2025-06-01 12:50:42,049 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html (attempt 1/3)
+2025-06-01 12:50:42,049 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html (attempt 1/3)
+2025-06-01 12:50:43,111 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html (Size: 184431 bytes)
+2025-06-01 12:50:43,167 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:43,174 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:43,180 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html or https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html
+2025-06-01 12:50:43,184 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780857510822' from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html
+2025-06-01 12:50:43,184 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html: EAN=9780857510822, UPC=None, SKU=None
+2025-06-01 12:50:44,129 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html (Size: 185502 bytes)
+2025-06-01 12:50:44,179 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:44,185 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:44,191 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html or https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html
+2025-06-01 12:50:44,195 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780857510808' from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html
+2025-06-01 12:50:44,195 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html: EAN=9780857510808, UPC=None, SKU=None
+2025-06-01 12:50:44,642 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html (Size: 186149 bytes)
+2025-06-01 12:50:44,700 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:44,706 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:44,711 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html or https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html
+2025-06-01 12:50:44,715 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781407176918' from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html
+2025-06-01 12:50:44,715 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html: EAN=9781407176918, UPC=None, SKU=None
+2025-06-01 12:50:45,395 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html (Size: 185702 bytes)
+2025-06-01 12:50:45,455 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:45,461 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:45,466 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html or https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html
+2025-06-01 12:50:45,554 - configurable_supplier_scraper - INFO - Potential alphanumeric identifier '182360' (from '182360') extracted from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html.
+2025-06-01 12:50:45,554 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html: EAN=182360, UPC=None, SKU=None
+2025-06-01 12:50:46,687 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html (Size: 186869 bytes)
+2025-06-01 12:50:46,740 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:46,746 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:46,752 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html or https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html
+2025-06-01 12:50:46,755 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781407176772' from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html
+2025-06-01 12:50:46,756 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html: EAN=9781407176772, UPC=None, SKU=None
+2025-06-01 12:50:46,756 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 5
+2025-06-01 12:50:46,756 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: SEMANTIC WORKBOOKS IN RING BINDER FOLDER from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html
+2025-06-01 12:50:46,756 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html (attempt 1/3)
+2025-06-01 12:50:46,757 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: THE REMINISCENCE SKILLS TRAINING HAND BOOK from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html
+2025-06-01 12:50:46,757 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: SEASONAL ACTIVITIES FOR SENSORIMOTOR DEVELOPMENT BOOK BY By ANN BASOVA from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html
+2025-06-01 12:50:46,757 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: HOW TO STOP BULLYING 101 STRATEGIES BOOK from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html
+2025-06-01 12:50:46,757 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html
+2025-06-01 12:50:47,748 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html (Size: 184282 bytes)
+2025-06-01 12:50:47,804 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:47,810 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:47,816 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html or https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html
+2025-06-01 12:50:47,819 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863882678' from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html
+2025-06-01 12:50:47,819 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html: EAN=9780863882678, UPC=None, SKU=None
+2025-06-01 12:50:47,820 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html (attempt 1/3)
+2025-06-01 12:50:47,820 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html (attempt 1/3)
+2025-06-01 12:50:47,821 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html (attempt 1/3)
+2025-06-01 12:50:47,821 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html (attempt 1/3)
+2025-06-01 12:50:48,766 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html (Size: 184773 bytes)
+2025-06-01 12:50:48,821 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:48,826 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:48,832 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html or https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html
+2025-06-01 12:50:48,835 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863883132' from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html
+2025-06-01 12:50:48,835 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html: EAN=9780863883132, UPC=None, SKU=None
+2025-06-01 12:50:49,869 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html (Size: 184787 bytes)
+2025-06-01 12:50:49,925 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:49,931 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:49,937 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html or https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html
+2025-06-01 12:50:50,022 - configurable_supplier_scraper - INFO - Valid numeric identifier '86388530' extracted using selectors from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html.
+2025-06-01 12:50:50,022 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html: EAN=86388530, UPC=None, SKU=None
+2025-06-01 12:50:50,811 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html (Size: 184347 bytes)
+2025-06-01 12:50:50,865 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:50,870 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:50,878 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html or https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html
+2025-06-01 12:50:50,882 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863888120' from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html
+2025-06-01 12:50:50,882 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html: EAN=9780863888120, UPC=None, SKU=None
+2025-06-01 12:50:51,837 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html (Size: 184930 bytes)
+2025-06-01 12:50:51,885 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:51,890 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:51,896 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html or https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html
+2025-06-01 12:50:51,899 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863887758' from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html
+2025-06-01 12:50:51,899 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html: EAN=9780863887758, UPC=None, SKU=None
+2025-06-01 12:50:51,899 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 10
+2025-06-01 12:50:51,899 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PLAY BETTER GAMES SPIRAL BOOK from https://www.clearance-king.co.uk/play-better-games-spiral-book.html
+2025-06-01 12:50:51,900 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/play-better-games-spiral-book.html (attempt 1/3)
+2025-06-01 12:50:51,900 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: BEYOUND TRANSITION RING BOOK from https://www.clearance-king.co.uk/beyound-transition-ring-book.html
+2025-06-01 12:50:51,900 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html
+2025-06-01 12:50:51,900 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html
+2025-06-01 12:50:51,901 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html
+2025-06-01 12:50:52,901 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html (attempt 1/3)
+2025-06-01 12:50:52,902 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html (attempt 1/3)
+2025-06-01 12:50:52,903 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/beyound-transition-ring-book.html (attempt 1/3)
+2025-06-01 12:50:52,903 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html (attempt 1/3)
+2025-06-01 12:50:52,967 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/play-better-games-spiral-book.html (Size: 184556 bytes)
+2025-06-01 12:50:53,023 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:53,028 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:53,035 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/play-better-games-spiral-book.html or https://www.clearance-king.co.uk/play-better-games-spiral-book.html
+2025-06-01 12:50:53,038 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863888212' from https://www.clearance-king.co.uk/play-better-games-spiral-book.html
+2025-06-01 12:50:53,038 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/play-better-games-spiral-book.html: EAN=9780863888212, UPC=None, SKU=None
+2025-06-01 12:50:53,880 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html (Size: 184951 bytes)
+2025-06-01 12:50:53,926 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:53,932 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:53,937 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html or https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html
+2025-06-01 12:50:54,026 - configurable_supplier_scraper - INFO - Valid numeric identifier '90651704' extracted using selectors from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html.
+2025-06-01 12:50:54,026 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html: EAN=90651704, UPC=None, SKU=None
+2025-06-01 12:50:54,911 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html (Size: 184247 bytes)
+2025-06-01 12:50:54,959 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:54,964 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:54,970 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html or https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html
+2025-06-01 12:50:55,057 - configurable_supplier_scraper - INFO - Valid numeric identifier '90651705' extracted using selectors from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html.
+2025-06-01 12:50:55,058 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html: EAN=90651705, UPC=None, SKU=None
+2025-06-01 12:50:55,905 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html (Size: 184587 bytes)
+2025-06-01 12:50:55,952 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:55,958 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:55,964 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html or https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html
+2025-06-01 12:50:55,967 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798391' from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html
+2025-06-01 12:50:55,967 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html: EAN=9780007798391, UPC=None, SKU=None
+2025-06-01 12:50:57,035 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/beyound-transition-ring-book.html (Size: 183776 bytes)
+2025-06-01 12:50:57,088 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:57,093 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:57,099 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/beyound-transition-ring-book.html or https://www.clearance-king.co.uk/beyound-transition-ring-book.html
+2025-06-01 12:50:57,103 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781906517465' from https://www.clearance-king.co.uk/beyound-transition-ring-book.html
+2025-06-01 12:50:57,103 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/beyound-transition-ring-book.html: EAN=9781906517465, UPC=None, SKU=None
+2025-06-01 12:50:57,103 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 15
+2025-06-01 12:50:57,103 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html
+2025-06-01 12:50:57,103 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html (attempt 1/3)
+2025-06-01 12:50:57,104 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM NORFOLK KNOBS TO FIDGET PIE BOOK from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html
+2025-06-01 12:50:57,104 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM BATH CHAPS TO BARA BIRTH BOOK from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html
+2025-06-01 12:50:57,104 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: LORRAINE KELLY COLOURS BOOK from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html
+2025-06-01 12:50:57,104 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html
+2025-06-01 12:50:58,085 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html (Size: 184213 bytes)
+2025-06-01 12:50:58,137 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:58,142 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:58,149 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html or https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html
+2025-06-01 12:50:58,152 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798407' from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html
+2025-06-01 12:50:58,152 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html: EAN=9780007798407, UPC=None, SKU=None
+2025-06-01 12:50:58,152 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html (attempt 1/3)
+2025-06-01 12:50:58,153 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html (attempt 1/3)
+2025-06-01 12:50:58,153 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html (attempt 1/3)
+2025-06-01 12:50:58,153 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html (attempt 1/3)
+2025-06-01 12:50:59,105 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html (Size: 184356 bytes)
+2025-06-01 12:50:59,151 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:59,158 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:50:59,164 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html or https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html
+2025-06-01 12:50:59,167 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798414' from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html
+2025-06-01 12:50:59,167 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html: EAN=9780007798414, UPC=None, SKU=None
+2025-06-01 12:51:00,298 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html (Size: 184957 bytes)
+2025-06-01 12:51:00,379 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:00,384 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:00,391 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html or https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html
+2025-06-01 12:51:00,394 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781843570127' from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html
+2025-06-01 12:51:00,394 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html: EAN=9781843570127, UPC=None, SKU=None
+2025-06-01 12:51:01,130 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html (Size: 184416 bytes)
+2025-06-01 12:51:01,273 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:01,278 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:01,284 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html or https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html
+2025-06-01 12:51:01,287 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798421' from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html
+2025-06-01 12:51:01,287 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html: EAN=9780007798421, UPC=None, SKU=None
+2025-06-01 12:51:01,845 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html (Size: 184169 bytes)
+2025-06-01 12:51:01,891 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:01,897 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:01,903 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html or https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html
+2025-06-01 12:51:01,906 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781843570110' from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html
+2025-06-01 12:51:01,906 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html: EAN=9781843570110, UPC=None, SKU=None
+2025-06-01 12:51:01,906 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 20
+2025-06-01 12:51:01,906 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html
+2025-06-01 12:51:01,906 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html (attempt 1/3)
+2025-06-01 12:51:01,907 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: HOW CAN I STOP CLIMATE CHANGE? BOOK from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html
+2025-06-01 12:51:01,907 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html
+2025-06-01 12:51:02,921 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html (attempt 1/3)
+2025-06-01 12:51:02,922 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html (attempt 1/3)
+2025-06-01 12:51:03,175 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html (Size: 185436 bytes)
+2025-06-01 12:51:03,227 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:03,233 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:03,239 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html or https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html
+2025-06-01 12:51:03,242 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007258352' from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html
+2025-06-01 12:51:03,243 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html: EAN=9780007258352, UPC=None, SKU=None
+2025-06-01 12:51:04,303 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html (Size: 184706 bytes)
+2025-06-01 12:51:04,365 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:04,371 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:04,377 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html or https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html
+2025-06-01 12:51:04,380 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007261635' from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html
+2025-06-01 12:51:04,380 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html: EAN=9780007261635, UPC=None, SKU=None
+2025-06-01 12:51:05,224 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html (Size: 184613 bytes)
+2025-06-01 12:51:05,272 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:05,277 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:05,284 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html or https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html
+2025-06-01 12:51:05,286 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '8012979226925' from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html
+2025-06-01 12:51:05,286 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html: EAN=8012979226925, UPC=None, SKU=None
+2025-06-01 12:51:05,287 - passive_extraction_workflow_latest - INFO - Processed batch of 3 detailed products from page 1, total extracted so far: 23
+2025-06-01 12:51:05,374 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/books/educational-books.html or https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 12:51:05,598 - configurable_supplier_scraper - INFO - Could not determine next page URL for https://www.clearance-king.co.uk/books/educational-books.html (current page: 1)
+2025-06-01 12:51:05,598 - passive_extraction_workflow_latest - INFO - No next page found by scraper for https://www.clearance-king.co.uk/books/educational-books.html. Ending pagination for this category path.
+2025-06-01 12:51:05,599 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 12:51:05,599 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 12:51:05,599 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (attempt 1/3)
+2025-06-01 12:51:06,556 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (Size: 358143 bytes)
+2025-06-01 12:51:06,638 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,650 - passive_extraction_workflow_latest - INFO - Found 23 product elements in category https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/, page 1
+2025-06-01 12:51:06,651 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,653 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,654 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,655 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,657 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,658 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,659 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,660 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,661 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,662 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,663 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,665 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,666 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,667 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,668 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,669 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,671 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,672 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,673 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,675 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,676 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,677 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,679 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,680 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,681 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,682 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,683 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,685 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,686 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,687 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,688 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,689 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,691 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,692 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,693 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,694 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,695 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,696 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,697 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,699 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:06,699 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: D&K Dengke Cup Shape Glass Pipe + Screen from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 12:51:06,699 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (attempt 1/3)
+2025-06-01 12:51:06,700 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24 from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 12:51:06,700 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23 from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 12:51:06,700 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24 from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 12:51:06,700 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22 from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 12:51:07,716 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:07,717 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:07,718 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:07,719 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:08,398 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (Size: 227313 bytes)
+2025-06-01 12:51:08,456 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:08,461 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:08,467 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html or https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 12:51:08,470 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5066113001070' from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 12:51:08,470 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html: EAN=5066113001070, UPC=None, SKU=None
+2025-06-01 12:51:08,911 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (Size: 187009 bytes)
+2025-06-01 12:51:08,963 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:08,968 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:08,974 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html or https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 12:51:08,977 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922222' from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 12:51:08,977 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html: EAN=5056175922222, UPC=None, SKU=None
+2025-06-01 12:51:10,036 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (Size: 188798 bytes)
+2025-06-01 12:51:10,083 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:10,088 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:10,094 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html or https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 12:51:10,097 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922239' from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 12:51:10,097 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html: EAN=5056175922239, UPC=None, SKU=None
+2025-06-01 12:51:11,163 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (Size: 187677 bytes)
+2025-06-01 12:51:11,214 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:11,220 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:11,226 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html or https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 12:51:11,229 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257877009' from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 12:51:11,229 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html: EAN=5055257877009, UPC=None, SKU=None
+2025-06-01 12:51:12,004 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (Size: 187482 bytes)
+2025-06-01 12:51:12,051 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:12,058 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:12,064 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html or https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 12:51:12,066 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257878532' from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 12:51:12,067 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html: EAN=5055257878532, UPC=None, SKU=None
+2025-06-01 12:51:12,067 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 28
+2025-06-01 12:51:12,067 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3 from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:12,067 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:12,068 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2 from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:12,068 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 12:51:12,068 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23 from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 12:51:12,068 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: 151 Pest Shield Slug & Snail Killer - 300g from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 12:51:13,072 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (attempt 1/3)
+2025-06-01 12:51:13,073 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (attempt 1/3)
+2025-06-01 12:51:13,074 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (attempt 1/3)
+2025-06-01 12:51:13,075 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 12:51:13,417 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (Size: 186977 bytes)
+2025-06-01 12:51:13,469 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:13,475 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:13,483 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html or https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:13,488 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947849' from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:13,489 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html: EAN=5050375947849, UPC=None, SKU=None
+2025-06-01 12:51:14,487 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (Size: 233503 bytes)
+2025-06-01 12:51:14,550 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:14,556 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:14,562 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html or https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 12:51:14,565 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120173799' from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 12:51:14,565 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html: EAN=5060120173799, UPC=None, SKU=None
+2025-06-01 12:51:17,515 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (Size: 553584 bytes)
+2025-06-01 12:51:17,647 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:17,653 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:17,659 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html or https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 12:51:17,663 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5020535010997' from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 12:51:17,663 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html: EAN=5020535010997, UPC=None, SKU=None
+2025-06-01 12:51:18,051 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (Size: 186965 bytes)
+2025-06-01 12:51:18,109 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:18,114 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:18,120 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html or https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:18,123 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947825' from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 12:51:18,123 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html: EAN=5050375947825, UPC=None, SKU=None
+2025-06-01 12:51:19,765 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (Size: 288300 bytes)
+2025-06-01 12:51:19,838 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:19,844 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:19,850 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html or https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 12:51:19,853 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5053249240312' from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 12:51:19,853 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html: EAN=5053249240312, UPC=None, SKU=None
+2025-06-01 12:51:19,853 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 33
+2025-06-01 12:51:19,854 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry - 20ml - EXP: 01/24 from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 12:51:19,854 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (attempt 1/3)
+2025-06-01 12:51:19,854 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Questaplast First Aid Kit - Pack of 25 - Exp: 08/24 from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 12:51:19,855 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24 from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 12:51:19,855 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel Wallet - EXP: 08/23 from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 12:51:19,855 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 12:51:20,864 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (attempt 1/3)
+2025-06-01 12:51:20,864 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (attempt 1/3)
+2025-06-01 12:51:20,865 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (attempt 1/3)
+2025-06-01 12:51:20,866 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (attempt 1/3)
+2025-06-01 12:51:22,227 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (Size: 446945 bytes)
+2025-06-01 12:51:22,463 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:22,469 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:22,477 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html or https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 12:51:22,482 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413923490' from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 12:51:22,482 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html: EAN=5031413923490, UPC=None, SKU=None
+2025-06-01 12:51:23,349 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (Size: 212259 bytes)
+2025-06-01 12:51:23,402 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:23,408 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:23,413 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html or https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 12:51:23,416 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413924244' from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 12:51:23,416 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html: EAN=5031413924244, UPC=None, SKU=None
+2025-06-01 12:51:24,707 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (Size: 215144 bytes)
+2025-06-01 12:51:24,766 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:24,771 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:24,777 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html or https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 12:51:24,780 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120164131' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 12:51:24,780 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html: EAN=5060120164131, UPC=None, SKU=None
+2025-06-01 12:51:25,091 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (Size: 191452 bytes)
+2025-06-01 12:51:25,153 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:25,158 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:25,165 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html or https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 12:51:25,167 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '05060072087823' from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 12:51:25,167 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html: EAN=05060072087823, UPC=None, SKU=None
+2025-06-01 12:51:26,135 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (Size: 206465 bytes)
+2025-06-01 12:51:26,208 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:26,214 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:26,219 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html or https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 12:51:26,222 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163547' from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 12:51:26,222 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html: EAN=5060120163547, UPC=None, SKU=None
+2025-06-01 12:51:26,223 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 38
+2025-06-01 12:51:26,223 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 12:51:26,223 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (attempt 1/3)
+2025-06-01 12:51:26,223 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24 from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 12:51:27,233 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (attempt 1/3)
+2025-06-01 12:51:27,475 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (Size: 199388 bytes)
+2025-06-01 12:51:27,527 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:27,532 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:27,538 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html or https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 12:51:27,540 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163714' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 12:51:27,541 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html: EAN=5060120163714, UPC=None, SKU=None
+2025-06-01 12:51:28,489 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (Size: 213545 bytes)
+2025-06-01 12:51:28,543 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:28,549 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 12:51:28,554 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html or https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 12:51:28,557 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163363' from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 12:51:28,558 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html: EAN=5060120163363, UPC=None, SKU=None
+2025-06-01 12:51:28,558 - passive_extraction_workflow_latest - INFO - Processed batch of 2 detailed products from page 1, total extracted so far: 40
+2025-06-01 12:51:28,637 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ or https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 12:51:28,881 - configurable_supplier_scraper - INFO - Could not determine next page URL for https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (current page: 1)
+2025-06-01 12:51:28,881 - passive_extraction_workflow_latest - INFO - No next page found by scraper for https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/. Ending pagination for this category path.
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - Cached 40 supplier products
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: supplier_scrape - 40 records
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - Successfully got 40 products from clearance-king.co.uk
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - Found 40 valid supplier products, 40 within price range [ú0.1-ú20.0]
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: price_filtering - 40 records
+2025-06-01 12:51:28,883 - passive_extraction_workflow_latest - INFO - Processing up to 10 products starting from index 18.
+2025-06-01 12:51:28,884 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 1/10: 'LORRAINE KELLY COLOURS BOOK' (EAN: 9781843570110) ---
+2025-06-01 12:51:28,884 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9781843570110
+2025-06-01 12:51:28,884 - passive_extraction_workflow_latest - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
+2025-06-01 12:51:29,636 - passive_extraction_workflow_latest - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
+2025-06-01 12:51:29,637 - passive_extraction_workflow_latest - INFO - Found 2 existing pages (FixedAmazonExtractor)
+2025-06-01 12:51:29,637 - passive_extraction_workflow_latest - INFO - Using existing page: https://www.amazon.co.uk/s?k=FROM+BATH+CHAPS+TO+BARA+BIRTH+BOOK&ref=nb_sb_noss (FixedAmazonExtractor)
+2025-06-01 12:51:29,648 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9781843570110 for supplier product: 'LORRAINE KELLY COLOURS BOOK' (FixedAmazonExtractor)
+2025-06-01 12:51:29,656 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9781843570110
+2025-06-01 12:51:32,406 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9781843570110...
+2025-06-01 12:51:32,681 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:51:34,705 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:51:34,706 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9781843570110
+2025-06-01 12:51:34,792 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 1843570114 - 7 Mar 2002...
+2025-06-01 12:51:34,792 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9781843570110: ASIN 1843570114
+2025-06-01 12:51:34,792 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 1843570114 for 9781843570110
+2025-06-01 12:51:34,792 - passive_extraction_workflow_latest - INFO - Single ASIN 1843570114 found for EAN 9781843570110.
+2025-06-01 12:51:34,792 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 1843570114 for EAN: 9781843570110
+2025-06-01 12:51:34,793 - passive_extraction_workflow_latest - WARNING - EAN search for '9781843570110' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:51:34,793 - passive_extraction_workflow_latest - INFO - EAN search failed for 'LORRAINE KELLY COLOURS BOOK'. Falling back to title search.
+2025-06-01 12:51:34,793 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'LORRAINE KELLY COLOURS BOOK'
+2025-06-01 12:51:34,797 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: LORRAINE KELLY COLOURS BOOK
+2025-06-01 12:51:37,784 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:51:37,793 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'LORRAINE KELLY COLOURS BOOK'
+2025-06-01 12:51:37,794 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'LORRAINE KELLY COLOURS BOOK'. Skipping. Details: No valid ASINs found for title 'LORRAINE KELLY COLOURS BOOK'
+2025-06-01 12:51:37,794 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 2/10: 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK' (EAN: 9781843570127) ---
+2025-06-01 12:51:37,795 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9781843570127
+2025-06-01 12:51:37,795 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9781843570127 for supplier product: 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK' (FixedAmazonExtractor)
+2025-06-01 12:51:37,799 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9781843570127
+2025-06-01 12:51:40,106 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9781843570127...
+2025-06-01 12:51:40,307 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:51:42,341 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:51:42,341 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9781843570127
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 1843570122 - 7 Mar 2002...
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9781843570127: ASIN 1843570122
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 1843570122 for 9781843570127
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - INFO - Single ASIN 1843570122 found for EAN 9781843570127.
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 1843570122 for EAN: 9781843570127
+2025-06-01 12:51:42,419 - passive_extraction_workflow_latest - WARNING - EAN search for '9781843570127' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:51:42,420 - passive_extraction_workflow_latest - INFO - EAN search failed for 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK'. Falling back to title search.
+2025-06-01 12:51:42,420 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK'
+2025-06-01 12:51:42,424 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK
+2025-06-01 12:51:45,444 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:51:45,457 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK'
+2025-06-01 12:51:45,457 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK'. Skipping. Details: No valid ASINs found for title 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK'
+2025-06-01 12:51:45,458 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 3/10: 'THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK' (EAN: 9780007258352) ---
+2025-06-01 12:51:45,458 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007258352
+2025-06-01 12:51:45,458 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007258352 for supplier product: 'THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK' (FixedAmazonExtractor)
+2025-06-01 12:51:45,465 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007258352
+2025-06-01 12:51:48,072 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007258352...
+2025-06-01 12:51:48,414 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:51:50,443 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:51:50,444 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780007258352
+2025-06-01 12:51:50,596 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN B01B98DQLQ - Prince Caspian: The Movie Storybook by Lana Jacobs (March 24...
+2025-06-01 12:51:50,596 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780007258352: ASIN B01B98DQLQ
+2025-06-01 12:51:50,596 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN B01B98DQLQ for 9780007258352
+2025-06-01 12:51:50,596 - passive_extraction_workflow_latest - INFO - Single ASIN B01B98DQLQ found for EAN 9780007258352.
+2025-06-01 12:51:50,596 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: B01B98DQLQ for EAN: 9780007258352
+2025-06-01 12:51:50,596 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=9780007258352&ref=nb_sb_noss
+2025-06-01 12:51:52,738 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:51:52,984 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:51:53,993 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 12:51:57,009 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 12:51:57,009 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:51:57,075 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:51:57,075 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 12:52:02,347 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 12:52:09,356 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B01B98DQLQ
+2025-06-01 12:52:09,357 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 12:52:09,396 - amazon_playwright_extractor - INFO - Title found: 'Prince Caspian: The Movie Storybook by Lana Jacobs (March 24,2008)' via #productTitle
+2025-06-01 12:52:09,396 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 12:52:09,589 - amazon_playwright_extractor - WARNING - Current price not found by selectors. AI fallback.
+2025-06-01 12:52:09,655 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:52:11,703 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:52:11,704 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 12:52:11,739 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/51bFpzUd58L._SY342_.jpg via #landingImage
+2025-06-01 12:52:11,751 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 12:52:11,914 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 12:52:12,020 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 12:52:12,020 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:52:14,572 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:52:14,579 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 12:52:14,599 - amazon_playwright_extractor - INFO - Rating: 4.2 via #acrPopover[title*='out of 5 stars']
+2025-06-01 12:52:14,617 - amazon_playwright_extractor - INFO - Review count: 10 via #acrCustomerReviewText
+2025-06-01 12:52:14,617 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 12:52:14,664 - amazon_playwright_extractor - INFO - Availability text: 'This item cannot be dispatched to your selected delivery location. Please choose a different delivery location.                                  
+                        
+                        
+                            Deliver toáUnited Arab Emirates
+                        
+                    
+                                                                                          (function(f) {var _np=(window.P._namespace("ListsDPXJavaScriptBlock"));if(_np.guardFatal){_np.guardFatal(f)(_np);}else{f(_np);}}(function(P) {
+window.atwlEarlyClick = function (e) {
+    try {
+        e.preventDefault();
+        if (window.atwlLoaded) {
+            return; //if JS is loaded then we can ignore the early click case
+        }
+        if (window.ue) {
+            window.ue.count("Lists:Dpx:atwlEarlyClick:Handled", 1);
+        }
+        var ADD_TO_LIST_FROM_DETAIL_PAGE_VENDOR_ID = "website.wishlist.detail.add.earlyclick";
+        var csrfTokenForm = document.querySelector('input[id="lists-sp-csrf-form-token"]');
+        var csrfToken = csrfTokenForm ? csrfTokenForm.value : "";
+
+        var paramMap = {
+            "asin": "B01B98DQLQ",
+            "vendorId": ADD_TO_LIST_FROM_DETAIL_PAGE_VENDOR_ID,
+            "isAjax": "false"
+        }
+
+        var url = "/hz/wishlist/additemtolist?ie=UTF8";
+
+        for (var param in paramMap) {
+            url += "&" + param + "=" + paramMap[param];
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, false);
+        xhr.setRequestHeader("anti-csrftoken-a2z", csrfToken);
+        xhr.onload = function() {
+            window.location = xhr.responseURL; //Needed to force a redirect; not supported on IE!
+        }
+        xhr.send();
+    } catch (exception) {
+        if (window.ueLogError) {
+            window.ueLogError(exception, {
+                logLevel: 'FATAL',
+                attribution: 'ListsDPXJavaScriptBlock',
+                message: 'atwlEarlyClick failed with exception'
+            });
+        }
+    }
+};
+}));                            (function(f) {var _np=(window.P._namespace("ListsDPXJavaScriptBlock"));if(_np.guardFatal){_np.guardFatal(f)(_np);}else{f(_np);}}(function(P) {
+    'use strict';
+
+    P.when('A').execute(function(A){
+        A.declarative('atwlDropdownClickDeclarative', 'click', function(e){                  
+          window.wlArrowEv = e;
+          e.$event.preventDefault();
+          (function () {
+             
+             if (window.P && window.atwlLoaded) {
+                 window.P.when('A').execute(function (A) {A.trigger('wl-drop-down', window.wlArrowEv);})
+                 return;
+             }
+              
+             window.atwlEc = true;
+             
+             var b = document.getElementById('add-to-wishlist-button-group');
+             
+             var s = document.getElementById('atwl-dd-spinner-holder');
+             
+             if (!(s && b)) {
+                 return;
+             }
+             s.classList.remove('a-hidden');
+             s.style.position = 'absolute';
+             s.style.width = b.clientWidth + 'px';
+             s.style.zIndex = 1;
+             return;
+          })();
+          return false;
+        });
+    });
+}));           Add to List        (function(f) {var _np=(window.P._namespace("ListsDPXJavaScriptBlock"));if(_np.guardFatal){_np.guardFatal(f)(_np);}else{f(_np);}}(function(P) {
+    'use strict';
+
+    P.now('A').execute('atwl-a11y-override', function(A){
+        
+        var addToWishListButtonGroup = document.getElementById('add-to-wishlist-button-group');
+        
+        if (addToWishListButtonGroup) {
+            addToWishListButtonGroup.removeAttribute("role");
+        }
+        var wishListMainButtonElem = document.getElementById('wishListMainButton');
+        if (wishListMainButtonElem) {
+            var wishListMainButton = wishListMainButtonElem.querySelector('input');
+            if (wishListMainButton) {
+                wishListMainButton.setAttribute('role', 'button');
+                wishListMainButton.setAttribute('tabindex', '0');
+            }
+        }
+        var wishListDropDownElem = document.getElementById('wishListDropDown');
+        if (wishListDropDownElem) {
+            var wishListDropDown = wishListDropDownElem.querySelector('input');
+            if (wishListDropDown) {
+                wishListDropDown.setAttribute('role', 'button');
+                wishListDropDown.setAttribute('aria-haspopup', 'dialog');
+                wishListDropDown.setAttribute('tabindex', '0');
+            }
+        }
+    });
+}));             Added to             Unable to add item to List. Please try again.                   Sorry, there was a problem.   There was an error retrieving your Wish Lists. Please try again.           Sorry, there was a problem.   List unavailable.      {"showInlineLink":false,"hzPopover":true,"wishlistButtonId":"add-to-wishlist-button","dropDownHtml":"","inlineJsFix":true,"wishlistButtonSubmitId":"add-to-wishlist-button-submit","maxAjaxFailureCount":"3","asin":"B01B98DQLQ","dropdownAriaLabel":"Select a list from the drop-down","closeButtonAriaLabel":"Close"}         {"formId":"addToCart","showWishListDropDown":false,"wishlistPopoverWidth":206,"isAddToWishListDropDownAuiEnabled":true,"showPopover":false}  (function(f) {var _np=(window.P._namespace("ListsDPXJavaScriptBlock"));if(_np.guardFatal){_np.guardFatal(f)(_np);}else{f(_np);}}(function(P) {
+    'use strict';
+
+    
+    window.P.now('atwl-ready').execute(function (atwlModule) {
+        var isRegistered = (typeof atwlModule !== 'undefined');
+        if (!isRegistered) {
+            window.P.register('atwl-ready');
+        }
+    });
+})); 
+    
+
+
+    
+   (function(f) {var _np=(window.P._namespace("ListsDPXJavaScriptBlock"));if(_np.guardFatal){_np.guardFatal(f)(_np);}else{f(_np);}}(function(P) {
+        "use strict";
+
+        window.P.now('atwl-cf').execute(function (module) {
+            var isRegistered = (typeof module !== 'undefined');
+            if (!isRegistered) {
+                window.P.register('atwl-cf');
+            }
+        });
+    }));                    
+    .registry-button-width {
+        width: 100%;
+        margin-left: ;
+        margin-right: ;
+    }
+
+    .add-to-baby-button-spacing-bottom {
+        margin-bottom: 0;
+    }' via #outOfStock
+2025-06-01 12:52:14,665 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 12:52:14,677 - amazon_playwright_extractor - WARNING - Features/bullets not found by selector. AI fallback.
+2025-06-01 12:52:14,677 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:52:15,573 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:52:15,574 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 12:52:15,672 - amazon_playwright_extractor - WARNING - Description not found by selectors. AI fallback.
+2025-06-01 12:52:15,672 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:52:16,904 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:52:16,905 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 12:52:16,949 - amazon_playwright_extractor - WARNING - Specifications table not found/parsed by selectors. AI fallback.
+2025-06-01 12:52:16,949 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:52:17,927 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:52:17,928 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 12:52:17,928 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 12:52:17,929 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 12:52:17,929 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 12:52:24,027 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 12:52:24,057 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 12:52:24,083 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 12:52:28,911 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 12:52:29,984 - amazon_playwright_extractor - INFO - Found 82 rows in Keepa Product Details AG Grid.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - INFO - Parsed 25 items from Keepa Product Details AG Grid.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - INFO - ASIN B01B98DQLQ: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - WARNING - ASIN B01B98DQLQ: Could not find EAN in Keepa product_details_tab_data.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - INFO - ASIN B01B98DQLQ: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - WARNING - ASIN B01B98DQLQ: Could not find BSR in any Keepa data source.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - INFO - ASIN B01B98DQLQ: Current price missing/zero. Attempting fallback from Keepa Product Details.
+2025-06-01 12:52:31,988 - amazon_playwright_extractor - WARNING - ASIN B01B98DQLQ: Could not find a suitable current price in Keepa Product Details for fallback.
+2025-06-01 12:52:31,989 - passive_extraction_workflow_latest - INFO - Successfully extracted data for ASIN B01B98DQLQ (EAN on page: N/A)
+2025-06-01 12:52:31,989 - passive_extraction_workflow_latest - INFO - EAN search successful for '9780007258352' - found ASIN: B01B98DQLQ
+2025-06-01 12:52:31,991 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B01B98DQLQ as amazon_B01B98DQLQ_9780007258352.json
+2025-06-01 12:52:31,991 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_9780007258352 -> B01B98DQLQ
+2025-06-01 12:52:31,991 - passive_extraction_workflow_latest - INFO - Cached fresh Amazon data from EAN search for ASIN: B01B98DQLQ
+2025-06-01 12:52:31,991 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B01B98DQLQ - proceeding directly to detailed extraction
+2025-06-01 12:52:31,992 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Prince Caspian: The Movie Storybook by Lana Jacobs (March 24,2008)' (ASIN: B01B98DQLQ, EAN on page: N/A)
+2025-06-01 12:52:31,992 - passive_extraction_workflow_latest - WARNING - Cannot calculate ROI: Invalid or missing supplier or Amazon price.
+2025-06-01 12:52:31,992 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK' and Amazon product 'Prince Caspian: The Movie Storybook by Lana Jacobs (March 24,2008)'. Skipping.
+2025-06-01 12:52:31,993 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 4/10: 'HOW CAN I STOP CLIMATE CHANGE? BOOK' (EAN: 9780007261635) ---
+2025-06-01 12:52:31,993 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007261635
+2025-06-01 12:52:31,994 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007261635 for supplier product: 'HOW CAN I STOP CLIMATE CHANGE? BOOK' (FixedAmazonExtractor)
+2025-06-01 12:52:32,001 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007261635
+2025-06-01 12:52:34,165 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007261635...
+2025-06-01 12:52:34,531 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:52:36,555 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:52:36,555 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780007261635
+2025-06-01 12:52:36,617 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN B002RI9QHG - 26 Jan 2009...
+2025-06-01 12:52:36,617 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780007261635: ASIN B002RI9QHG
+2025-06-01 12:52:36,617 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN B002RI9QHG for 9780007261635
+2025-06-01 12:52:36,617 - passive_extraction_workflow_latest - INFO - Single ASIN B002RI9QHG found for EAN 9780007261635.
+2025-06-01 12:52:36,617 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: B002RI9QHG for EAN: 9780007261635
+2025-06-01 12:52:36,618 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=9780007261635&ref=nb_sb_noss
+2025-06-01 12:52:38,757 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:52:38,982 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:52:39,993 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 12:52:43,002 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 12:52:43,003 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:52:43,066 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:52:43,066 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 12:52:48,069 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 12:52:51,843 - passive_extraction_workflow_latest - INFO - Amazon extractor browser connection intended to be kept open.
+2025-06-01 12:52:51,843 - configurable_supplier_scraper - INFO - AIOHTTP session closed.

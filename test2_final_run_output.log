@@ -1,0 +1,310 @@
+2025-06-01 12:52:48,943 - main_orchestrator - INFO - OpenAI client initialized for passive extraction workflow with model: gpt-4o-mini-2024-07-18
+2025-06-01 12:52:49,301 - main_orchestrator - INFO - OpenAI client initialized for Amazon extractor with model: gpt-4.1-mini-2025-04-14
+2025-06-01 12:52:49,301 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:52:49,302 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king - Copy
+2025-06-01 12:52:49,303 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king.co.uk
+2025-06-01 12:52:49,303 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king
+2025-06-01 12:52:49,303 - main_orchestrator - INFO - Orchestrator initialized with mode: full_ai_workflow
+2025-06-01 12:52:49,303 - main_orchestrator - INFO - Test mode: False, Clear cache: False, Selective clear: True
+2025-06-01 12:52:49,303 - main_orchestrator - INFO - Bypass AI scraping: False
+2025-06-01 12:52:49,303 - main_orchestrator - INFO - Supplier parser enabled: False
+2025-06-01 12:52:49,303 - main_orchestrator - INFO - Starting analysis with passive extraction workflow...
+2025-06-01 12:52:49,730 - main_orchestrator - INFO - Executing passive extraction workflow...
+2025-06-01 12:52:49,730 - passive_extraction_workflow_latest - INFO - Initializing Passive Extraction Workflow...
+2025-06-01 12:52:49,733 - passive_extraction_workflow_latest - INFO - CacheManager initialized (clear_cache=False, selective_cache_clear=True)
+2025-06-01 12:52:49,733 - passive_extraction_workflow_latest - INFO - System config: clear_cache=False + selective_cache_clear=True, performing selective cache clear only
+2025-06-01 12:52:49,733 - cache_manager - INFO - Starting cache clearing with strategy: smart_selective
+2025-06-01 12:52:49,734 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,734 - cache_manager - INFO - Skipping currency_rates - clearing not needed
+2025-06-01 12:52:49,734 - cache_manager - INFO - Cleared currency_rates: 0 files, 0 bytes freed
+2025-06-01 12:52:49,735 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,735 - cache_manager - INFO - Skipping product_data - clearing not needed
+2025-06-01 12:52:49,735 - cache_manager - INFO - Cleared product_data: 0 files, 0 bytes freed
+2025-06-01 12:52:49,736 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,736 - cache_manager - INFO - Skipping analysis_results - clearing not needed
+2025-06-01 12:52:49,736 - cache_manager - INFO - Cleared analysis_results: 0 files, 0 bytes freed
+2025-06-01 12:52:49,737 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,737 - cache_manager - INFO - Skipping supplier_cache - clearing not needed
+2025-06-01 12:52:49,737 - cache_manager - INFO - Cleared supplier_cache: 0 files, 0 bytes freed
+2025-06-01 12:52:49,739 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,739 - cache_manager - INFO - Skipping amazon_cache - clearing not needed
+2025-06-01 12:52:49,739 - cache_manager - INFO - Cleared amazon_cache: 0 files, 0 bytes freed
+2025-06-01 12:52:49,740 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,740 - cache_manager - INFO - Skipping ai_category_cache - clearing not needed
+2025-06-01 12:52:49,740 - cache_manager - INFO - Cleared ai_category_cache: 0 files, 0 bytes freed
+2025-06-01 12:52:49,740 - cache_manager - INFO - Loaded 9 processed identifiers
+2025-06-01 12:52:49,740 - cache_manager - INFO - Skipping linking_map - clearing not needed
+2025-06-01 12:52:49,741 - cache_manager - INFO - Cleared linking_map: 0 files, 0 bytes freed
+2025-06-01 12:52:50,104 - passive_extraction_workflow_latest - INFO - OpenAI client initialized with model gpt-4o-mini-2024-07-18
+2025-06-01 12:52:50,104 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 9 entries
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
+2025-06-01 12:52:50,105 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 9 entries
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Loaded linking map with 9 entries
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Supplier cache was cleared - forcing AI category progression for fresh category discovery
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Running workflow for clearance-king.co.uk with max 10 products. Price range ú0.1-ú20.0.
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
+2025-06-01 12:52:50,105 - passive_extraction_workflow_latest - INFO - Session ID: clearance-king_co_uk_20250601_125250
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - Resuming from index 22 (previous run state found)
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - Loaded 40 products from supplier cache (0.0 hours old)
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: supplier_scrape - 40 records
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - Successfully got 40 products from clearance-king.co.uk
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - Found 40 valid supplier products, 40 within price range [ú0.1-ú20.0]
+2025-06-01 12:52:50,106 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: price_filtering - 40 records
+2025-06-01 12:52:50,107 - passive_extraction_workflow_latest - INFO - Processing up to 10 products starting from index 22.
+2025-06-01 12:52:50,107 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 1/10: 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS' (EAN: 8012979226925) ---
+2025-06-01 12:52:50,108 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 8012979226925
+2025-06-01 12:52:50,108 - passive_extraction_workflow_latest - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
+2025-06-01 12:52:51,844 - passive_extraction_workflow_latest - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
+2025-06-01 12:52:51,844 - passive_extraction_workflow_latest - INFO - Found 2 existing pages (FixedAmazonExtractor)
+2025-06-01 12:52:51,844 - passive_extraction_workflow_latest - INFO - Using existing page: https://www.amazon.co.uk/dp/B002RI9QHG (FixedAmazonExtractor)
+2025-06-01 12:52:51,856 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 8012979226925 for supplier product: 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS' (FixedAmazonExtractor)
+2025-06-01 12:52:51,865 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 8012979226925
+2025-06-01 12:52:54,243 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 8012979226925...
+2025-06-01 12:52:54,531 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:52:56,566 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:52:56,567 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 8012979226925
+2025-06-01 12:52:56,599 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0C22MW3BS (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:52:56,635 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BY8RCNZS (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:52:56,663 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CKQ9P43X (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:52:56,683 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BW3NTPWN (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:52:56,683 - passive_extraction_workflow_latest - WARNING - EAN 8012979226925 returned no organic results - skipping
+2025-06-01 12:52:56,684 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '8012979226925'. Details: no_organic_results
+2025-06-01 12:52:56,684 - passive_extraction_workflow_latest - WARNING - EAN search for '8012979226925' failed or returned error: No results for EAN 8012979226925 or search error
+2025-06-01 12:52:56,684 - passive_extraction_workflow_latest - INFO - EAN search failed for 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS'. Falling back to title search.
+2025-06-01 12:52:56,684 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS'
+2025-06-01 12:52:56,688 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS
+2025-06-01 12:52:59,285 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:52:59,297 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS'
+2025-06-01 12:52:59,298 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS'. Skipping. Details: No valid ASINs found for title 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS'
+2025-06-01 12:52:59,298 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 2/10: 'D&K Dengke Cup Shape Glass Pipe + Screen' (EAN: 5066113001070) ---
+2025-06-01 12:52:59,298 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: D&K Dengke Cup Shape Glass Pipe + Screen...
+2025-06-01 12:52:59,298 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5066113001070
+2025-06-01 12:52:59,298 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0D2L389R2 - Tabanzhe 40 PCS Conical Bowl Pipe Screens Filter,Pre-Cut Sta...
+2025-06-01 12:52:59,299 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 12:52:59,299 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 12:52:59,300 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 3/10: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24' (EAN: 5056175922239) ---
+2025-06-01 12:52:59,300 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5056175922239
+2025-06-01 12:52:59,300 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5056175922239 for supplier product: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24' (FixedAmazonExtractor)
+2025-06-01 12:52:59,305 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5056175922239
+2025-06-01 12:53:01,514 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5056175922239...
+2025-06-01 12:53:01,746 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:03,804 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:53:03,804 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5056175922239
+2025-06-01 12:53:03,846 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0772M489G (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:03,873 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DLL3ZL58 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:03,902 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CYZ6WF95 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B01F6FAQZC (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - WARNING - EAN 5056175922239 returned no organic results - skipping
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5056175922239'. Details: no_organic_results
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - WARNING - EAN search for '5056175922239' failed or returned error: No results for EAN 5056175922239 or search error
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'. Falling back to title search.
+2025-06-01 12:53:03,927 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 12:53:03,932 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24
+2025-06-01 12:53:06,630 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:06,638 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 12:53:06,638 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'. Skipping. Details: No valid ASINs found for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 12:53:06,639 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 4/10: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (EAN: 5056175922222) ---
+2025-06-01 12:53:06,639 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5056175922222
+2025-06-01 12:53:06,639 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5056175922222 for supplier product: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (FixedAmazonExtractor)
+2025-06-01 12:53:06,643 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5056175922222
+2025-06-01 12:53:08,981 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5056175922222...
+2025-06-01 12:53:09,294 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:11,343 - passive_extraction_workflow_latest - INFO - Found 3 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:53:11,344 - passive_extraction_workflow_latest - INFO - Processing 3 search result elements for EAN 5056175922222
+2025-06-01 12:53:11,381 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B08NPPK4CX (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:11,412 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0772M489G (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CYZ6WF95 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - WARNING - EAN 5056175922222 returned no organic results - skipping
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5056175922222'. Details: no_organic_results
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - WARNING - EAN search for '5056175922222' failed or returned error: No results for EAN 5056175922222 or search error
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Falling back to title search.
+2025-06-01 12:53:11,445 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 12:53:11,449 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23
+2025-06-01 12:53:14,317 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:14,326 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 12:53:14,326 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Skipping. Details: No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 12:53:14,327 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 5/10: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24' (EAN: 5055257878532) ---
+2025-06-01 12:53:14,327 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5055257878532
+2025-06-01 12:53:14,327 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5055257878532 for supplier product: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24' (FixedAmazonExtractor)
+2025-06-01 12:53:14,331 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5055257878532
+2025-06-01 12:53:16,972 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5055257878532...
+2025-06-01 12:53:17,326 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:19,369 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:53:19,369 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5055257878532
+2025-06-01 12:53:19,404 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0C39284R5 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:19,441 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0B9SN6GKB (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:19,473 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B083JNFJPJ (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:19,502 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B01AT9FI80 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:53:19,503 - passive_extraction_workflow_latest - WARNING - EAN 5055257878532 returned no organic results - skipping
+2025-06-01 12:53:19,503 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5055257878532'. Details: no_organic_results
+2025-06-01 12:53:19,503 - passive_extraction_workflow_latest - WARNING - EAN search for '5055257878532' failed or returned error: No results for EAN 5055257878532 or search error
+2025-06-01 12:53:19,503 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'. Falling back to title search.
+2025-06-01 12:53:19,503 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 12:53:19,508 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24
+2025-06-01 12:53:22,948 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:22,965 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 12:53:22,965 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'. Skipping. Details: No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 12:53:22,965 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 6/10: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22' (EAN: 5055257877009) ---
+2025-06-01 12:53:22,966 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5055257877009
+2025-06-01 12:53:22,966 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5055257877009 for supplier product: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22' (FixedAmazonExtractor)
+2025-06-01 12:53:22,970 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5055257877009
+2025-06-01 12:53:25,668 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5055257877009...
+2025-06-01 12:53:25,880 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:27,935 - passive_extraction_workflow_latest - INFO - Found 5 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:27,935 - passive_extraction_workflow_latest - INFO - Processing 5 search result elements for EAN 5055257877009
+2025-06-01 12:53:27,980 - passive_extraction_workflow_latest - WARNING - EAN 5055257877009 returned no organic results - skipping
+2025-06-01 12:53:27,981 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5055257877009'. Details: no_organic_results
+2025-06-01 12:53:27,981 - passive_extraction_workflow_latest - WARNING - EAN search for '5055257877009' failed or returned error: No results for EAN 5055257877009 or search error
+2025-06-01 12:53:27,981 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'. Falling back to title search.
+2025-06-01 12:53:27,981 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 12:53:27,985 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22
+2025-06-01 12:53:30,592 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:30,599 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 12:53:30,600 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'. Skipping. Details: No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 12:53:30,600 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 7/10: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (EAN: 5050375947849) ---
+2025-06-01 12:53:30,600 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5050375947849
+2025-06-01 12:53:30,600 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5050375947849 for supplier product: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (FixedAmazonExtractor)
+2025-06-01 12:53:30,605 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5050375947849
+2025-06-01 12:53:32,868 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5050375947849...
+2025-06-01 12:53:33,090 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:35,147 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:35,147 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5050375947849
+2025-06-01 12:53:35,196 - passive_extraction_workflow_latest - WARNING - EAN 5050375947849 returned no organic results - skipping
+2025-06-01 12:53:35,196 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5050375947849'. Details: no_organic_results
+2025-06-01 12:53:35,197 - passive_extraction_workflow_latest - WARNING - EAN search for '5050375947849' failed or returned error: No results for EAN 5050375947849 or search error
+2025-06-01 12:53:35,197 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'. Falling back to title search.
+2025-06-01 12:53:35,197 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 12:53:35,201 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3
+2025-06-01 12:53:37,777 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:37,786 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 12:53:37,786 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'. Skipping. Details: No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 12:53:37,787 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 8/10: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2' (EAN: 5050375947825) ---
+2025-06-01 12:53:37,787 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5050375947825
+2025-06-01 12:53:37,787 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5050375947825 for supplier product: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2' (FixedAmazonExtractor)
+2025-06-01 12:53:37,792 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5050375947825
+2025-06-01 12:53:40,412 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5050375947825...
+2025-06-01 12:53:40,648 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:42,713 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:42,713 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5050375947825
+2025-06-01 12:53:42,748 - passive_extraction_workflow_latest - WARNING - EAN 5050375947825 returned no organic results - skipping
+2025-06-01 12:53:42,748 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5050375947825'. Details: no_organic_results
+2025-06-01 12:53:42,748 - passive_extraction_workflow_latest - WARNING - EAN search for '5050375947825' failed or returned error: No results for EAN 5050375947825 or search error
+2025-06-01 12:53:42,748 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'. Falling back to title search.
+2025-06-01 12:53:42,749 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 12:53:42,752 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2
+2025-06-01 12:53:45,802 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:45,860 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 12:53:45,860 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'. Skipping. Details: No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 12:53:45,861 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 9/10: 'Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes' (EAN: 5020535010997) ---
+2025-06-01 12:53:45,861 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30...
+2025-06-01 12:53:45,861 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5020535010997
+2025-06-01 12:53:45,862 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0DGKKKB45 - Nuage Hayfever Relief Wipes, Resealable Pack (Pack of 3)...
+2025-06-01 12:53:45,862 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 12:53:45,862 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 12:53:45,863 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 10/10: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23' (EAN: 5060120173799) ---
+2025-06-01 12:53:45,863 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5060120173799
+2025-06-01 12:53:45,863 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5060120173799 for supplier product: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23' (FixedAmazonExtractor)
+2025-06-01 12:53:45,867 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5060120173799
+2025-06-01 12:53:48,705 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5060120173799...
+2025-06-01 12:53:49,040 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:53:51,108 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:51,108 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5060120173799
+2025-06-01 12:53:51,143 - passive_extraction_workflow_latest - WARNING - EAN 5060120173799 returned no organic results - skipping
+2025-06-01 12:53:51,143 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5060120173799'. Details: no_organic_results
+2025-06-01 12:53:51,143 - passive_extraction_workflow_latest - WARNING - EAN search for '5060120173799' failed or returned error: No results for EAN 5060120173799 or search error
+2025-06-01 12:53:51,143 - passive_extraction_workflow_latest - INFO - EAN search failed for 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'. Falling back to title search.
+2025-06-01 12:53:51,143 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 12:53:51,148 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23
+2025-06-01 12:53:54,095 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'. Skipping. Details: No valid ASINs found for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: triage_stage - 0 passed, 0 rejected
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - WARNING - STAGE-GUARD WARNING: Triage stage rejected all 10 products. Check SellerAmp connectivity or criteria.
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: deep_extraction - 0 successful extractions, 0 errors
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: profitable_filtering - 0 profitable products found
+2025-06-01 12:53:54,103 - passive_extraction_workflow_latest - INFO - No profitable products found meeting all criteria in this run.
+2025-06-01 12:53:54,104 - passive_extraction_workflow_latest - INFO - Workflow summary saved to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\fba_summary_clearance-king_co_uk_20250601_125250.json
+2025-06-01 12:53:54,104 - passive_extraction_workflow_latest - INFO - \U0001f4cb Session Summary: 2 products previously visited (resumed), 14 newly analyzed, 0 profitable products found
+2025-06-01 12:53:54,106 - passive_extraction_workflow_latest - INFO - Successfully saved linking map with 9 entries to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json
+2025-06-01 12:53:54,106 - passive_extraction_workflow_latest - INFO - Persistent linking map updated with 9 entries
+2025-06-01 12:53:54,106 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:53:54,681 - passive_extraction_workflow_latest - ERROR - Error running FBA_Financial_calculator: No matching records found. Check file paths and data consistency.
+2025-06-01 12:53:54,681 - passive_extraction_workflow_latest - INFO - Workflow completed. No profitable products found.
+2025-06-01 12:53:54,681 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:53:54,687 - passive_extraction_workflow_latest - ERROR - Error running FBA_Financial_calculator: No matching records found. Check file paths and data consistency.
+2025-06-01 12:53:54,687 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:53:54,687 - passive_extraction_workflow_latest - ERROR - Error running FBA_Financial_calculator: name 'self' is not defined
+2025-06-01 12:53:54,687 - passive_extraction_workflow_latest - CRITICAL - Unhandled exception in main workflow execution: name 'profitable_results' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\tools\passive_extraction_workflow_latest.py", line 2724, in run_workflow_main
+    return profitable_results # This return might be from the earlier block
+           ^^^^^^^^^^^^^^^^^^
+NameError: name 'profitable_results' is not defined
+2025-06-01 12:53:54,688 - passive_extraction_workflow_latest - INFO - Amazon extractor browser connection intended to be kept open.
+2025-06-01 12:53:54,688 - passive_extraction_workflow_latest - INFO - Web scraper session closed.
+2025-06-01 12:53:54,688 - passive_extraction_workflow_latest - INFO - Main workflow execution finished.
+2025-06-01 12:53:54,689 - main_orchestrator - WARNING - Passive extraction workflow returned no results
+2025-06-01 12:53:54,691 - main_orchestrator - INFO - Report saved to OUTPUTS\FBA_ANALYSIS\report_20250601_125354.json
+Clearing cache to ensure fresh start...
+[]
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+Clearing cache to ensure fresh start...
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+Phase 3: Integrated Supplier Analysis
+================================================================================
+
+Starting Complete FBA Analysis...
+Start Time: 2025-06-01 12:52:47
+
+Running Integrated Passive Extraction Workflow...
+Clearing cache to ensure fresh analysis...
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports
+Processing 40 supplier products...
+Loaded persistent linking map with 9 entries
+No price found for: EAN=9780007258352, ASIN=None, Title=THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK
+Processed 25/40 - No Amazon data for: EAN=5056175922239, ASIN=None
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports
+Processing 40 supplier products...
+No price found for: EAN=9780007258352, ASIN=None, Title=THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK
+Processed 25/40 - No Amazon data for: EAN=5056175922239, ASIN=None
+
+Analysis Complete!
+Processed: 0 products
+End Time: 2025-06-01 12:53:59
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000001B473ABDEE0>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000001B473ABC540>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 129, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 73, in __repr__
+    info.append(f'stdin={stdin.pipe}')
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000001B473ABDEE0>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe

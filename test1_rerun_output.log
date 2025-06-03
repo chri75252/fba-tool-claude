@@ -1,0 +1,838 @@
+2025-06-01 20:11:02,084 - main_orchestrator - INFO - OpenAI client initialized for passive extraction workflow with model: gpt-4o-mini-2024-07-18
+2025-06-01 20:11:02,446 - main_orchestrator - INFO - OpenAI client initialized for Amazon extractor with model: gpt-4.1-mini-2025-04-14
+2025-06-01 20:11:02,447 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 20:11:02,448 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king - Copy
+2025-06-01 20:11:02,448 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king.co.uk
+2025-06-01 20:11:02,448 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king
+2025-06-01 20:11:02,448 - main_orchestrator - INFO - Orchestrator initialized with mode: full_ai_workflow
+2025-06-01 20:11:02,448 - main_orchestrator - INFO - Test mode: False, Clear cache: False, Selective clear: False
+2025-06-01 20:11:02,449 - main_orchestrator - INFO - Bypass AI scraping: False
+2025-06-01 20:11:02,449 - main_orchestrator - INFO - Supplier parser enabled: False
+2025-06-01 20:11:02,449 - main_orchestrator - INFO - Starting analysis with passive extraction workflow...
+2025-06-01 20:11:02,868 - main_orchestrator - INFO - Executing passive extraction workflow...
+2025-06-01 20:11:02,868 - passive_extraction_workflow_latest - INFO - Initializing Passive Extraction Workflow...
+2025-06-01 20:11:02,868 - passive_extraction_workflow_latest - INFO - Successfully loaded global system config from C:\Users\chris\Amazon-FBA-Agent-System\config\system_config.json
+2025-06-01 20:11:02,868 - passive_extraction_workflow_latest - WARNING - OpenAI API key not found in (locally loaded) global system_config.json during run_workflow_main. AI features may be limited.
+2025-06-01 20:11:02,870 - passive_extraction_workflow_latest - INFO - Max products to process set to: 100
+2025-06-01 20:11:02,870 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 35 entries
+2025-06-01 20:11:02,870 - passive_extraction_workflow_latest - INFO - _load_history: self.state_path type = <class 'pathlib._local.WindowsPath'>, value = C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\passive_extraction_state_20250601.json
+2025-06-01 20:11:02,870 - passive_extraction_workflow_latest - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
+2025-06-01 20:11:02,870 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 20:11:02,871 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 35 entries
+2025-06-01 20:11:02,871 - passive_extraction_workflow_latest - INFO - Loaded linking map with 35 entries
+2025-06-01 20:11:02,871 - passive_extraction_workflow_latest - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
+2025-06-01 20:11:02,871 - passive_extraction_workflow_latest - INFO - Session ID: clearance-king_co_uk_20250601_201102
+2025-06-01 20:11:02,872 - passive_extraction_workflow_latest - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
+2025-06-01 20:11:02,872 - passive_extraction_workflow_latest - INFO - Resuming from index 40 (previous run state found)
+2025-06-01 20:11:02,872 - passive_extraction_workflow_latest - INFO - Loaded 40 products from supplier cache (0.0 hours old)
+2025-06-01 20:11:02,872 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: supplier_scrape - 40 records
+2025-06-01 20:11:02,872 - passive_extraction_workflow_latest - INFO - Successfully got 40 products from clearance-king.co.uk
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - Found 40 valid supplier products, 40 within price range [ú0.1-ú20.0]
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: price_filtering - 40 records
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - All cached products have been processed in previous runs. Fetching fresh supplier data...
+2025-06-01 20:11:02,873 - supplier_config_loader - INFO - Loaded supplier selector config for domain: clearance-king.co.uk
+2025-06-01 20:11:02,873 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk using load_supplier_selectors.
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - Extracting products from clearance-king.co.uk using two-step process.
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - AI category progression enabled - using hierarchical category selection
+2025-06-01 20:11:02,873 - passive_extraction_workflow_latest - INFO - _load_history: self.state_path type = <class 'pathlib._local.WindowsPath'>, value = C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\clearance-king_co_uk_processing_state.json
+2025-06-01 20:11:02,873 - configurable_supplier_scraper - INFO - Extracting homepage categories from https://www.clearance-king.co.uk
+2025-06-01 20:11:02,874 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk (attempt 1/3)
+2025-06-01 20:11:04,864 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk (Size: 358144 bytes)
+2025-06-01 20:11:05,671 - configurable_supplier_scraper - INFO - Found 6 unique potential category URLs from homepage of https://www.clearance-king.co.uk
+2025-06-01 20:11:05,671 - configurable_supplier_scraper - INFO - Discovered 6 categories for https://www.clearance-king.co.uk
+2025-06-01 20:11:10,172 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 20:11:10,178 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 20:11:10,179 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (attempt 1/3)
+2025-06-01 20:11:10,986 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (Size: 358144 bytes)
+2025-06-01 20:11:11,523 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (depth 1): 1
+2025-06-01 20:11:11,523 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 20:11:11,524 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/books/educational-books.html (attempt 1/3)
+2025-06-01 20:11:12,009 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/books/educational-books.html (Size: 323867 bytes)
+2025-06-01 20:11:12,552 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/books/educational-books.html (depth 1): 1
+2025-06-01 20:11:12,553 - configurable_supplier_scraper - INFO - Subpage discovery (depth 1) for: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 20:11:12,553 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalogsearch/advanced/ (attempt 1/3)
+2025-06-01 20:11:13,034 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalogsearch/advanced/ (Size: 175083 bytes)
+2025-06-01 20:11:13,406 - configurable_supplier_scraper - INFO - Total unique subpages/pagination links found from https://www.clearance-king.co.uk/catalogsearch/advanced/ (depth 1): 1
+2025-06-01 20:11:13,406 - passive_extraction_workflow_latest - INFO - Hierarchical selection returned 3 pages to scrape
+2025-06-01 20:11:13,406 - passive_extraction_workflow_latest - INFO - Processing 3 AI-suggested categories
+2025-06-01 20:11:13,406 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 20:11:13,406 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/
+2025-06-01 20:11:13,568 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (attempt 1/3)
+2025-06-01 20:11:14,370 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/ (Size: 358144 bytes)
+2025-06-01 20:11:14,473 - passive_extraction_workflow_latest - INFO - Found 23 product elements in category https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/, page 1
+2025-06-01 20:11:14,503 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: D&K Dengke Cup Shape Glass Pipe + Screen from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 20:11:14,505 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24 from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 20:11:14,505 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23 from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 20:11:14,505 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24 from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 20:11:14,505 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22 from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 20:11:14,588 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:14,589 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:14,589 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:14,589 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:14,590 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (attempt 1/3)
+2025-06-01 20:11:15,901 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (Size: 187529 bytes)
+2025-06-01 20:11:15,964 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257877009' from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 20:11:15,964 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html: EAN=5055257877009, UPC=None, SKU=None
+2025-06-01 20:11:16,515 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (Size: 187493 bytes)
+2025-06-01 20:11:16,595 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922222' from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 20:11:16,596 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html: EAN=5056175922222, UPC=None, SKU=None
+2025-06-01 20:11:16,720 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (Size: 187322 bytes)
+2025-06-01 20:11:16,788 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257878532' from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 20:11:16,788 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html: EAN=5055257878532, UPC=None, SKU=None
+2025-06-01 20:11:18,054 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (Size: 227845 bytes)
+2025-06-01 20:11:18,137 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5066113001070' from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 20:11:18,137 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html: EAN=5066113001070, UPC=None, SKU=None
+2025-06-01 20:11:18,896 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (Size: 188834 bytes)
+2025-06-01 20:11:18,970 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922239' from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 20:11:18,970 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html: EAN=5056175922239, UPC=None, SKU=None
+2025-06-01 20:11:18,971 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 5
+2025-06-01 20:11:18,971 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3 from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 20:11:18,971 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:18,971 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2 from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 20:11:18,972 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 20:11:18,972 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23 from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 20:11:18,972 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: 151 Pest Shield Slug & Snail Killer - 300g from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 20:11:19,896 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (Size: 186401 bytes)
+2025-06-01 20:11:19,962 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947849' from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 20:11:19,962 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html: EAN=5050375947849, UPC=None, SKU=None
+2025-06-01 20:11:19,972 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (attempt 1/3)
+2025-06-01 20:11:19,972 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (attempt 1/3)
+2025-06-01 20:11:19,973 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 20:11:19,973 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (attempt 1/3)
+2025-06-01 20:11:22,457 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (Size: 553224 bytes)
+2025-06-01 20:11:22,608 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5020535010997' from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 20:11:22,608 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html: EAN=5020535010997, UPC=None, SKU=None
+2025-06-01 20:11:23,277 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (Size: 233843 bytes)
+2025-06-01 20:11:23,360 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120173799' from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 20:11:23,360 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html: EAN=5060120173799, UPC=None, SKU=None
+2025-06-01 20:11:24,432 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (Size: 288221 bytes)
+2025-06-01 20:11:24,534 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5053249240312' from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 20:11:24,534 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html: EAN=5053249240312, UPC=None, SKU=None
+2025-06-01 20:11:25,017 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (Size: 187249 bytes)
+2025-06-01 20:11:25,083 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947825' from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 20:11:25,083 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html: EAN=5050375947825, UPC=None, SKU=None
+2025-06-01 20:11:25,083 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 10
+2025-06-01 20:11:25,083 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry - 20ml - EXP: 01/24 from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 20:11:25,083 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (attempt 1/3)
+2025-06-01 20:11:25,084 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Questaplast First Aid Kit - Pack of 25 - Exp: 08/24 from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 20:11:25,084 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24 from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 20:11:25,084 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel Wallet - EXP: 08/23 from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 20:11:25,084 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 20:11:26,089 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (attempt 1/3)
+2025-06-01 20:11:26,090 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (attempt 1/3)
+2025-06-01 20:11:26,090 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (attempt 1/3)
+2025-06-01 20:11:26,091 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (attempt 1/3)
+2025-06-01 20:11:27,089 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (Size: 446769 bytes)
+2025-06-01 20:11:27,218 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413923490' from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 20:11:27,218 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html: EAN=5031413923490, UPC=None, SKU=None
+2025-06-01 20:11:27,782 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (Size: 190876 bytes)
+2025-06-01 20:11:27,855 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '05060072087823' from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 20:11:27,855 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html: EAN=05060072087823, UPC=None, SKU=None
+2025-06-01 20:11:28,396 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (Size: 212527 bytes)
+2025-06-01 20:11:28,471 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413924244' from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 20:11:28,471 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html: EAN=5031413924244, UPC=None, SKU=None
+2025-06-01 20:11:29,217 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (Size: 205889 bytes)
+2025-06-01 20:11:29,293 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163547' from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 20:11:29,294 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html: EAN=5060120163547, UPC=None, SKU=None
+2025-06-01 20:11:30,339 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (Size: 215084 bytes)
+2025-06-01 20:11:30,412 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120164131' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 20:11:30,412 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html: EAN=5060120164131, UPC=None, SKU=None
+2025-06-01 20:11:30,412 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 15
+2025-06-01 20:11:30,413 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 20:11:30,413 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (attempt 1/3)
+2025-06-01 20:11:30,413 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24 from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 20:11:31,414 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (attempt 1/3)
+2025-06-01 20:11:31,591 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (Size: 199196 bytes)
+2025-06-01 20:11:31,750 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163714' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 20:11:31,751 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html: EAN=5060120163714, UPC=None, SKU=None
+2025-06-01 20:11:32,593 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (Size: 213649 bytes)
+2025-06-01 20:11:32,664 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163363' from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 20:11:32,664 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html: EAN=5060120163363, UPC=None, SKU=None
+2025-06-01 20:11:32,664 - passive_extraction_workflow_latest - INFO - Processed batch of 2 detailed products from page 1, total extracted so far: 17
+2025-06-01 20:11:32,767 - configurable_supplier_scraper - INFO - Found next page URL via pattern string: https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/?p=2
+2025-06-01 20:11:32,767 - passive_extraction_workflow_latest - INFO - Simplified pagination: stopping at page 1 for https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/?p=2 as direct next URL construction is complex here.
+2025-06-01 20:11:32,767 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 20:11:32,767 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/books/educational-books.html
+2025-06-01 20:11:32,767 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/books/educational-books.html (attempt 1/3)
+2025-06-01 20:11:33,210 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/books/educational-books.html (Size: 323867 bytes)
+2025-06-01 20:11:33,311 - passive_extraction_workflow_latest - INFO - Found 23 product elements in category https://www.clearance-king.co.uk/books/educational-books.html, page 1
+2025-06-01 20:11:33,360 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PHYSICS AQA GCSE REVISION & EXAM PRACTICE BOOK from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html
+2025-06-01 20:11:33,361 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PHYSICS ALL EXAM BOARDS GCSE EXAM PRACTICE BOOK from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html
+2025-06-01 20:11:33,361 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: COMBINED SCIENCE GCSE HIGHER AQA PRACTICE EXAMS BOOK from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html
+2025-06-01 20:11:33,361 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: STARDOLL SUPERSTAR STYLIST: HARDBACK BOOK from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html
+2025-06-01 20:11:33,361 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: STARDOLL AUTUMN/WINTER TOP TREND: HARDBACK BOOK from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html
+2025-06-01 20:11:33,769 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html (attempt 1/3)
+2025-06-01 20:11:33,770 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html (attempt 1/3)
+2025-06-01 20:11:33,771 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html (attempt 1/3)
+2025-06-01 20:11:33,771 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html (attempt 1/3)
+2025-06-01 20:11:33,772 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html (attempt 1/3)
+2025-06-01 20:11:34,906 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html (Size: 184691 bytes)
+2025-06-01 20:11:34,977 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780857510822' from https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html
+2025-06-01 20:11:34,977 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/stardoll-superstar-stylist-hardback-book.html: EAN=9780857510822, UPC=None, SKU=None
+2025-06-01 20:11:35,257 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html (Size: 186282 bytes)
+2025-06-01 20:11:35,427 - configurable_supplier_scraper - INFO - Potential internal numeric ID '182360' (from '182360') extracted from https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html.
+2025-06-01 20:11:35,428 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/combined-science-gcse-higher-aqa-practice-exams-book.html: EAN=182360, UPC=None, SKU=None
+2025-06-01 20:11:36,278 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html (Size: 186149 bytes)
+2025-06-01 20:11:36,356 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781407176918' from https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html
+2025-06-01 20:11:36,356 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/physics-all-exam-boards-gcse-exam-practice-book.html: EAN=9781407176918, UPC=None, SKU=None
+2025-06-01 20:11:37,302 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html (Size: 185306 bytes)
+2025-06-01 20:11:37,367 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780857510808' from https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html
+2025-06-01 20:11:37,367 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/stardoll-autumn-winter-top-trend-hardback-book.html: EAN=9780857510808, UPC=None, SKU=None
+2025-06-01 20:11:37,942 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html (Size: 186673 bytes)
+2025-06-01 20:11:38,012 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781407176772' from https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html
+2025-06-01 20:11:38,012 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/physics-aqa-gcse-revision-exam-practice-book.html: EAN=9781407176772, UPC=None, SKU=None
+2025-06-01 20:11:38,013 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 22
+2025-06-01 20:11:38,013 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: SEMANTIC WORKBOOKS IN RING BINDER FOLDER from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html
+2025-06-01 20:11:38,013 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html (attempt 1/3)
+2025-06-01 20:11:38,013 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: THE REMINISCENCE SKILLS TRAINING HAND BOOK from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html
+2025-06-01 20:11:38,013 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: SEASONAL ACTIVITIES FOR SENSORIMOTOR DEVELOPMENT BOOK BY By ANN BASOVA from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html
+2025-06-01 20:11:38,014 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: HOW TO STOP BULLYING 101 STRATEGIES BOOK from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html
+2025-06-01 20:11:38,014 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html
+2025-06-01 20:11:38,942 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html (Size: 184810 bytes)
+2025-06-01 20:11:39,008 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863882678' from https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html
+2025-06-01 20:11:39,008 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/semantic-work-books-in-ring-binder-folders.html: EAN=9780863882678, UPC=None, SKU=None
+2025-06-01 20:11:39,021 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html (attempt 1/3)
+2025-06-01 20:11:39,022 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html (attempt 1/3)
+2025-06-01 20:11:39,022 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html (attempt 1/3)
+2025-06-01 20:11:39,023 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html (attempt 1/3)
+2025-06-01 20:11:39,887 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html (Size: 184070 bytes)
+2025-06-01 20:11:39,953 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863887758' from https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html
+2025-06-01 20:11:39,953 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/how-to-stop-bullying-101-strategies-book.html: EAN=9780863887758, UPC=None, SKU=None
+2025-06-01 20:11:40,405 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html (Size: 184687 bytes)
+2025-06-01 20:11:40,564 - configurable_supplier_scraper - INFO - Valid numeric identifier (EAN/UPC format) '86388530' extracted using selectors from https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html.
+2025-06-01 20:11:40,565 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/seasonal-activities-for-sensorimotor-development-12.html: EAN=86388530, UPC=None, SKU=None
+2025-06-01 20:11:41,194 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html (Size: 184713 bytes)
+2025-06-01 20:11:41,268 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863883132' from https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html
+2025-06-01 20:11:41,268 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/the-reminiscence-skills-training-hand-book.html: EAN=9780863883132, UPC=None, SKU=None
+2025-06-01 20:11:41,709 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html (Size: 184291 bytes)
+2025-06-01 20:11:41,778 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863888120' from https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html
+2025-06-01 20:11:41,778 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/dementia-care-the-adaptive-response-book.html: EAN=9780863888120, UPC=None, SKU=None
+2025-06-01 20:11:41,778 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 27
+2025-06-01 20:11:41,778 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PLAY BETTER GAMES SPIRAL BOOK from https://www.clearance-king.co.uk/play-better-games-spiral-book.html
+2025-06-01 20:11:41,778 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/play-better-games-spiral-book.html (attempt 1/3)
+2025-06-01 20:11:41,779 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: BEYOUND TRANSITION RING BOOK from https://www.clearance-king.co.uk/beyound-transition-ring-book.html
+2025-06-01 20:11:41,779 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html
+2025-06-01 20:11:41,779 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html
+2025-06-01 20:11:41,779 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html
+2025-06-01 20:11:42,653 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/play-better-games-spiral-book.html (Size: 184584 bytes)
+2025-06-01 20:11:42,721 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780863888212' from https://www.clearance-king.co.uk/play-better-games-spiral-book.html
+2025-06-01 20:11:42,721 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/play-better-games-spiral-book.html: EAN=9780863888212, UPC=None, SKU=None
+2025-06-01 20:11:42,784 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html (attempt 1/3)
+2025-06-01 20:11:42,785 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html (attempt 1/3)
+2025-06-01 20:11:42,786 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html (attempt 1/3)
+2025-06-01 20:11:42,787 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/beyound-transition-ring-book.html (attempt 1/3)
+2025-06-01 20:11:43,753 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html (Size: 184683 bytes)
+2025-06-01 20:11:43,904 - configurable_supplier_scraper - INFO - Valid numeric identifier (EAN/UPC format) '90651705' extracted using selectors from https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html.
+2025-06-01 20:11:43,905 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/medication-restoration-circle-time-12-nbc.html: EAN=90651705, UPC=None, SKU=None
+2025-06-01 20:11:44,268 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html (Size: 184795 bytes)
+2025-06-01 20:11:44,430 - configurable_supplier_scraper - INFO - Valid numeric identifier (EAN/UPC format) '90651704' extracted using selectors from https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html.
+2025-06-01 20:11:44,430 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/transition-a-peer-mentoring-system-spiral-book.html: EAN=90651704, UPC=None, SKU=None
+2025-06-01 20:11:45,214 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/beyound-transition-ring-book.html (Size: 184244 bytes)
+2025-06-01 20:11:45,281 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781906517465' from https://www.clearance-king.co.uk/beyound-transition-ring-book.html
+2025-06-01 20:11:45,282 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/beyound-transition-ring-book.html: EAN=9781906517465, UPC=None, SKU=None
+2025-06-01 20:11:45,804 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html (Size: 184403 bytes)
+2025-06-01 20:11:45,880 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798391' from https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html
+2025-06-01 20:11:45,880 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-petticoat-tails-to-arbroath-smokies-book.html: EAN=9780007798391, UPC=None, SKU=None
+2025-06-01 20:11:45,880 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 32
+2025-06-01 20:11:45,880 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html
+2025-06-01 20:11:45,880 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html (attempt 1/3)
+2025-06-01 20:11:45,881 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM NORFOLK KNOBS TO FIDGET PIE BOOK from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html
+2025-06-01 20:11:45,881 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: FROM BATH CHAPS TO BARA BIRTH BOOK from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html
+2025-06-01 20:11:45,881 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: LORRAINE KELLY COLOURS BOOK from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html
+2025-06-01 20:11:45,881 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html
+2025-06-01 20:11:46,748 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html (Size: 183941 bytes)
+2025-06-01 20:11:46,821 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798407' from https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html
+2025-06-01 20:11:46,822 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-eccles-cake-to-hawkshead-wig-book.html: EAN=9780007798407, UPC=None, SKU=None
+2025-06-01 20:11:46,883 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html (attempt 1/3)
+2025-06-01 20:11:46,884 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html (attempt 1/3)
+2025-06-01 20:11:46,884 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html (attempt 1/3)
+2025-06-01 20:11:46,884 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html (attempt 1/3)
+2025-06-01 20:11:47,853 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html (Size: 184989 bytes)
+2025-06-01 20:11:48,017 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781843570127' from https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html
+2025-06-01 20:11:48,017 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/lorraine-kelly-play-hopscotch-a-counting-book.html: EAN=9781843570127, UPC=None, SKU=None
+2025-06-01 20:11:48,363 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html (Size: 184273 bytes)
+2025-06-01 20:11:48,435 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9781843570110' from https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html
+2025-06-01 20:11:48,435 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/lorraine-kelly-colours-book.html: EAN=9781843570110, UPC=None, SKU=None
+2025-06-01 20:11:48,877 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html (Size: 184176 bytes)
+2025-06-01 20:11:48,944 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798414' from https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html
+2025-06-01 20:11:48,945 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-norfolk-knobs-to-fidget-pie-book.html: EAN=9780007798414, UPC=None, SKU=None
+2025-06-01 20:11:49,492 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html (Size: 185028 bytes)
+2025-06-01 20:11:49,557 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007798421' from https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html
+2025-06-01 20:11:49,557 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/from-bath-chaps-to-bara-birth-book.html: EAN=9780007798421, UPC=None, SKU=None
+2025-06-01 20:11:49,557 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 37
+2025-06-01 20:11:49,557 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html
+2025-06-01 20:11:49,557 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html (attempt 1/3)
+2025-06-01 20:11:49,558 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: HOW CAN I STOP CLIMATE CHANGE? BOOK from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html
+2025-06-01 20:11:49,558 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html
+2025-06-01 20:11:50,559 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html (attempt 1/3)
+2025-06-01 20:11:50,560 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html (attempt 1/3)
+2025-06-01 20:11:50,718 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html (Size: 185724 bytes)
+2025-06-01 20:11:50,811 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007258352' from https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html
+2025-06-01 20:11:50,811 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/the-chronicles-of-narnia-prince-caspian-movie-storybook.html: EAN=9780007258352, UPC=None, SKU=None
+2025-06-01 20:11:51,642 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html (Size: 184797 bytes)
+2025-06-01 20:11:51,711 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '8012979226925' from https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html
+2025-06-01 20:11:51,712 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/my-page-clip-2pc-magnetic-bookmark-360.html: EAN=8012979226925, UPC=None, SKU=None
+2025-06-01 20:11:52,050 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html (Size: 184454 bytes)
+2025-06-01 20:11:52,129 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '9780007261635' from https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html
+2025-06-01 20:11:52,129 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/how-can-i-stop-climate-change-book.html: EAN=9780007261635, UPC=None, SKU=None
+2025-06-01 20:11:52,130 - passive_extraction_workflow_latest - INFO - Processed batch of 3 detailed products from page 1, total extracted so far: 40
+2025-06-01 20:11:52,228 - configurable_supplier_scraper - INFO - Found next page URL via pattern string: https://www.clearance-king.co.uk/books/educational-books.html?p=2
+2025-06-01 20:11:52,229 - passive_extraction_workflow_latest - INFO - Simplified pagination: stopping at page 1 for https://www.clearance-king.co.uk/books/educational-books.html?p=2 as direct next URL construction is complex here.
+2025-06-01 20:11:52,229 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 20:11:52,229 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/catalogsearch/advanced/
+2025-06-01 20:11:52,229 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/catalogsearch/advanced/ (attempt 1/3)
+2025-06-01 20:11:52,666 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/catalogsearch/advanced/ (Size: 175083 bytes)
+2025-06-01 20:11:52,723 - passive_extraction_workflow_latest - WARNING - No product elements found on https://www.clearance-king.co.uk/catalogsearch/advanced/ (Page 1).
+2025-06-01 20:11:52,726 - passive_extraction_workflow_latest - INFO - Refreshed supplier cache with 40 products
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO - Refreshed data contains 40 products in price range
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO - Processing up to 100 products starting from index 0.
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 1/40: 'D&K Dengke Cup Shape Glass Pipe + Screen' (EAN: 5066113001070) ---
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: D&K Dengke Cup Shape Glass Pipe + Screen...
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5066113001070
+2025-06-01 20:11:52,727 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0BJ364MWS - CKB Ltd Jumbo Port Sipper Glass 250ml Large Size The Big One...
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 2/40: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24' (EAN: 5056175922239) ---
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7...
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5056175922239
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0D31RM328 - Crazy Color Vibrant Vermillion Red Semi-Permanent Hair Dye. ...
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:11:52,728 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:11:52,729 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 3/40: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (EAN: 5056175922222) ---
+2025-06-01 20:11:52,729 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5056175922222
+2025-06-01 20:11:52,729 - passive_extraction_workflow_latest - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
+2025-06-01 20:11:53,477 - passive_extraction_workflow_latest - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
+2025-06-01 20:11:53,477 - passive_extraction_workflow_latest - INFO - Found 2 existing pages (FixedAmazonExtractor)
+2025-06-01 20:11:53,477 - passive_extraction_workflow_latest - INFO - Using existing page: https://www.amazon.co.uk/s?k=Questaplast+First+Aid+Kit+-+Pack+of+25+-+Exp%3A+08%2F24&ref=nb_sb_noss (FixedAmazonExtractor)
+2025-06-01 20:11:53,483 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5056175922222 for supplier product: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (FixedAmazonExtractor)
+2025-06-01 20:11:53,489 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5056175922222
+2025-06-01 20:11:55,680 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5056175922222...
+2025-06-01 20:11:56,300 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 20:11:58,351 - passive_extraction_workflow_latest - INFO - Found 3 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 20:11:58,351 - passive_extraction_workflow_latest - INFO - Processing 3 search result elements for EAN 5056175922222
+2025-06-01 20:11:58,391 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B08NPPK4CX (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:11:58,421 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0772M489G (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:11:58,451 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CYZ6WF95 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:11:58,451 - passive_extraction_workflow_latest - WARNING - EAN 5056175922222 returned no organic results - skipping
+2025-06-01 20:11:58,452 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5056175922222'. Details: no_organic_results
+2025-06-01 20:11:58,452 - passive_extraction_workflow_latest - WARNING - EAN search for '5056175922222' failed or returned error: No results for EAN 5056175922222 or search error
+2025-06-01 20:11:58,452 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Falling back to title search.
+2025-06-01 20:11:58,452 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 20:11:58,456 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23
+2025-06-01 20:12:01,070 - passive_extraction_workflow_latest - INFO - Title search found 7 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:12:02,446 - passive_extraction_workflow_latest - INFO - Title search found 6 results for 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 20:12:02,450 - passive_extraction_workflow_latest - INFO - Extracting detailed Amazon data for ASIN: B0DCWYVVDW (from title search)
+2025-06-01 20:12:02,450 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=Glamorize+Root+Touch-Up+-+Shade+5+-+Dark+Brown+-+EXP%3A+04%2F23&ref=nb_sb_noss
+2025-06-01 20:12:05,959 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:12:06,431 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:12:07,443 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 20:12:10,463 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 20:12:10,464 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:12:10,547 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:12:10,547 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 20:12:15,556 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 20:12:22,566 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B0DCWYVVDW
+2025-06-01 20:12:22,566 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 20:12:22,598 - amazon_playwright_extractor - INFO - Title found: 'Root Touch Up Powder, Instantly Conceals Hair Loss & Gray Roots, Water & Sweat Resistant, Men & Women's Thinning Hair Solution, Includes Brush (Dark Brown)' via #productTitle
+2025-06-01 20:12:22,598 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 20:12:22,622 - amazon_playwright_extractor - INFO - Current price: 9.95 via #corePrice_feature_div .a-offscreen
+2025-06-01 20:12:22,662 - amazon_playwright_extractor - INFO - Original price: 11.95 via .basisPrice span.a-text-price span.a-offscreen
+2025-06-01 20:12:22,688 - amazon_playwright_extractor - INFO - Amazon sales badge found: 50 in container div#socialProofingAsinFaceout_feature_div
+2025-06-01 20:12:22,688 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 20:12:22,725 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/61laWnI7FsL._AC_SL1200_.jpg via #landingImage
+2025-06-01 20:12:22,793 - amazon_playwright_extractor - INFO - Found 6 thumbnails.
+2025-06-01 20:12:22,799 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 20:12:23,178 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 20:12:23,346 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 20:12:23,589 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 20:12:25,042 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 20:12:25,045 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 20:12:25,079 - amazon_playwright_extractor - INFO - Rating: 3.9 via #acrPopover[title*='out of 5 stars']
+2025-06-01 20:12:25,103 - amazon_playwright_extractor - INFO - Review count: 95 via #acrCustomerReviewText
+2025-06-01 20:12:25,104 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 20:12:25,134 - amazon_playwright_extractor - INFO - Availability text: 'In stock' via #availability span.a-size-medium.a-color-success
+2025-06-01 20:12:25,134 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 20:12:25,365 - amazon_playwright_extractor - INFO - Found 6 features.
+2025-06-01 20:12:25,365 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 20:12:25,402 - amazon_playwright_extractor - INFO - Description found using selector: #aplus_feature_div
+2025-06-01 20:12:25,403 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 20:12:25,734 - amazon_playwright_extractor - INFO - Specifications table parsed using selector: #productDetails_techSpec_section_1
+2025-06-01 20:12:25,734 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 20:12:25,734 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 20:12:25,734 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 20:12:25,734 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 20:12:31,810 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 20:12:31,912 - amazon_playwright_extractor - INFO - Keepa Sales Rank Details Table parsed.
+2025-06-01 20:12:31,912 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 20:12:31,944 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 20:12:37,196 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 20:12:38,296 - amazon_playwright_extractor - INFO - Found 136 rows in Keepa Product Details AG Grid.
+2025-06-01 20:12:39,743 - amazon_playwright_extractor - INFO - Found potential fee key 'FBA Pick&Pack Fee' with raw value: 'ú 2.65' in Keepa AG Grid.
+2025-06-01 20:12:39,878 - amazon_playwright_extractor - INFO - Found potential fee key 'Referral Fee based on current Buy Box price' with raw value: 'ú 0.80' in Keepa AG Grid.
+2025-06-01 20:12:42,339 - amazon_playwright_extractor - INFO - Parsed 39 items from Keepa Product Details AG Grid.
+2025-06-01 20:12:42,339 - amazon_playwright_extractor - INFO - ASIN B0DCWYVVDW: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 20:12:42,339 - amazon_playwright_extractor - INFO - ASIN B0DCWYVVDW: EAN '5060924610452' found in Keepa details via key 'Product Codes - EAN'.
+2025-06-01 20:12:42,339 - amazon_playwright_extractor - INFO - ASIN B0DCWYVVDW: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 20:12:42,339 - amazon_playwright_extractor - INFO - ASIN B0DCWYVVDW: BSR 8209 in 'Beauty 17' from Keepa SalesRankDetailsTable.
+2025-06-01 20:12:42,340 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B0DCWYVVDW as amazon_B0DCWYVVDW_5056175922222.json
+2025-06-01 20:12:42,341 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_5056175922222 -> B0DCWYVVDW
+2025-06-01 20:12:42,341 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B0DCWYVVDW - proceeding directly to detailed extraction
+2025-06-01 20:12:42,341 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Root Touch Up Powder, Instantly Conceals Hair Loss & Gray Roots, Water & Sweat Resistant, Men & Women's Thinning Hair Solution, Includes Brush (Dark Brown)' (ASIN: B0DCWYVVDW, EAN on page: 5060924610452)
+2025-06-01 20:12:42,341 - tools.utils.fba_calculator - INFO - Calculated FBA fees for product: {'fulfillment_fee': 9.73, 'referral_fee': 0.8, 'total_fees': 10.53, 'size_tier': 'small_oversize', 'monthly_storage_fee': 0.0, 'is_restricted': False, 'fee_breakdown': {'fulfillment_fee': 9.73, 'referral_fee': 0.8, 'monthly_storage_fee': 0.0, 'additional_fees': 0, 'total_fees': 10.53}, 'calculation_date': '2025-06-01T20:12:42.341790'}
+2025-06-01 20:12:42,341 - passive_extraction_workflow_latest - INFO - FBA Calculator - Size tier: small_oversize, Total fees: ú10.53
+2025-06-01 20:12:42,342 - passive_extraction_workflow_latest - INFO - Using BSR-based estimated monthly sales: 90
+2025-06-01 20:12:42,342 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' and Amazon product 'Root Touch Up Powder, Instantly Conceals Hair Loss & Gray Roots, Water & Sweat Resistant, Men & Women's Thinning Hair Solution, Includes Brush (Dark Brown)'. Skipping.
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 4/40: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24' (EAN: 5055257878532) ---
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mah...
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5055257878532
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B01LX41P0D - Glamorize Creme Colour Womens Permanent Hair Dye (6 Colour C...
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 5/40: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22' (EAN: 5055257877009) ---
+2025-06-01 20:12:42,343 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dar...
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5055257877009
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B002TIEDAO - L'Oreal Paris Casting Creme Gloss semi-permanent hair dye, b...
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 6/40: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (EAN: 5050375947849) ---
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5050375947849
+2025-06-01 20:12:42,344 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5050375947849 for supplier product: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (FixedAmazonExtractor)
+2025-06-01 20:12:42,348 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5050375947849
+2025-06-01 20:12:45,075 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5050375947849...
+2025-06-01 20:12:45,357 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 20:12:47,414 - passive_extraction_workflow_latest - INFO - Found 5 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:12:47,415 - passive_extraction_workflow_latest - INFO - Processing 5 search result elements for EAN 5050375947849
+2025-06-01 20:12:47,463 - passive_extraction_workflow_latest - WARNING - EAN 5050375947849 returned no organic results - skipping
+2025-06-01 20:12:47,463 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5050375947849'. Details: no_organic_results
+2025-06-01 20:12:47,463 - passive_extraction_workflow_latest - WARNING - EAN search for '5050375947849' failed or returned error: No results for EAN 5050375947849 or search error
+2025-06-01 20:12:47,463 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'. Falling back to title search.
+2025-06-01 20:12:47,463 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 20:12:47,467 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3
+2025-06-01 20:12:49,743 - passive_extraction_workflow_latest - INFO - Title search found 9 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:12:51,368 - passive_extraction_workflow_latest - INFO - Title search found 8 results for 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 20:12:51,369 - passive_extraction_workflow_latest - INFO - Extracting detailed Amazon data for ASIN: B0D83PNR9H (from title search)
+2025-06-01 20:12:51,369 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=PEST+SHIELD+EXTRA+STRENGTH+MOUSE+GLUE+TRAPS+-+PACK+OF+3&ref=nb_sb_noss
+2025-06-01 20:12:54,469 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:12:55,175 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:12:56,180 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 20:12:59,186 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 20:12:59,186 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:12:59,257 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:12:59,258 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 20:13:04,263 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 20:13:11,268 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B0D83PNR9H
+2025-06-01 20:13:11,268 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 20:13:11,323 - amazon_playwright_extractor - INFO - Title found: 'Sticky Pest Traps, Mehani 12 Pack Sticky Glue Boards, Large Extra Strong Sticky Pads, Efficient Foldable Sticky Traps Boards, Glue Boards for Multiple Insects in Indoor Outdoor Garage Kitchen Garden' via #productTitle
+2025-06-01 20:13:11,323 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 20:13:11,354 - amazon_playwright_extractor - INFO - Current price: 17.97 via #corePrice_feature_div .a-offscreen
+2025-06-01 20:13:11,398 - amazon_playwright_extractor - INFO - Original price: 21.99 via .basisPrice span.a-text-price span.a-offscreen
+2025-06-01 20:13:11,431 - amazon_playwright_extractor - INFO - Amazon sales badge found: 400 in container div#socialProofingAsinFaceout_feature_div
+2025-06-01 20:13:11,431 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 20:13:11,468 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/71on0zsaV-L._AC_SL1500_.jpg via #landingImage
+2025-06-01 20:13:11,564 - amazon_playwright_extractor - INFO - Found 7 thumbnails.
+2025-06-01 20:13:11,571 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 20:13:11,802 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 20:13:11,994 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 20:13:12,190 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 20:13:13,767 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 20:13:13,768 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 20:13:13,790 - amazon_playwright_extractor - INFO - Rating: 4.0 via #acrPopover[title*='out of 5 stars']
+2025-06-01 20:13:13,811 - amazon_playwright_extractor - INFO - Review count: 50 via #acrCustomerReviewText
+2025-06-01 20:13:13,811 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 20:13:13,835 - amazon_playwright_extractor - INFO - Availability text: 'In stock' via #availability span.a-size-medium.a-color-success
+2025-06-01 20:13:13,835 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 20:13:14,033 - amazon_playwright_extractor - INFO - Found 5 features.
+2025-06-01 20:13:14,033 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 20:13:14,133 - amazon_playwright_extractor - WARNING - Description not found by selectors. AI fallback.
+2025-06-01 20:13:14,133 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 20:13:15,098 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 20:13:15,101 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 20:13:15,436 - amazon_playwright_extractor - INFO - Specifications table parsed using selector: #productDetails_techSpec_section_1
+2025-06-01 20:13:15,436 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 20:13:15,436 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 20:13:15,436 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 20:13:15,436 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 20:13:21,521 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 20:13:21,615 - amazon_playwright_extractor - INFO - Keepa Sales Rank Details Table parsed.
+2025-06-01 20:13:21,615 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 20:13:21,644 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 20:13:22,751 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 20:13:23,834 - amazon_playwright_extractor - INFO - Found 145 rows in Keepa Product Details AG Grid.
+2025-06-01 20:13:25,375 - amazon_playwright_extractor - INFO - Found potential fee key 'FBA Pick&Pack Fee' with raw value: 'ú 3.05' in Keepa AG Grid.
+2025-06-01 20:13:25,503 - amazon_playwright_extractor - INFO - Found potential fee key 'Referral Fee based on current Buy Box price' with raw value: 'ú 2.70' in Keepa AG Grid.
+2025-06-01 20:13:28,316 - amazon_playwright_extractor - INFO - Parsed 41 items from Keepa Product Details AG Grid.
+2025-06-01 20:13:28,316 - amazon_playwright_extractor - INFO - ASIN B0D83PNR9H: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 20:13:28,316 - amazon_playwright_extractor - WARNING - ASIN B0D83PNR9H: Could not find EAN in Keepa product_details_tab_data.
+2025-06-01 20:13:28,316 - amazon_playwright_extractor - INFO - ASIN B0D83PNR9H: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 20:13:28,316 - amazon_playwright_extractor - INFO - ASIN B0D83PNR9H: BSR 2444 in 'Garden 31' from Keepa SalesRankDetailsTable.
+2025-06-01 20:13:28,317 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B0D83PNR9H as amazon_B0D83PNR9H_5050375947849.json
+2025-06-01 20:13:28,317 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_5050375947849 -> B0D83PNR9H
+2025-06-01 20:13:28,318 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B0D83PNR9H - proceeding directly to detailed extraction
+2025-06-01 20:13:28,318 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Sticky Pest Traps, Mehani 12 Pack Sticky Glue Boards, Large Extra Strong Sticky Pads, Efficient Foldable Sticky Traps Boards, Glue Boards for Multiple Insects in Indoor Outdoor Garage Kitchen Garden' (ASIN: B0D83PNR9H, EAN on page: N/A)
+2025-06-01 20:13:28,318 - tools.utils.fba_calculator - INFO - Calculated FBA fees for product: {'fulfillment_fee': 9.73, 'referral_fee': 2.7, 'total_fees': 12.75, 'size_tier': 'small_oversize', 'monthly_storage_fee': 0.33, 'is_restricted': False, 'fee_breakdown': {'fulfillment_fee': 9.73, 'referral_fee': 2.7, 'monthly_storage_fee': 0.33, 'additional_fees': 0, 'total_fees': 12.75}, 'calculation_date': '2025-06-01T20:13:28.318539'}
+2025-06-01 20:13:28,318 - passive_extraction_workflow_latest - INFO - FBA Calculator - Size tier: small_oversize, Total fees: ú12.75
+2025-06-01 20:13:28,318 - passive_extraction_workflow_latest - INFO - Using BSR-based estimated monthly sales: 130
+2025-06-01 20:13:28,319 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' and Amazon product 'Sticky Pest Traps, Mehani 12 Pack Sticky Glue Boards, Large Extra Strong Sticky Pads, Efficient Foldable Sticky Traps Boards, Glue Boards for Multiple Insects in Indoor Outdoor Garage Kitchen Garden'. Skipping.
+2025-06-01 20:13:28,319 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 7/40: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2' (EAN: 5050375947825) ---
+2025-06-01 20:13:28,319 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2...
+2025-06-01 20:13:28,319 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5050375947825
+2025-06-01 20:13:28,319 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0DYV8W1YL - GroZythre 8 Pack Pest Sticky Pad Traps Boards, Multi Insects...
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 8/40: 'Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes' (EAN: 5020535010997) ---
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30...
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5020535010997
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B07RM4PZC3 - Nuage Hayfever Relief Wipes - Hand & Face Wet Wipes | Remove...
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:13:28,320 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 9/40: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23' (EAN: 5060120173799) ---
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23...
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5060120173799
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B08BZY43XF - Ardaraz Repairing Moisturising Sheet Mask with Cica Concentr...
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:13:28,321 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:13:28,322 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 10/40: '151 Pest Shield Slug & Snail Killer - 300g' (EAN: 5053249240312) ---
+2025-06-01 20:13:28,322 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: 151 Pest Shield Slug & Snail Killer - 300g...
+2025-06-01 20:13:28,322 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5053249240312
+2025-06-01 20:13:28,322 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B08B1P9KWC - Pestshield 4X SLUG AND SNAIL KILLER 300G (6)...
+2025-06-01 20:13:28,323 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:13:28,323 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:13:28,324 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 11/40: 'Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry - 20ml - EXP: 01/24' (EAN: 5031413923490) ---
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry...
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5031413923490
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0D47ZBB59 - 6PCS Sheet Masks, Face Masks Skincare, Face Mask Set for Tee...
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 12/40: 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24' (EAN: 5031413924244) ---
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5031413924244
+2025-06-01 20:13:28,325 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5031413924244 for supplier product: 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24' (FixedAmazonExtractor)
+2025-06-01 20:13:28,330 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5031413924244
+2025-06-01 20:13:30,947 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5031413924244...
+2025-06-01 20:13:31,140 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 20:13:33,177 - passive_extraction_workflow_latest - INFO - Found 3 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 20:13:33,177 - passive_extraction_workflow_latest - INFO - Processing 3 search result elements for EAN 5031413924244
+2025-06-01 20:13:33,291 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0B9S6HKDQ (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:13:33,325 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0B9T3VN1R (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:13:33,360 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0B5HKSMLN (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:13:33,360 - passive_extraction_workflow_latest - WARNING - EAN 5031413924244 returned no organic results - skipping
+2025-06-01 20:13:33,360 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5031413924244'. Details: no_organic_results
+2025-06-01 20:13:33,360 - passive_extraction_workflow_latest - WARNING - EAN search for '5031413924244' failed or returned error: No results for EAN 5031413924244 or search error
+2025-06-01 20:13:33,361 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24'. Falling back to title search.
+2025-06-01 20:13:33,361 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24'
+2025-06-01 20:13:33,365 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Questaplast First Aid Kit - Pack of 25 - Exp: 08/24
+2025-06-01 20:13:35,772 - passive_extraction_workflow_latest - INFO - Title search found 14 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:13:37,398 - passive_extraction_workflow_latest - INFO - Title search found 8 results for 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24'
+2025-06-01 20:13:37,399 - passive_extraction_workflow_latest - INFO - Extracting detailed Amazon data for ASIN: B09P5C415H (from title search)
+2025-06-01 20:13:37,399 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=Questaplast+First+Aid+Kit+-+Pack+of+25+-+Exp%3A+08%2F24&ref=nb_sb_noss
+2025-06-01 20:13:40,614 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:13:41,166 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:13:42,183 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 20:13:45,206 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 20:13:45,206 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 20:13:45,282 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 20:13:45,282 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 20:13:50,285 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 20:13:57,300 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B09P5C415H
+2025-06-01 20:13:57,300 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 20:13:57,339 - amazon_playwright_extractor - INFO - Title found: 'Safety First Aid Group Workplace First Aid Kit (Large 21-50 Persons) Economy HSE-Compliant with Inspection Tags, Accident Book, Wall Bracket, Extra Plasters' via #productTitle
+2025-06-01 20:13:57,339 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 20:13:57,367 - amazon_playwright_extractor - INFO - Current price: 30.65 via #corePrice_feature_div .a-offscreen
+2025-06-01 20:13:57,407 - amazon_playwright_extractor - INFO - Original price: 35.94 via .basisPrice span.a-text-price span.a-offscreen
+2025-06-01 20:13:57,433 - amazon_playwright_extractor - INFO - Amazon sales badge found: 200 in container div#socialProofingAsinFaceout_feature_div
+2025-06-01 20:13:57,433 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 20:13:57,467 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/81kCEVrhcNL._AC_SL1500_.jpg via #landingImage
+2025-06-01 20:13:57,545 - amazon_playwright_extractor - INFO - Found 7 thumbnails.
+2025-06-01 20:13:57,551 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 20:13:57,745 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 20:13:57,960 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 20:13:58,174 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 20:14:00,179 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 20:14:00,180 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 20:14:00,203 - amazon_playwright_extractor - INFO - Rating: 4.6 via #acrPopover[title*='out of 5 stars']
+2025-06-01 20:14:00,223 - amazon_playwright_extractor - INFO - Review count: 345 via #acrCustomerReviewText
+2025-06-01 20:14:00,223 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 20:14:00,244 - amazon_playwright_extractor - INFO - Availability text: 'In stock' via #availability span.a-size-medium.a-color-success
+2025-06-01 20:14:00,244 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 20:14:00,453 - amazon_playwright_extractor - INFO - Found 5 features.
+2025-06-01 20:14:00,453 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 20:14:00,475 - amazon_playwright_extractor - INFO - Description found using selector: #productDescription
+2025-06-01 20:14:00,475 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 20:14:00,675 - amazon_playwright_extractor - INFO - Specifications table parsed using selector: #productDetails_techSpec_section_1
+2025-06-01 20:14:00,675 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 20:14:00,675 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 20:14:00,675 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 20:14:00,675 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 20:14:06,763 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 20:14:06,852 - amazon_playwright_extractor - INFO - Keepa Sales Rank Details Table parsed.
+2025-06-01 20:14:06,852 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 20:14:06,878 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 20:14:13,885 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 20:14:14,971 - amazon_playwright_extractor - INFO - Found 163 rows in Keepa Product Details AG Grid.
+2025-06-01 20:14:16,556 - amazon_playwright_extractor - INFO - Found potential fee key 'FBA Pick&Pack Fee' with raw value: 'ú 3.48' in Keepa AG Grid.
+2025-06-01 20:14:16,675 - amazon_playwright_extractor - INFO - Found potential fee key 'Referral Fee based on current Buy Box price' with raw value: 'ú 4.60' in Keepa AG Grid.
+2025-06-01 20:14:19,655 - amazon_playwright_extractor - INFO - Parsed 48 items from Keepa Product Details AG Grid.
+2025-06-01 20:14:19,656 - amazon_playwright_extractor - INFO - ASIN B09P5C415H: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 20:14:19,656 - amazon_playwright_extractor - INFO - ASIN B09P5C415H: EAN '5037331032092' found in Keepa details via key 'Product Codes - EAN'.
+2025-06-01 20:14:19,656 - amazon_playwright_extractor - INFO - ASIN B09P5C415H: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 20:14:19,656 - amazon_playwright_extractor - INFO - ASIN B09P5C415H: BSR 3788 in 'Health & Personal Care 40' from Keepa SalesRankDetailsTable.
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B09P5C415H as amazon_B09P5C415H_5031413924244.json
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_5031413924244 -> B09P5C415H
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B09P5C415H - proceeding directly to detailed extraction
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Safety First Aid Group Workplace First Aid Kit (Large 21-50 Persons) Economy HSE-Compliant with Inspection Tags, Accident Book, Wall Bracket, Extra Plasters' (ASIN: B09P5C415H, EAN on page: 5037331032092)
+2025-06-01 20:14:19,657 - tools.utils.fba_calculator - INFO - Calculated FBA fees for product: {'fulfillment_fee': 9.73, 'referral_fee': 2.45, 'total_fees': 15.24, 'size_tier': 'small_oversize', 'monthly_storage_fee': 1.25, 'is_restricted': False, 'fee_breakdown': {'fulfillment_fee': 9.73, 'referral_fee': 2.45, 'monthly_storage_fee': 1.25, 'additional_fees': 1.8, 'total_fees': 15.24}, 'calculation_date': '2025-06-01T20:14:19.657685'}
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - FBA Calculator - Size tier: small_oversize, Total fees: ú15.24
+2025-06-01 20:14:19,657 - passive_extraction_workflow_latest - INFO - Using BSR-based estimated monthly sales: 180
+2025-06-01 20:14:19,658 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'Questaplast First Aid Kit - Pack of 25 - Exp: 08/24' and Amazon product 'Safety First Aid Group Workplace First Aid Kit (Large 21-50 Persons) Economy HSE-Compliant with Inspection Tags, Accident Book, Wall Bracket, Extra Plasters'. Skipping.
+2025-06-01 20:14:19,658 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 13/40: 'Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24' (EAN: 5060120163547) ---
+2025-06-01 20:14:19,658 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/...
+2025-06-01 20:14:19,658 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5060120163547
+2025-06-01 20:14:19,658 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B01CC0GEEG - Tea Tree and Peppermint Deep Moisturising Pack (Hand Pack)...
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 14/40: 'Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel Wallet - EXP: 08/23' (EAN: 05060072087823) ---
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel ...
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_05060072087823
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B094KH8CDR - Waken, Spearmint Fluoride Toothpaste, Helps Protect Against ...
+2025-06-01 20:14:19,659 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 15/40: 'Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25' (EAN: 5060120164131) ---
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml -...
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5060120164131
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B00V2DJHKI - Argan Oil Hydrating Hair Mask With Moroccan Extract 220 Ml /...
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,660 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 16/40: 'Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24' (EAN: 5060120163714) ---
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24...
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5060120163714
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B004FIYZ0Y - Xpel Argan Oil Hair Treatment 100ml, 40167...
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,661 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 17/40: 'Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24' (EAN: 5060120163363) ---
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5060120163363
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B01MCYQF2P - Stalwart 163363-ITP Tea Tree Facial Scrub, 250 mL...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 18/40: 'PHYSICS AQA GCSE REVISION & EXAM PRACTICE BOOK' (EAN: 9781407176772) ---
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: PHYSICS AQA GCSE REVISION & EXAM PRACTICE BOOK...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9781407176772
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 1407176773 - GCSE Physics AQA Revision Guide and Practice Book. Perfect f...
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,662 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,663 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 19/40: 'PHYSICS ALL EXAM BOARDS GCSE EXAM PRACTICE BOOK' (EAN: 9781407176918) ---
+2025-06-01 20:14:19,663 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: PHYSICS ALL EXAM BOARDS GCSE EXAM PRACTICE BOOK...
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9781407176918
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 1407176919 - GCSE Physics Revision Guide and Practice Book for All Boards...
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 20/40: 'COMBINED SCIENCE GCSE HIGHER AQA PRACTICE EXAMS BOOK' (EAN: 182360) ---
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: COMBINED SCIENCE GCSE HIGHER AQA PRACTICE EXAMS BOOK...
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_182360
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B074KS4KPP - Design House 182360 Cubist Knob, 10-Pack, Brushed Nickel, 10...
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,664 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 21/40: 'STARDOLL SUPERSTAR STYLIST: HARDBACK BOOK' (EAN: 9780857510822) ---
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: STARDOLL SUPERSTAR STYLIST: HARDBACK BOOK...
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780857510822
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B016Q8FQM6 - Leather Vintage Embossed Cover Notebook Life Story Book Blan...
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:19,665 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 22/40: 'STARDOLL AUTUMN/WINTER TOP TREND: HARDBACK BOOK' (EAN: 9780857510808) ---
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: STARDOLL AUTUMN/WINTER TOP TREND: HARDBACK BOOK...
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780857510808
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0857510800 - Stardoll: Top Trends - Autumn/Winter...
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,666 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 23/40: 'SEMANTIC WORKBOOKS IN RING BINDER FOLDER' (EAN: 9780863882678) ---
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: SEMANTIC WORKBOOKS IN RING BINDER FOLDER...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780863882678
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B00XWUU1F4 - [(Semantic Workbooks)] [Author: Kay Beveridge] published on ...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 24/40: 'THE REMINISCENCE SKILLS TRAINING HAND BOOK' (EAN: 9780863883132) ---
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: THE REMINISCENCE SKILLS TRAINING HAND BOOK...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780863883132
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0863883133 - The Reminiscence Skills Training Handbook (Speechmark Practi...
+2025-06-01 20:14:19,667 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 25/40: 'SEASONAL ACTIVITIES FOR SENSORIMOTOR DEVELOPMENT BOOK BY By ANN BASOVA' (EAN: 86388530) ---
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: SEASONAL ACTIVITIES FOR SENSORIMOTOR DEVELOPMENT BOOK BY By ...
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_86388530
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0DK8SBSCR - POPRUN 18 Month Planner (Jul'25 - Dec'26) 2025-2026 A6 (16x1...
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,668 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 26/40: 'HOW TO STOP BULLYING 101 STRATEGIES BOOK' (EAN: 9780863887758) ---
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: HOW TO STOP BULLYING 101 STRATEGIES BOOK...
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780863887758
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0761YSSMY - How to Stop Bullying: 101 Strategies That Really Work...
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 27/40: 'DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK' (EAN: 9780863888120) ---
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK...
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780863888120
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0168YKE16 - Dementia Care - The Adaptive Response: A stress reductionist...
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,669 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 28/40: 'PLAY BETTER GAMES SPIRAL BOOK' (EAN: 9780863888212) ---
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: PLAY BETTER GAMES SPIRAL BOOK...
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780863888212
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0D2L4N7BB - Spiral: The instant Sunday Times bestseller perfect for summ...
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 29/40: 'BEYOUND TRANSITION RING BOOK' (EAN: 9781906517465) ---
+2025-06-01 20:14:19,670 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: BEYOUND TRANSITION RING BOOK...
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9781906517465
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B07JN7STKD - Beyond Transition: An Intervention Programme to Support Vune...
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 30/40: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK' (EAN: 90651704) ---
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 90651704
+2025-06-01 20:14:19,671 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 90651704 for supplier product: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK' (FixedAmazonExtractor)
+2025-06-01 20:14:19,675 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 90651704
+2025-06-01 20:14:21,829 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 90651704...
+2025-06-01 20:14:22,132 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 20:14:24,168 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 20:14:24,168 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 90651704
+2025-06-01 20:14:24,197 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BWYJYJ2Y (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:24,223 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DK3SRNF9 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:24,250 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DDH46K31 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B08DHQYYF8 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - WARNING - EAN 90651704 returned no organic results - skipping
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '90651704'. Details: no_organic_results
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - WARNING - EAN search for '90651704' failed or returned error: No results for EAN 90651704 or search error
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - INFO - EAN search failed for 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'. Falling back to title search.
+2025-06-01 20:14:24,270 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 20:14:24,275 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK
+2025-06-01 20:14:27,164 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:14:27,172 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 20:14:27,173 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'. Skipping. Details: No valid ASINs found for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 20:14:27,173 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 31/40: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS' (EAN: 90651705) ---
+2025-06-01 20:14:27,174 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 90651705
+2025-06-01 20:14:27,174 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 90651705 for supplier product: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS' (FixedAmazonExtractor)
+2025-06-01 20:14:27,179 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 90651705
+2025-06-01 20:14:29,108 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 90651705...
+2025-06-01 20:14:29,421 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 20:14:31,464 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 20:14:31,464 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 90651705
+2025-06-01 20:14:31,493 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BWYJYJ2Y (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:31,524 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DK3SRNF9 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:31,548 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DDH46K31 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:31,566 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B08DHQYYF8 (detected by ad-specific class: 'AdHolder')
+2025-06-01 20:14:31,566 - passive_extraction_workflow_latest - WARNING - EAN 90651705 returned no organic results - skipping
+2025-06-01 20:14:31,567 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '90651705'. Details: no_organic_results
+2025-06-01 20:14:31,567 - passive_extraction_workflow_latest - WARNING - EAN search for '90651705' failed or returned error: No results for EAN 90651705 or search error
+2025-06-01 20:14:31,567 - passive_extraction_workflow_latest - INFO - EAN search failed for 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'. Falling back to title search.
+2025-06-01 20:14:31,567 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 20:14:31,570 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS
+2025-06-01 20:14:33,793 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 20:14:33,804 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 20:14:33,805 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'. Skipping. Details: No valid ASINs found for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 32/40: 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK' (EAN: 9780007798391) ---
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK...
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007798391
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0007267894 - From Petticoat Tails to Arbroath Smokies: Traditional Foods ...
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:33,806 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 33/40: 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK' (EAN: 9780007798407) ---
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK...
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007798407
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0007267886 - From Eccles Cake to Hawkshead Wig: A Celebration of Northern...
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,807 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 34/40: 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK' (EAN: 9780007798414) ---
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: FROM NORFOLK KNOBS TO FIDGET PIE BOOK...
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007798414
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0007798415 - From Norfolk Knobs to Fidget Pie...
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,808 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 35/40: 'FROM BATH CHAPS TO BARA BIRTH BOOK' (EAN: 9780007798421) ---
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: FROM BATH CHAPS TO BARA BIRTH BOOK...
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007798421
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 0007798423 - From Bath Chaps to Bara Brith: The Taste of South West Brita...
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,809 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,810 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 36/40: 'LORRAINE KELLY COLOURS BOOK' (EAN: 9781843570110) ---
+2025-06-01 20:14:33,810 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: LORRAINE KELLY COLOURS BOOK...
+2025-06-01 20:14:33,810 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9781843570110
+2025-06-01 20:14:33,810 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 1843570114 - Colours (A Mary Ellen & Cameron book)...
+2025-06-01 20:14:33,810 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 37/40: 'LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK' (EAN: 9781843570127) ---
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK...
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9781843570127
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: 1843570122 - Mary Ellen and Cameron Play Hopscotch (A Mary Ellen & Camero...
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,811 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 38/40: 'THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK' (EAN: 9780007258352) ---
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK...
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007258352
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B01B98DQLQ - Prince Caspian: The Movie Storybook by Lana Jacobs (March 24...
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,812 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 39/40: 'HOW CAN I STOP CLIMATE CHANGE? BOOK' (EAN: 9780007261635) ---
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: HOW CAN I STOP CLIMATE CHANGE? BOOK...
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_9780007261635
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B002RI9QHG - How Can I Stop Climate Change: What is it and how to help: W...
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 20:14:33,813 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,814 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 40/40: 'MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS' (EAN: 8012979226925) ---
+2025-06-01 20:14:33,814 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS...
+2025-06-01 20:14:33,814 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_8012979226925
+2025-06-01 20:14:33,814 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0C38RCM3B - Skaaisont 10 Pcs Magnetic Clips Fridge Magnets have Anti-scr...
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: triage_stage - 0 passed, 0 rejected
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - WARNING - STAGE-GUARD WARNING: Triage stage rejected all 40 products. Check SellerAmp connectivity or criteria.
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: deep_extraction - 0 successful extractions, 0 errors
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: profitable_filtering - 0 profitable products found
+2025-06-01 20:14:33,815 - passive_extraction_workflow_latest - INFO - No profitable products found meeting all criteria in this run.
+2025-06-01 20:14:33,816 - passive_extraction_workflow_latest - INFO - Workflow summary saved to C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\fba_summary_clearance-king_co_uk_20250601_201102.json
+2025-06-01 20:14:33,816 - passive_extraction_workflow_latest - INFO - \U0001f4cb Session Summary: 35 products previously visited (resumed), 10 newly analyzed, 0 profitable products found
+2025-06-01 20:14:33,818 - passive_extraction_workflow_latest - INFO - Successfully saved linking map with 38 entries to C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json
+2025-06-01 20:14:33,818 - passive_extraction_workflow_latest - INFO - Persistent linking map updated with 38 entries
+2025-06-01 20:14:33,818 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 20:14:34,491 - passive_extraction_workflow_latest - ERROR - Error running FBA_Financial_calculator: name 'log' is not defined
+2025-06-01 20:14:34,491 - passive_extraction_workflow_latest - INFO - Amazon extractor browser connection intended to be kept open.
+2025-06-01 20:14:34,491 - configurable_supplier_scraper - INFO - AIOHTTP session closed.
+2025-06-01 20:14:34,492 - passive_extraction_workflow_latest - INFO - Web scraper session closed.
+2025-06-01 20:14:34,492 - passive_extraction_workflow_latest - INFO - Main workflow execution finished.
+2025-06-01 20:14:34,492 - main_orchestrator - WARNING - Passive extraction workflow returned no results
+2025-06-01 20:14:34,494 - main_orchestrator - INFO - Report saved to OUTPUTS\FBA_ANALYSIS\report_20250601_201434.json
+Clearing cache to ensure fresh start...
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+Phase 3: Integrated Supplier Analysis
+================================================================================
+
+Starting Complete FBA Analysis...
+Start Time: 2025-06-01 20:11:00
+
+Running Integrated Passive Extraction Workflow...
+Clearing cache to ensure fresh analysis...
+
+Analysis Complete!
+Processed: 0 products
+End Time: 2025-06-01 20:14:39
+[]
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000001D7583DDEE0>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000001D7583DC540>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 129, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 73, in __repr__
+    info.append(f'stdin={stdin.pipe}')
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe

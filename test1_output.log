@@ -1,90 +1,457 @@
-2025-05-30 16:56:05,436 - __main__ - INFO - Initializing Passive Extraction Workflow...
-2025-05-30 16:56:05,993 - __main__ - INFO - OpenAI client initialized with model gpt-4o-mini-2024-07-18
-2025-05-30 16:56:05,993 - __main__ - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 24 entries
-2025-05-30 16:56:05,993 - __main__ - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
-2025-05-30 16:56:05,993 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
-2025-05-30 16:56:05,994 - __main__ - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 24 entries
-2025-05-30 16:56:05,994 - __main__ - INFO - Loaded linking map with 24 entries
-2025-05-30 16:56:05,994 - __main__ - INFO - Running workflow for clearance-king.co.uk with max 1 products. Price range ú0.1-ú20.0.
-2025-05-30 16:56:05,994 - __main__ - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
-2025-05-30 16:56:05,994 - __main__ - INFO - Session ID: clearance-king_co_uk_20250530_165605
-2025-05-30 16:56:05,994 - __main__ - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
-2025-05-30 16:56:05,994 - __main__ - INFO - Resuming from index 2 (previous run state found)
-2025-05-30 16:56:05,995 - __main__ - INFO - Loaded 17 products from supplier cache (0.0 hours old)
-2025-05-30 16:56:05,995 - __main__ - INFO - STAGE-COMPLETE: supplier_scrape - 17 records
-2025-05-30 16:56:05,995 - __main__ - INFO - Successfully got 17 products from clearance-king.co.uk
-2025-05-30 16:56:05,995 - __main__ - INFO - Found 17 valid supplier products, 17 within price range [ú0.1-ú20.0]
-2025-05-30 16:56:05,995 - __main__ - INFO - STAGE-COMPLETE: price_filtering - 17 records
-2025-05-30 16:56:05,995 - __main__ - INFO - Processing up to 1 products starting from index 2.
-2025-05-30 16:56:05,995 - __main__ - INFO - --- Processing supplier product 1/1: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (EAN: 5056175922222) ---
-2025-05-30 16:56:05,996 - __main__ - INFO - Attempting Amazon search using EAN: 5056175922222
-2025-05-30 16:56:05,996 - __main__ - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
-2025-05-30 16:56:07,008 - __main__ - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
-2025-05-30 16:56:07,008 - __main__ - INFO - Found 4 existing pages (FixedAmazonExtractor)
-2025-05-30 16:56:07,008 - __main__ - INFO - Using existing page: https://www.amazon.co.uk/s?k=D%26K+Dengke+Cup+Shape+Glass+Pipe+%2B+Screen&ref=nb_sb_noss (FixedAmazonExtractor)
-2025-05-30 16:56:07,019 - __main__ - INFO - Searching Amazon by EAN: 5056175922222 for supplier product: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (FixedAmazonExtractor)
-2025-05-30 16:56:07,023 - __main__ - INFO - Navigating to Amazon UK to search for EAN: 5056175922222
-2025-05-30 16:56:09,633 - __main__ - INFO - Waiting for search results page to load for EAN 5056175922222...
-2025-05-30 16:56:10,008 - __main__ - INFO - Found search results container with selector: div.s-search-results
-2025-05-30 16:56:12,097 - __main__ - INFO - Found 7 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
-2025-05-30 16:56:12,097 - __main__ - INFO - Processing 7 search result elements for EAN 5056175922222
-2025-05-30 16:56:12,170 - __main__ - INFO - Skipping sponsored result: ASIN B0BLXT5HMX (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,201 - __main__ - INFO - Skipping sponsored result: ASIN B0DPN8NMX8 (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,231 - __main__ - INFO - Skipping sponsored result: ASIN B006ZDQIMA (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,252 - __main__ - INFO - Skipping sponsored result: ASIN B084L1LTVZ (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,331 - __main__ - INFO - Skipping sponsored result: ASIN B008D5HAHU (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,446 - __main__ - INFO - Skipping sponsored result: ASIN B01M63JLV4 (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,479 - __main__ - INFO - Skipping sponsored result: ASIN B0D62ZG4ZL (detected by ad-specific class: 'AdHolder')
-2025-05-30 16:56:12,479 - __main__ - WARNING - EAN 5056175922222 returned no organic results - skipping
-2025-05-30 16:56:12,479 - __main__ - WARNING - No Amazon results or error for EAN '5056175922222'. Details: no_organic_results
-2025-05-30 16:56:12,479 - __main__ - WARNING - EAN search for '5056175922222' failed or returned error: No results for EAN 5056175922222 or search error
-2025-05-30 16:56:12,480 - __main__ - INFO - EAN search failed for 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Falling back to title search.
-2025-05-30 16:56:12,480 - __main__ - INFO - Searching Amazon by title using search bar: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
-2025-05-30 16:56:12,485 - __main__ - INFO - Navigating to Amazon UK to search for title: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23
-2025-05-30 16:56:15,825 - __main__ - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
-2025-05-30 16:56:15,834 - __main__ - WARNING - No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
-2025-05-30 16:56:15,834 - __main__ - WARNING - No Amazon results for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Skipping. Details: No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
-2025-05-30 16:56:15,834 - __main__ - INFO - STAGE-COMPLETE: triage_stage - 0 passed, 0 rejected
-2025-05-30 16:56:15,834 - __main__ - WARNING - STAGE-GUARD WARNING: Triage stage rejected all 1 products. Check SellerAmp connectivity or criteria.
-2025-05-30 16:56:15,834 - __main__ - INFO - STAGE-COMPLETE: deep_extraction - 0 successful extractions, 0 errors
-2025-05-30 16:56:15,834 - __main__ - INFO - STAGE-COMPLETE: profitable_filtering - 0 profitable products found
-2025-05-30 16:56:15,834 - __main__ - INFO - No profitable products found meeting all criteria in this run.
-2025-05-30 16:56:15,835 - __main__ - INFO - Workflow summary saved to C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\fba_summary_clearance-king_co_uk_20250530_165605.json
-2025-05-30 16:56:15,835 - __main__ - INFO - \U0001f4cb Session Summary: 2 products analyzed, 0 profitable products found
-2025-05-30 16:56:15,837 - __main__ - INFO - Successfully saved linking map with 24 entries to C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json
-2025-05-30 16:56:15,837 - __main__ - INFO - Persistent linking map updated with 24 entries
-2025-05-30 16:56:15,837 - __main__ - INFO - Running FBA_Financial_calculator run_calculations...
-2025-05-30 16:56:16,369 - __main__ - ERROR - Error running FBA_Financial_calculator: name 'workflow_instance' is not defined
-2025-05-30 16:56:16,370 - __main__ - INFO - Workflow completed. No profitable products found.
-2025-05-30 16:56:16,370 - __main__ - INFO - Running FBA_Financial_calculator run_calculations...
-2025-05-30 16:56:16,387 - __main__ - INFO - FBA financial report generated at: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS\fba_financial_report_20250530_165616.csv
-2025-05-30 16:56:16,387 - __main__ - INFO - Amazon extractor browser connection intended to be kept open.
-2025-05-30 16:56:16,387 - __main__ - INFO - Web scraper session closed.
-2025-05-30 16:56:16,387 - __main__ - INFO - Main workflow execution finished.
+2025-06-01 09:54:22,874 - main_orchestrator - INFO - OpenAI client initialized for passive extraction workflow with model: gpt-4o-mini-2024-07-18
+2025-06-01 09:54:23,227 - main_orchestrator - INFO - OpenAI client initialized for Amazon extractor with model: gpt-4.1-mini-2025-04-14
+2025-06-01 09:54:23,228 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 09:54:23,228 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king - Copy
+2025-06-01 09:54:23,229 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king.co.uk
+2025-06-01 09:54:23,229 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king
+2025-06-01 09:54:23,229 - main_orchestrator - INFO - Orchestrator initialized with mode: full_ai_workflow
+2025-06-01 09:54:23,229 - main_orchestrator - INFO - Test mode: False, Clear cache: False, Selective clear: False
+2025-06-01 09:54:23,229 - main_orchestrator - INFO - Bypass AI scraping: False
+2025-06-01 09:54:23,229 - main_orchestrator - INFO - Supplier parser enabled: False
+2025-06-01 09:54:23,229 - main_orchestrator - INFO - Starting analysis with passive extraction workflow...
+2025-06-01 09:54:23,640 - main_orchestrator - INFO - Executing passive extraction workflow...
+2025-06-01 09:54:23,640 - passive_extraction_workflow_latest - INFO - Initializing Passive Extraction Workflow...
+2025-06-01 09:54:23,995 - passive_extraction_workflow_latest - INFO - OpenAI client initialized with model gpt-4o-mini-2024-07-18
+2025-06-01 09:54:23,996 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 7 entries
+2025-06-01 09:54:23,996 - passive_extraction_workflow_latest - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
+2025-06-01 09:54:23,996 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 09:54:23,996 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 7 entries
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - Loaded linking map with 7 entries
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - Running workflow for clearance-king.co.uk with max 10 products. Price range ú0.1-ú20.0.
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - Session ID: clearance-king_co_uk_20250601_095423
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
+2025-06-01 09:54:23,997 - passive_extraction_workflow_latest - INFO - Resuming from index 17 (previous run state found)
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Loaded 17 products from supplier cache (7.0 hours old)
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: supplier_scrape - 17 records
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Successfully got 17 products from clearance-king.co.uk
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Found 17 valid supplier products, 17 within price range [ú0.1-ú20.0]
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: price_filtering - 17 records
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - All cached products have been processed in previous runs. Fetching fresh supplier data...
+2025-06-01 09:54:23,998 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk or https://www.clearance-king.co.uk
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Extracting products from clearance-king.co.uk using two-step process.
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - AI category progression enabled - using hierarchical category selection
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - ERROR - Hierarchical category selection failed: 'str' object has no attribute 'exists'
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Using fallback category paths: ['/']
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Scraping supplier category: https://www.clearance-king.co.uk/
+2025-06-01 09:54:23,998 - passive_extraction_workflow_latest - INFO - Fetching supplier category page 1: https://www.clearance-king.co.uk/
+2025-06-01 09:54:23,999 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/ (attempt 1/3)
+2025-06-01 09:54:26,246 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/ (Size: 358143 bytes)
+2025-06-01 09:54:26,327 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,339 - passive_extraction_workflow_latest - INFO - Found 23 product elements in category https://www.clearance-king.co.uk/, page 1
+2025-06-01 09:54:26,340 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,341 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,343 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,344 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,345 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,346 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,347 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,348 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,349 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,350 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,351 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,352 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,353 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,354 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,356 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,357 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,358 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,359 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,361 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,362 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,363 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,364 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,365 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,366 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,367 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,368 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,369 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,371 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,372 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,373 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,374 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,375 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,376 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,378 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,379 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,380 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,381 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,382 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,383 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,385 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:26,386 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: D&K Dengke Cup Shape Glass Pipe + Screen from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 09:54:26,386 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (attempt 1/3)
+2025-06-01 09:54:26,386 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24 from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 09:54:26,386 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23 from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 09:54:26,387 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24 from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 09:54:26,387 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22 from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 09:54:27,386 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:27,387 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:27,387 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:27,388 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:27,778 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html (Size: 227933 bytes)
+2025-06-01 09:54:27,832 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:27,839 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:27,845 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html or https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 09:54:27,848 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5066113001070' from https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html
+2025-06-01 09:54:27,849 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/d-k-high-quality-glass-smoking-pipe-5-screens-9cm-bee-hive-assorted-designs-5.html: EAN=5066113001070, UPC=None, SKU=None
+2025-06-01 09:54:29,029 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html (Size: 188049 bytes)
+2025-06-01 09:54:29,082 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,087 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,093 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html or https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 09:54:29,096 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257877009' from https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html
+2025-06-01 09:54:29,096 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-dark-brown-0-24-ck.html: EAN=5055257877009, UPC=None, SKU=None
+2025-06-01 09:54:29,098 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html (Size: 187410 bytes)
+2025-06-01 09:54:29,145 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,150 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,157 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html or https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 09:54:29,160 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5055257878532' from https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html
+2025-06-01 09:54:29,160 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/hair-dye-mahogany-no-4-exp-11-23-0-24-ck.html: EAN=5055257878532, UPC=None, SKU=None
+2025-06-01 09:54:29,213 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html (Size: 186997 bytes)
+2025-06-01 09:54:29,270 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,275 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,281 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html or https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 09:54:29,284 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922222' from https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html
+2025-06-01 09:54:29,284 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/touch-up-dark-brown-exp-04-25-0-24-ck.html: EAN=5056175922222, UPC=None, SKU=None
+2025-06-01 09:54:29,284 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html (Size: 188046 bytes)
+2025-06-01 09:54:29,334 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,339 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:29,345 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html or https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 09:54:29,348 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5056175922239' from https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html
+2025-06-01 09:54:29,348 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html: EAN=5056175922239, UPC=None, SKU=None
+2025-06-01 09:54:29,349 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 5
+2025-06-01 09:54:29,349 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3 from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:29,349 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:29,350 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2 from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:29,350 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 09:54:29,350 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23 from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 09:54:29,350 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: 151 Pest Shield Slug & Snail Killer - 300g from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 09:54:30,350 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (attempt 1/3)
+2025-06-01 09:54:30,350 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (attempt 1/3)
+2025-06-01 09:54:30,351 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (attempt 1/3)
+2025-06-01 09:54:30,351 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (attempt 1/3)
+2025-06-01 09:54:30,441 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html (Size: 186465 bytes)
+2025-06-01 09:54:30,537 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:30,542 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:30,548 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html or https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:30,551 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947849' from https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:30,552 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/3pk-mouse-trap-glue-boards-0-24-ck.html: EAN=5050375947849, UPC=None, SKU=None
+2025-06-01 09:54:33,310 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html (Size: 553896 bytes)
+2025-06-01 09:54:33,437 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:33,443 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:33,449 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html or https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 09:54:33,453 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5020535010997' from https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html
+2025-06-01 09:54:33,453 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/nuage-hayfever-relief-wipes-suitable-for-kids-pack-of-30-wipes.html: EAN=5020535010997, UPC=None, SKU=None
+2025-06-01 09:54:34,334 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html (Size: 233463 bytes)
+2025-06-01 09:54:34,397 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:34,402 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:34,408 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html or https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 09:54:34,411 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120173799' from https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html
+2025-06-01 09:54:34,411 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xbc-xpel-body-care-gold-collagen-facial-mask.html: EAN=5060120173799, UPC=None, SKU=None
+2025-06-01 09:54:35,664 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html (Size: 286981 bytes)
+2025-06-01 09:54:35,734 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:35,740 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:35,745 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html or https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 09:54:35,749 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5053249240312' from https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html
+2025-06-01 09:54:35,749 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/151-pest-shield-slug-snail-killer-300g.html: EAN=5053249240312, UPC=None, SKU=None
+2025-06-01 09:54:36,381 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html (Size: 187325 bytes)
+2025-06-01 09:54:36,432 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:36,438 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:36,444 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html or https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:36,447 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5050375947825' from https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html
+2025-06-01 09:54:36,447 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/2pk-rat-trap-glue-boards-0-24-ck.html: EAN=5050375947825, UPC=None, SKU=None
+2025-06-01 09:54:36,448 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 10
+2025-06-01 09:54:36,448 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry - 20ml - EXP: 01/24 from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 09:54:36,448 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (attempt 1/3)
+2025-06-01 09:54:36,448 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Questaplast First Aid Kit - Pack of 25 - Exp: 08/24 from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 09:54:36,449 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24 from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 09:54:36,449 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel Wallet - EXP: 08/23 from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 09:54:36,449 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 09:54:37,453 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (attempt 1/3)
+2025-06-01 09:54:37,454 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (attempt 1/3)
+2025-06-01 09:54:37,455 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (attempt 1/3)
+2025-06-01 09:54:37,457 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (attempt 1/3)
+2025-06-01 09:54:39,075 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html (Size: 446417 bytes)
+2025-06-01 09:54:39,180 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:39,186 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:39,192 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html or https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 09:54:39,195 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413923490' from https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html
+2025-06-01 09:54:39,196 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/face-facts-printed-sheet-mask-pretty-peach-cheeky-cherry-20ml.html: EAN=5031413923490, UPC=None, SKU=None
+2025-06-01 09:54:39,764 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html (Size: 211775 bytes)
+2025-06-01 09:54:39,817 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:39,823 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:39,828 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html or https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 09:54:39,831 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5031413924244' from https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html
+2025-06-01 09:54:39,831 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/questaplast-first-aid-kit-pack-of-25.html: EAN=5031413924244, UPC=None, SKU=None
+2025-06-01 09:54:40,680 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html (Size: 190856 bytes)
+2025-06-01 09:54:40,730 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:40,736 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:40,742 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html or https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 09:54:40,745 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '05060072087823' from https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html
+2025-06-01 09:54:40,745 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/fluorodine-travel-kit-toothbrush-and-toothpaste-in-travel-wallet.html: EAN=05060072087823, UPC=None, SKU=None
+2025-06-01 09:54:41,705 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html (Size: 206077 bytes)
+2025-06-01 09:54:41,761 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:41,767 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:41,773 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html or https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 09:54:41,776 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163547' from https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html
+2025-06-01 09:54:41,776 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/tea-tree-peppermint-deep-moisturising-hand-pack.html: EAN=5060120163547, UPC=None, SKU=None
+2025-06-01 09:54:42,831 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html (Size: 214308 bytes)
+2025-06-01 09:54:42,883 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:42,888 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:42,894 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html or https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 09:54:42,897 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120164131' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html
+2025-06-01 09:54:42,897 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hydrating-hair-mask-vegan-220ml.html: EAN=5060120164131, UPC=None, SKU=None
+2025-06-01 09:54:42,897 - passive_extraction_workflow_latest - INFO - Processed batch of 5 detailed products from page 1, total extracted so far: 15
+2025-06-01 09:54:42,897 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24 from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 09:54:42,897 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (attempt 1/3)
+2025-06-01 09:54:42,898 - passive_extraction_workflow_latest - INFO - Getting detailed info for product: Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24 from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 09:54:43,905 - configurable_supplier_scraper - INFO - Fetching page content from: https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (attempt 1/3)
+2025-06-01 09:54:44,267 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html (Size: 199336 bytes)
+2025-06-01 09:54:44,323 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:44,328 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:44,334 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html or https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 09:54:44,337 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163714' from https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html
+2025-06-01 09:54:44,337 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-argan-oil-hair-treatment-100ml.html: EAN=5060120163714, UPC=None, SKU=None
+2025-06-01 09:54:45,111 - configurable_supplier_scraper - INFO - Successfully fetched content from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html (Size: 213421 bytes)
+2025-06-01 09:54:45,169 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:45,174 - configurable_supplier_scraper - INFO - Loaded selectors for domain clearance-king.co.uk from config\supplier_configs\clearance-king.co.uk.json
+2025-06-01 09:54:45,181 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html or https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 09:54:45,184 - configurable_supplier_scraper - INFO - Found Clearance King text barcode: '5060120163363' from https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html
+2025-06-01 09:54:45,184 - passive_extraction_workflow_latest - INFO - Identifier extraction for https://www.clearance-king.co.uk/xpel-brand-tea-tree-facial-scrub-250ml.html: EAN=5060120163363, UPC=None, SKU=None
+2025-06-01 09:54:45,184 - passive_extraction_workflow_latest - INFO - Processed batch of 2 detailed products from page 1, total extracted so far: 17
+2025-06-01 09:54:45,282 - configurable_supplier_scraper - WARNING - No selector configuration found for domain https://www.clearance-king.co.uk/ or https://www.clearance-king.co.uk/
+2025-06-01 09:54:45,524 - configurable_supplier_scraper - INFO - Could not determine next page URL for https://www.clearance-king.co.uk/ (current page: 1)
+2025-06-01 09:54:45,524 - passive_extraction_workflow_latest - INFO - No next page found by scraper for https://www.clearance-king.co.uk/. Ending pagination for this category path.
+2025-06-01 09:54:45,526 - passive_extraction_workflow_latest - INFO - Refreshed supplier cache with 17 products
+2025-06-01 09:54:45,526 - passive_extraction_workflow_latest - INFO - Refreshed data contains 17 products in price range
+2025-06-01 09:54:45,527 - passive_extraction_workflow_latest - INFO - Processing up to 10 products starting from index 0.
+2025-06-01 09:54:45,527 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 1/10: 'D&K Dengke Cup Shape Glass Pipe + Screen' (EAN: 5066113001070) ---
+2025-06-01 09:54:45,527 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: D&K Dengke Cup Shape Glass Pipe + Screen...
+2025-06-01 09:54:45,531 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5066113001070
+2025-06-01 09:54:45,531 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0D2L389R2 - Tabanzhe 40 PCS Conical Bowl Pipe Screens Filter,Pre-Cut Sta...
+2025-06-01 09:54:45,531 - passive_extraction_workflow_latest - INFO -   Match method: title_search
+2025-06-01 09:54:45,531 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 09:54:45,532 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 2/10: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24' (EAN: 5056175922239) ---
+2025-06-01 09:54:45,532 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5056175922239
+2025-06-01 09:54:45,532 - passive_extraction_workflow_latest - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
+2025-06-01 09:54:46,230 - passive_extraction_workflow_latest - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
+2025-06-01 09:54:46,230 - passive_extraction_workflow_latest - INFO - Found 2 existing pages (FixedAmazonExtractor)
+2025-06-01 09:54:46,230 - passive_extraction_workflow_latest - INFO - Using existing page: https://www.amazon.co.uk/s?k=Fluorodine+Travel+Kit+-+Toothbrush+And+Toothpaste+In+Travel+Wallet+-+EXP%3A+08%2F23&ref=nb_sb_noss (FixedAmazonExtractor)
+2025-06-01 09:54:46,275 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5056175922239 for supplier product: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24' (FixedAmazonExtractor)
+2025-06-01 09:54:46,285 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5056175922239
+2025-06-01 09:54:48,726 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5056175922239...
+2025-06-01 09:54:49,041 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:54:51,090 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 09:54:51,091 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5056175922239
+2025-06-01 09:54:51,140 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0772M489G (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:51,168 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DLL3ZL58 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:51,196 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CYZ6WF95 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B01F6FAQZC (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - WARNING - EAN 5056175922239 returned no organic results - skipping
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5056175922239'. Details: no_organic_results
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - WARNING - EAN search for '5056175922239' failed or returned error: No results for EAN 5056175922239 or search error
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'. Falling back to title search.
+2025-06-01 09:54:51,216 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 09:54:51,221 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24
+2025-06-01 09:54:53,765 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:54:53,773 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 09:54:53,773 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'. Skipping. Details: No valid ASINs found for title 'Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7 - Red Chilli - Exp: 07/24'
+2025-06-01 09:54:53,774 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 3/10: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (EAN: 5056175922222) ---
+2025-06-01 09:54:53,774 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5056175922222
+2025-06-01 09:54:53,774 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5056175922222 for supplier product: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23' (FixedAmazonExtractor)
+2025-06-01 09:54:53,779 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5056175922222
+2025-06-01 09:54:56,418 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5056175922222...
+2025-06-01 09:54:56,626 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:54:58,660 - passive_extraction_workflow_latest - INFO - Found 3 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 09:54:58,661 - passive_extraction_workflow_latest - INFO - Processing 3 search result elements for EAN 5056175922222
+2025-06-01 09:54:58,690 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B08NPPK4CX (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:58,720 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0772M489G (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0CYZ6WF95 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - WARNING - EAN 5056175922222 returned no organic results - skipping
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5056175922222'. Details: no_organic_results
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - WARNING - EAN search for '5056175922222' failed or returned error: No results for EAN 5056175922222 or search error
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Falling back to title search.
+2025-06-01 09:54:58,749 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 09:54:58,754 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23
+2025-06-01 09:55:00,892 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:00,905 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 09:55:00,905 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'. Skipping. Details: No valid ASINs found for title 'Glamorize Root Touch-Up - Shade 5 - Dark Brown - EXP: 04/23'
+2025-06-01 09:55:00,907 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 4/10: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24' (EAN: 5055257878532) ---
+2025-06-01 09:55:00,908 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5055257878532
+2025-06-01 09:55:00,908 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5055257878532 for supplier product: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24' (FixedAmazonExtractor)
+2025-06-01 09:55:00,917 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5055257878532
+2025-06-01 09:55:02,764 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5055257878532...
+2025-06-01 09:55:02,971 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:55:04,999 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 09:55:04,999 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 5055257878532
+2025-06-01 09:55:05,033 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0C39284R5 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:05,059 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0B9SN6GKB (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:05,084 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B083JNFJPJ (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:05,104 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B01AT9FI80 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:05,105 - passive_extraction_workflow_latest - WARNING - EAN 5055257878532 returned no organic results - skipping
+2025-06-01 09:55:05,105 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5055257878532'. Details: no_organic_results
+2025-06-01 09:55:05,105 - passive_extraction_workflow_latest - WARNING - EAN search for '5055257878532' failed or returned error: No results for EAN 5055257878532 or search error
+2025-06-01 09:55:05,105 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'. Falling back to title search.
+2025-06-01 09:55:05,105 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 09:55:05,109 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24
+2025-06-01 09:55:07,645 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:07,654 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 09:55:07,654 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'. Skipping. Details: No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mahogany - EXP: 08/24'
+2025-06-01 09:55:07,655 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 5/10: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22' (EAN: 5055257877009) ---
+2025-06-01 09:55:07,655 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5055257877009
+2025-06-01 09:55:07,655 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5055257877009 for supplier product: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22' (FixedAmazonExtractor)
+2025-06-01 09:55:07,661 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5055257877009
+2025-06-01 09:55:10,120 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5055257877009...
+2025-06-01 09:55:10,383 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:55:12,432 - passive_extraction_workflow_latest - INFO - Found 5 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:12,432 - passive_extraction_workflow_latest - INFO - Processing 5 search result elements for EAN 5055257877009
+2025-06-01 09:55:12,464 - passive_extraction_workflow_latest - WARNING - EAN 5055257877009 returned no organic results - skipping
+2025-06-01 09:55:12,464 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5055257877009'. Details: no_organic_results
+2025-06-01 09:55:12,464 - passive_extraction_workflow_latest - WARNING - EAN search for '5055257877009' failed or returned error: No results for EAN 5055257877009 or search error
+2025-06-01 09:55:12,464 - passive_extraction_workflow_latest - INFO - EAN search failed for 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'. Falling back to title search.
+2025-06-01 09:55:12,464 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 09:55:12,468 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22
+2025-06-01 09:55:15,030 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:15,038 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 09:55:15,038 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'. Skipping. Details: No valid ASINs found for title 'Glamorize Creme Colour Permanent Hair Dye - Shade No 5 - Dark Brown - Exp: 05/22'
+2025-06-01 09:55:15,038 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 6/10: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (EAN: 5050375947849) ---
+2025-06-01 09:55:15,039 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5050375947849
+2025-06-01 09:55:15,039 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5050375947849 for supplier product: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3' (FixedAmazonExtractor)
+2025-06-01 09:55:15,044 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5050375947849
+2025-06-01 09:55:17,199 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5050375947849...
+2025-06-01 09:55:17,426 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:55:19,484 - passive_extraction_workflow_latest - INFO - Found 5 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:19,484 - passive_extraction_workflow_latest - INFO - Processing 5 search result elements for EAN 5050375947849
+2025-06-01 09:55:19,525 - passive_extraction_workflow_latest - WARNING - EAN 5050375947849 returned no organic results - skipping
+2025-06-01 09:55:19,525 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5050375947849'. Details: no_organic_results
+2025-06-01 09:55:19,525 - passive_extraction_workflow_latest - WARNING - EAN search for '5050375947849' failed or returned error: No results for EAN 5050375947849 or search error
+2025-06-01 09:55:19,525 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'. Falling back to title search.
+2025-06-01 09:55:19,525 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 09:55:19,529 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3
+2025-06-01 09:55:22,066 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:22,078 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 09:55:22,078 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'. Skipping. Details: No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3'
+2025-06-01 09:55:22,079 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 7/10: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2' (EAN: 5050375947825) ---
+2025-06-01 09:55:22,080 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5050375947825
+2025-06-01 09:55:22,080 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5050375947825 for supplier product: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2' (FixedAmazonExtractor)
+2025-06-01 09:55:22,087 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5050375947825
+2025-06-01 09:55:23,861 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5050375947825...
+2025-06-01 09:55:24,143 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:55:27,081 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 09:55:27,081 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 5050375947825
+2025-06-01 09:55:27,115 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BN283H6C (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:27,115 - passive_extraction_workflow_latest - WARNING - EAN 5050375947825 returned no organic results - skipping
+2025-06-01 09:55:27,115 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5050375947825'. Details: no_organic_results
+2025-06-01 09:55:27,116 - passive_extraction_workflow_latest - WARNING - EAN search for '5050375947825' failed or returned error: No results for EAN 5050375947825 or search error
+2025-06-01 09:55:27,116 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'. Falling back to title search.
+2025-06-01 09:55:27,116 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 09:55:27,121 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2
+2025-06-01 09:55:29,631 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:29,640 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 09:55:29,640 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'. Skipping. Details: No valid ASINs found for title 'PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2'
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 8/10: 'Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes' (EAN: 5020535010997) ---
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30...
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5020535010997
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B0DGKKKB45 - Nuage Hayfever Relief Wipes, Resealable Pack (Pack of 3)...
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 09:55:29,641 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 09:55:29,642 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 9/10: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23' (EAN: 5060120173799) ---
+2025-06-01 09:55:29,642 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 5060120173799
+2025-06-01 09:55:29,642 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 5060120173799 for supplier product: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23' (FixedAmazonExtractor)
+2025-06-01 09:55:29,646 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 5060120173799
+2025-06-01 09:55:32,161 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 5060120173799...
+2025-06-01 09:55:32,354 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 09:55:34,384 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 09:55:34,384 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 5060120173799
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B07S7MTJ22 (detected by ad-specific class: 'AdHolder')
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - WARNING - EAN 5060120173799 returned no organic results - skipping
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '5060120173799'. Details: no_organic_results
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - WARNING - EAN search for '5060120173799' failed or returned error: No results for EAN 5060120173799 or search error
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - INFO - EAN search failed for 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'. Falling back to title search.
+2025-06-01 09:55:34,411 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 09:55:34,415 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23
+2025-06-01 09:55:36,758 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 09:55:36,766 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 09:55:36,766 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'. Skipping. Details: No valid ASINs found for title 'XBC Xpel Body Care Gold Collagen Facial Mask - Exp: 06/23'
+2025-06-01 09:55:36,766 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 10/10: '151 Pest Shield Slug & Snail Killer - 300g' (EAN: 5053249240312) ---
+2025-06-01 09:55:36,766 - passive_extraction_workflow_latest - INFO - \u2713 Previously visited product: 151 Pest Shield Slug & Snail Killer - 300g...
+2025-06-01 09:55:36,766 - passive_extraction_workflow_latest - INFO -   Product ID: EAN_5053249240312
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO -   Previous Amazon match: B08B1P9KWC - Pestshield 4X SLUG AND SNAIL KILLER 300G (6)...
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO -   Match method: EAN_search
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO -   Skipping to next product...
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: triage_stage - 0 passed, 0 rejected
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - WARNING - STAGE-GUARD WARNING: Triage stage rejected all 10 products. Check SellerAmp connectivity or criteria.
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: deep_extraction - 0 successful extractions, 0 errors
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: profitable_filtering - 0 profitable products found
+2025-06-01 09:55:36,767 - passive_extraction_workflow_latest - INFO - No profitable products found meeting all criteria in this run.
+2025-06-01 09:55:36,768 - passive_extraction_workflow_latest - INFO - Workflow summary saved to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\fba_summary_clearance-king_co_uk_20250601_095423.json
+2025-06-01 09:55:36,768 - passive_extraction_workflow_latest - INFO - \U0001f4cb Session Summary: 3 products previously visited (resumed), 14 newly analyzed, 0 profitable products found
+2025-06-01 09:55:36,771 - passive_extraction_workflow_latest - INFO - Successfully saved linking map with 7 entries to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json
+2025-06-01 09:55:36,771 - passive_extraction_workflow_latest - INFO - Persistent linking map updated with 7 entries
+2025-06-01 09:55:36,771 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 09:55:37,480 - passive_extraction_workflow_latest - INFO - FBA financial report generated at: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\fba_financial_report_20250601_095537.csv
+2025-06-01 09:55:37,481 - passive_extraction_workflow_latest - INFO - Workflow completed. No profitable products found.
+2025-06-01 09:55:37,481 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 09:55:37,492 - passive_extraction_workflow_latest - INFO - FBA financial report generated at: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\fba_financial_report_20250601_095537.csv
+2025-06-01 09:55:37,493 - passive_extraction_workflow_latest - INFO - Amazon extractor browser connection intended to be kept open.
+2025-06-01 09:55:37,493 - configurable_supplier_scraper - INFO - AIOHTTP session closed.
+2025-06-01 09:55:37,493 - passive_extraction_workflow_latest - INFO - Web scraper session closed.
+2025-06-01 09:55:37,493 - passive_extraction_workflow_latest - INFO - Main workflow execution finished.
+2025-06-01 09:55:37,494 - main_orchestrator - WARNING - Passive extraction workflow returned no results
+2025-06-01 09:55:37,497 - main_orchestrator - INFO - Report saved to OUTPUTS\FBA_ANALYSIS\report_20250601_095537.json
+Clearing cache to ensure fresh start...
+[]
 ================================================================================
-Amazon FBA Passive Extraction Workflow
-Version: 1.0.3 - 2025-05-30
-Output Directory: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\FBA_ANALYSIS
-Using FixedAmazonExtractor for improved extension compatibility.
-Profitability Criteria: Min ROI 35.0%, Min Profit ú3.0
+Amazon FBA Agent System - Complete Analysis
+Clearing cache to ensure fresh start...
 ================================================================================
+Amazon FBA Agent System - Complete Analysis
+Phase 3: Integrated Supplier Analysis
+================================================================================
+
+Starting Complete FBA Analysis...
+Start Time: 2025-06-01 09:54:21
+
+Running Integrated Passive Extraction Workflow...
+Clearing cache to ensure fresh analysis...
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS
 Processing 17 supplier products...
-Loaded persistent linking map with 24 entries
-Found Amazon data via linking map: EAN_5056175922239 -> B0D31RM328
-Found Amazon data via linking map: EAN_5055257878532 -> B01LX41P0D
-Found Amazon data via linking map: EAN_5055257877009 -> B002TIEDAO
-Found Amazon data via linking map: EAN_5050375947825 -> B0DYV8W1YL
-Found Amazon data via linking map: EAN_5020535010997 -> B07RM4PZC3
-Found Amazon data via linking map: EAN_5060120173799 -> B08BZY43XF
+Loaded persistent linking map with 7 entries
+Found Amazon data via linking map: EAN_5066113001070 -> B0D2L389R2
+Found Amazon data via linking map: EAN_5020535010997 -> B0DGKKKB45
+No price found for: EAN=5020535010997, ASIN=None, Title=Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes
 Found Amazon data via linking map: EAN_5053249240312 -> B08B1P9KWC
-Found Amazon data via linking map: EAN_5031413923490 -> B0D47ZBB59
+No price found for: EAN=5053249240312, ASIN=None, Title=151 Pest Shield Slug & Snail Killer - 300g
 Found Amazon data via linking map: EAN_5060120163547 -> B01CC0GEEG
-Found Amazon data via linking map: EAN_05060072087823 -> B094KH8CDR
+No price found for: EAN=5060120163547, ASIN=None, Title=Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24
 Found Amazon data via linking map: EAN_5060120164131 -> B00V2DJHKI
 No price found for: EAN=5060120164131, ASIN=None, Title=Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25
-Found Amazon data via linking map: EAN_5060120163714 -> B004FIYZ0Y
+Found Amazon data via linking map: EAN_5060120163714 -> B00CFI8S5Y
 Found Amazon data via linking map: EAN_5060120163363 -> B01MCYQF2P
-Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000002368E64F100>
+No price found for: EAN=5060120163363, ASIN=None, Title=Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS
+Processing 17 supplier products...
+Found Amazon data via linking map: EAN_5066113001070 -> B0D2L389R2
+Found Amazon data via linking map: EAN_5020535010997 -> B0DGKKKB45
+No price found for: EAN=5020535010997, ASIN=None, Title=Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes
+Found Amazon data via linking map: EAN_5053249240312 -> B08B1P9KWC
+No price found for: EAN=5053249240312, ASIN=None, Title=151 Pest Shield Slug & Snail Killer - 300g
+Found Amazon data via linking map: EAN_5060120163547 -> B01CC0GEEG
+No price found for: EAN=5060120163547, ASIN=None, Title=Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24
+Found Amazon data via linking map: EAN_5060120164131 -> B00V2DJHKI
+No price found for: EAN=5060120164131, ASIN=None, Title=Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25
+Found Amazon data via linking map: EAN_5060120163714 -> B00CFI8S5Y
+Found Amazon data via linking map: EAN_5060120163363 -> B01MCYQF2P
+No price found for: EAN=5060120163363, ASIN=None, Title=Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24
+
+Analysis Complete!
+Processed: 0 products
+End Time: 2025-06-01 09:55:42
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000002092604DEE0>
 Traceback (most recent call last):
   File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
     _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
@@ -93,7 +460,7 @@ Traceback (most recent call last):
   File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
     raise ValueError("I/O operation on closed pipe")
 ValueError: I/O operation on closed pipe
-Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000002368E64D760>
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000002092604C540>
 Traceback (most recent call last):
   File "C:\Python313\Lib\asyncio\base_subprocess.py", line 129, in __del__
     _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
@@ -104,7 +471,7 @@ Traceback (most recent call last):
   File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
     raise ValueError("I/O operation on closed pipe")
 ValueError: I/O operation on closed pipe
-Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000002368E64F100>
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000002092604DEE0>
 Traceback (most recent call last):
   File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
     _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)

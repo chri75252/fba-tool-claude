@@ -198,32 +198,59 @@ class ConfigurableSupplierScraper:
         log.info(f"Successfully extracted {len(products)} products from {url}")
         return products
 
-    def _get_selectors_for_domain(self, domain: str) -> Dict[str, Any]:
+    def _get_selectors_for_domain(self, domain_or_url: str) -> Dict[str, Any]:
         """Get selectors for a specific domain from external configuration files."""
         try:
-            # Clean domain name (remove www. prefix if present)
-            clean_domain = domain.replace('www.', '') if domain.startswith('www.') else domain
+            # Ensure we are working with a clean domain name
+            domain = get_domain_from_url(domain_or_url)
+            if not domain:
+                log.warning(f"Could not extract a valid domain from: {domain_or_url}")
+                return {}
+
+            # Check cache first
+            if domain in self.loaded_selector_configs:
+                # log.debug(f"Using cached selectors for domain {domain}")
+                return self.loaded_selector_configs[domain]
+
+            # Clean domain name (remove www. prefix if present) for filesystem lookup
+            # The load_supplier_selectors function is expected to handle variations like www.
             
-            # Try both original and cleaned domain names
-            for domain_name in [domain, clean_domain]:
-                # Try multiple possible config paths
+            config = load_supplier_selectors(domain) # Use the utility function
+            
+            if config:
+                log.info(f"Loaded selectors for domain {domain} using load_supplier_selectors.")
+                self.loaded_selector_configs[domain] = config # Cache it
+                return config
+            else:
+                # Fallback to direct filesystem check if load_supplier_selectors fails (should not happen ideally)
+                # This part can be removed if load_supplier_selectors is robust
+                clean_domain_fs = domain.replace('www.', '') # For filename matching
+                
                 possible_paths = [
-                    os.path.join("config", "supplier_configs", f"{domain_name}.json"),  # From root
-                    os.path.join("..", "config", "supplier_configs", f"{domain_name}.json"),  # From tools/
-                    os.path.join(os.path.dirname(__file__), "..", "config", "supplier_configs", f"{domain_name}.json")  # Absolute from script location
+                    os.path.join("config", "supplier_configs", f"{domain}.json"), 
+                    os.path.join("config", "supplier_configs", f"{clean_domain_fs}.json"),
+                    os.path.join("..", "config", "supplier_configs", f"{domain}.json"),  
+                    os.path.join("..", "config", "supplier_configs", f"{clean_domain_fs}.json"),
+                    os.path.join(os.path.dirname(__file__), "..", "config", "supplier_configs", f"{domain}.json"),
+                    os.path.join(os.path.dirname(__file__), "..", "config", "supplier_configs", f"{clean_domain_fs}.json")
                 ]
                 
                 for config_path in possible_paths:
                     if os.path.exists(config_path):
                         with open(config_path, 'r') as f:
-                            config = json.load(f)
-                            log.info(f"Loaded selectors for domain {domain_name} from {config_path}")
-                            return config
+                            loaded_config = json.load(f)
+                            log.info(f"Loaded selectors for domain {domain} (via fallback path: {config_path})")
+                            self.loaded_selector_configs[domain] = loaded_config # Cache it
+                            return loaded_config
             
-            log.warning(f"No selector configuration found for domain {domain} or {clean_domain}")
+            log.warning(f"No selector configuration found for domain {domain} (derived from {domain_or_url}) using any method.")
+            self.loaded_selector_configs[domain] = {} # Cache empty result to avoid re-attempts
             return {}
         except Exception as e:
-            log.error(f"Error loading selectors for domain {domain}: {e}")
+            log.error(f"Error loading selectors for domain derived from {domain_or_url}: {e}")
+            # Try to cache an empty dict for the original input to prevent repeated errors if domain extraction failed
+            if domain: # if domain was successfully extracted
+                 self.loaded_selector_configs[domain] = {}
             return {}
 
     def extract_product_elements(self, html_content: str, context_url: str) -> List[BeautifulSoup]:
@@ -544,19 +571,38 @@ class ConfigurableSupplierScraper:
             if extracted_code_str:
                 # Attempt to clean for numeric barcodes first
                 cleaned_numeric = re.sub(r'[^0-9]', '', extracted_code_str)
-                if cleaned_numeric and len(cleaned_numeric) in [8, 12, 13, 14]:
-                    log.info(f"Valid numeric identifier '{cleaned_numeric}' extracted using selectors from {context_url}.")
+                if cleaned_numeric and len(cleaned_numeric) in [8, 12, 13, 14]: # Standard EAN/UPC lengths
+                    log.info(f"Valid numeric identifier (EAN/UPC format) '{cleaned_numeric}' extracted using selectors from {context_url}.")
                     return cleaned_numeric
 
-                # If not a standard numeric barcode, consider it as SKU/MPN/Product Code
-                # Basic cleaning for alphanumeric codes: remove excessive whitespace, common prefixes/suffixes
-                cleaned_alphanumeric = re.sub(r'^(?:SKU|MPN|Code|ID|Item No\.?|Product Code)[\s:]*', '', extracted_code_str, flags=re.IGNORECASE).strip()
-                cleaned_alphanumeric = re.sub(r'[\s:-]+', '', cleaned_alphanumeric) # Compact common separators
+                # If not a standard numeric barcode, consider it as SKU/MPN/Product Code or other identifier
+                # Basic cleaning for alphanumeric codes: remove common prefixes/suffixes but preserve structure
+                cleaned_alphanumeric = re.sub(r'^(?:SKU|MPN|Code|ID|Item No\.?|Product Code|P/N|Part No\.?)[\s:]*', '', extracted_code_str, flags=re.IGNORECASE).strip()
                 
-                if cleaned_alphanumeric and 3 < len(cleaned_alphanumeric) < 50:
+                # Avoid overly aggressive compaction for alphanumeric, allow some internal hyphens/spaces if meaningful
+                # Example: ABC-123 or XYZ 456 should be preserved if not clearly a barcode attempt
+                
+                # If it's purely numeric after this cleaning, but not a valid barcode length, it's likely an internal ID, not an EAN/UPC.
+                # We should be cautious about returning this if an EAN/UPC was expected.
+                # However, if the selector was for SKU/MPN, this might be valid.
+                # For now, if it becomes purely numeric and not barcode length, we won't treat it as a primary EAN for Amazon.
+                # It can still be stored as 'identifier' for the supplier product.
+                is_potentially_internal_numeric_id = False
+                temp_compacted_for_check = re.sub(r'[\s:-]+', '', cleaned_alphanumeric)
+                if temp_compacted_for_check.isdigit() and len(temp_compacted_for_check) not in [8, 12, 13, 14]:
+                    is_potentially_internal_numeric_id = True
+                    # log.debug(f"Identifier '{cleaned_alphanumeric}' from {context_url} is numeric but not standard EAN/UPC length.")
+
+                # Return if it seems like a valid alphanumeric SKU/MPN (not just a short, non-barcode number)
+                if cleaned_alphanumeric and 3 < len(cleaned_alphanumeric) < 50 and not is_potentially_internal_numeric_id:
                     if len(cleaned_alphanumeric.split()) < 4 and cleaned_alphanumeric.lower() not in ['n/a', 'none', 'unknown', 'not available']:
-                        log.info(f"Potential alphanumeric identifier '{cleaned_alphanumeric}' (from '{extracted_code_str}') extracted from {context_url}.")
+                        log.info(f"Potential alphanumeric identifier (SKU/MPN) '{cleaned_alphanumeric}' (from '{extracted_code_str}') extracted from {context_url}.")
                         return cleaned_alphanumeric
+                elif cleaned_alphanumeric and is_potentially_internal_numeric_id:
+                    # If it was an internal numeric ID, and that's what we got, return it. Passive workflow can decide if it tries it as EAN.
+                    log.info(f"Potential internal numeric ID '{cleaned_alphanumeric}' (from '{extracted_code_str}') extracted from {context_url}.")
+                    return cleaned_alphanumeric
+                # else: log.debug(f"Discarding '{cleaned_alphanumeric}' from '{extracted_code_str}' as it doesn't meet SKU/MPN criteria or is a non-barcode numeric string.")
         
         log.warning(f"Failed to extract EAN/Barcode/Identifier with selectors from {context_url}. Attempting AI fallback.")
         ai_identifier_str = await self._ai_extract_field_from_html_element(
@@ -974,6 +1020,45 @@ class ConfigurableSupplierScraper:
             log.error(f"Error discovering subpages for {category_url} at depth {current_depth+1}: {e}", exc_info=True)
             return [category_url] # Return original if error
 
+    async def validate_url_exists(self, url: str) -> bool:
+        """
+        Quick HEAD request to check if URL exists and returns 200.
+
+        Args:
+            url: The URL to validate
+
+        Returns:
+            bool: True if URL exists and returns 200, False otherwise
+        """
+        try:
+            session = await self._get_session()
+            async with session.head(url, timeout=aiohttp.ClientTimeout(total=10)) as response:
+                return response.status == 200
+        except Exception as e:
+            log.debug(f"URL validation failed for {url}: {e}")
+            return False
+
+    async def filter_valid_urls(self, urls: List[str]) -> List[str]:
+        """
+        Filter a list of URLs to only include those that exist.
+
+        Args:
+            urls: List of URLs to validate
+
+        Returns:
+            List[str]: Only URLs that return 200 status
+        """
+        valid_urls = []
+        for url in urls:
+            if await self.validate_url_exists(url):
+                valid_urls.append(url)
+                log.debug(f"URL validated: {url}")
+            else:
+                log.warning(f"URL validation failed (404 or error): {url}")
+
+        log.info(f"URL validation: {len(valid_urls)}/{len(urls)} URLs are valid")
+        return valid_urls
+
     async def close_session(self):
         """
         Close the aiohttp session gracefully.
@@ -985,18 +1070,19 @@ class ConfigurableSupplierScraper:
 
     def extract_ean(self, product_page_soup, context_url: str = None):
         """Extract EAN from the product page using multiple selectors."""
+        selectors = [] # Default to empty list
         if context_url:
-            selectors_config = self._get_selectors_for_domain(context_url)
+            domain = urlparse(context_url).netloc # Parse domain from product page URL
+            selectors_config = self._get_selectors_for_domain(domain)
             selectors = selectors_config.get('field_mappings', {}).get('ean', [])
-        else:
-            selectors = []
-            
+        
+        # Fallback to generic selectors if no domain-specific ones are found or context_url is None
         if not selectors:
             selectors = [
                 "div.product-info-main div.ck-product-code-b-code span.ck-b-code-value b",
                 "div.product-info-main div.ck-product-code-b-code span.ck-b-code-value",
                 "table.additional-attributes-table td[data-th='EAN']",
-                "div.product.attribute.sku div.value[itemprop='sku']",
+                "div.product.attribute.sku div.value[itemprop='sku']", # SKUs can sometimes be EANs
                 "div.product.attribute.gtin div.value[itemprop='gtin13']"
             ]
         for selector in selectors:
@@ -1008,15 +1094,17 @@ class ConfigurableSupplierScraper:
 
     def extract_barcode(self, product_page_soup, context_url: str = None):
         """Extract barcode from the product page using multiple selectors."""
+        selectors = [] # Default to empty list
         if context_url:
-            selectors_config = self._get_selectors_for_domain(context_url)
+            domain = urlparse(context_url).netloc # Parse domain from product page URL
+            selectors_config = self._get_selectors_for_domain(domain)
             selectors = selectors_config.get('field_mappings', {}).get('barcode', [])
-        else:
-            selectors = []
-            
+        
+        # Fallback to generic selectors if no domain-specific ones are found or context_url is None
         if not selectors:
             selectors = [
                 "table.additional-attributes-table td[data-th='Barcode']"
+                # Add more generic barcode selectors if needed
             ]
         for selector in selectors:
             if selector:  # Skip empty selectors

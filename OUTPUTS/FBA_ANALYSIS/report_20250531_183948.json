@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "total_products_analyzed": 0,
+    "profitable_products_found": 0,
+    "success_rate": 0,
+    "avg_roi": 0,
+    "avg_profit": 0
+  },
+  "top_products": [],
+  "system_health": {
+    "status": "warning",
+    "timestamp": "2025-05-31T18:39:48.276097",
+    "metrics": {
+      "avg_cpu_percent": 9.27,
+      "avg_memory_percent": 86.39,
+      "total_products_processed": 0,
+      "avg_processing_time_seconds": 0,
+      "error_count": 0
+    },
+    "warnings": [
+      "High memory usage"
+    ],
+    "recent_errors": []
+  },
+  "timestamp": "2025-05-31T18:39:48.276122"
+}

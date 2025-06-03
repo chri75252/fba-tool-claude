@@ -1,0 +1,456 @@
+2025-06-01 12:04:27,701 - main_orchestrator - INFO - OpenAI client initialized for passive extraction workflow with model: gpt-4o-mini-2024-07-18
+2025-06-01 12:04:28,101 - main_orchestrator - INFO - OpenAI client initialized for Amazon extractor with model: gpt-4.1-mini-2025-04-14
+2025-06-01 12:04:28,102 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:04:28,102 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king - Copy
+2025-06-01 12:04:28,103 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king.co.uk
+2025-06-01 12:04:28,103 - supplier_parser - INFO - Loaded configuration for supplier: clearance-king
+2025-06-01 12:04:28,103 - main_orchestrator - INFO - Orchestrator initialized with mode: full_ai_workflow
+2025-06-01 12:04:28,103 - main_orchestrator - INFO - Test mode: False, Clear cache: False, Selective clear: False
+2025-06-01 12:04:28,103 - main_orchestrator - INFO - Bypass AI scraping: False
+2025-06-01 12:04:28,103 - main_orchestrator - INFO - Supplier parser enabled: False
+2025-06-01 12:04:28,103 - main_orchestrator - INFO - Starting analysis with passive extraction workflow...
+2025-06-01 12:04:28,674 - main_orchestrator - INFO - Executing passive extraction workflow...
+2025-06-01 12:04:28,675 - passive_extraction_workflow_latest - INFO - Initializing Passive Extraction Workflow...
+2025-06-01 12:04:29,057 - passive_extraction_workflow_latest - INFO - OpenAI client initialized with model gpt-4o-mini-2024-07-18
+2025-06-01 12:04:29,058 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 7 entries
+2025-06-01 12:04:29,058 - passive_extraction_workflow_latest - INFO - PassiveExtractionWorkflow initialized WITH an AI client.
+2025-06-01 12:04:29,058 - amazon_playwright_extractor - INFO - Output directory set to: C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE
+2025-06-01 12:04:29,058 - passive_extraction_workflow_latest - INFO - Loaded linking map from C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json with 7 entries
+2025-06-01 12:04:29,058 - passive_extraction_workflow_latest - INFO - Loaded linking map with 7 entries
+2025-06-01 12:04:29,058 - passive_extraction_workflow_latest - INFO - Running workflow for clearance-king.co.uk with max 10 products. Price range ú0.1-ú20.0.
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - Starting passive extraction workflow for supplier: clearance-king.co.uk (https://www.clearance-king.co.uk)
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - Session ID: clearance-king_co_uk_20250601_120429
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - PRICE CRITERIA: Min Supplier Cost ú0.1, Max Supplier Cost ú20.0
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - Resuming from index 8 (previous run state found)
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - Loaded 40 products from supplier cache (0.0 hours old)
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: supplier_scrape - 40 records
+2025-06-01 12:04:29,059 - passive_extraction_workflow_latest - INFO - Successfully got 40 products from clearance-king.co.uk
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - Found 40 valid supplier products, 40 within price range [ú0.1-ú20.0]
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: price_filtering - 40 records
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - Processing up to 10 products starting from index 8.
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 1/10: 'HOW TO STOP BULLYING 101 STRATEGIES BOOK' (EAN: 9780863887758) ---
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780863887758
+2025-06-01 12:04:29,060 - passive_extraction_workflow_latest - INFO - Connecting to Chrome browser on debug port 9222 (FixedAmazonExtractor)
+2025-06-01 12:04:30,860 - passive_extraction_workflow_latest - INFO - Successfully connected to Chrome on port 9222 (FixedAmazonExtractor)
+2025-06-01 12:04:30,861 - passive_extraction_workflow_latest - INFO - Found 2 existing pages (FixedAmazonExtractor)
+2025-06-01 12:04:30,861 - passive_extraction_workflow_latest - INFO - Using existing page: https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=SEASONAL+ACTIVITIES+FOR+SENSORIMOTOR+DEVELOPMENT+BOOK+BY+By+ANN+BASOVA (FixedAmazonExtractor)
+2025-06-01 12:04:30,868 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780863887758 for supplier product: 'HOW TO STOP BULLYING 101 STRATEGIES BOOK' (FixedAmazonExtractor)
+2025-06-01 12:04:30,873 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780863887758
+2025-06-01 12:04:33,060 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780863887758...
+2025-06-01 12:04:33,346 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:04:35,447 - passive_extraction_workflow_latest - WARNING - No search result elements found for EAN 9780863887758
+2025-06-01 12:04:35,447 - passive_extraction_workflow_latest - WARNING - EAN search for '9780863887758' failed or returned error: no_elements_found
+2025-06-01 12:04:35,447 - passive_extraction_workflow_latest - INFO - EAN search failed for 'HOW TO STOP BULLYING 101 STRATEGIES BOOK'. Falling back to title search.
+2025-06-01 12:04:35,447 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'HOW TO STOP BULLYING 101 STRATEGIES BOOK'
+2025-06-01 12:04:35,452 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: HOW TO STOP BULLYING 101 STRATEGIES BOOK
+2025-06-01 12:04:37,981 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:04:37,991 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'HOW TO STOP BULLYING 101 STRATEGIES BOOK'
+2025-06-01 12:04:37,992 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'HOW TO STOP BULLYING 101 STRATEGIES BOOK'. Skipping. Details: No valid ASINs found for title 'HOW TO STOP BULLYING 101 STRATEGIES BOOK'
+2025-06-01 12:04:37,993 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 2/10: 'DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK' (EAN: 9780863888120) ---
+2025-06-01 12:04:37,993 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780863888120
+2025-06-01 12:04:37,993 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780863888120 for supplier product: 'DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK' (FixedAmazonExtractor)
+2025-06-01 12:04:37,997 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780863888120
+2025-06-01 12:04:40,561 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780863888120...
+2025-06-01 12:04:40,937 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:04:42,956 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:04:42,956 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780863888120
+2025-06-01 12:04:43,032 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN B0168YKE16 - 6 Oct 2015...
+2025-06-01 12:04:43,032 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780863888120: ASIN B0168YKE16
+2025-06-01 12:04:43,032 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN B0168YKE16 for 9780863888120
+2025-06-01 12:04:43,032 - passive_extraction_workflow_latest - INFO - Single ASIN B0168YKE16 found for EAN 9780863888120.
+2025-06-01 12:04:43,033 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: B0168YKE16 for EAN: 9780863888120
+2025-06-01 12:04:43,033 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=9780863888120&ref=nb_sb_noss
+2025-06-01 12:04:45,285 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:04:45,730 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:04:46,738 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 12:04:49,756 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 12:04:49,757 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:04:49,826 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:04:49,826 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 12:04:54,835 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 12:05:01,846 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B0168YKE16
+2025-06-01 12:05:01,846 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 12:05:01,877 - amazon_playwright_extractor - INFO - Title found: 'Dementia Care - The Adaptive Response: A stress reductionist approach' via #productTitle
+2025-06-01 12:05:01,878 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 12:05:02,075 - amazon_playwright_extractor - WARNING - Current price not found by selectors. AI fallback.
+2025-06-01 12:05:02,178 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:04,036 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:04,039 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 12:05:04,073 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/8160knqEC6L._SL1324_.jpg via #landingImage
+2025-06-01 12:05:04,087 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 12:05:04,768 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 12:05:04,953 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 12:05:04,953 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:06,494 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:06,496 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 12:05:06,518 - amazon_playwright_extractor - INFO - Rating: 5.0 via #acrPopover[title*='out of 5 stars']
+2025-06-01 12:05:06,540 - amazon_playwright_extractor - INFO - Review count: 1 via #acrCustomerReviewText
+2025-06-01 12:05:06,540 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 12:05:06,669 - amazon_playwright_extractor - WARNING - Stock info not found by selector. AI fallback.
+2025-06-01 12:05:06,669 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:08,031 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:08,032 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 12:05:08,049 - amazon_playwright_extractor - WARNING - Features/bullets not found by selector. AI fallback.
+2025-06-01 12:05:08,049 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:08,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:08,986 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 12:05:09,068 - amazon_playwright_extractor - INFO - Description found using selector: div#bookDescription_feature_div
+2025-06-01 12:05:09,068 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 12:05:09,105 - amazon_playwright_extractor - WARNING - Specifications table not found/parsed by selectors. AI fallback.
+2025-06-01 12:05:09,106 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:10,589 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:10,591 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 12:05:10,591 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 12:05:10,591 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 12:05:10,591 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 12:05:16,677 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 12:05:16,779 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 12:05:16,826 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 12:05:17,935 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 12:05:19,022 - amazon_playwright_extractor - INFO - Found 88 rows in Keepa Product Details AG Grid.
+2025-06-01 12:05:21,430 - amazon_playwright_extractor - INFO - Parsed 26 items from Keepa Product Details AG Grid.
+2025-06-01 12:05:21,430 - amazon_playwright_extractor - INFO - ASIN B0168YKE16: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 12:05:21,431 - amazon_playwright_extractor - WARNING - ASIN B0168YKE16: Could not find EAN in Keepa product_details_tab_data.
+2025-06-01 12:05:21,431 - amazon_playwright_extractor - INFO - ASIN B0168YKE16: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 12:05:21,431 - amazon_playwright_extractor - WARNING - ASIN B0168YKE16: Could not find BSR in any Keepa data source.
+2025-06-01 12:05:21,431 - amazon_playwright_extractor - INFO - ASIN B0168YKE16: Current price missing/zero. Attempting fallback from Keepa Product Details.
+2025-06-01 12:05:21,431 - amazon_playwright_extractor - WARNING - ASIN B0168YKE16: Could not find a suitable current price in Keepa Product Details for fallback.
+2025-06-01 12:05:21,431 - passive_extraction_workflow_latest - INFO - Successfully extracted data for ASIN B0168YKE16 (EAN on page: N/A)
+2025-06-01 12:05:21,431 - passive_extraction_workflow_latest - INFO - EAN search successful for '9780863888120' - found ASIN: B0168YKE16
+2025-06-01 12:05:21,432 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B0168YKE16 as amazon_B0168YKE16_9780863888120.json
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_9780863888120 -> B0168YKE16
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - INFO - Cached fresh Amazon data from EAN search for ASIN: B0168YKE16
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B0168YKE16 - proceeding directly to detailed extraction
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Dementia Care - The Adaptive Response: A stress reductionist approach' (ASIN: B0168YKE16, EAN on page: N/A)
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - WARNING - Cannot calculate ROI: Invalid or missing supplier or Amazon price.
+2025-06-01 12:05:21,433 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK' and Amazon product 'Dementia Care - The Adaptive Response: A stress reductionist approach'. Skipping.
+2025-06-01 12:05:21,434 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 3/10: 'PLAY BETTER GAMES SPIRAL BOOK' (EAN: 9780863888212) ---
+2025-06-01 12:05:21,434 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780863888212
+2025-06-01 12:05:21,434 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780863888212 for supplier product: 'PLAY BETTER GAMES SPIRAL BOOK' (FixedAmazonExtractor)
+2025-06-01 12:05:21,444 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780863888212
+2025-06-01 12:05:23,949 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780863888212...
+2025-06-01 12:05:24,299 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:05:26,317 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:05:26,317 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780863888212
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 0863888216 - 29 Nov 2010...
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780863888212: ASIN 0863888216
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 0863888216 for 9780863888212
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - Single ASIN 0863888216 found for EAN 9780863888212.
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 0863888216 for EAN: 9780863888212
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - WARNING - EAN search for '9780863888212' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - EAN search failed for 'PLAY BETTER GAMES SPIRAL BOOK'. Falling back to title search.
+2025-06-01 12:05:26,374 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'PLAY BETTER GAMES SPIRAL BOOK'
+2025-06-01 12:05:26,379 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: PLAY BETTER GAMES SPIRAL BOOK
+2025-06-01 12:05:28,633 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:05:28,642 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'PLAY BETTER GAMES SPIRAL BOOK'
+2025-06-01 12:05:28,642 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'PLAY BETTER GAMES SPIRAL BOOK'. Skipping. Details: No valid ASINs found for title 'PLAY BETTER GAMES SPIRAL BOOK'
+2025-06-01 12:05:28,642 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 4/10: 'BEYOUND TRANSITION RING BOOK' (EAN: 9781906517465) ---
+2025-06-01 12:05:28,643 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9781906517465
+2025-06-01 12:05:28,643 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9781906517465 for supplier product: 'BEYOUND TRANSITION RING BOOK' (FixedAmazonExtractor)
+2025-06-01 12:05:28,654 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9781906517465
+2025-06-01 12:05:30,434 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9781906517465...
+2025-06-01 12:05:30,766 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:05:32,782 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:05:32,782 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9781906517465
+2025-06-01 12:05:32,861 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN B07JN7STKD - 24 Oct 2018...
+2025-06-01 12:05:32,861 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9781906517465: ASIN B07JN7STKD
+2025-06-01 12:05:32,861 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN B07JN7STKD for 9781906517465
+2025-06-01 12:05:32,862 - passive_extraction_workflow_latest - INFO - Single ASIN B07JN7STKD found for EAN 9781906517465.
+2025-06-01 12:05:32,862 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: B07JN7STKD for EAN: 9781906517465
+2025-06-01 12:05:32,862 - amazon_playwright_extractor - INFO - Reusing existing page: https://www.amazon.co.uk/s?k=9781906517465&ref=nb_sb_noss
+2025-06-01 12:05:34,859 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:05:35,076 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:05:36,078 - amazon_playwright_extractor - INFO - Checking for CAPTCHA...
+2025-06-01 12:05:39,089 - amazon_playwright_extractor - INFO - No CAPTCHA page detected by form selector.
+2025-06-01 12:05:39,089 - amazon_playwright_extractor - INFO - Checking for cookie consent pop-up...
+2025-06-01 12:05:39,170 - amazon_playwright_extractor - INFO - Finished checking for cookie consent pop-ups. If one was present and not handled, it might interfere.
+2025-06-01 12:05:39,170 - amazon_playwright_extractor - INFO - Page should be ready. Waiting 5s for stabilization...
+2025-06-01 12:05:44,188 - amazon_playwright_extractor - INFO - Waiting an additional 7s for extensions (Keepa, SellerAmp)...
+2025-06-01 12:05:51,205 - amazon_playwright_extractor - INFO - Extracting all product data for ASIN: B07JN7STKD
+2025-06-01 12:05:51,205 - amazon_playwright_extractor - INFO - Extracting basic product information (Title, Price, Images, Amazon Details)...
+2025-06-01 12:05:51,237 - amazon_playwright_extractor - INFO - Title found: 'Beyond Transition: An Intervention Programme to Support Vunerable Students at KS3' via #productTitle
+2025-06-01 12:05:51,238 - amazon_playwright_extractor - INFO - Extracting price details...
+2025-06-01 12:05:51,420 - amazon_playwright_extractor - WARNING - Current price not found by selectors. AI fallback.
+2025-06-01 12:05:51,494 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:52,781 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:52,782 - amazon_playwright_extractor - INFO - Extracting image URLs...
+2025-06-01 12:05:52,822 - amazon_playwright_extractor - INFO - Main image: https://m.media-amazon.com/images/I/418J-apk2vL._SY342_.jpg via #landingImage
+2025-06-01 12:05:52,836 - amazon_playwright_extractor - INFO - Extracting Amazon product details section...
+2025-06-01 12:05:53,623 - amazon_playwright_extractor - INFO - Extracting sales rank information...
+2025-06-01 12:05:53,743 - amazon_playwright_extractor - WARNING - Sales rank not found by selectors. AI fallback.
+2025-06-01 12:05:53,743 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:56,162 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:56,163 - amazon_playwright_extractor - INFO - Extracting ratings and reviews...
+2025-06-01 12:05:56,188 - amazon_playwright_extractor - INFO - Rating: 5.0 via #acrPopover[title*='out of 5 stars']
+2025-06-01 12:05:56,211 - amazon_playwright_extractor - INFO - Review count: 1 via #acrCustomerReviewText
+2025-06-01 12:05:56,211 - amazon_playwright_extractor - INFO - Extracting stock information...
+2025-06-01 12:05:56,292 - amazon_playwright_extractor - WARNING - Stock info not found by selector. AI fallback.
+2025-06-01 12:05:56,293 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:57,090 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:57,095 - amazon_playwright_extractor - INFO - Extracting features/bullets...
+2025-06-01 12:05:57,107 - amazon_playwright_extractor - WARNING - Features/bullets not found by selector. AI fallback.
+2025-06-01 12:05:57,107 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:05:59,130 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:05:59,131 - amazon_playwright_extractor - INFO - Extracting product description...
+2025-06-01 12:05:59,218 - amazon_playwright_extractor - INFO - Description found using selector: div#bookDescription_feature_div
+2025-06-01 12:05:59,218 - amazon_playwright_extractor - INFO - Extracting product specifications table...
+2025-06-01 12:05:59,256 - amazon_playwright_extractor - WARNING - Specifications table not found/parsed by selectors. AI fallback.
+2025-06-01 12:05:59,257 - amazon_playwright_extractor - WARNING - HTML content for AI extraction truncated to 24000 chars.
+2025-06-01 12:06:00,358 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-01 12:06:00,361 - amazon_playwright_extractor - INFO - Extracting SellerAmp data (if present)...
+2025-06-01 12:06:00,361 - amazon_playwright_extractor - INFO - SellerAmp data extraction is currently disabled as per requirements (Fix 2.3).
+2025-06-01 12:06:00,361 - amazon_playwright_extractor - INFO - Extracting Keepa data (if present)...
+2025-06-01 12:06:00,361 - amazon_playwright_extractor - INFO - Attempting to extract Keepa data...
+2025-06-01 12:06:06,475 - amazon_playwright_extractor - INFO - Keepa iframe found: iframe[id*='keepa']
+2025-06-01 12:06:06,504 - amazon_playwright_extractor - INFO - Keepa Graph AI Analysis is currently disabled as per requirements (Fix 2.4).
+2025-06-01 12:06:06,526 - amazon_playwright_extractor - INFO - Clicking Keepa 'Data' tab...
+2025-06-01 12:06:07,518 - amazon_playwright_extractor - INFO - Parsing Keepa AG Grid for Product Details from: div#MoreTab1 div#grid-product-detail
+2025-06-01 12:06:08,600 - amazon_playwright_extractor - INFO - Found 85 rows in Keepa Product Details AG Grid.
+2025-06-01 12:06:10,690 - amazon_playwright_extractor - INFO - Parsed 25 items from Keepa Product Details AG Grid.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - INFO - ASIN B07JN7STKD: Attempting to extract EANs from Keepa product_details_tab_data.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - WARNING - ASIN B07JN7STKD: Could not find EAN in Keepa product_details_tab_data.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - INFO - ASIN B07JN7STKD: BSR not found or invalid from page. Attempting fallback from Keepa.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - WARNING - ASIN B07JN7STKD: Could not find BSR in any Keepa data source.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - INFO - ASIN B07JN7STKD: Current price missing/zero. Attempting fallback from Keepa Product Details.
+2025-06-01 12:06:10,691 - amazon_playwright_extractor - WARNING - ASIN B07JN7STKD: Could not find a suitable current price in Keepa Product Details for fallback.
+2025-06-01 12:06:10,691 - passive_extraction_workflow_latest - INFO - Successfully extracted data for ASIN B07JN7STKD (EAN on page: N/A)
+2025-06-01 12:06:10,691 - passive_extraction_workflow_latest - INFO - EAN search successful for '9781906517465' - found ASIN: B07JN7STKD
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - INFO - Cached Amazon data for ASIN B07JN7STKD as amazon_B07JN7STKD_9781906517465.json
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - INFO - Added to linking map: EAN_9781906517465 -> B07JN7STKD
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - INFO - Cached fresh Amazon data from EAN search for ASIN: B07JN7STKD
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - INFO - Skipping triage for ASIN B07JN7STKD - proceeding directly to detailed extraction
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - INFO - Successfully got Amazon data for 'Beyond Transition: An Intervention Programme to Support Vunerable Students at KS3' (ASIN: B07JN7STKD, EAN on page: N/A)
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - WARNING - Cannot calculate ROI: Invalid or missing supplier or Amazon price.
+2025-06-01 12:06:10,693 - passive_extraction_workflow_latest - WARNING - Low quality match (low) between supplier product 'BEYOUND TRANSITION RING BOOK' and Amazon product 'Beyond Transition: An Intervention Programme to Support Vunerable Students at KS3'. Skipping.
+2025-06-01 12:06:10,694 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 5/10: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK' (EAN: 90651704) ---
+2025-06-01 12:06:10,694 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 90651704
+2025-06-01 12:06:10,694 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 90651704 for supplier product: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK' (FixedAmazonExtractor)
+2025-06-01 12:06:10,698 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 90651704
+2025-06-01 12:06:12,699 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 90651704...
+2025-06-01 12:06:13,066 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:15,097 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:06:15,097 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 90651704
+2025-06-01 12:06:15,125 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BWYJYJ2Y (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:15,153 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DK3SRNF9 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:15,177 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DDH46K31 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:15,200 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DGTRN4VJ (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:15,200 - passive_extraction_workflow_latest - WARNING - EAN 90651704 returned no organic results - skipping
+2025-06-01 12:06:15,200 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '90651704'. Details: no_organic_results
+2025-06-01 12:06:15,200 - passive_extraction_workflow_latest - WARNING - EAN search for '90651704' failed or returned error: No results for EAN 90651704 or search error
+2025-06-01 12:06:15,200 - passive_extraction_workflow_latest - INFO - EAN search failed for 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'. Falling back to title search.
+2025-06-01 12:06:15,201 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 12:06:15,205 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK
+2025-06-01 12:06:17,616 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:17,624 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 12:06:17,625 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'. Skipping. Details: No valid ASINs found for title 'TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK'
+2025-06-01 12:06:17,625 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 6/10: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS' (EAN: 90651705) ---
+2025-06-01 12:06:17,625 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 90651705
+2025-06-01 12:06:17,625 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 90651705 for supplier product: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS' (FixedAmazonExtractor)
+2025-06-01 12:06:17,630 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 90651705
+2025-06-01 12:06:20,085 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 90651705...
+2025-06-01 12:06:20,379 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:22,420 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-result-item[data-asin]:not([data-asin=''])
+2025-06-01 12:06:22,420 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 90651705
+2025-06-01 12:06:22,450 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0BWYJYJ2Y (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:22,485 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DK3SRNF9 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:22,511 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DDH46K31 (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - INFO - Skipping sponsored result: ASIN B0DGTRN4VJ (detected by ad-specific class: 'AdHolder')
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - WARNING - EAN 90651705 returned no organic results - skipping
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '90651705'. Details: no_organic_results
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - WARNING - EAN search for '90651705' failed or returned error: No results for EAN 90651705 or search error
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - INFO - EAN search failed for 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'. Falling back to title search.
+2025-06-01 12:06:22,530 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 12:06:22,535 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS
+2025-06-01 12:06:24,628 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:24,637 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 12:06:24,637 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'. Skipping. Details: No valid ASINs found for title 'MEDICATION & RESTORATION CIRCLE TIME BOOK BY TERESA BLISS'
+2025-06-01 12:06:24,638 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 7/10: 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK' (EAN: 9780007798391) ---
+2025-06-01 12:06:24,638 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007798391
+2025-06-01 12:06:24,638 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007798391 for supplier product: 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK' (FixedAmazonExtractor)
+2025-06-01 12:06:24,645 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007798391
+2025-06-01 12:06:26,732 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007798391...
+2025-06-01 12:06:27,022 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:29,071 - passive_extraction_workflow_latest - INFO - Found 4 search result elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:29,071 - passive_extraction_workflow_latest - INFO - Processing 4 search result elements for EAN 9780007798391
+2025-06-01 12:06:29,109 - passive_extraction_workflow_latest - WARNING - EAN 9780007798391 returned no organic results - skipping
+2025-06-01 12:06:29,109 - passive_extraction_workflow_latest - WARNING - No Amazon results or error for EAN '9780007798391'. Details: no_organic_results
+2025-06-01 12:06:29,109 - passive_extraction_workflow_latest - WARNING - EAN search for '9780007798391' failed or returned error: No results for EAN 9780007798391 or search error
+2025-06-01 12:06:29,109 - passive_extraction_workflow_latest - INFO - EAN search failed for 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK'. Falling back to title search.
+2025-06-01 12:06:29,109 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK'
+2025-06-01 12:06:29,113 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK
+2025-06-01 12:06:31,058 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:31,068 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK'
+2025-06-01 12:06:31,068 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK'. Skipping. Details: No valid ASINs found for title 'FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK'
+2025-06-01 12:06:31,069 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 8/10: 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK' (EAN: 9780007798407) ---
+2025-06-01 12:06:31,069 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007798407
+2025-06-01 12:06:31,069 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007798407 for supplier product: 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK' (FixedAmazonExtractor)
+2025-06-01 12:06:31,074 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007798407
+2025-06-01 12:06:34,186 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007798407...
+2025-06-01 12:06:34,492 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:36,514 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:06:36,515 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780007798407
+2025-06-01 12:06:36,584 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 0007267886 - 1 Oct 2007...
+2025-06-01 12:06:36,584 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780007798407: ASIN 0007267886
+2025-06-01 12:06:36,584 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 0007267886 for 9780007798407
+2025-06-01 12:06:36,584 - passive_extraction_workflow_latest - INFO - Single ASIN 0007267886 found for EAN 9780007798407.
+2025-06-01 12:06:36,584 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 0007267886 for EAN: 9780007798407
+2025-06-01 12:06:36,585 - passive_extraction_workflow_latest - WARNING - EAN search for '9780007798407' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:06:36,585 - passive_extraction_workflow_latest - INFO - EAN search failed for 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK'. Falling back to title search.
+2025-06-01 12:06:36,585 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK'
+2025-06-01 12:06:36,589 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK
+2025-06-01 12:06:39,094 - passive_extraction_workflow_latest - INFO - Title search found 5 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:39,405 - passive_extraction_workflow_latest - INFO - Title search found 1 results for 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK'
+2025-06-01 12:06:39,405 - passive_extraction_workflow_latest - INFO - Extracting detailed Amazon data for ASIN: 0007267886 (from title search)
+2025-06-01 12:06:39,405 - passive_extraction_workflow_latest - WARNING - Failed to get valid Amazon data for supplier product 'FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK'. Skipping.
+2025-06-01 12:06:39,406 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 9/10: 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK' (EAN: 9780007798414) ---
+2025-06-01 12:06:39,406 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007798414
+2025-06-01 12:06:39,406 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007798414 for supplier product: 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK' (FixedAmazonExtractor)
+2025-06-01 12:06:39,411 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007798414
+2025-06-01 12:06:41,467 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007798414...
+2025-06-01 12:06:41,803 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:43,834 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:06:43,835 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780007798414
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 0007798415 - From Norfolk Knobs to Fidget Pie...
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780007798414: ASIN 0007798415
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 0007798415 for 9780007798414
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - INFO - Single ASIN 0007798415 found for EAN 9780007798414.
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 0007798415 for EAN: 9780007798414
+2025-06-01 12:06:43,947 - passive_extraction_workflow_latest - WARNING - EAN search for '9780007798414' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:06:43,948 - passive_extraction_workflow_latest - INFO - EAN search failed for 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK'. Falling back to title search.
+2025-06-01 12:06:43,948 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK'
+2025-06-01 12:06:43,951 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: FROM NORFOLK KNOBS TO FIDGET PIE BOOK
+2025-06-01 12:06:46,402 - passive_extraction_workflow_latest - INFO - Title search found 4 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:46,521 - passive_extraction_workflow_latest - INFO - Title search found 1 results for 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK'
+2025-06-01 12:06:46,521 - passive_extraction_workflow_latest - INFO - Extracting detailed Amazon data for ASIN: 0007798415 (from title search)
+2025-06-01 12:06:46,521 - passive_extraction_workflow_latest - WARNING - Failed to get valid Amazon data for supplier product 'FROM NORFOLK KNOBS TO FIDGET PIE BOOK'. Skipping.
+2025-06-01 12:06:46,522 - passive_extraction_workflow_latest - INFO - --- Processing supplier product 10/10: 'FROM BATH CHAPS TO BARA BIRTH BOOK' (EAN: 9780007798421) ---
+2025-06-01 12:06:46,522 - passive_extraction_workflow_latest - INFO - Attempting Amazon search using EAN: 9780007798421
+2025-06-01 12:06:46,522 - passive_extraction_workflow_latest - INFO - Searching Amazon by EAN: 9780007798421 for supplier product: 'FROM BATH CHAPS TO BARA BIRTH BOOK' (FixedAmazonExtractor)
+2025-06-01 12:06:46,528 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for EAN: 9780007798421
+2025-06-01 12:06:48,746 - passive_extraction_workflow_latest - INFO - Waiting for search results page to load for EAN 9780007798421...
+2025-06-01 12:06:49,097 - passive_extraction_workflow_latest - INFO - Found search results container with selector: div.s-search-results
+2025-06-01 12:06:51,111 - passive_extraction_workflow_latest - INFO - Found 1 search result elements using selector: div[data-asin]:not([data-asin='']):not(.AdHolder):not([class*='s-widget-sponsored-product'])
+2025-06-01 12:06:51,111 - passive_extraction_workflow_latest - INFO - Processing 1 search result elements for EAN 9780007798421
+2025-06-01 12:06:51,174 - passive_extraction_workflow_latest - INFO - Found organic result: ASIN 0007798423 - 1 Jan 2007...
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - Single organic result found for EAN 9780007798421: ASIN 0007798423
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - EAN search selected ASIN 0007798423 for 9780007798421
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - Single ASIN 0007798423 found for EAN 9780007798421.
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - Proceeding with ASIN: 0007798423 for EAN: 9780007798421
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - WARNING - EAN search for '9780007798421' failed or returned error: Invalid or missing ASIN.
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - EAN search failed for 'FROM BATH CHAPS TO BARA BIRTH BOOK'. Falling back to title search.
+2025-06-01 12:06:51,175 - passive_extraction_workflow_latest - INFO - Searching Amazon by title using search bar: 'FROM BATH CHAPS TO BARA BIRTH BOOK'
+2025-06-01 12:06:51,184 - passive_extraction_workflow_latest - INFO - Navigating to Amazon UK to search for title: FROM BATH CHAPS TO BARA BIRTH BOOK
+2025-06-01 12:06:53,505 - passive_extraction_workflow_latest - INFO - Title search found 1 elements using selector: div.s-search-results > div[data-asin]
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - WARNING - No valid ASINs found for title 'FROM BATH CHAPS TO BARA BIRTH BOOK'
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - WARNING - No Amazon results for title 'FROM BATH CHAPS TO BARA BIRTH BOOK'. Skipping. Details: No valid ASINs found for title 'FROM BATH CHAPS TO BARA BIRTH BOOK'
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: triage_stage - 0 passed, 0 rejected
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - WARNING - STAGE-GUARD WARNING: Triage stage rejected all 10 products. Check SellerAmp connectivity or criteria.
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: deep_extraction - -2 successful extractions, 2 errors
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - INFO - STAGE-COMPLETE: profitable_filtering - 0 profitable products found
+2025-06-01 12:06:53,517 - passive_extraction_workflow_latest - INFO - No profitable products found meeting all criteria in this run.
+2025-06-01 12:06:53,518 - passive_extraction_workflow_latest - INFO - Workflow summary saved to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\fba_summary_clearance-king_co_uk_20250601_120429.json
+2025-06-01 12:06:53,518 - passive_extraction_workflow_latest - INFO - \U0001f4cb Session Summary: 18 products analyzed, 0 profitable products found
+2025-06-01 12:06:53,521 - passive_extraction_workflow_latest - INFO - Successfully saved linking map with 9 entries to C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\Linking map\linking_map.json
+2025-06-01 12:06:53,521 - passive_extraction_workflow_latest - INFO - Persistent linking map updated with 9 entries
+2025-06-01 12:06:53,521 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:06:54,049 - passive_extraction_workflow_latest - INFO - FBA financial report generated at: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports\fba_financial_report_20250601_120654.csv
+2025-06-01 12:06:54,049 - passive_extraction_workflow_latest - INFO - Workflow completed. No profitable products found.
+2025-06-01 12:06:54,049 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:06:54,062 - passive_extraction_workflow_latest - INFO - FBA financial report generated at: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports\fba_financial_report_20250601_120654.csv
+2025-06-01 12:06:54,062 - passive_extraction_workflow_latest - INFO - Running FBA_Financial_calculator run_calculations...
+2025-06-01 12:06:54,062 - passive_extraction_workflow_latest - ERROR - Error running FBA_Financial_calculator: name 'self' is not defined
+2025-06-01 12:06:54,062 - passive_extraction_workflow_latest - CRITICAL - Unhandled exception in main workflow execution: name 'profitable_results' is not defined
+Traceback (most recent call last):
+  File "C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\tools\passive_extraction_workflow_latest.py", line 2724, in run_workflow_main
+    return profitable_results # This return might be from the earlier block
+           ^^^^^^^^^^^^^^^^^^
+NameError: name 'profitable_results' is not defined
+2025-06-01 12:06:54,063 - passive_extraction_workflow_latest - INFO - Amazon extractor browser connection intended to be kept open.
+2025-06-01 12:06:54,064 - passive_extraction_workflow_latest - INFO - Web scraper session closed.
+2025-06-01 12:06:54,064 - passive_extraction_workflow_latest - INFO - Main workflow execution finished.
+2025-06-01 12:06:54,064 - main_orchestrator - WARNING - Passive extraction workflow returned no results
+2025-06-01 12:06:54,066 - main_orchestrator - INFO - Report saved to OUTPUTS\FBA_ANALYSIS\report_20250601_120654.json
+Clearing cache to ensure fresh start...
+[]
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+Clearing cache to ensure fresh start...
+================================================================================
+Amazon FBA Agent System - Complete Analysis
+Phase 3: Integrated Supplier Analysis
+================================================================================
+
+Starting Complete FBA Analysis...
+Start Time: 2025-06-01 12:04:25
+
+Running Integrated Passive Extraction Workflow...
+Clearing cache to ensure fresh analysis...
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports
+Processing 40 supplier products...
+Loaded persistent linking map with 9 entries
+No price found for: EAN=9780863882678, ASIN=None, Title=SEMANTIC WORKBOOKS IN RING BINDER FOLDER
+Found Amazon data via linking map: EAN_9780863888120 -> B0168YKE16
+No price found for: EAN=9780863888120, ASIN=None, Title=DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK
+Found Amazon data via linking map: EAN_9781906517465 -> B07JN7STKD
+No price found for: EAN=9781906517465, ASIN=None, Title=BEYOUND TRANSITION RING BOOK
+Found Amazon data via linking map: EAN_5066113001070 -> B0D2L389R2
+Processed 25/40 - No Amazon data for: EAN=5056175922239, ASIN=None
+Found Amazon data via linking map: EAN_5020535010997 -> B0DGKKKB45
+No price found for: EAN=5020535010997, ASIN=None, Title=Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes
+Found Amazon data via linking map: EAN_5053249240312 -> B08B1P9KWC
+No price found for: EAN=5053249240312, ASIN=None, Title=151 Pest Shield Slug & Snail Killer - 300g
+Found Amazon data via linking map: EAN_5060120163547 -> B01CC0GEEG
+No price found for: EAN=5060120163547, ASIN=None, Title=Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24
+Found Amazon data via linking map: EAN_5060120164131 -> B00V2DJHKI
+No price found for: EAN=5060120164131, ASIN=None, Title=Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25
+Found Amazon data via linking map: EAN_5060120163714 -> B00CFI8S5Y
+Found Amazon data via linking map: EAN_5060120163363 -> B01MCYQF2P
+No price found for: EAN=5060120163363, ASIN=None, Title=Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24
+Loading supplier products from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\cached_products\clearance-king_co_uk_products_cache.json
+Using Amazon data from: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\amazon_cache
+Output will be saved to: C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\OUTPUTS\FBA_ANALYSIS\financial_reports
+Processing 40 supplier products...
+No price found for: EAN=9780863882678, ASIN=None, Title=SEMANTIC WORKBOOKS IN RING BINDER FOLDER
+Found Amazon data via linking map: EAN_9780863888120 -> B0168YKE16
+No price found for: EAN=9780863888120, ASIN=None, Title=DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK
+Found Amazon data via linking map: EAN_9781906517465 -> B07JN7STKD
+No price found for: EAN=9781906517465, ASIN=None, Title=BEYOUND TRANSITION RING BOOK
+Found Amazon data via linking map: EAN_5066113001070 -> B0D2L389R2
+Processed 25/40 - No Amazon data for: EAN=5056175922239, ASIN=None
+Found Amazon data via linking map: EAN_5020535010997 -> B0DGKKKB45
+No price found for: EAN=5020535010997, ASIN=None, Title=Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30 Wipes
+Found Amazon data via linking map: EAN_5053249240312 -> B08B1P9KWC
+No price found for: EAN=5053249240312, ASIN=None, Title=151 Pest Shield Slug & Snail Killer - 300g
+Found Amazon data via linking map: EAN_5060120163547 -> B01CC0GEEG
+No price found for: EAN=5060120163547, ASIN=None, Title=Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/24
+Found Amazon data via linking map: EAN_5060120164131 -> B00V2DJHKI
+No price found for: EAN=5060120164131, ASIN=None, Title=Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml - EXP: 09/25
+Found Amazon data via linking map: EAN_5060120163714 -> B00CFI8S5Y
+Found Amazon data via linking map: EAN_5060120163363 -> B01MCYQF2P
+No price found for: EAN=5060120163363, ASIN=None, Title=Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24
+
+Analysis Complete!
+Processed: 0 products
+End Time: 2025-06-01 12:06:59
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x000001FD9984C540>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 129, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\base_subprocess.py", line 73, in __repr__
+    info.append(f'stdin={stdin.pipe}')
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe
+Exception ignored in: <function _ProactorBasePipeTransport.__del__ at 0x000001FD9984DEE0>
+Traceback (most recent call last):
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 116, in __del__
+    _warn(f"unclosed transport {self!r}", ResourceWarning, source=self)
+  File "C:\Python313\Lib\asyncio\proactor_events.py", line 80, in __repr__
+    info.append(f'fd={self._sock.fileno()}')
+  File "C:\Python313\Lib\asyncio\windows_utils.py", line 102, in fileno
+    raise ValueError("I/O operation on closed pipe")
+ValueError: I/O operation on closed pipe

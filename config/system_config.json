@@ -6,6 +6,7 @@
     "test_mode": false,
     "clear_cache": false,
     "selective_cache_clear": false,
+    "force_ai_category_suggestion": true,
     "bypass_ai_scraping": false,
     "enable_supplier_parser": false
   },
@@ -42,10 +43,11 @@
           "/pound-lines.html",
           "/household.html",
           "/health-beauty.html",
-          "/toys-games.html",
-          "/stationery.html",
-          "/pet-supplies.html",
-          "/car-care.html"
+          "/gifts-toys.html",
+          "/stationery-crafts.html",
+          "/pets.html",
+          "/baby-kids.html",
+          "/clearance-lines.html"
         ],
         "pagination_pattern": "?p={page_num}",
         "max_pages_per_category": 10
@@ -69,13 +71,13 @@
     }
   },
   "analysis": {
-    "min_roi_percent": 35.0,
-    "min_profit_per_unit": 3.0,
-    "min_rating": 4.0,
-    "min_reviews": 50,
+    "min_roi_percent": 30.0,
+    "min_profit_per_unit": 0.75,
+    "min_rating": 3.8,
+    "min_reviews": 20,
     "max_sales_rank": 150000,
     "min_monthly_sales": 10,
-    "max_competition_level": 5,
+    "max_competition_level": 12,
     "excluded_categories": [
       "Adult Products",
       "Dangerous Goods",
@@ -127,13 +129,13 @@
   },
   "cache": {
     "enabled": true,
-    "ttl_hours": 24,
+    "ttl_hours": 187,
     "max_size_mb": 500,
     "selective_clear_config": {
       "preserve_analyzed_products": true,
       "preserve_ai_categories": true,
       "preserve_linking_map": true,
-      "clear_unanalyzed_only": true,
+      "clear_unanalyzed_only": false,
       "clear_failed_extractions": true
     },
     "directories": {
@@ -221,7 +223,7 @@
         }
       },
       "hybrid_mode": {
-        "enabled": true,
+        "enabled": false,
         "description": "Use predefined categories, skip AI selection",
         "steps": [
           "predefined_categories",
@@ -230,8 +232,8 @@
           "profitability_analysis"
         ],
         "trigger_conditions": {
-          "bypass_ai_scraping": true,
-          "use_predefined_categories": true
+          "bypass_ai_scraping": false,
+          "use_predefined_categories": false
         }
       }
     }

@@ -5,23 +5,30 @@ Calculates ROI, net‑profit, breakeven price and profit margin by combining
 supplier data (from OUTPUTS/FBA_ANALYSIS/cache) with Amazon scrape data
 (from OUTPUTS/AMAZON_SCRAPE).
 
-* VAT rate hard‑coded to 20 % (UK seller).
-* Prep cost (ex‑VAT) default 0.50 £ / unit.
-* Shipping cost (ex‑VAT) default 0.00 £ / unit.
-* If FBA and Referral fees are missing in Keepa product details, you can supply fallback values.
-* Results are saved to C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/financial cal/fba_financial_report_<DATE>.csv
+* VAT rate hard‑coded to 20 % (UK seller).
+* Prep cost (ex‑VAT) default 0.50 £ / unit.
+* Shipping cost (ex‑VAT) default 0.00 £ / unit.
+* If FBA and Referral fees are missing in Keepa product details, you can supply fallback values.
+* Results are saved to the financial reports directory in OUTPUTS/FBA_ANALYSIS/financial_reports
 """
 
 import os
 import json
 import pandas as pd
 from datetime import datetime
+import logging
+
+# Set up logging
+log = logging.getLogger(__name__)
 
 # Paths
-SUPPLIER_CACHE = r"C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/FBA_ANALYSIS/cache/clearance-king_products_cache.json"
-AMAZON_SCRAPE_DIR = r"C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/FBA_ANALYSIS/amazon_cache"
-OUTPUT_DIR = r"C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/financial cal"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SUPPLIER_CACHE = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS", "cache", "clearance-king_products_cache.json")
+AMAZON_SCRAPE_DIR = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS", "amazon_cache")
+OUTPUT_DIR = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS")
+FINANCIAL_REPORTS_DIR = os.path.join(OUTPUT_DIR, "financial_reports")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(FINANCIAL_REPORTS_DIR, exist_ok=True)
 
 # Parameters
 VAT_RATE = 0.2
@@ -31,8 +38,8 @@ SHIP_COST = 0.0
 # Global variable to cache the linking map
 _linking_map = None
 
-# Define persistent linking map path (updated to match the correct location)
-LINKING_MAP_PATH = os.path.join(r"C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/FBA_ANALYSIS/Linking map", "linking_map.json")
+# Define persistent linking map path with relative path
+LINKING_MAP_PATH = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS", "Linking map", "linking_map.json")
 
 def load_linking_map():
     """Load the persistent linking map file for enhanced product matching."""
@@ -51,13 +58,12 @@ def load_linking_map():
             print(f"Error reading persistent linking map: {e}")
     
     # Fallback: Look for linking map files in the output directory (legacy)
-    base_output_dir = r"C:/Users/chris/Amazon-FBA-Agent-System/OUTPUTS/FBA_ANALYSIS"
     linking_files = []
     
-    if os.path.exists(base_output_dir):
-        for fname in os.listdir(base_output_dir):
+    if os.path.exists(OUTPUT_DIR):
+        for fname in os.listdir(OUTPUT_DIR):
             if fname.startswith("linking_map_") and fname.endswith(".json"):
-                linking_files.append(os.path.join(base_output_dir, fname))
+                linking_files.append(os.path.join(OUTPUT_DIR, fname))
     
     if not linking_files:
         print("No linking map found - using fallback lookup methods")
@@ -299,19 +305,25 @@ def run_calculations(supplier_cache_path=None, output_dir=None, amazon_scrape_di
     Returns:
         dict: Results containing DataFrame, statistics, and file path
     """
-    global AMAZON_SCRAPE_DIR
-    
-    # Use defaults if not provided
+    # Use parameters or default paths
     cache_path = supplier_cache_path or SUPPLIER_CACHE
-    out_dir = output_dir or OUTPUT_DIR
+    out_dir = output_dir or FINANCIAL_REPORTS_DIR
     amazon_dir = amazon_scrape_dir or AMAZON_SCRAPE_DIR
     
     # Ensure output directory exists
     os.makedirs(out_dir, exist_ok=True)
-    
-    # Update global AMAZON_SCRAPE_DIR if provided
-    if amazon_scrape_dir:
-        AMAZON_SCRAPE_DIR = amazon_scrape_dir
+
+    # === BEGIN ADDED DEBUG ===
+    if not os.path.exists(amazon_dir):
+        raise FileNotFoundError(f"CRITICAL FBA_Financial_calculator: amazon_dir does not exist: {amazon_dir}")
+    if not os.path.isdir(amazon_dir):
+        raise NotADirectoryError(f"CRITICAL FBA_Financial_calculator: amazon_dir is not a directory: {amazon_dir}")
+    log.info(f"FBA_Financial_calculator: amazon_dir confirmed to exist and is a directory: {amazon_dir}")
+    # === END ADDED DEBUG ===
+
+    print(f"Loading supplier products from: {cache_path}")
+    print(f"Using Amazon data from: {amazon_dir}")
+    print(f"Output will be saved to: {out_dir}")
     
     try:
         with open(cache_path, 'r', encoding='utf-8') as f:

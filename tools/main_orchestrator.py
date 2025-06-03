@@ -11,11 +11,11 @@ import shutil
 
 from configurable_supplier_scraper import ConfigurableSupplierScraper
 from amazon_playwright_extractor import AmazonExtractor  
-from fba_calculator import FBACalculator
+from tools.utils.fba_calculator import FBACalculator
 from supplier_parser import SupplierDataParser
 from supplier_api import SupplierAPIHandler
-from price_analyzer import PriceAnalyzer
-from currency_converter import CurrencyConverter
+# from tools.utils.price_analyzer import PriceAnalyzer # Commented out
+# from tools.utils.currency_converter import CurrencyConverter # Commented out
 from system_monitor import SystemMonitor
 
 # OpenAI import for centralized client management
@@ -55,12 +55,12 @@ class FBASystemOrchestrator:
         self.scraper = ConfigurableSupplierScraper()  # No AI client - pure HTML parsing
         self.parser = SupplierDataParser()
         self.api_handler = SupplierAPIHandler()
-        self.fba_calculator = FBACalculator()
-        self.currency_converter = CurrencyConverter()
-        self.price_analyzer = PriceAnalyzer(
-            self.fba_calculator,
-            self.currency_converter
-        )
+        # self.fba_calculator = FBACalculator() # Commented out
+        # self.currency_converter = CurrencyConverter() # Commented out
+        # self.price_analyzer = PriceAnalyzer( # Commented out
+        #     self.fba_calculator, # Commented out
+        #     self.currency_converter # Commented out
+        # ) # Commented out
         
         # Initialize simple data store
         self.data_store = SimpleDataStore()
@@ -224,7 +224,7 @@ class FBASystemOrchestrator:
         
         # Clear unanalyzed products only
         if self.selective_clear_config.get('clear_unanalyzed_only', True):
-            await self._clear_unanalyzed_products()
+            pass # Placeholder after removing the call, actual method will be removed next
         
         # Clear failed extractions
         if self.selective_clear_config.get('clear_failed_extractions', True):
@@ -250,58 +250,6 @@ class FBASystemOrchestrator:
                 log.info(f"Directory does not exist, skipping: {cache_dir}")
         
         log.info("Selective cache clearing process completed.")
-    
-    async def _clear_unanalyzed_products(self):
-        """Clear products that have been scraped but not analyzed."""
-        log.info("Clearing unanalyzed products...")
-        
-        # Load linking map to identify analyzed products
-        linking_map_path = Path(self.cache_config.get('directories', {}).get('linking_map', 'OUTPUTS/FBA_ANALYSIS/Linking map')) / 'linking_map.json'
-        analyzed_products = set()
-        
-        if linking_map_path.exists():
-            try:
-                with open(linking_map_path, 'r', encoding='utf-8') as f:
-                    linking_map = json.load(f)
-                    # Handle both list and dictionary formats
-                    if isinstance(linking_map, dict):
-                        analyzed_products = set(linking_map.keys())
-                    elif isinstance(linking_map, list):
-                        # If it's a list, extract product IDs from each item
-                        for item in linking_map:
-                            if isinstance(item, dict):
-                                product_id = item.get('ean') or item.get('title', '')
-                                if product_id:
-                                    analyzed_products.add(product_id)
-                    log.info(f"Loaded {len(analyzed_products)} analyzed products from linking map")
-            except Exception as e:
-                log.error(f"Failed to load linking map: {e}")
-        
-        # Clear supplier cache files for unanalyzed products
-        supplier_cache_dir = Path(self.cache_config.get('directories', {}).get('supplier_cache', 'OUTPUTS/cached_products'))
-        if supplier_cache_dir.exists():
-            for cache_file in supplier_cache_dir.glob('*.json'):
-                try:
-                    with open(cache_file, 'r', encoding='utf-8') as f:
-                        products = json.load(f)
-                    
-                    # Filter out unanalyzed products
-                    if isinstance(products, list):
-                        analyzed_count = 0
-                        for product in products:
-                            product_id = product.get('ean') or product.get('title', '')
-                            if product_id in analyzed_products:
-                                analyzed_count += 1
-                        
-                        if analyzed_count == 0:
-                            # No analyzed products in this file, safe to remove
-                            cache_file.unlink()
-                            log.info(f"Removed unanalyzed cache file: {cache_file}")
-                        else:
-                            log.info(f"Preserved cache file with {analyzed_count} analyzed products: {cache_file}")
-                            
-                except Exception as e:
-                    log.error(f"Error processing cache file {cache_file}: {e}")
     
     async def _clear_failed_extractions(self):
         """Clear failed extraction attempts."""
@@ -373,12 +321,11 @@ class FBASystemOrchestrator:
             suppliers: List of supplier IDs to process
             max_products: Maximum products to process per supplier
         """
-        # Clear cache if enabled - use selective clearing if configured
+        # Clear cache if enabled - simplified approach
         if self.clear_cache:
-            if self.selective_cache_clear:
-                await self.selective_clear_cache_dirs()
-            else:
-                await self.clear_cache_dirs()
+            log.info("Main orchestrator: clear_cache=True, but cache clearing is now handled by PassiveExtractionWorkflow")
+            # Cache clearing is now handled by PassiveExtractionWorkflow for better control
+            # await self.clear_cache_dirs()
         
         # Start monitoring
         monitor_task = asyncio.create_task(
@@ -537,24 +484,40 @@ class FBASystemOrchestrator:
             if not amazon_product:
                 return None
                 
-            # Analyze profitability
-            analysis = await self.price_analyzer.analyze_product_profitability(
-                supplier_product,
-                amazon_product
-            )
+            # Analyze profitability - THIS IS THE KEY USAGE TO COMMENT OUT or adapt
+            # analysis = await self.price_analyzer.analyze_product_profitability( # Commented out
+            #     supplier_product, # Commented out
+            #     amazon_product # Commented out
+            # ) # Commented out
+
+            # Placeholder for analysis if PriceAnalyzer is commented out
+            # We need a basic structure for 'analysis' or the rest of the logic will fail
+            # For now, let's assume a simple passthrough or mock structure if PriceAnalyzer is disabled.
+            # This part needs careful consideration based on how an "inactive" PriceAnalyzer should affect the flow.
+            # For now, to avoid breakage, we will create a mock analysis object.
+            # TODO: Re-evaluate how this section should behave if PriceAnalyzer is inactive.
+            # For the purpose of making it "inactive", we'll assume no analysis is done here by it.
+            # The downstream code expects an 'analysis' object with 'roi_percent' and 'net_profit'.
+
+            # Mock analysis if PriceAnalyzer is inactive
+            analysis_mock = type('AnalysisMock', (), {'roi_percent': 0, 'net_profit': 0})()
+
             
             # Check criteria
             min_roi = self.config.get('analysis', {}).get('min_roi_percent', 35)
             min_profit = self.config.get('analysis', {}).get('min_profit_per_unit', 3.0)
             
-            if (analysis.roi_percent >= min_roi and
-                analysis.net_profit >= min_profit):
+            # if (analysis.roi_percent >= min_roi and # Original line
+            #     analysis.net_profit >= min_profit): # Original line
+            if (analysis_mock.roi_percent >= min_roi and # Using mock
+                analysis_mock.net_profit >= min_profit): # Using mock
                 
                 return {
                     'supplier_id': supplier_id,
                     'supplier_product': supplier_product,
                     'amazon_product': amazon_product,
-                    'analysis': analysis,
+                    # 'analysis': analysis, # Original line
+                    'analysis': analysis_mock, # Using mock
                     'profitable': True,
                     'timestamp': datetime.now().isoformat()
                 }
@@ -584,30 +547,36 @@ class FBASystemOrchestrator:
         """Generate final analysis report."""
         health_report = await self.monitor.generate_health_report()
         
-        # Calculate summary statistics
-        total_analyzed = self.monitor.products_processed
-        profitable_found = len(self.results)
-        success_rate = (profitable_found / total_analyzed * 100) if total_analyzed > 0 else 0
-        
-        avg_roi = 0
-        avg_profit = 0
-        if self.results:
-            avg_roi = sum(r['analysis'].roi_percent for r in self.results) / len(self.results)
-            avg_profit = sum(r['analysis'].net_profit for r in self.results) / len(self.results)
+        # The following sections for 'summary' and 'top_products' have been removed.
+        # This data is more accurately reported by passive_extraction_workflow_latest.py
+        # in its fba_summary_{session_id}.json file.
+        # Keeping these sections here led to conflicting or potentially inaccurate data due to
+        # differences in how self.monitor.products_processed and self.results are 
+        # populated in the orchestrator context versus the detailed workflow context.
+
+        # Original code for summary statistics (now removed):
+        # total_analyzed = self.monitor.products_processed
+        # profitable_found = len(self.results)
+        # success_rate = (profitable_found / total_analyzed * 100) if total_analyzed > 0 else 0
+        # avg_roi = 0
+        # avg_profit = 0
+        # if self.results:
+        #     avg_roi = sum(r['analysis'].roi_percent for r in self.results) / len(self.results)
+        #     avg_profit = sum(r['analysis'].net_profit for r in self.results) / len(self.results)
         
         return {
-            'summary': {
-                'total_products_analyzed': total_analyzed,
-                'profitable_products_found': profitable_found,
-                'success_rate': round(success_rate, 2),
-                'avg_roi': round(avg_roi, 2),
-                'avg_profit': round(avg_profit, 2)
-            },
-            'top_products': sorted(
-                self.results,
-                key=lambda x: x['analysis'].roi_percent,
-                reverse=True
-            )[:10],
+            # 'summary': { # Section removed
+            #     'total_products_analyzed': total_analyzed,
+            #     'profitable_products_found': profitable_found,
+            #     'success_rate': round(success_rate, 2),
+            #     'avg_roi': round(avg_roi, 2),
+            #     'avg_profit': round(avg_profit, 2)
+            # },
+            # 'top_products': sorted( # Section removed
+            #     self.results,
+            #     key=lambda x: x['analysis'].roi_percent,
+            #     reverse=True
+            # )[:10],
             'system_health': health_report,
             'timestamp': datetime.now().isoformat()
         }
@@ -631,95 +600,118 @@ class FBASystemOrchestrator:
         try:
             await self.scraper.close_session()
             await self.api_handler.close()
-            await self.currency_converter.close()
+            # await self.currency_converter.close() # Commented out
         except Exception as e:
             log.error(f"Error during cleanup: {e}")
     
-    async def run_with_passive_workflow(self, max_products: int = 100):
-        """
-        Run the complete analysis using the passive extraction workflow.
-        This integrates the working v3 core scripts via the passive workflow.
+    async def run_with_passive_workflow(self, max_products: int = 100, force_ai_category_progression_flag: bool = False):
+        log.info(f"Running passive workflow with max_products={max_products}, force_ai_progression={force_ai_category_progression_flag}")
         
-        Args:
-            max_products: Maximum products to analyze
-        """
-        log.info("Starting analysis with passive extraction workflow...")
+        # Ensure PassiveExtractionWorkflow is imported correctly
+        import sys
+        from pathlib import Path
+        # Add root directory to sys.path to allow importing passive_extraction_workflow_latest
+        # Assuming main_orchestrator.py is in tools/ and passive_extraction_workflow_latest.py is in the parent (root) directory
+        root_dir = Path(__file__).resolve().parent.parent 
+        if str(root_dir) not in sys.path:
+            sys.path.insert(0, str(root_dir))
+        from passive_extraction_workflow_latest import PassiveExtractionWorkflow
+
+        # Get the AI client for passive extraction
+        passive_ai_config = self.ai_clients.get('passive_extraction', {})
+        passive_ai_client = passive_ai_config.get('client') if passive_ai_config else None
         
-        # Clear cache first - use selective clearing if configured
-        if self.clear_cache:
-            if self.selective_cache_clear:
-                await self.selective_clear_cache_dirs()
-            else:
-                await self.clear_cache_dirs()
-        
-        # Start monitoring
-        monitor_task = asyncio.create_task(
-            self.monitor.start_monitoring(interval=30)
+        if not passive_ai_client and self.ai_clients:
+             log.warning("Passive extraction AI client not available, AI features in this workflow may be limited.")
+        elif not self.ai_clients:
+             log.warning("No AI clients initialized at all. AI features in this workflow will be disabled.")
+
+        workflow = PassiveExtractionWorkflow(
+            chrome_debug_port=self.config.get('chrome_debug_port', 9222),
+            ai_client=passive_ai_client
         )
+
+        # Pass the config to the workflow for cache clearing
+        workflow.config = self.config
+
+        if force_ai_category_progression_flag:
+            workflow.force_ai_category_progression = True 
+            log.info("Orchestrator: Forcing AI category progression for this workflow run.")
+
+        # Determine suppliers to process
+        suppliers_object = self.config.get("suppliers", {}) # Ensure this is suppliers_object
+        if not suppliers_object:
+            log.error("No suppliers object configured in system_config.json. Passive workflow cannot run.")
+            return []
+
+        # For this test, specifically target "clearance-king"
+        target_supplier_key = "clearance-king" 
+        if target_supplier_key not in suppliers_object: # Check against suppliers_object
+            log.error(f"Supplier key '{target_supplier_key}' not found in suppliers configuration. Passive workflow cannot run.")
+            return []
         
+        # Access the config using the key from the suppliers_object dictionary
+        target_supplier_config = suppliers_object[target_supplier_key] 
+        supplier_url = target_supplier_config.get("base_url") 
+        supplier_name = target_supplier_config.get("name", target_supplier_key)
+
+        if not supplier_url:
+            log.error(f"No base_url configured for supplier '{target_supplier_key}'. Passive workflow cannot run.")
+            return []
+        
+        log.info(f"Orchestrator: Processing supplier - URL: {supplier_url}, Name: {supplier_name}")
+
+        all_results = []
         try:
-            # Import and run the passive extraction workflow
-            from passive_extraction_workflow_latest import run_workflow_main
+            # cache_supplier_data=True is the default in PassiveExtractionWorkflow.run()
+            # force_config_reload=False is the default in PassiveExtractionWorkflow.run() (means don't clear supplier cache)
+            supplier_results = await workflow.run(
+                supplier_url=supplier_url, 
+                supplier_name=supplier_name, 
+                max_products_to_process=max_products
+            )
+            if supplier_results:
+                all_results.extend(supplier_results)
             
-            log.info("Executing passive extraction workflow...")
-            # Run the workflow without passing ai_client as argument (handled internally)
-            results = await run_workflow_main()
-            
-            # Store results
-            if results:
-                self.results.extend(results)
-                
-                # Save to data store
-                for result in results:
-                    self.data_store.insert_one('fba_analysis', {
-                        'timestamp': datetime.now().isoformat(),
-                        'result': result
-                    })
-                
-                log.info(f"Passive extraction workflow completed. Processed {len(results)} products")
-            else:
-                log.warning("Passive extraction workflow returned no results")
-                
-            # Generate final report
-            report = await self.generate_report()
-            await self.save_report(report)
-            
-            return results or []
-            
+            if hasattr(workflow, 'linking_map') and hasattr(workflow, '_save_linking_map'):
+                workflow._save_linking_map()
+
         except Exception as e:
-            log.error(f"Error in passive extraction workflow: {e}")
-            raise
-        finally:
-            # Stop monitoring
-            self.monitor.stop_monitoring()
-            
-            # Wait for monitor task to complete
-            try:
-                await asyncio.wait_for(monitor_task, timeout=5.0)
-            except asyncio.TimeoutError:
-                monitor_task.cancel()
+            log.error(f"Error running passive workflow for supplier {supplier_name}: {e}", exc_info=True)
+
+        log.info(f"Passive workflow completed. Processed {len(all_results)} products.")
+        return all_results
     
     async def clear_caches(self):
         """Clear all cached data to ensure fresh analysis."""
         log.info("Clearing all caches...")
-        
+
+        # Use absolute paths and current working directory
+        import os
+        cwd = Path.cwd()
+        log.info(f"Current working directory: {cwd}")
+
         cache_dirs = [
-            Path('cache'),
-            Path('../cache'),
-            Path('OUTPUTS/cached_products'),
-            Path('../OUTPUTS/cached_products')
+            cwd / 'cache',
+            cwd / 'OUTPUTS' / 'cached_products',
+            cwd / 'OUTPUTS' / 'FBA_ANALYSIS' / 'amazon_cache',
+            Path('cache'),  # Relative fallback
+            Path('OUTPUTS/cached_products'),  # Relative fallback
         ]
-        
+
+        files_removed = 0
         for cache_dir in cache_dirs:
+            log.info(f"Checking cache directory: {cache_dir} (exists: {cache_dir.exists()})")
             if cache_dir.exists():
                 for file in cache_dir.glob('*.json'):
                     try:
                         file.unlink()
+                        files_removed += 1
                         log.info(f"Removed cache file: {file}")
                     except Exception as e:
                         log.warning(f"Could not remove {file}: {e}")
-                        
-        log.info("Cache clearing completed")
+
+        log.info(f"Cache clearing completed. Removed {files_removed} files.")
     
     def get_extraction_mode_config(self) -> Dict[str, Any]:
         """

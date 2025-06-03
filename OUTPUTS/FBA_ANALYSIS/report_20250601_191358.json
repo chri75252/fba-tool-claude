@@ -1,0 +1,16 @@
+{
+  "system_health": {
+    "status": "healthy",
+    "timestamp": "2025-06-01T19:13:58.828434",
+    "metrics": {
+      "avg_cpu_percent": 8.5,
+      "avg_memory_percent": 75.4,
+      "total_products_processed": 0,
+      "avg_processing_time_seconds": 0,
+      "error_count": 0
+    },
+    "warnings": [],
+    "recent_errors": []
+  },
+  "timestamp": "2025-06-01T19:13:58.828452"
+}

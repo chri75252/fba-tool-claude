@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "total_products_analyzed": 0,
+    "profitable_products_found": 0,
+    "success_rate": 0,
+    "avg_roi": 0,
+    "avg_profit": 0
+  },
+  "top_products": [],
+  "system_health": {
+    "status": "no_data"
+  },
+  "timestamp": "2025-05-31T03:41:26.992114"
+}

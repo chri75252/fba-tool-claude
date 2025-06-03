@@ -1,7 +1,306 @@
 [
   {
-    "supplier_product_identifier": "EAN_1234567890123",
-    "chosen_amazon_asin": "B08EXAMPLE1",
-    "confidence_score": 0.95
+    "supplier_product_identifier": "EAN_5066113001070",
+    "supplier_title_snippet": "D&K Dengke Cup Shape Glass Pipe + Screen...",
+    "chosen_amazon_asin": "B0D2L389R2",
+    "amazon_title_snippet": "Tabanzhe 40 PCS Conical Bowl Pipe Screens Filter,Pre-Cut Sta...",
+    "amazon_ean_on_page": "0707154162744",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5020535010997",
+    "supplier_title_snippet": "Nuage Hayfever Relief Wipes - Suitable for Kids - Pack of 30...",
+    "chosen_amazon_asin": "B0DGKKKB45",
+    "amazon_title_snippet": "Nuage Hayfever Relief Wipes, Resealable Pack (Pack of 3)...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5053249240312",
+    "supplier_title_snippet": "151 Pest Shield Slug & Snail Killer - 300g...",
+    "chosen_amazon_asin": "B08B1P9KWC",
+    "amazon_title_snippet": "Pestshield 4X SLUG AND SNAIL KILLER 300G (6)...",
+    "amazon_ean_on_page": "5053249240312",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060120163547",
+    "supplier_title_snippet": "Tea Tree & Peppermint Deep Moisturising Hand Pack - EXP: 04/...",
+    "chosen_amazon_asin": "B01CC0GEEG",
+    "amazon_title_snippet": "Tea Tree and Peppermint Deep Moisturising Pack (Hand Pack)...",
+    "amazon_ean_on_page": "5060120163547",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060120164131",
+    "supplier_title_snippet": "Xpel Brand - Argan Oil Hydrating Hair Mask - Vegan - 220Ml -...",
+    "chosen_amazon_asin": "B00V2DJHKI",
+    "amazon_title_snippet": "Argan Oil Hydrating Hair Mask With Moroccan Extract 220 Ml /...",
+    "amazon_ean_on_page": "5060120164131",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060120163714",
+    "supplier_title_snippet": "Xpel Brand - Argan Oil Hair Treatment - 100Ml - EXP: 09/24...",
+    "chosen_amazon_asin": "B00CFI8S5Y",
+    "amazon_title_snippet": "Argan Oil Hair Treatment 100ml with Moroccan Oil...",
+    "amazon_ean_on_page": "5060120163714",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060120163363",
+    "supplier_title_snippet": "Xpel Brand - Tea Tree Facial Scrub - 250Ml - EXP: 12/24...",
+    "chosen_amazon_asin": "B01MCYQF2P",
+    "amazon_title_snippet": "Stalwart 163363-ITP Tea Tree Facial Scrub, 250 mL...",
+    "amazon_ean_on_page": "5060120163363",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780863888120",
+    "supplier_title_snippet": "DEMENTIA CARE THE ADAPTIVE RESPONSE BOOK...",
+    "chosen_amazon_asin": "B0168YKE16",
+    "amazon_title_snippet": "Dementia Care - The Adaptive Response: A stress reductionist...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9781906517465",
+    "supplier_title_snippet": "BEYOUND TRANSITION RING BOOK...",
+    "chosen_amazon_asin": "B07JN7STKD",
+    "amazon_title_snippet": "Beyond Transition: An Intervention Programme to Support Vune...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780863882678",
+    "supplier_title_snippet": "SEMANTIC WORKBOOKS IN RING BINDER FOLDER...",
+    "chosen_amazon_asin": "B00XWUU1F4",
+    "amazon_title_snippet": "[(Semantic Workbooks)] [Author: Kay Beveridge] published on ...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780863887758",
+    "supplier_title_snippet": "HOW TO STOP BULLYING 101 STRATEGIES BOOK...",
+    "chosen_amazon_asin": "B0761YSSMY",
+    "amazon_title_snippet": "How to Stop Bullying: 101 Strategies That Really Work...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_182360",
+    "supplier_title_snippet": "COMBINED SCIENCE GCSE HIGHER AQA PRACTICE EXAMS BOOK...",
+    "chosen_amazon_asin": "B074KS4KPP",
+    "amazon_title_snippet": "Design House 182360 Cubist Knob, 10-Pack, Brushed Nickel, 10...",
+    "amazon_ean_on_page": "0044321182366",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780863888212",
+    "supplier_title_snippet": "PLAY BETTER GAMES SPIRAL BOOK...",
+    "chosen_amazon_asin": "0863888216",
+    "amazon_title_snippet": "Play Better Games: Enabling Children with Autism to Join in ...",
+    "amazon_ean_on_page": "9780863888212",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_90651704",
+    "supplier_title_snippet": "TRANSITION A PEER MENTORING SYSTEM SPIRAL BOOK...",
+    "chosen_amazon_asin": "B07HQHZ636",
+    "amazon_title_snippet": "Zimpli Kids Gelli Adventures Dino Pack, 5 Use, 8 x Dinosaur ...",
+    "amazon_ean_on_page": "0813974022561",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_9781407176772",
+    "supplier_title_snippet": "PHYSICS AQA GCSE REVISION & EXAM PRACTICE BOOK...",
+    "chosen_amazon_asin": "1407176773",
+    "amazon_title_snippet": "GCSE Physics AQA Revision Guide and Practice Book. Perfect f...",
+    "amazon_ean_on_page": "9781407176772",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9781407176918",
+    "supplier_title_snippet": "PHYSICS ALL EXAM BOARDS GCSE EXAM PRACTICE BOOK...",
+    "chosen_amazon_asin": "1407176919",
+    "amazon_title_snippet": "GCSE Physics Revision Guide and Practice Book for All Boards...",
+    "amazon_ean_on_page": "9781407176918",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780857510822",
+    "supplier_title_snippet": "STARDOLL SUPERSTAR STYLIST: HARDBACK BOOK...",
+    "chosen_amazon_asin": "0857510827",
+    "amazon_title_snippet": "Stardoll: Superstar Stylist (Stardoll: Fame, Fashion and Fri...",
+    "amazon_ean_on_page": "9780857510822",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780857510808",
+    "supplier_title_snippet": "STARDOLL AUTUMN/WINTER TOP TREND: HARDBACK BOOK...",
+    "chosen_amazon_asin": "0857510800",
+    "amazon_title_snippet": "Stardoll: Top Trends - Autumn/Winter...",
+    "amazon_ean_on_page": "9780857510808",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780863883132",
+    "supplier_title_snippet": "THE REMINISCENCE SKILLS TRAINING HAND BOOK...",
+    "chosen_amazon_asin": "0863883133",
+    "amazon_title_snippet": "The Reminiscence Skills Training Handbook (Speechmark Practi...",
+    "amazon_ean_on_page": "9780863883132",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007798391",
+    "supplier_title_snippet": "FROM PETTICOAT TAILS TO ARBROATH SMOKIES BOOK...",
+    "chosen_amazon_asin": "0007267894",
+    "amazon_title_snippet": "From Petticoat Tails to Arbroath Smokies: Traditional Foods ...",
+    "amazon_ean_on_page": "9780007267897",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007798407",
+    "supplier_title_snippet": "FROM ECCLES CAKE TO HAWKSHEAD WIG BOOK...",
+    "chosen_amazon_asin": "0007267886",
+    "amazon_title_snippet": "From Eccles Cake to Hawkshead Wig: A Celebration of Northern...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007798414",
+    "supplier_title_snippet": "FROM NORFOLK KNOBS TO FIDGET PIE BOOK...",
+    "chosen_amazon_asin": "0007798415",
+    "amazon_title_snippet": "From Norfolk Knobs to Fidget Pie...",
+    "amazon_ean_on_page": "9780007798414",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007798421",
+    "supplier_title_snippet": "FROM BATH CHAPS TO BARA BIRTH BOOK...",
+    "chosen_amazon_asin": "0007798423",
+    "amazon_title_snippet": "From Bath Chaps to Bara Brith: The Taste of South West Brita...",
+    "amazon_ean_on_page": "9780007798421",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9781843570110",
+    "supplier_title_snippet": "LORRAINE KELLY COLOURS BOOK...",
+    "chosen_amazon_asin": "1843570114",
+    "amazon_title_snippet": "Colours (A Mary Ellen & Cameron book)...",
+    "amazon_ean_on_page": "9781843570110",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9781843570127",
+    "supplier_title_snippet": "LORRAINE KELLY PLAY HOPSCOTCH A COUNTING BOOK...",
+    "chosen_amazon_asin": "1843570122",
+    "amazon_title_snippet": "Mary Ellen and Cameron Play Hopscotch (A Mary Ellen & Camero...",
+    "amazon_ean_on_page": "9781843570127",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007258352",
+    "supplier_title_snippet": "THE CHRONICLES OF NARNIA: PRINCE CASPIAN- MOVIE STORYBOOK...",
+    "chosen_amazon_asin": "B01B98DQLQ",
+    "amazon_title_snippet": "Prince Caspian: The Movie Storybook by Lana Jacobs (March 24...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_9780007261635",
+    "supplier_title_snippet": "HOW CAN I STOP CLIMATE CHANGE? BOOK...",
+    "chosen_amazon_asin": "B002RI9QHG",
+    "amazon_title_snippet": "How Can I Stop Climate Change: What is it and how to help: W...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_86388530",
+    "supplier_title_snippet": "SEASONAL ACTIVITIES FOR SENSORIMOTOR DEVELOPMENT BOOK BY By ...",
+    "chosen_amazon_asin": "B0DK8SBSCR",
+    "amazon_title_snippet": "POPRUN 18 Month Planner (Jul'25 - Dec'26) 2025-2026 A6 (16x1...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5055257878532",
+    "supplier_title_snippet": "Glamorize Creme Colour Permanent Hair Dye - Shade No 4 - Mah...",
+    "chosen_amazon_asin": "B07G1NLK9J",
+    "amazon_title_snippet": "Glamorise Women's Full Figure MagicLift Seamless Wirefree Sp...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_05060072087823",
+    "supplier_title_snippet": "Fluorodine Travel Kit - Toothbrush And Toothpaste In Travel ...",
+    "chosen_amazon_asin": "B0BNW9VWP6",
+    "amazon_title_snippet": "Wagner & Stern ultrasonic whitening Toothbrush with Pressure...",
+    "amazon_ean_on_page": "7099516796784",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5050375947825",
+    "supplier_title_snippet": "PEST SHIELD EXTRA STRENGTH RAT GLUE TRAPS - PACK OF 2...",
+    "chosen_amazon_asin": "B0D83PNR9H",
+    "amazon_title_snippet": "Sticky Pest Traps, Mehani 12 Pack Sticky Glue Boards, Large ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_8012979226925",
+    "supplier_title_snippet": "MAGNETIC BOOKMARK- MY  PAGE CLIP, 2PCS...",
+    "chosen_amazon_asin": "B0B5WZ7RK3",
+    "amazon_title_snippet": "Gifts for Readers & Writers Linemarker Magnetic Bookmarks - ...",
+    "amazon_ean_on_page": "5060058361619",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060226063390",
+    "supplier_title_snippet": "Pets That Play - Premium Pet Bowl - 13.5cm x 5cm - 1 Pint...",
+    "chosen_amazon_asin": "B0DBHQNTR4",
+    "amazon_title_snippet": "Ancol Made From Round Shallow Pet Bowl in Grey Dishwasher Sa...",
+    "amazon_ean_on_page": "5016646097699",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5391536748258",
+    "supplier_title_snippet": "Homewares+ Shoe Polish - Brown...",
+    "chosen_amazon_asin": "B0C9MYV1VG",
+    "amazon_title_snippet": "Shoe Clinic Leather Polish | Black, Brown, Dark Brown, Navy,...",
+    "amazon_ean_on_page": "5060914416071",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5036905007146",
+    "supplier_title_snippet": "Waddingtons Of London Number 1 Playing Cards...",
+    "chosen_amazon_asin": "B07VGKSRMN",
+    "amazon_title_snippet": "Waddingtons Number 1 Playing Card Game, play fish, slap jack...",
+    "amazon_ean_on_page": "5036905007146",
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5391542653386",
+    "supplier_title_snippet": "Carlingford Nightlight Candles - Lavender - Pack of 20...",
+    "chosen_amazon_asin": "B01AWIIKHY",
+    "amazon_title_snippet": "Yankee Candle Scented Candle | Vanilla Large Jar | Long Burn...",
+    "amazon_ean_on_page": "5038580069914",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5050375947849",
+    "supplier_title_snippet": "PEST SHIELD EXTRA STRENGTH MOUSE GLUE TRAPS - PACK OF 3...",
+    "chosen_amazon_asin": "B0BYJ5LCWV",
+    "amazon_title_snippet": "Sticky Traps Pest Trap Pads Board - Large Extra Strong Stick...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413923490",
+    "supplier_title_snippet": "Face Facts Printed Sheet Mask - Pretty Peach & Cheeky Cherry...",
+    "chosen_amazon_asin": "B0F28LVPL8",
+    "amazon_title_snippet": "Face Facts Cherry Bliss Skin Care Set- Glow Mist 80ml, Brigh...",
+    "amazon_ean_on_page": "5061064060305",
+    "match_method": "title_search"
   }
 ]
