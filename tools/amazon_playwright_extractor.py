@@ -1139,7 +1139,7 @@ class AmazonExtractor:
                             if "Reviews - Rating" in key: 
                                 match = re.search(r"([\d.]+)", value_text_content)
                                 value = float(match.group(1)) if match else value_text_content
-                            elif any(k_word in key for k_word in ["Review Count", "Bought in past month", "Total Offer Count", "Number of Items", "Package - Quantity", "Item - Model (g)", "Package - Weight (g)"]):
+                            elif any(k_word in key for k_word in ["Review Count", "Bought in past month", "Total Offer Count", "Number of Items", "Package - Quantity", "Item - Model (g)", "Package - Weight (g)", "FBA Seller Count", "FBM Seller Count", "Seller Count"]):
                                 match = re.search(r"([\d,]+)\\+?", value_text_content)
                                 value = self._parse_number(match.group(1)) if match else value_text_content
                             elif "Package - Dimension" in key: 

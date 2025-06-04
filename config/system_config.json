@@ -129,7 +129,7 @@
   },
   "cache": {
     "enabled": true,
-    "ttl_hours": 187,
+    "ttl_hours": 336,
     "max_size_mb": 500,
     "selective_clear_config": {
       "preserve_analyzed_products": true,
@@ -165,10 +165,11 @@
     },
     "openai": {
       "enabled": true,
-      "api_key": "sk-tXEWZi669Oz8674FDG3CFqaQ9P71XruHFuyA7-xcmnT3BlbkFJq_ZCJjNmUfSrAVHyC6v8ba7MPaMjRx_msUEnP5hzwA",
-      "model": "gpt-4o-mini-2024-07-18",
-      "max_tokens": 1000,
-      "temperature": 0.1
+      "api_key": "sk-02XZ3ucKVViULVaTp4_Ad6byZCT6Fofr-BwRsD5mTcT3BlbkFJ7_HTmTRScAn0m-ITc_CX5a2beXTOcbK1-Qmm0s6nwA",
+      "model": "gpt-4o-mini-search-preview-2025-03-11",
+      "max_tokens": 1200,
+      "temperature": 0.1,
+      "web_search_enabled": true
     }
   },
   "security": {

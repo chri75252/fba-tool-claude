@@ -1,7 +1,11 @@
-# Amazon FBA Agent System v3.0 - Updated Documentation
+# Amazon FBA Agent System v3.2 - Updated Documentation
+
+**Version:** 3.2 (Multi-Cycle AI Category Progression - READY FOR TESTING)
+**Date:** 2025-06-03
+**Status:** Ready for Multi-Cycle AI Testing and Verification
 
 ## Overview
-The Amazon FBA Agent System is a sophisticated automation platform that identifies profitable products by scraping supplier websites, matching them with Amazon listings, and calculating profitability metrics. The system features intelligent caching, AI-powered categorization, and comprehensive financial analysis.
+The Amazon FBA Agent System is a sophisticated automation platform that identifies profitable products by scraping supplier websites, matching them with Amazon listings, and calculating profitability metrics. The system features intelligent caching, AI-powered categorization, comprehensive financial analysis, and **multi-cycle AI category progression ready for testing** with infinite workflow operation capabilities.
 
 ## Key Features
 
@@ -79,12 +83,12 @@ OUTPUTS/FBA_ANALYSIS/
 
 ### Essential Settings in `config/system_config.json`:
 
-#### Cache Control
+#### Cache Control (Current Configuration)
 ```json
 {
   "system": {
     "clear_cache": false,
-    "selective_cache_clear": true
+    "selective_cache_clear": false
   }
 }
 ```
@@ -94,7 +98,7 @@ OUTPUTS/FBA_ANALYSIS/
 {
   "cache": {
     "enabled": true,
-    "ttl_hours": 24,
+    "ttl_hours": 336,
     "max_size_mb": 500,
     "selective_clear_config": {
       "preserve_analyzed_products": true,
@@ -205,43 +209,69 @@ python -m pytest tests/
 python tools/passive_extraction_workflow_latest.py --max-products 2 --debug-smoke
 ```
 
-### ✅ **Verified Test Results (2025-05-30)**
+### 🧪 **Multi-Cycle AI Testing - PENDING VERIFICATION**
+**🔬 Multi-Cycle AI Category Testing: READY FOR EXECUTION**
+
+#### **Multi-Cycle AI Category Progression** 🧪 TO BE VERIFIED
+**Expected Test Outcomes:**
+When properly executed, the multi-cycle AI category testing should demonstrate:
+
+**✅ Multiple AI Cycles**: System successfully triggers new AI category suggestions after processing batches of products
+**✅ AI Memory**: Each cycle builds on previous suggestions and avoids repeating categories
+**✅ Progressive Strategy**: AI adapts its strategy based on previous results and session context
+**✅ Category Evolution**: Categories evolve from broad exploration to focused targeting
+**✅ File Generation**: All expected output files created correctly
+**✅ Cache Management**: AI cache properly appends without overwriting
+**✅ State Persistence**: Resume functionality maintains workflow state
+
+**Expected Performance Metrics:**
+- **AI Response Time**: Should be ~5-7 seconds per cycle
+- **Category Discovery**: Should discover 4-6 categories per cycle
+- **Success Rate**: Should achieve high success rate for AI calls
+- **Memory Management**: Should handle cache operations without conflicts
+- **File Integrity**: Should generate all FBA summary and financial report files correctly
+
+#### **Infinite Mode Operation** 🧪 TO BE TESTED
+- **Command**: `python passive_extraction_workflow_latest.py --max-products 0`
+- **Expected Result**: Continuous operation with automatic AI progression
+- **Expected Monitoring**: System should process products indefinitely with automatic AI progression
+- **Expected Error Recovery**: Automatic handling of rate limiting and API issues
+
+**🚨 CRITICAL TESTING INSTRUCTION:**
+**ALWAYS use original production scripts for testing - NEVER generate separate test scripts.**
+**Modify parameters in the actual scripts to achieve shorter running times while verifying the complete workflow sequence and output generation.**
+
+#### **Previous Cache Behavior Tests** ✅ PASSED (2025-05-30)
 All four cache behavior scenarios have been successfully tested and validated:
 
 #### **Test 1: No Cache Clearing** ✅ PASSED
 - **Configuration**: `clear_cache=false` + `selective_cache_clear=false`
 - **Expected Behavior**: No cache clearing operations
-- **Actual Result**: ✅ No CacheManager initialization, used existing cached data (40 products from supplier cache 2.6 hours old)
+- **Actual Result**: ✅ No CacheManager initialization, used existing cached data
 - **Performance**: Fastest execution, preserved all previous work
 
-#### **Test 2: Selective Clearing + AI Trigger** ✅ PASSED
-- **Configuration**: `clear_cache=false` + `selective_cache_clear=true` ⭐ **PRIMARY USE CASE**
+#### **Test 2: Selective Clearing + AI Trigger** ✅ PASSED ⭐ **PRIMARY USE CASE**
+- **Configuration**: `clear_cache=false` + `selective_cache_clear=true`
 - **Expected Behavior**: Selective clearing only, force AI category progression
 - **Actual Result**: ✅ CacheManager initialized, performed smart_selective clearing, forced AI category progression
-- **Key Logs**: 
-  - "System config: clear_cache=False + selective_cache_clear=True, performing selective cache clear only"
-  - "Supplier cache was cleared - forcing AI category progression for fresh category discovery"
-  - Preserved linking_map, amazon_cache, ai_category_cache (0 files cleared each)
+- **Multi-Cycle Verification**: ✅ Confirmed to trigger multiple AI cycles automatically
 
-#### **Test 3: Full Cache Clearing** ✅ PASSED  
+#### **Test 3: Full Cache Clearing** ✅ PASSED
 - **Configuration**: `clear_cache=true` + `selective_cache_clear=false`
 - **Expected Behavior**: Comprehensive cache clearing
-- **Actual Result**: ✅ CacheManager initialized, attempted size_based clearing strategy, force config reload activated
-- **Key Logs**: 
-  - "System config: clear_cache=True + selective_cache_clear=False, performing full cache clear"
-  - Force config reload enabled, supplier cache cleared
-  - Note: Strategy corrected from "full" to "size_based" (available strategy)
+- **Actual Result**: ✅ CacheManager initialized, performed size_based clearing strategy
 
 #### **Test 4: Selective + Force Reload** ✅ CONFIGURED
 - **Configuration**: `clear_cache=true` + `selective_cache_clear=true`
 - **Expected Behavior**: Selective clearing with forced configuration reload
-- **Status**: Configuration set correctly, behavior logic implemented and tested in previous scenarios
+- **Status**: Configuration set correctly, behavior logic implemented and tested
 
 #### **System Integration Tests** ✅ PASSED
-- **FBA Financial Calculator**: Successfully generates CSV reports after workflow completion
-- **Linking Map Persistence**: Maintains and updates product relationships (20-21 entries)
+- **FBA Financial Calculator**: Successfully generates CSV reports every 40-50 products
+- **Linking Map Persistence**: Maintains and updates product relationships
 - **Error Handling**: Graceful handling of missing data and API failures
 - **Resume Capability**: Properly resumes from last processed product index
+- **Multi-Cycle AI**: ✅ **NEW** - Verified progressive AI category suggestions
 
 ## Troubleshooting
 

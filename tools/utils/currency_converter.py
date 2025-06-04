@@ -20,7 +20,7 @@ class CurrencyConverter:
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.rates_cache: Dict[str, Dict[str, float]] = {}
-        self.cache_ttl = timedelta(hours=12)
+        self.cache_ttl = timedelta(hours=336)
         self.session: Optional[aiohttp.ClientSession] = None
         
         # API configurations (in order of preference)

@@ -31,21 +31,21 @@ async def demo_cache_manager():
             "enabled": True,
             "global_settings": {
                 "max_total_size_gb": 5.0,
-                "default_ttl_hours": 24,
+                "default_ttl_hours": 336,
                 "backup_retention_days": 7,
                 "validation_interval_hours": 6,
                 "optimization_interval_hours": 24
             },
             "cache_types": {
                 "supplier_cache": {
-                    "ttl_hours": 168,
+                    "ttl_hours": 336,
                     "max_size_mb": 1000,
                     "backup_enabled": True,
                     "validation_enabled": True,
                     "cleanup_strategy": "smart_selective"
                 },
                 "amazon_cache": {
-                    "ttl_hours": 24,
+                    "ttl_hours": 336,
                     "max_size_mb": 2000,
                     "backup_enabled": True,
                     "validation_enabled": True,

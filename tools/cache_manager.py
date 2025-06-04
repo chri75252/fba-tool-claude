@@ -92,7 +92,7 @@ class SmartSelectiveStrategy(CacheStrategy):
     async def should_clear(self, cache_info: Dict[str, Any]) -> bool:
         """Clear if cache is stale or contains processed items"""
         cache_age_hours = cache_info.get('age_hours', 0)
-        max_age = cache_info.get('config', {}).get('ttl_hours', 168)
+        max_age = cache_info.get('config', {}).get('ttl_hours', 336)
         
         # Always clear if cache is too old
         if cache_age_hours > max_age:
@@ -302,7 +302,7 @@ class SelectiveStrategy(CacheStrategy):
     async def should_clear(self, cache_info: Dict[str, Any]) -> bool:
         """Clear if cache has expired based on TTL"""
         cache_age_hours = cache_info.get('age_hours', 0)
-        ttl_hours = cache_info.get('config', {}).get('ttl_hours', 24)
+        ttl_hours = cache_info.get('config', {}).get('ttl_hours', 336)
         
         # Don't clear if TTL is -1 (permanent cache)
         if ttl_hours == -1:
@@ -316,7 +316,7 @@ class SelectiveStrategy(CacheStrategy):
         result = ClearingResult(strategy_used="selective")
         
         try:
-            ttl_hours = config.get('ttl_hours', 24)
+            ttl_hours = config.get('ttl_hours', 336)
             if ttl_hours == -1:
                 return result  # Don't clear permanent caches
             
@@ -913,21 +913,21 @@ async def main():
             "enabled": True,
             "global_settings": {
                 "max_total_size_gb": 5.0,
-                "default_ttl_hours": 24,
+                "default_ttl_hours": 336,
                 "backup_retention_days": 7,
                 "validation_interval_hours": 6,
                 "optimization_interval_hours": 24
             },
             "cache_types": {
                 "supplier_cache": {
-                    "ttl_hours": 168,
+                    "ttl_hours": 336,
                     "max_size_mb": 1000,
                     "backup_enabled": True,
                     "validation_enabled": True,
                     "cleanup_strategy": "smart_selective"
                 },
                 "amazon_cache": {
-                    "ttl_hours": 24,
+                    "ttl_hours": 336,
                     "max_size_mb": 2000,
                     "backup_enabled": True,
                     "validation_enabled": True,

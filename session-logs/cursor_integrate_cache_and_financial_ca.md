@@ -1275,7 +1275,7 @@ OUTPUTS/FBA_ANALYSIS/
 {
   "cache": {
     "enabled": true,
-    "ttl_hours": 24,
+    "ttl_hours": 336,
     "max_size_mb": 500,
     "selective_clear_config": {
       "preserve_analyzed_products": true,

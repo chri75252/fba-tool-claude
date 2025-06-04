@@ -32,15 +32,16 @@ from bs4 import BeautifulSoup
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tools'))
 
-from amazon_playwright_extractor import AmazonExtractor # Base class for FixedAmazonExtractor
+from tools.amazon_playwright_extractor import AmazonExtractor # Base class for FixedAmazonExtractor
 # MODIFIED: Use ConfigurableSupplierScraper
-from configurable_supplier_scraper import ConfigurableSupplierScraper
+from tools.configurable_supplier_scraper import ConfigurableSupplierScraper
 # Zero-token triage module available but not activated by default
 # from zero_token_triage_module import perform_zero_token_triage
 # Import FBA Calculator for accurate fee calculations
 from tools.utils.fba_calculator import FBACalculator
-from cache_manager import CacheManager
+from tools.cache_manager import CacheManager
 
 from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
 
@@ -204,11 +205,35 @@ os.makedirs(AI_CATEGORY_CACHE_DIR, exist_ok=True)
 def _load_openai_config():
     """Load OpenAI configuration from system_config.json"""
     try:
-        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+        # FIXED: Use same robust path resolution as load_global_config
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Possible config paths (in order of preference)
+        possible_config_paths = [
+            # If script is in root directory
+            os.path.join(script_dir, "config", "system_config.json"),
+            # If script is in subdirectory
+            os.path.join(os.path.dirname(script_dir), "config", "system_config.json"),
+            # If script is in tools subdirectory
+            os.path.join(os.path.dirname(os.path.dirname(script_dir)), "config", "system_config.json"),
+            # Absolute fallback
+            os.path.join(os.getcwd(), "config", "system_config.json")
+        ]
+
+        config_path = None
+        for path in possible_config_paths:
+            if os.path.exists(path):
+                config_path = path
+                break
+
+        if not config_path:
+            raise FileNotFoundError(f"system_config.json not found in any of: {possible_config_paths}")
+
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
-        
+
         openai_config = config.get("integrations", {}).get("openai", {})
+        log.info(f"Successfully loaded OpenAI config from {config_path}")
         return {
             "api_key": openai_config.get("api_key", ""),
             "model": openai_config.get("model", "gpt-4o-mini"),
@@ -785,7 +810,7 @@ class FixedAmazonExtractor(AmazonExtractor):
 
 
 class PassiveExtractionWorkflow:
-    def __init__(self, chrome_debug_port: int = 9222, ai_client: Optional[OpenAI] = None, max_cache_age_hours: int = 168, min_price: float = 0.1):
+    def __init__(self, chrome_debug_port: int = 9222, ai_client: Optional[OpenAI] = None, max_cache_age_hours: int = 336, min_price: float = 0.1):
         from pathlib import Path
         self.state_path = Path(OUTPUT_DIR) / f"passive_extraction_state_{datetime.now().strftime('%Y%m%d')}.json"
         self.chrome_debug_port = chrome_debug_port
@@ -1031,6 +1056,47 @@ class PassiveExtractionWorkflow:
             "performance_score": min(products_found / 10.0, 1.0)  # Normalize to 0-1 scale
         }
 
+    def _should_trigger_new_ai_cycle(self, products_analyzed_this_session: int, max_products_limit: int,
+                                   current_categories_exhausted: bool = False) -> bool:
+        """
+        Determine if we should trigger a new AI category selection cycle.
+
+        Args:
+            products_analyzed_this_session: Number of products analyzed in current session
+            max_products_limit: Maximum products limit (0 = unlimited)
+            current_categories_exhausted: Whether current AI-suggested categories are exhausted
+
+        Returns:
+            bool: True if new AI cycle should be triggered
+        """
+        # For unlimited mode (max_products_limit = 0), trigger new cycle every 5 products for rapid testing
+        if max_products_limit <= 0:
+            cycle_interval = 5  # Trigger new AI cycle every 5 products in unlimited mode for rapid testing
+            if products_analyzed_this_session > 0 and products_analyzed_this_session % cycle_interval == 0:
+                log.info(f"🔄 UNLIMITED MODE: Triggering new AI cycle after {products_analyzed_this_session} products")
+                return True
+
+        # For limited mode, trigger new cycle if we've reached the limit or categories are exhausted
+        elif max_products_limit > 0:
+            if products_analyzed_this_session >= max_products_limit:
+                log.info(f"🔄 LIMITED MODE: Product limit ({max_products_limit}) reached, triggering new AI cycle")
+                return True
+            elif current_categories_exhausted:
+                log.info(f"🔄 LIMITED MODE: Current categories exhausted, triggering new AI cycle")
+                return True
+
+        # Check if current categories are exhausted regardless of mode
+        if current_categories_exhausted:
+            log.info(f"🔄 Categories exhausted, triggering new AI cycle")
+            return True
+
+        return False
+
+    def _get_products_analyzed_this_session(self) -> int:
+        """Get the number of products analyzed in the current session"""
+        return (self.results_summary.get("products_analyzed_ean", 0) +
+                self.results_summary.get("products_analyzed_title", 0))
+
     def _get_category_performance_summary(self, hist: dict) -> str:
         """Get summary of category performance for AI context"""
         performance = hist.get("category_performance", {})
@@ -1183,24 +1249,53 @@ Return ONLY valid JSON, no additional text."""
             # Ensure AI category cache directory exists
             from pathlib import Path
             Path(AI_CATEGORY_CACHE_DIR).mkdir(parents=True, exist_ok=True)
-            
+
             # Create cache file with timestamp
             cache_file_name = f"{supplier_name.replace('.', '_')}_ai_category_cache.json"
             cache_file_path = Path(AI_CATEGORY_CACHE_DIR) / cache_file_name
-            
-            # Prepare cache data with metadata
-            cache_data = {
+
+            # ENHANCED: Load existing cache and append new suggestions instead of overwriting
+            existing_cache = {"ai_suggestion_history": []}
+            if cache_file_path.exists():
+                try:
+                    with open(cache_file_path, 'r', encoding='utf-8') as f:
+                        existing_cache = json.load(f)
+                    # Ensure ai_suggestion_history exists
+                    if "ai_suggestion_history" not in existing_cache:
+                        existing_cache["ai_suggestion_history"] = []
+                except Exception as e:
+                    log.warning(f"Failed to load existing AI cache, starting fresh: {e}")
+                    existing_cache = {"ai_suggestion_history": []}
+
+            # Prepare new cache entry with metadata
+            new_cache_entry = {
                 "supplier": supplier_name,
                 "url": supplier_url,
                 "timestamp": datetime.now().isoformat(),
                 "categories_discovered": len(discovered_categories),
-                "ai_suggestions": ai
+                "ai_suggestions": ai,
+                "session_context": {
+                    "previous_categories_count": len(hist.get("categories_scraped", [])),
+                    "total_products_processed": len(hist.get("products_processed", []))
+                }
             }
-            
-            # Write to cache file
+
+            # Append to history instead of overwriting
+            existing_cache["ai_suggestion_history"].append(new_cache_entry)
+
+            # Update metadata
+            existing_cache.update({
+                "supplier": supplier_name,
+                "url": supplier_url,
+                "last_updated": datetime.now().isoformat(),
+                "total_ai_calls": len(existing_cache["ai_suggestion_history"]),
+                "latest_suggestions": ai
+            })
+
+            # Write updated cache file
             with open(cache_file_path, 'w', encoding='utf-8') as f:
-                json.dump(cache_data, f, indent=2, ensure_ascii=False)
-            log.info(f"Saved AI category suggestions to {cache_file_path}")
+                json.dump(existing_cache, f, indent=2, ensure_ascii=False)
+            log.info(f"Appended AI category suggestions to {cache_file_path} (call #{len(existing_cache['ai_suggestion_history'])})")
         except Exception as e:
             log.error(f"Failed to save AI category cache: {e}")
         
@@ -1281,12 +1376,19 @@ Return ONLY valid JSON, no additional text."""
                   cache_supplier_data: bool = True,
                   force_config_reload: bool = False,
                   debug_smoke: bool = False,
-                  resume_from_last: bool = True) -> List[Dict[str, Any]]:
+                  resume_from_last: bool = True,
+                  _ai_cycle_count: int = 0) -> List[Dict[str, Any]]:
         profitable_results: List[Dict[str, Any]] = []
         session_id = f"{supplier_name.replace('.', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        log.info(f"Starting passive extraction workflow for supplier: {supplier_name} ({supplier_url})")
-        log.info(f"Session ID: {session_id}")
-        log.info(f"PRICE CRITERIA: Min Supplier Cost £{self.min_price}, Max Supplier Cost £{MAX_PRICE}")
+
+        # AI Cycle Management
+        if _ai_cycle_count == 0:
+            log.info(f"Starting passive extraction workflow for supplier: {supplier_name} ({supplier_url})")
+            log.info(f"Session ID: {session_id}")
+            log.info(f"PRICE CRITERIA: Min Supplier Cost £{self.min_price}, Max Supplier Cost £{MAX_PRICE}")
+        else:
+            log.info(f"🔄 AI CYCLE #{_ai_cycle_count}: Continuing workflow with fresh categories")
+            log.info(f"🔄 AI CYCLE #{_ai_cycle_count}: Unlimited cycles - will continue until all FBA-friendly categories exhausted")
 
         # State file to track last processed product index and categories
         from pathlib import Path
@@ -1438,12 +1540,32 @@ Return ONLY valid JSON, no additional text."""
             self.last_processed_index = 0  # Reset index since we have new data
             log.info(f"Refreshed data contains {len(price_filtered_products)} products in price range")
             
-        log.info(f"Processing up to {max_products_to_process} products starting from index {self.last_processed_index}.")
-        products_to_analyze = price_filtered_products[self.last_processed_index:self.last_processed_index + max_products_to_process]
+        # UNLIMITED AMAZON ANALYSIS: Process all products with smart rate limiting
+        if max_products_to_process <= 0:
+            log.info(f"UNLIMITED MODE: Processing ALL {len(price_filtered_products)} products starting from index {self.last_processed_index} with smart rate limiting.")
+            products_to_analyze = price_filtered_products[self.last_processed_index:]
+        else:
+            log.info(f"LIMITED MODE: Processing up to {max_products_to_process} products starting from index {self.last_processed_index}.")
+            products_to_analyze = price_filtered_products[self.last_processed_index:self.last_processed_index + max_products_to_process]
+
+        # Smart rate limiting configuration
+        RATE_LIMIT_DELAY = 3.0  # 3 seconds between Amazon analyses
+        BATCH_DELAY = 15.0      # 15 seconds every 25 products
+        BATCH_SIZE = 25         # Process in batches of 25
 
         for i, product_data in enumerate(products_to_analyze):
             # Update last_processed_index for next run (absolute index in price_filtered_products)
             current_absolute_index = self.last_processed_index + i
+
+            # Smart rate limiting: delay between each product
+            if i > 0:  # Don't delay before the first product
+                log.debug(f"Rate limiting: waiting {RATE_LIMIT_DELAY}s before processing product {i+1}")
+                await asyncio.sleep(RATE_LIMIT_DELAY)
+
+            # Batch delay: longer pause every BATCH_SIZE products
+            if i > 0 and i % BATCH_SIZE == 0:
+                log.info(f"Batch delay: processed {i} products, waiting {BATCH_DELAY}s before continuing...")
+                await asyncio.sleep(BATCH_DELAY)
             state_data = {"last_processed_index": current_absolute_index + 1}  # +1 for next product
             try:
                 with open(self.state_path, 'w', encoding='utf-8') as f:
@@ -1471,19 +1593,31 @@ Return ONLY valid JSON, no additional text."""
                     amazon_title = existing_entry.get("amazon_title_snippet", "No Amazon match")
                     match_method = existing_entry.get("match_method", "Unknown method")
                     
-                    # Create an informative previously visited message
-                    log.info(f"✓ Previously visited product: {supplier_title}")
-                    log.info(f"  Product ID: {supplier_identifier}")
-                    if amazon_asin != "No ASIN found":
-                        log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
-                        log.info(f"  Match method: {match_method}")
+                    # UNLIMITED MODE: Process previously visited products for comprehensive analysis
+                    if max_products_to_process <= 0:
+                        log.info(f"🔄 UNLIMITED MODE: Re-processing previously visited product: {supplier_title}")
+                        log.info(f"  Product ID: {supplier_identifier}")
+                        if amazon_asin != "No ASIN found":
+                            log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
+                            log.info(f"  Match method: {match_method}")
+                        log.info(f"  Proceeding with fresh analysis...")
+                        # Track previously visited products but continue processing
+                        self.results_summary["products_previously_visited"] += 1
+                        # Continue to process this product instead of skipping
                     else:
-                        log.info(f"  Previous result: No Amazon match found")
-                    log.info(f"  Skipping to next product...")
-                    
-                    # Track previously visited products
-                    self.results_summary["products_previously_visited"] += 1
-                    continue
+                        # LIMITED MODE: Skip previously visited products
+                        log.info(f"✓ Previously visited product: {supplier_title}")
+                        log.info(f"  Product ID: {supplier_identifier}")
+                        if amazon_asin != "No ASIN found":
+                            log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
+                            log.info(f"  Match method: {match_method}")
+                        else:
+                            log.info(f"  Previous result: No Amazon match found")
+                        log.info(f"  Skipping to next product...")
+
+                        # Track previously visited products
+                        self.results_summary["products_previously_visited"] += 1
+                        continue
             
             amazon_product_data = None
             asin_to_check = None # Initialize asin_to_check
@@ -1635,19 +1769,133 @@ Return ONLY valid JSON, no additional text."""
         
         # D2: Stage-guard audit - Log final results stage
         log.info(f"STAGE-COMPLETE: profitable_filtering - {len(profitable_results)} profitable products found")
-        
+
+        # ═══════════════════════════════════════════════════════════════════════════════════════
+        # 🔄 CONTINUOUS LOOP MECHANISM - Check if we should trigger new AI category cycle
+        # ═══════════════════════════════════════════════════════════════════════════════════════
+        products_analyzed_this_session = self._get_products_analyzed_this_session()
+
+        # Check if we should trigger a new AI category selection cycle
+        should_continue = self._should_trigger_new_ai_cycle(
+            products_analyzed_this_session=products_analyzed_this_session,
+            max_products_limit=max_products_to_process,
+            current_categories_exhausted=(self.last_processed_index >= len(price_filtered_products))
+        )
+
+        if should_continue and hasattr(self, 'ai_client') and self.ai_client:
+            log.info(f"🔄 TRIGGERING NEW AI CATEGORY CYCLE #{_ai_cycle_count + 1} - Requesting fresh category suggestions...")
+
+            try:
+                # Get fresh AI category suggestions
+                new_category_urls = await self._hierarchical_category_selection(supplier_url, supplier_name)
+
+                if new_category_urls:
+                    log.info(f"🔄 NEW AI CYCLE: Got {len(new_category_urls)} fresh category suggestions")
+
+                    # Extract products from new AI-suggested categories
+                    log.info("🔄 NEW AI CYCLE: Extracting products from fresh AI-suggested categories...")
+                    new_supplier_products = await self._extract_supplier_products(supplier_url, supplier_name)
+
+                    if new_supplier_products:
+                        # Merge with existing products to avoid duplicates
+                        merged_products = {}
+
+                        # Add existing products first
+                        for product in supplier_products:
+                            if product.get("url"):
+                                merged_products[product["url"]] = product
+
+                        # Add new products
+                        for product in new_supplier_products:
+                            if product.get("url"):
+                                merged_products[product["url"]] = product
+
+                        # Update supplier products list
+                        supplier_products = list(merged_products.values())
+
+                        # Update cache with merged results
+                        if cache_supplier_data:
+                            try:
+                                with open(supplier_cache_file, 'w', encoding='utf-8') as f:
+                                    json.dump(supplier_products, f, indent=2, ensure_ascii=False)
+                                log.info(f"🔄 NEW AI CYCLE: Updated cache with {len(supplier_products)} total products")
+                            except Exception as e:
+                                log.error(f"Error updating supplier cache in new AI cycle: {e}")
+
+                        # Re-filter products for price range
+                        valid_supplier_products = [
+                            p for p in supplier_products
+                            if p.get("title") and isinstance(p.get("price"), (float, int)) and p.get("price", 0) > 0 and p.get("url")
+                        ]
+                        new_price_filtered_products = [
+                            p for p in valid_supplier_products
+                            if self.min_price <= p.get("price", 0) <= MAX_PRICE
+                        ]
+
+                        # Check if we have new products to process
+                        new_products_count = len(new_price_filtered_products) - len(price_filtered_products)
+                        if new_products_count > 0:
+                            log.info(f"🔄 NEW AI CYCLE: Found {new_products_count} new products to analyze")
+
+                            # Update price_filtered_products for potential next cycle
+                            price_filtered_products = new_price_filtered_products
+
+                            # For unlimited mode, continue processing new products
+                            if max_products_to_process <= 0:
+                                log.info("🔄 NEW AI CYCLE: UNLIMITED MODE - Continuing with new products...")
+                                # Reset session counters for new cycle
+                                self.results_summary["products_analyzed_ean"] = 0
+                                self.results_summary["products_analyzed_title"] = 0
+
+                                # Recursively call run method with new products (this creates the continuous loop)
+                                additional_results = await self.run(
+                                    supplier_url=supplier_url,
+                                    supplier_name=supplier_name,
+                                    max_products_to_process=max_products_to_process,  # Keep unlimited
+                                    cache_supplier_data=cache_supplier_data,
+                                    force_config_reload=False,  # Don't force reload in recursive call
+                                    debug_smoke=debug_smoke,
+                                    resume_from_last=False,  # Start fresh with new categories
+                                    _ai_cycle_count=_ai_cycle_count + 1  # Increment cycle count
+                                )
+
+                                # Merge results from recursive call
+                                if additional_results:
+                                    profitable_results.extend(additional_results)
+                                    log.info(f"🔄 NEW AI CYCLE: Added {len(additional_results)} profitable products from new cycle")
+                            else:
+                                log.info("🔄 NEW AI CYCLE: LIMITED MODE - New categories discovered for future runs")
+                        else:
+                            log.info("🔄 NEW AI CYCLE: No new products found in fresh categories")
+                    else:
+                        log.warning("🔄 NEW AI CYCLE: No products extracted from new AI-suggested categories")
+                else:
+                    log.warning("🔄 NEW AI CYCLE: No new category suggestions received from AI")
+
+            except Exception as e:
+                log.error(f"🔄 NEW AI CYCLE: Error during continuous loop execution: {e}")
+                log.info("🔄 NEW AI CYCLE: Continuing with current results...")
+        elif should_continue and not (hasattr(self, 'ai_client') and self.ai_client):
+            log.warning("🔄 NEW AI CYCLE: Would trigger new cycle but no AI client available")
+        else:
+            log.info("🔄 CONTINUOUS LOOP: No new AI cycle needed at this time")
+
+        # ═══════════════════════════════════════════════════════════════════════════════════════
+        # End of Continuous Loop Mechanism
+        # ═══════════════════════════════════════════════════════════════════════════════════════
+
         if profitable_results:
             # Create dedicated directory for profitable findings
             profitable_finds_dir = os.path.join(OUTPUT_DIR, "profitable_finds")
             os.makedirs(profitable_finds_dir, exist_ok=True)
-            
+
             output_filename = f"fba_profitable_finds_{session_id}.json"
             output_path = os.path.join(profitable_finds_dir, output_filename)
             try:
-                with open(output_path, "w", encoding="utf-8") as f: 
+                with open(output_path, "w", encoding="utf-8") as f:
                     json.dump(profitable_results, f, indent=2, ensure_ascii=False)
                 log.info(f"Found {len(profitable_results)} profitable products. Results saved to {output_path}")
-            except Exception as e: 
+            except Exception as e:
                 log.error(f"Error saving results: {e}")
         else:
             log.info("No profitable products found meeting all criteria in this run.")
@@ -2616,10 +2864,32 @@ Return ONLY valid JSON, no additional text."""
 # Helper to load the global config
 def load_global_config():
     try:
-        # Ensure GLOBAL_CONFIG_PATH is defined or passed if this helper is kept at module level
-        # For this change, we assume GLOBAL_CONFIG_PATH is accessible or defined above this helper
-        CONFIG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config")
-        GLOBAL_CONFIG_PATH = os.path.join(CONFIG_DIR, "system_config.json")
+        # FIXED: Robust path resolution that works from any location
+        # Try multiple possible config locations
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Possible config paths (in order of preference)
+        possible_config_paths = [
+            # If script is in root directory
+            os.path.join(script_dir, "config", "system_config.json"),
+            # If script is in subdirectory
+            os.path.join(os.path.dirname(script_dir), "config", "system_config.json"),
+            # If script is in tools subdirectory
+            os.path.join(os.path.dirname(os.path.dirname(script_dir)), "config", "system_config.json"),
+            # Absolute fallback
+            os.path.join(os.getcwd(), "config", "system_config.json")
+        ]
+
+        GLOBAL_CONFIG_PATH = None
+        for config_path in possible_config_paths:
+            if os.path.exists(config_path):
+                GLOBAL_CONFIG_PATH = config_path
+                break
+
+        if not GLOBAL_CONFIG_PATH:
+            log.error(f"CRITICAL: Global system_config.json not found in any of these locations: {possible_config_paths}")
+            return {}
+
         with open(GLOBAL_CONFIG_PATH, 'r') as f:
             conf = json.load(f)
             log.info(f"Successfully loaded global system config from {GLOBAL_CONFIG_PATH}")
@@ -2667,7 +2937,7 @@ async def run_workflow_main(max_products_override: Optional[int] = None, ai_clie
     # ai_client = None # This will be replaced by ai_client_instance or ai_client_to_use
 
     parser = argparse.ArgumentParser(description='Amazon FBA Passive Extraction Workflow')
-    parser.add_argument('--max-products', type=int, default=10, help='Maximum number of products to process (default: 10)')
+    parser.add_argument('--max-products', type=int, default=0, help='Maximum number of products to process (default: 0 = unlimited with rate limiting)')
     parser.add_argument('--supplier-url', default=DEFAULT_SUPPLIER_URL, help=f'Supplier website URL (default: {DEFAULT_SUPPLIER_URL})')
     parser.add_argument('--supplier-name', '--supplier', default=DEFAULT_SUPPLIER_NAME, help=f'Supplier name (default: {DEFAULT_SUPPLIER_NAME})')
     parser.add_argument('--min-price', type=float, default=0.1, help='Minimum supplier product price in GBP (default: 0.1)')
@@ -2691,7 +2961,7 @@ async def run_workflow_main(max_products_override: Optional[int] = None, ai_clie
     elif args.max_products is not None: # Assuming args.max_products can be None if not set
         actual_max_products = args.max_products
     else:
-        actual_max_products = MAX_PRODUCTS_DEFAULT
+        actual_max_products = 0  # Default: unlimited with rate limiting
     log.info(f"Max products to process set to: {actual_max_products}")
 
     # Initialize CacheManager and clear caches if configured
@@ -2754,19 +3024,44 @@ async def run_workflow_main(max_products_override: Optional[int] = None, ai_clie
     if not ai_client_to_use and OPENAI_API_KEY_FROM_CONFIG: # Check the key loaded from config at module level
         try:
             # Use model name from config as well, falling back to module-level default if not in config
-            model_to_use = OPENAI_CONFIG.get("model", OPENAI_MODEL_NAME) 
-            ai_client_to_use = OpenAI(api_key=OPENAI_API_KEY_FROM_CONFIG)
-            log.info(f"run_workflow_main: OpenAI client initialized with model {model_to_use} (using key from global config)")
-        except Exception as e: 
+            model_to_use = OPENAI_CONFIG.get("model", OPENAI_MODEL_NAME)
+
+            # ENHANCED: Validate API key format before attempting initialization
+            if not OPENAI_API_KEY_FROM_CONFIG.startswith("sk-"):
+                log.error(f"run_workflow_main: Invalid OpenAI API key format (should start with 'sk-'): {OPENAI_API_KEY_FROM_CONFIG[:10]}...")
+                ai_client_to_use = None
+            else:
+                ai_client_to_use = OpenAI(api_key=OPENAI_API_KEY_FROM_CONFIG)
+
+                # ENHANCED: Test the client with a simple call to verify it works
+                try:
+                    # Test the client is properly initialized
+                    test_response = ai_client_to_use.chat.completions.create(
+                        model=model_to_use,
+                        messages=[{"role": "user", "content": "test"}],
+                        max_tokens=1
+                    )
+                    log.info(f"run_workflow_main: OpenAI client successfully initialized and tested with model {model_to_use}")
+                except Exception as test_error:
+                    log.error(f"run_workflow_main: OpenAI client initialization test failed: {test_error}")
+                    ai_client_to_use = None
+
+        except Exception as e:
             log.error(f"run_workflow_main: Failed to initialize OpenAI client using key from global_config: {e}")
             ai_client_to_use = None
     elif not ai_client_to_use:
         log.warning("run_workflow_main: No AI client instance provided and no API key in global config. AI features will be disabled.")
 
+    # ENHANCED: Final validation
+    if ai_client_to_use:
+        log.info(f"run_workflow_main: AI client ready for category progression and analysis")
+    else:
+        log.warning(f"run_workflow_main: AI client is None - will use fallback category mechanisms")
+
     workflow_instance = PassiveExtractionWorkflow(
         chrome_debug_port=GLOBAL_CONFIG.get("chrome", {}).get("debug_port", 9222),
         ai_client=ai_client_to_use, 
-        max_cache_age_hours=GLOBAL_CONFIG.get("cache", {}).get("ttl_hours", 168),
+        max_cache_age_hours=GLOBAL_CONFIG.get("cache", {}).get("ttl_hours", 336),
         min_price=min_price
     )
     workflow_instance.enable_quick_triage = enable_quick_triage

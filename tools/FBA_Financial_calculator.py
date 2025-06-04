@@ -23,7 +23,7 @@ log = logging.getLogger(__name__)
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SUPPLIER_CACHE = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS", "cache", "clearance-king_products_cache.json")
+SUPPLIER_CACHE = os.path.join(BASE_DIR, "OUTPUTS", "cached_products", "Clearance King UK_products_cache.json")
 AMAZON_SCRAPE_DIR = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS", "amazon_cache")
 OUTPUT_DIR = os.path.join(BASE_DIR, "OUTPUTS", "FBA_ANALYSIS")
 FINANCIAL_REPORTS_DIR = os.path.join(OUTPUT_DIR, "financial_reports")
@@ -211,7 +211,7 @@ def extract_keepa_fees(product_details):
     for k, v in product_details.items():
         k_lower = k.lower()
         v_str = str(v).strip()
-        
+
         if 'referral' in k_lower and 'fee' in k_lower:
             try:
                 # Skip percentage fields and look for actual fee values
@@ -235,6 +235,58 @@ def extract_keepa_fees(product_details):
                 continue
                 
     return ref, fba
+
+def extract_enhanced_metrics(amazon_data):
+    """
+    Extract enhanced metrics from Amazon data including:
+    - Bought in past month data
+    - FBA/FBM seller counts from Keepa
+    """
+    enhanced_metrics = {
+        'bought_in_past_month': None,
+        'fba_seller_count': None,
+        'fbm_seller_count': None,
+        'total_offer_count': None
+    }
+
+    # Extract "Bought in past month" data
+    if amazon_data.get('amazon_monthly_sales_badge'):
+        enhanced_metrics['bought_in_past_month'] = amazon_data['amazon_monthly_sales_badge']
+
+    # Extract seller counts from Keepa data
+    keepa_data = amazon_data.get('keepa', {})
+    if keepa_data:
+        product_details = keepa_data.get('product_details_tab_data', {})
+        if product_details:
+            # Extract total offer count
+            if 'Total Offer Count' in product_details:
+                try:
+                    enhanced_metrics['total_offer_count'] = int(str(product_details['Total Offer Count']).replace(',', ''))
+                except (ValueError, TypeError):
+                    pass
+
+            # Look for FBA/FBM seller information
+            # Check for specific seller count fields first
+            for key, value in product_details.items():
+                key_lower = key.lower()
+                if 'fba seller count' in key_lower or 'fba count' in key_lower:
+                    try:
+                        enhanced_metrics['fba_seller_count'] = int(str(value).replace(',', ''))
+                    except (ValueError, TypeError):
+                        enhanced_metrics['fba_seller_count'] = value
+                elif 'fbm seller count' in key_lower or 'fbm count' in key_lower:
+                    try:
+                        enhanced_metrics['fbm_seller_count'] = int(str(value).replace(',', ''))
+                    except (ValueError, TypeError):
+                        enhanced_metrics['fbm_seller_count'] = value
+
+            # Fallback: Look for presence indicators if specific counts not found
+            if enhanced_metrics['fba_seller_count'] is None and 'Lowest FBA Seller' in product_details:
+                enhanced_metrics['fba_seller_count'] = 'Available (see Keepa data)'
+            if enhanced_metrics['fbm_seller_count'] is None and 'Lowest FBM Seller' in product_details:
+                enhanced_metrics['fbm_seller_count'] = 'Available (see Keepa data)'
+
+    return enhanced_metrics
 
 def financials(supplier, amazon, supplier_price_inc_vat):
     # Get current price from various possible locations in the Amazon data structure
@@ -382,7 +434,11 @@ def run_calculations(supplier_cache_path=None, output_dir=None, amazon_scrape_di
             'SupplierURL': sp.get('url'),
             'AmazonURL': amazon_url
         }
-        
+
+        # Add enhanced metrics
+        enhanced_metrics = extract_enhanced_metrics(amazon)
+        row.update(enhanced_metrics)
+
         financial_data = financials(sp, amazon, supplier_price)
         if financial_data:  # Only add if financial calculations were successful
             row.update(financial_data)

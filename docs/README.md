@@ -1,58 +1,257 @@
-# Amazon FBA Agent System - README
+# Amazon FBA Agent System v3.2 - Complete Documentation
 
-**Version:** 3.0 (Post-Reorganization)
-**Date:** 2025-05-31
-**Status:** Active Development
+**Version:** 3.2 (Multi-Cycle AI Category Progression - READY FOR TESTING)
+**Date:** 2025-06-03
+**Status:** Ready for Multi-Cycle AI Testing and Verification
 
-## Table of Contents
-- [Section A: System Overview](#section-a-system-overview)
-- [Section B: Workflow Documentation](#section-b-workflow-documentation)
-  - [Core Scripts](#core-scripts)
-  - [Utility Modules (`tools/utils/`)](#utility-modules-toolsutils)
-- [Section C: Output File Structure and Data Flow](#section-c-output-file-structure-and-data-flow)
-  - [Key Output Directories](#key-output-directories)
-  - [Primary Data Files and Formats](#primary-data-files-and-formats)
-  - [Data Flow Summary](#data-flow-summary)
-- [Section D: Cache Behavior and State Management](#section-d-cache-behavior-and-state-management)
-  - [Configuration Flags](#configuration-flags)
-  - [Cache Clearing Scenarios](#cache-clearing-scenarios)
-  - [State Management for Resuming Operations](#state-management-for-resuming-operations)
-  - [Further Details on Core Logic](#further-details-on-core-logic)
-- [Section E: Visual Workflow Diagram](#section-e-visual-workflow-diagram)
-- [Section F: Future Integration Notes](#section-f-future-integration-notes)
-- [Section G: Key Configuration Settings (Quick Reference)](#section-g-key-configuration-settings-quick-reference)
+## System Overview
 
----
+The Amazon FBA Agent System is a sophisticated automation platform that identifies profitable products by scraping supplier websites, matching them with Amazon listings, and calculating profitability metrics.
 
-## Section A: System Overview
+### System Purpose and Workflow
+The system automates the process of finding profitable products for Amazon FBA by:
+1. **AI-Driven Category Discovery**: Uses OpenAI to intelligently suggest supplier categories to scrape
+2. **Supplier Product Scraping**: Extracts product data from supplier websites (currently Clearance King UK)
+3. **Amazon Product Matching**: Matches supplier products to Amazon listings using EAN/UPC codes and title fallback
+4. **Profitability Analysis**: Calculates FBA fees, profit margins, and ROI using Keepa data
+5. **Multi-Cycle Operation**: Automatically suggests new categories after processing batches, creating continuous discovery loops until ALL AI-suggested categories are exhausted
+6. **Financial Reporting**: Generates comprehensive CSV reports with detailed financial analysis
 
-### 1. Brief Description
-The Amazon FBA Agent System is a Python-based application designed to automate the process of identifying profitable products for Amazon FBA (Fulfillment by Amazon). It scrapes supplier websites for product information, extracts corresponding data from Amazon, calculates potential FBA fees and profitability, and generates reports to aid in sourcing decisions.
+### Key Features
+- **Multi-Cycle AI Category Progression**: System automatically suggests new categories after processing batches
+- **Infinite Workflow Operation**: Continuous operation until ALL AI-suggested categories are exhausted (not limited by product counts)
+- **Smart Product Matching**: EAN/UPC-based matching with intelligent title fallback
+- **Comprehensive Financial Analysis**: Automated FBA calculator execution every 40-50 products
+- **State Persistence**: Resume capability with full workflow state management
+- **Rate Limiting**: Intelligent timing gaps to prevent API throttling
 
-### 2. Current Version and Status
-- **Version:** 3.0 (Post-Reorganization)
-- **Date:** 2025-05-31
-- **Status:** Actively maintained and under development, with a focus on modularity and future integration with systems like LangChain for enhanced supplier scalability.
+## System Requirements
 
-### 3. System Requirements and Dependencies
+### Prerequisites
 - Python 3.8+
-- Key Python Libraries (see `requirements.txt` for specific versions):
-  - `asyncio`
-  - `aiohttp`
-  - `playwright` (requires browser binaries: `playwright install`)
-  - `openai`
-  - `bs4` (BeautifulSoup4)
-  - `pandas`
-  - `requests`
-  - `psutil` (optional, for system monitoring)
-- A running instance of Google Chrome with remote debugging enabled on port 9222 (for `amazon_playwright_extractor.py`).
-  - Example launch command: `chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\ChromeDebugProfile"`
-- Configuration files in `config/` (see specific script documentation).
-- API keys for OpenAI, and potentially other services (Keepa, etc.), set as environment variables or in `config/system_config.json`.
+- Chrome browser with debug port enabled
+- Keepa browser extension installed and configured
+- OpenAI API key
 
----
+### Required Chrome Setup
+```bash
+# Start Chrome with debug port (required for automation)
+chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\ChromeDebugProfile"
+```
 
-## Section B: Workflow Documentation
+### Directory Structure
+```
+Amazon-FBA-Agent-System-v3/
+├── config/
+│   ├── system_config.json                    # Main configuration file
+│   └── supplier_configs/                     # Supplier-specific configurations
+├── tools/                                    # Core system components
+│   ├── passive_extraction_workflow_latest.py # PRIMARY ENTRY POINT
+│   ├── amazon_playwright_extractor.py        # Amazon data extraction
+│   ├── configurable_supplier_scraper.py      # Supplier website scraping
+│   ├── FBA_Financial_calculator.py           # Financial analysis and CSV generation
+│   ├── cache_manager.py                      # Cache management
+│   ├── main_orchestrator.py                  # Legacy orchestrator
+│   └── utils/                                # Utility modules
+├── passive_extraction_workflow_latest.py     # PRIMARY ENTRY POINT (root level)
+├── run_complete_fba_analysis.py             # Legacy entry point
+├── OUTPUTS/
+│   ├── FBA_ANALYSIS/                         # Analysis results and reports
+│   │   ├── ai_category_cache/               # AI category suggestions cache
+│   │   ├── amazon_cache/                    # Amazon product data cache
+│   │   ├── Linking map/                     # Product linking mappings
+│   │   ├── fba_financial_report_*.csv       # Financial reports (generated here)
+│   │   └── fba_summary_*.json               # FBA summary reports
+│   ├── cached_products/                     # Supplier product cache
+│   └── AMAZON_SCRAPE/                       # Amazon scraping artifacts
+└── docs/                                    # Documentation
+```
+
+## Configuration Guide
+
+### Main Configuration File: config/system_config.json
+
+**CRITICAL CONFIGURATION SETTINGS (TESTED AND VERIFIED):**
+```json
+{
+  "system": {
+    "clear_cache": false,
+    "selective_cache_clear": false,
+    "force_ai_scraping": true,
+    "max_products_per_category": 3,     // For testing - change to 50+ for production
+    "max_analyzed_products": 5          // For testing - change to 100+ for production
+  },
+  "integrations": {
+    "openai": {
+      "enabled": true,
+      "api_key": "sk-02XZ3ucKVViULVaTp4_Ad6byZCT6Fofr-BwRsD5mTcT3BlbkFJ7_HTmTRScAn0m-ITc_CX5a2beXTOcbK1-Qmm0s6nwA",
+      "model": "gpt-4o-mini-search-preview-2025-03-11",
+      "web_search_enabled": true
+    }
+  }
+}
+```
+
+**UNTESTED CONFIGURATION OPTIONS - DO NOT MODIFY:**
+The following settings exist in the configuration but have NOT been tested. Keep them at their current values:
+```json
+{
+  "system": {
+    "selective_cache_clear": false,     // UNTESTED - DO NOT CHANGE
+    "enable_supplier_parser": false,    // UNTESTED - DO NOT CHANGE
+    "test_mode": false,                 // UNTESTED - DO NOT CHANGE
+    "bypass_ai_scraping": false,        // UNTESTED - DO NOT CHANGE
+    "enable_system_monitoring": true    // UNTESTED - DO NOT CHANGE
+  }
+}
+```
+
+### Configuration Parameters Explained
+
+**TESTED PARAMETERS (Safe to Modify):**
+- `clear_cache`: false - We use existing cache data for efficiency
+- `force_ai_scraping`: true - Forces AI category suggestions regardless of cache state
+- `max_products_per_category`: Controls how many products to process per AI-suggested category
+- `max_analyzed_products`: Controls when to trigger new AI category suggestions
+
+**IMPORTANT:** The system runs until ALL AI-suggested categories are exhausted, regardless of these parameters. These only control the pace of processing.
+
+**For Testing (Multi-Cycle AI):**
+- Set `max_products_per_category: 3` and `max_analyzed_products: 5` to trigger multiple AI cycles quickly
+
+**For Production (Infinite Mode):**
+- Set `max_products_per_category: 50` and `max_analyzed_products: 100` for efficient operation
+- **CRITICAL:** The system continues until ALL AI-suggested categories are exhausted, not limited by product counts
+
+## Quick Start Guide
+
+### Standard Operation
+```bash
+# Navigate to system directory
+cd C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\
+
+# Standard run (processes products until max_analyzed_products reached)
+python passive_extraction_workflow_latest.py
+
+# Custom product limit
+python passive_extraction_workflow_latest.py --max-products 20
+```
+
+### Infinite Mode Operation
+```bash
+# Infinite processing with automatic AI category progression
+# Runs until ALL AI-suggested categories are exhausted
+python passive_extraction_workflow_latest.py --max-products 0
+```
+
+### Multi-Cycle AI Testing
+```bash
+# First, edit config/system_config.json:
+# - Set max_products_per_category: 3
+# - Set max_analyzed_products: 5
+# Then run:
+python passive_extraction_workflow_latest.py --max-products 15
+
+# Expected: 3 FBA summaries + 3 CSV files + 3 AI cache entries
+```
+
+## Output Files and Locations
+
+### Key Output Directories
+- **AI Cache**: `OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json`
+  - **Behavior**: Appends new entries (no overwriting existing entries)
+  - **Content**: AI-suggested categories with timestamps and scraping history
+- **Financial Reports**: `OUTPUTS/FBA_ANALYSIS/fba_financial_report_YYYYMMDD_HHMMSS.csv`
+  - **Behavior**: Creates new file each time
+  - **Location**: Generated directly in `OUTPUTS/FBA_ANALYSIS/` (not in financial_reports subdirectory)
+- **FBA Summaries**: `OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_YYYYMMDD_HHMMSS.json`
+  - **Behavior**: Creates new file each time
+  - **Content**: Complete workflow summary with processed product counts
+- **Amazon Cache**: `OUTPUTS/FBA_ANALYSIS/amazon_cache/{ASIN}_{EAN}.json`
+  - **Behavior**: Creates new file for each product
+  - **Naming**: Always uses EAN from supplier when adding to amazon cache file name for easier FBA_Financial_calculator identification and data retrieval from Linking map
+  - **Content**: Complete Amazon product data including Keepa metrics, FBA/FBM seller counts, pricing data
+- **State Files**: `OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json`
+  - **Behavior**: Same file updated with current processing index
+  - **Content**: Last processed product index for resuming operations
+- **Linking Map**: `OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`
+  - **Behavior**: Appends new entries (no overwriting existing entries)
+  - **Content**: Confirmed links between supplier products and Amazon ASINs with duplicate entry fallback protection
+
+### File Generation Patterns
+- **FBA Summary**: Generated once per workflow completion
+- **Financial Report**: Generated every 40-50 products OR at workflow completion
+- **AI Cache**: Appends new entries with each AI call (multiple entries in same file)
+- **Amazon Cache**: Individual JSON files for each product analyzed, named with ASIN and supplier EAN
+
+## Monitoring Commands
+
+### Check System Status
+```bash
+# Check AI cache progression
+type "OUTPUTS\FBA_ANALYSIS\ai_category_cache\clearance-king_co_uk_ai_category_cache.json"
+
+# Check recent financial reports
+dir "OUTPUTS\FBA_ANALYSIS\fba_financial_report_*.csv" /od
+
+# Monitor running processes
+tasklist | findstr python
+```
+
+### Health Indicators
+- **Healthy Operation**: New AI calls every 40-50 products
+- **File Generation**: New CSV reports every 40-50 products
+- **Memory Usage**: Should remain stable during infinite runs
+- **Processing Speed**: ~2-3 products per minute average
+
+## Troubleshooting
+
+### Common Issues
+
+**AI Client Initialization Failures:**
+```bash
+# Check API key in config/system_config.json
+# Verify internet connectivity
+# Test API key manually:
+curl -H "Authorization: Bearer YOUR_API_KEY" https://api.openai.com/v1/models
+```
+
+**Chrome/Browser Issues:**
+```bash
+# Restart Chrome with debug port
+taskkill /f /im chrome.exe
+chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\ChromeDebugProfile"
+```
+
+**Cache Issues:**
+```bash
+# Clear all caches and restart
+rmdir /s "OUTPUTS\FBA_ANALYSIS\amazon_cache"
+rmdir /s "OUTPUTS\FBA_ANALYSIS\ai_category_cache"
+del "OUTPUTS\cached_products\*.json"
+```
+
+### Recovery Procedures
+
+**Complete System Reset:**
+```bash
+# Stop all processes
+taskkill /f /im python.exe
+
+# Clear all caches
+rmdir /s "OUTPUTS\FBA_ANALYSIS"
+rmdir /s "OUTPUTS\cached_products"
+
+# Recreate directory structure
+mkdir OUTPUTS\FBA_ANALYSIS\ai_category_cache
+mkdir OUTPUTS\FBA_ANALYSIS\amazon_cache
+mkdir OUTPUTS\cached_products
+
+# Restart with minimal test
+python passive_extraction_workflow_latest.py --max-products 5
+```
+
+## Script Architecture and Workflow Documentation
 
 This section details the purpose, role, inputs, outputs, and dependencies of each major script and utility module in the system.
 
@@ -60,188 +259,199 @@ This section details the purpose, role, inputs, outputs, and dependencies of eac
 
 ### Core Scripts
 
-#### 1. `run_complete_fba_analysis.py` (Project Root)
-- **Status:** ✅ **Active**
-- **Purpose:** This is the main entry point to initiate the entire FBA analysis pipeline.
-- **Role in Workflow:** It sets up the environment, loads the main configuration (`config/system_config.json`), initializes the `FBASystemOrchestrator` from `tools/main_orchestrator.py`, and triggers the primary analysis workflow.
+#### 1. `passive_extraction_workflow_latest.py` (Project Root) - **PRIMARY ENTRY POINT**
+- **Status:** ✅ **Active** (Main workflow script - used directly)
+- **Purpose:** Implements the complete logic for extracting and processing product data from supplier websites and Amazon. This is the main script we use directly.
+- **Role in Workflow:** Primary entry point for all operations. Coordinates supplier product discovery (AI-driven), scraping (via `ConfigurableSupplierScraper`), Amazon product searching & data extraction (via `FixedAmazonExtractor`), data combination, profitability calculations (using Keepa fee data), and caching. Manages its own processing state and AI category progression.
 - **Input Requirements:**
-  - `config/system_config.json`: For global settings, API keys, workflow toggles, and cache configurations.
+  - `config/system_config.json` (indirectly, via constants and `CacheManager`)
+  - `config/supplier_configs/*.json` (used by `ConfigurableSupplierScraper`)
+  - Environment variables for certain parameters (e.g., `MIN_PRICE`, `MAX_PRICE`, OpenAI keys)
+  - Expects a running Chrome instance for Amazon extraction
 - **Output Generated:**
-  - **Console Output:** Logs progress and summary information.
-  - **Log File:** `fba_extraction_{YYYYMMDD}.log` (root) & potentially others in `logs/`. Orchestrator also logs to `test_orchestrator.log`.
-  - **Data Files:** Indirectly, it orchestrates the creation of all output files generated by downstream components (see `OUTPUTS/` directory structure).
-- **Dependencies:**
-  - `tools.main_orchestrator.FBASystemOrchestrator`
-  - `config/system_config.json`
-  - Standard Python libraries (`asyncio`, `logging`, `json`, `pathlib`).
-
-#### 2. `tools/main_orchestrator.py`
-- **Status:** ✅ **Active**
-- **Purpose:** Acts as the central coordinator for the entire FBA analysis system.
-- **Role in Workflow:** Initialized by `run_complete_fba_analysis.py`. It loads configurations, initializes all core components (scraper, extractor, parser, calculators, cache manager, etc.), manages the overall workflow execution (primarily through `run_with_passive_workflow` which calls `passive_extraction_workflow_latest.py`), handles AI client setup, and orchestrates cache clearing and report generation. The usage of `FBACalculator`, `PriceAnalyzer`, and `CurrencyConverter` is currently commented out in this script, favoring data from Keepa/SellerAmp for fee calculations.
-- **Input Requirements:**
-  - `config`: A Python dictionary (loaded from `config/system_config.json` by the entry point script) containing all system settings.
-- **Output Generated:**
-  - **Console Output:** Logs its own progress and the status of components it manages.
-  - **Data Files:** Orchestrates the creation of various analysis files and reports. Specifically, it calls `generate_report()` and `save_report()` which outputs a main JSON report to `OUTPUTS/FBA_ANALYSIS/report_{YYYYMMDD_HHMMSS}.json`.
-  - **Cache Management:** Initiates cache clearing based on `clear_cache` and `selective_cache_clear` flags from `system_config.json` by calling its own `clear_cache_dirs` or `selective_clear_cache_dirs` methods. This includes logging entirely unanalyzed supplier cache files to `OUTPUTS/FBA_ANALYSIS/cleared_for_manual_review.jsonl` before deletion if `_clear_unanalyzed_products()` is triggered.
-- **Dependencies:**
-  - `tools.configurable_supplier_scraper.ConfigurableSupplierScraper`
-  - `tools.amazon_playwright_extractor.AmazonExtractor`
-  - `tools.supplier_parser.SupplierDataParser` (conditionally used based on `system.enable_supplier_parser` in `system_config.json`)
-  - `tools.supplier_api.SupplierAPIHandler` (conditionally used based on supplier-specific `api_config.enabled` flags in `config/supplier_configs/`)
-  - `tools.system_monitor.SystemMonitor`
-  - `tools.passive_extraction_workflow_latest.run_workflow_main` (dynamically imported and called)
-  - `openai.OpenAI` (optional, for AI functionalities)
-  - `tools.utils.fba_calculator.FBACalculator` (instantiation commented out)
-  - `tools.utils.price_analyzer.PriceAnalyzer` (instantiation commented out)
-  - `tools.utils.currency_converter.CurrencyConverter` (instantiation commented out)
-  - Standard Python libraries.
-
-#### 3. `tools/passive_extraction_workflow_latest.py`
-- **Status:** ✅ **Active**
-- **Purpose:** Implements the core logic for passively extracting and processing product data from supplier websites and Amazon.
-- **Role in Workflow:** The `run_workflow_main` function within this script is called by `main_orchestrator.py`. It coordinates supplier product discovery (potentially AI-driven), scraping (via `ConfigurableSupplierScraper`), Amazon product searching & data extraction (via `FixedAmazonExtractor` defined within, using `amazon_playwright_extractor.py`), data combination, profitability calculations (currently using Keepa/SellerAmp fee data, `FBACalculator` usage is commented out), and caching. It interacts with `CacheManager` for some cache operations (like selective clearing of analyzed products from supplier caches) and manages its own processing state (`*_processing_state.json`, `ai_category_cache`).
-- **Input Requirements:**
-  - `config/system_config.json` (indirectly, via constants and `CacheManager`).
-  - `config/supplier_configs/*.json` (used by `ConfigurableSupplierScraper`).
-  - Environment variables for certain parameters (e.g., `MIN_PRICE`, `MAX_PRICE`, OpenAI keys).
-  - Expects a running Chrome instance for Amazon extraction.
-- **Output Generated:**
-  - **Data:** Returns a list of processed product data (dictionaries) to the orchestrator.
+  - **Data:** Returns a list of processed product data (dictionaries)
   - **Cache Files:**
-    - `OUTPUTS/cached_products/{supplier_name}_products_cache.json`: Caches product data scraped from supplier sites. (Modified by `CacheManager` during selective clears to remove analyzed items).
-    - `OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_{ASIN}_{EAN_optional}.json`: Caches product data extracted from Amazon pages.
-    - `OUTPUTS/FBA_ANALYSIS/ai_category_cache/{supplier_name}_ai_categories.json`: Caches AI-suggested categories and scraping history for suppliers.
-    - `OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`: Stores confirmed links between supplier products and Amazon ASINs.
-    - `OUTPUTS/FBA_ANALYSIS/{supplier_name}_processing_state.json`: Stores the last processed product index for resuming.
-  - **Log File:** `fba_extraction_{YYYYMMDD}.log` (root) - Detailed logs for the workflow run.
-  - **Financial Report:** Calls `FBA_Financial_calculator.run_calculations` to generate `OUTPUTS/FBA_ANALYSIS/financial_reports/FBA_Financial_Report_{timestamp}.csv`.
+    - `OUTPUTS/cached_products/{supplier_name}_products_cache.json`: Caches product data scraped from supplier sites
+    - `OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_{ASIN}_{EAN_optional}.json`: Caches product data extracted from Amazon pages
+    - `OUTPUTS/FBA_ANALYSIS/ai_category_cache/{supplier_name}_ai_categories.json`: Caches AI-suggested categories and scraping history
+    - `OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`: Stores confirmed links between supplier products and Amazon ASINs
+    - `OUTPUTS/FBA_ANALYSIS/{supplier_name}_processing_state.json`: Stores the last processed product index for resuming
+  - **Log File:** `fba_extraction_{YYYYMMDD}.log` (root) - Detailed logs for the workflow run
+  - **Financial Report:** Calls `FBA_Financial_calculator.run_calculations` to generate `OUTPUTS/FBA_ANALYSIS/fba_financial_report_{timestamp}.csv`
 - **Dependencies:**
   - `tools.amazon_playwright_extractor.AmazonExtractor`
   - `tools.configurable_supplier_scraper.ConfigurableSupplierScraper`
   - `tools.cache_manager.CacheManager`
   - `tools.FBA_Financial_calculator.run_calculations`
   - `openai.OpenAI` (optional)
-  - `bs4.BeautifulSoup`, `playwright.async_api`, standard libraries.
-  - `tools.utils.fba_calculator.FBACalculator` (instantiation commented out)
+  - `bs4.BeautifulSoup`, `playwright.async_api`, standard libraries
+
+#### 2. `run_complete_fba_analysis.py` (Project Root) - **LEGACY ENTRY POINT**
+- **Status:** ⚠️ **Legacy** (Available but not used in current workflow)
+- **Purpose:** Legacy entry point that calls the main orchestrator. We now use `passive_extraction_workflow_latest.py` directly.
+- **Role in Workflow:** Sets up environment, loads configuration, initializes `FBASystemOrchestrator`, and triggers workflow through orchestrator.
+- **Input Requirements:**
+  - `config/system_config.json`: For global settings, API keys, workflow toggles, and cache configurations
+- **Output Generated:**
+  - **Console Output:** Logs progress and summary information
+  - **Log File:** `fba_extraction_{YYYYMMDD}.log` (root) & potentially others in `logs/`
+  - **Data Files:** Indirectly orchestrates creation of all output files
+- **Dependencies:**
+  - `tools.main_orchestrator.FBASystemOrchestrator`
+  - `config/system_config.json`
+  - Standard Python libraries (`asyncio`, `logging`, `json`, `pathlib`)
+
+#### 3. `tools/main_orchestrator.py`
+- **Status:** ⚙️ **Config-Driven Active** (Used by legacy entry point only)
+- **Purpose:** Acts as the central coordinator for the entire FBA analysis system when called by `run_complete_fba_analysis.py`.
+- **Role in Workflow:** Initialized by `run_complete_fba_analysis.py`. Loads configurations, initializes components, manages workflow execution (primarily through `run_with_passive_workflow` which calls `passive_extraction_workflow_latest.py`), handles AI client setup, and orchestrates cache clearing and report generation.
+- **Input Requirements:**
+  - `config`: A Python dictionary (loaded from `config/system_config.json`) containing all system settings
+- **Output Generated:**
+  - **Console Output:** Logs its own progress and component status
+  - **Data Files:** Orchestrates creation of analysis files and reports. Calls `generate_report()` and `save_report()` which outputs main JSON report to `OUTPUTS/FBA_ANALYSIS/report_{YYYYMMDD_HHMMSS}.json`
+  - **Cache Management:** Initiates cache clearing based on `clear_cache` and `selective_cache_clear` flags
+- **Dependencies:**
+  - `tools.configurable_supplier_scraper.ConfigurableSupplierScraper`
+  - `tools.amazon_playwright_extractor.AmazonExtractor`
+  - `tools.supplier_parser.SupplierDataParser` (conditionally used)
+  - `tools.supplier_api.SupplierAPIHandler` (conditionally used)
+  - `tools.system_monitor.SystemMonitor`
+  - `tools.passive_extraction_workflow_latest.run_workflow_main` (dynamically imported and called)
+  - `openai.OpenAI` (optional)
+  - Standard Python libraries
 
 #### 4. `tools/configurable_supplier_scraper.py`
 - **Status:** ✅ **Active**
 - **Purpose:** Scrapes product information from supplier websites using dynamically loaded configurations.
 - **Role in Workflow:** Called by `passive_extraction_workflow_latest.py`. Fetches HTML from supplier URLs, parses product elements, and extracts details based on selectors in `config/supplier_configs/{supplier_domain}.json`. Includes AI fallbacks.
 - **Input Requirements:**
-  - `supplier_url`: URL of the supplier page.
-  - `config/supplier_configs/{supplier_domain}.json`: Loaded via `config.supplier_config_loader`.
-  - `ai_client` (Optional): OpenAI client for AI fallback.
+  - `supplier_url`: URL of the supplier page
+  - `config/supplier_configs/{supplier_domain}.json`: Loaded via `config.supplier_config_loader`
+  - `ai_client` (Optional): OpenAI client for AI fallback
 - **Output Generated:**
-  - **Data:** List of dictionaries (scraped products) returned to the caller.
-  - **File Output:** None directly.
+  - **Data:** List of dictionaries (scraped products) returned to the caller
+  - **File Output:** None directly
 - **Dependencies:**
   - `config.supplier_config_loader`
-  - `aiohttp`, `bs4.BeautifulSoup`, `openai.OpenAI` (optional), standard libraries.
+  - `aiohttp`, `bs4.BeautifulSoup`, `openai.OpenAI` (optional), standard libraries
 
 #### 5. `tools/amazon_playwright_extractor.py`
 - **Status:** ✅ **Active**
-- **Purpose:** Extracts product information from Amazon using Playwright.
-- **Role in Workflow:** Used by `FixedAmazonExtractor` (subclass in `passive_extraction_workflow_latest.py`). Navigates Amazon, handles CAPTCHAs, extracts data (price, title, BSR, ratings, Keepa/SellerAmp data).
+- **Purpose:** Extracts comprehensive product information from Amazon using Playwright.
+- **Role in Workflow:** Used by `FixedAmazonExtractor` (subclass in `passive_extraction_workflow_latest.py`). Navigates Amazon, handles CAPTCHAs, extracts detailed product data.
+- **Extracted Data Includes:**
+  - **Basic Product Info**: ASIN, title, price, availability, EAN/UPC codes
+  - **Sales Metrics**: BSR (Best Sellers Rank), ratings, review counts
+  - **Seller Information**: FBA seller count, FBM seller count, total offer count, "bought in past month" data
+  - **Keepa Data**: Historical pricing, sales velocity, fee calculations (Amazon referral fees, FBA fees)
+  - **Note**: SellerAmp data extraction is currently commented out for system optimization
 - **Input Requirements:**
-  - `asin` or `title`: For Amazon search.
-  - `chrome_debug_port`: For Chrome instance.
-  - `ai_client` (Optional): OpenAI client.
+  - `asin` or `title`: For Amazon search
+  - `chrome_debug_port`: For Chrome instance
+  - `ai_client` (Optional): OpenAI client
 - **Output Generated:**
-  - **Data:** Dictionary of Amazon product data returned to the caller.
-  - **File Output:** `OUTPUTS/AMAZON_SCRAPE/captcha_{asin}_{timestamp}.png` (if CAPTCHA encountered).
+  - **Data:** Dictionary of Amazon product data returned to the caller
+  - **File Output:** `OUTPUTS/AMAZON_SCRAPE/captcha_{asin}_{timestamp}.png` (if CAPTCHA encountered)
 - **Dependencies:**
-  - `playwright.async_api`, `openai.OpenAI` (optional), standard libraries.
+  - `playwright.async_api`, `openai.OpenAI` (optional), standard libraries
 
 #### 6. `tools/FBA_Financial_calculator.py`
 - **Status:** ✅ **Active** (for batch reporting and called by passive workflow)
 - **Purpose:** Calculates financial metrics (ROI, net profit) and generates a CSV report.
-- **Role in Workflow:** Called by `passive_extraction_workflow_latest.py` at the end of its run. Can also be run standalone for batch analysis. It primarily uses fee data already present in its cached inputs (e.g., from Keepa via `amazon_playwright_extractor.py`).
+- **Role in Workflow:** Called by `passive_extraction_workflow_latest.py` at the end of its run. Can also be run standalone for batch analysis. Uses fee data already present in cached inputs (e.g., from Keepa via `amazon_playwright_extractor.py`).
 - **Input Requirements:**
-  - Supplier cache (`OUTPUTS/cached_products/{supplier_name}_products_cache.json`).
-  - Amazon cache (`OUTPUTS/FBA_ANALYSIS/amazon_cache/`).
-  - Linking map (`OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`).
-  - Hardcoded parameters for VAT, prep costs, shipping.
+  - Supplier cache (`OUTPUTS/cached_products/{supplier_name}_products_cache.json`)
+  - Amazon cache (`OUTPUTS/FBA_ANALYSIS/amazon_cache/`)
+  - Linking map (`OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`)
+  - Hardcoded parameters for VAT, prep costs, shipping
 - **Output Generated:**
-  - **File Output:** `OUTPUTS/FBA_ANALYSIS/financial_reports/FBA_Financial_Report_{timestamp}.csv`.
-    - **Schema:** Supplier Title, EAN, ASIN, Amazon Price, Supplier Cost, FBA Fees, Referral Fees, Net Profit, ROI, Estimated Monthly Sales, etc.
+  - **File Output:** `OUTPUTS/FBA_ANALYSIS/fba_financial_report_{timestamp}.csv` (generated directly in FBA_ANALYSIS directory)
+  - **Complete Schema:** EAN, EAN_OnPage, ASIN, Title, SupplierURL, AmazonURL, bought_in_past_month, fba_seller_count, fbm_seller_count, total_offer_count, SupplierPrice_incVAT, SupplierPrice_exVAT, SellingPrice_incVAT, AmazonPrice_exVAT, ReferralFee, FBAFee, OutputVAT, InputVAT, NetProceeds, HMRC, NetProfit, ROI, Breakeven, ProfitMargin
 - **Dependencies:**
-  - `pandas`, standard libraries.
+  - `pandas`, standard libraries
 
 #### 7. `tools/cache_manager.py`
 - **Status:** ✅ **Active**
 - **Purpose:** Centralized management of cached data (clearing, validation).
-- **Role in Workflow:** Instantiated and used by `passive_extraction_workflow_latest.py` to perform cache operations based on configuration settings from `system_config.json`. Implements different strategies, like `"smart_selective"` which removes *analyzed/processed* items from supplier cache files.
+- **Role in Workflow:** Instantiated and used by `passive_extraction_workflow_latest.py` to perform cache operations based on configuration settings from `system_config.json`. Implements different strategies, like `"smart_selective"` which removes analyzed/processed items from supplier cache files.
 - **Input Requirements:**
-  - `config`: Python dictionary with cache settings, including `linking_map_path`.
+  - `config`: Python dictionary with cache settings, including `linking_map_path`
 - **Output Generated:**
-  - Modifies cache directories (e.g., `OUTPUTS/cached_products/`). Can create backup files.
+  - Modifies cache directories (e.g., `OUTPUTS/cached_products/`). Can create backup files
 - **Dependencies:**
-  - Standard libraries (`asyncio`, `json`, `logging`, `os`, `shutil`, `pathlib`, etc.).
+  - Standard libraries (`asyncio`, `json`, `logging`, `os`, `shutil`, `pathlib`, etc.)
 
 #### 8. `tools/supplier_parser.py`
 - **Status:** ⚙️ **Config-Driven Active** (Activity depends on `system.enable_supplier_parser` in `config/system_config.json`)
 - **Purpose:** Parses raw HTML from supplier product pages using configurations.
 - **Role in Workflow:** Instantiated by `main_orchestrator.py`. If `enable_supplier_parser` is true, `main_orchestrator.py`'s `scrape_supplier` method will use it. Otherwise, raw element data might be used.
 - **Input Requirements:**
-  - `supplier_id`, `html_content`, `url`.
-  - `config/supplier_configs/{supplier_id}.json`.
+  - `supplier_id`, `html_content`, `url`
+  - `config/supplier_configs/{supplier_id}.json`
 - **Output Generated:**
-  - **Data:** Dictionary of parsed product data.
+  - **Data:** Dictionary of parsed product data
 - **Dependencies:**
-  - `bs4.BeautifulSoup`, standard libraries.
+  - `bs4.BeautifulSoup`, standard libraries
 
 #### 9. `tools/system_monitor.py`
-- **Status:** ✅ **Active**
+- **Status:** ⚠️ **Legacy** (Only initiated by main_orchestrator.py - legacy entry point)
 - **Purpose:** Monitors and logs system resources.
-- **Role in Workflow:** Instantiated by `main_orchestrator.py`. Runs in background if enabled in its internal logic (not directly via `system_config.json` for its own enablement, but `main_orchestrator` decides to start it).
+- **Role in Workflow:** Instantiated by `main_orchestrator.py`. Runs in background if enabled in its internal logic. Not used by current primary workflow.
 - **Output Generated:**
-  - **File Output:** `logs/monitoring/system_metrics_{timestamp}.json`.
+  - **File Output:** `logs/monitoring/system_metrics_{timestamp}.json`
 - **Dependencies:**
-  - `psutil` (optional), standard libraries.
+  - `psutil` (optional), standard libraries
 
 #### 10. `tools/supplier_api.py`
 - **Status:** ⚙️ **Config-Driven Active** (Activity depends on `api_config.enabled` in `config/supplier_configs/{supplier_name}.json`)
 - **Purpose:** Handles interactions with supplier APIs.
 - **Role in Workflow:** Instantiated by `main_orchestrator.py`. Used if a specific supplier's configuration enables API interaction.
 - **Input Requirements:**
-  - `supplier_id`, API credentials/endpoints from supplier config.
+  - `supplier_id`, API credentials/endpoints from supplier config
 - **Output Generated:**
-  - **Data:** List of product data from API.
+  - **Data:** List of product data from API
 - **Dependencies:**
-  - `requests` or `aiohttp`, standard libraries.
+  - `requests` or `aiohttp`, standard libraries
 
 ### Utility Modules (`tools/utils/`)
 This directory contains various helper modules used by the core workflow scripts.
 
 - **`tools/utils/fba_calculator.py`**:
-  - **Status:** ⚠️ **Inactive (Commented Out in core workflows)**
+  - **Status:** ⚠️ **Inactive (Commented Out in current primary workflow)**
   - **Purpose:** Utility class (`FBACalculator`) for calculating Amazon FBA fees based on product details. Kept for potential future use or manual calculations.
-  - **Original Usage:** Was used by `passive_extraction_workflow_latest.py` and `tools/utils/price_analyzer.py`.
+  - **Usage:** Was used by `passive_extraction_workflow_latest.py` (commented out) and legacy `main_orchestrator.py`
 
 - **`tools/utils/price_analyzer.py`**:
-  - **Status:** ⚠️ **Inactive (Commented Out in core workflows)**
-  - **Purpose:** Was intended for advanced price and profit analysis.
-  - **Original Usage:** Was initialized and callable by `main_orchestrator.py`.
+  - **Status:** ⚠️ **Legacy Only** (Only used by legacy main_orchestrator.py)
+  - **Purpose:** Advanced price and profit analysis functionality.
+  - **Usage:** Initialized and used by `main_orchestrator.py` (legacy entry point only)
 
 - **`tools/utils/currency_converter.py`**:
-  - **Status:** ⚠️ **Inactive (Commented Out in core workflows)**
+  - **Status:** ⚠️ **Legacy Only** (Only used by legacy main_orchestrator.py)
   - **Purpose:** Converts amounts between currencies.
-  - **Original Usage:** Was initialized by `main_orchestrator.py` and used by `PriceAnalyzer`.
+  - **Usage:** Initialized by `main_orchestrator.py` and used by `PriceAnalyzer` (legacy entry point only)
 
-- **`tools/utils/analysis_tools.py`**, **`data_extractor.py`**, **`data_normalizer.py`**, **`product_validator.py`**, **`playwright_helpers.py`**:
-  - **Status:** ✅ **Active** (These support core functionalities like parsing, validation, and browser automation, used by various active scripts).
-  - **Purpose:** Provide various helper functions for data extraction, normalization, validation, and Playwright automation.
+- **`tools/utils/analysis_tools.py`**:
+  - **Status:** ❓ **Conditionally Active** (Not directly imported by current primary scripts)
+  - **Purpose:** General analysis helper functions
+  - **Usage:** Available for import but not currently used by primary workflow
 
-- **`tools/utils/cleanup_processed_cache.py`** & **`tools/utils/cleanup_battery_cache.py`**:
-  - **Status:** ❓ **Conditionally Active** (Their direct execution depends on whether `CacheManager` or other workflow logic explicitly calls them. They are not standalone main scripts.)
-  - **Purpose:** Specialized scripts for cleaning specific cache entries.
+- **`tools/utils/data_extractor.py`**, **`data_normalizer.py`**, **`product_validator.py`**, **`playwright_helpers.py`**:
+  - **Status:** ❓ **Conditionally Active** (Not directly imported by current primary scripts)
+  - **Purpose:** Provide helper functions for data extraction, normalization, validation, and Playwright automation
+  - **Usage:** Available for import but not currently used by primary workflow
 
----
+- **`tools/utils/cleanup_processed_cache.py`**:
+  - **Status:** ⚠️ **Standalone Tool** (Manual execution only - not called by current scripts)
+  - **Purpose:** Removes products from supplier cache that have already been processed (found in linking map)
+  - **Usage:** Manual execution tool for cache maintenance, creates backups before cleaning
 
-## Section C: Output File Structure and Data Flow
+- **`tools/utils/cleanup_battery_cache.py`**:
+  - **Status:** ❓ **Conditionally Active** (Purpose unclear from current codebase)
+  - **Purpose:** Specialized cache cleaning functionality
+
+## Output File Structure and Data Flow
 
 ### Key Output Directories
 - **`OUTPUTS/`**: Root directory for all runtime artifacts.
@@ -256,11 +466,10 @@ This directory contains various helper modules used by the core workflow scripts
       - `{supplier_name}_ai_categories.json`
     - **`Linking map/`**: Stores the critical mapping between supplier products and Amazon ASINs.
       - `linking_map.json`
-    - **`financial_reports/`**: Contains generated financial CSV reports.
-      - `FBA_Financial_Report_{timestamp}.csv`
+    - `fba_financial_report_{timestamp}.csv`: Financial reports generated directly in this directory
+    - `fba_summary_{supplier_name}_{timestamp}.json`: FBA summary reports
     - `{supplier_name}_processing_state.json`: Tracks the last processed product index for a supplier run.
-    - `report_{YYYYMMDD_HHMMSS}.json`: Main JSON report from the orchestrator.
-    - `cleared_for_manual_review.jsonl`: Log of unanalyzed products cleared by the orchestrator's selective cache logic.
+    - `cleared_for_manual_review.jsonl`: Log of unanalyzed products cleared by the orchestrator's selective cache logic (legacy).
 - **`logs/`**: Contains general system logs.
   - `fba_extraction_{YYYYMMDD}.log`: Detailed logs from `passive_extraction_workflow_latest.py`.
   - `test_orchestrator.log`: Logs from `main_orchestrator.py`.
@@ -273,293 +482,68 @@ This directory contains various helper modules used by the core workflow scripts
     - **Schema (per object):** `{ "title": "Product Title", "price": 10.99, "url": "product_url", "image_url": "image_url", "ean": "123...", "source_supplier": "supplier_name", ... }`
 2.  **Amazon Product Cache (`OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_{ASIN}_{EAN_optional}.json`)**:
     - **Format:** JSON object.
-    - **Schema:** Comprehensive data including `asin`, `title`, `current_price`, `sales_rank`, `category`, Keepa data, SellerAmp data, etc.
+    - **Schema:** Comprehensive data including `asin`, `title`, `current_price`, `sales_rank`, `category`, Keepa data, FBA/FBM seller counts, etc.
 3.  **Linking Map (`OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`)**:
     - **Format:** JSON array of objects.
     - **Schema (per object):** `{ "supplier_product_identifier": "EAN_xxx / URL_xxx", ..., "chosen_amazon_asin": "ASIN", ... }`
-4.  **Main Orchestrator Report (`OUTPUTS/FBA_ANALYSIS/report_{YYYYMMDD_HHMMSS}.json`)**:
-    - **Format:** JSON object.
-    - **Schema:** Summary statistics, top profitable products, system health.
-5.  **FBA Financial Report (`OUTPUTS/FBA_ANALYSIS/financial_reports/FBA_Financial_Report_{timestamp}.csv`)**:
+4.  **FBA Financial Report (`OUTPUTS/FBA_ANALYSIS/fba_financial_report_{timestamp}.csv`)**:
     - **Format:** CSV.
-    - **Columns:** Supplier Title, EAN, ASIN, Amazon Price, Supplier Cost, FBA Fees, Net Profit, ROI, etc.
-6.  **Processing State (`OUTPUTS/FBA_ANALYSIS/{supplier_name}_processing_state.json`)**:
+    - **Complete Schema:** EAN, EAN_OnPage, ASIN, Title, SupplierURL, AmazonURL, bought_in_past_month, fba_seller_count, fbm_seller_count, total_offer_count, SupplierPrice_incVAT, SupplierPrice_exVAT, SellingPrice_incVAT, AmazonPrice_exVAT, ReferralFee, FBAFee, OutputVAT, InputVAT, NetProceeds, HMRC, NetProfit, ROI, Breakeven, ProfitMargin
+5.  **Processing State (`OUTPUTS/FBA_ANALYSIS/{supplier_name}_processing_state.json`)**:
     - **Format:** JSON object.
     - **Schema:** `{ "last_processed_index": 0 }` (tracks index within the list of supplier products for a run).
-7.  **Cleared Unanalyzed Products Log (`OUTPUTS/FBA_ANALYSIS/cleared_for_manual_review.jsonl`)**:
+6.  **Cleared Unanalyzed Products Log (`OUTPUTS/FBA_ANALYSIS/cleared_for_manual_review.jsonl`)**:
     - **Format:** JSON Lines (one JSON object per line).
     - **Schema (per object):** Individual supplier product object, augmented with `_source_file_deleted` and `_cleared_timestamp`.
 
 ### Data Flow Summary
-1.  **Supplier Scraping (`configurable_supplier_scraper.py`, potentially AI-driven via `passive_extraction_workflow_latest.py`)**: Outputs raw supplier product data. Cached in `OUTPUTS/cached_products/`.
+1.  **Supplier Scraping (`configurable_supplier_scraper.py`, AI-driven via `passive_extraction_workflow_latest.py`)**: Outputs raw supplier product data. Cached in `OUTPUTS/cached_products/`.
 2.  **Amazon Matching & Extraction (`passive_extraction_workflow_latest.py` -> `amazon_playwright_extractor.py`)**: Uses supplier data (after filtering against `linking_map.json`), outputs detailed Amazon product data. Cached in `OUTPUTS/FBA_ANALYSIS/amazon_cache/`. Updates `Linking map`.
 3.  **Profitability Calculation & Reporting**:
-    - `passive_extraction_workflow_latest.py`: Calculates initial metrics, primarily using Keepa/SellerAmp fee data.
-    - `FBA_Financial_calculator.py`: Uses cached data to generate `FBA_Financial_Report_{timestamp}.csv`.
-    - `main_orchestrator.py`: Generates `report_{...}.json`.
+    - `passive_extraction_workflow_latest.py`: Calculates initial metrics using Keepa fee data and generates FBA summary reports.
+    - `FBA_Financial_calculator.py`: Uses cached data to generate comprehensive `fba_financial_report_{timestamp}.csv` with complete financial analysis.
 
----
-## Section D: Cache Behavior and State Management
+## Cache Behavior and State Management
 
-### Configuration Flags
-The primary cache behavior is controlled by two flags in `config/system_config.json` under the `"system"` key:
-- **`"clear_cache"`** (boolean): If `true`, triggers a broader cache clearing mechanism at the start of a run by `main_orchestrator.py`.
-- **`"selective_cache_clear"`** (boolean):
-  - If `true` (and `clear_cache` is also `true`), `main_orchestrator.py` attempts a "selective" clear.
-  - If `true` (and `clear_cache` is `false`), this flag primarily signals `passive_extraction_workflow_latest.py` to use its `CacheManager` for a "smart selective" clear.
+**📝 NOTE: Current Configuration**
+Our current testing configuration uses:
+- `"clear_cache": false` - We use existing cache data for efficiency
+- `"selective_cache_clear": false` - Listed in untested parameters, do not modify
 
-These flags determine how `main_orchestrator.py` and `passive_extraction_workflow_latest.py` (via `CacheManager`) handle cache data.
+The system uses the following mechanisms for state management and resuming operations:
 
-### Cache Clearing Scenarios
-
-1.  **`"clear_cache": false`, `"selective_cache_clear": false`** (Test 1 Scenario)
-    - **Behavior:** No explicit cache clearing is performed by the orchestrator or the passive workflow based on these flags.
-    - **Details:** The system relies on existing caches. Supplier data (`OUTPUTS/cached_products/`) and Amazon data (`OUTPUTS/FBA_ANALYSIS/amazon_cache/`) are used if not older than configured `max_cache_age_hours`.
-    - **Resuming:** Uses `linking_map.json` and `*_processing_state.json`.
-
-2.  **`"clear_cache": true`, `"selective_cache_clear": false`**
-    - **Behavior:** A full, non-selective cache clear is performed by `main_orchestrator.py`'s `clear_cache_dirs()` method.
-    - **Impact:** Most cached data (supplier, Amazon, analysis results) defined in `cache.directories` (excluding those explicitly preserved like `ai_category_cache` and `linking_map` if so configured for preservation by the *selective* clear logic, though full clear might override) are wiped.
-
-3.  **`"clear_cache": true`, `"selective_cache_clear": true`**
-    - **Behavior:** `main_orchestrator.py` calls `selective_clear_cache_dirs()`.
-    - **Details:** This preserves `ai_category_cache` and `linking_map` (if configured). It calls `_clear_unanalyzed_products()`, which deletes supplier cache files from `OUTPUTS/cached_products/` if they contain *only* unanalyzed products (not in `linking_map.json`), logging their contents to `OUTPUTS/FBA_ANALYSIS/cleared_for_manual_review.jsonl`. It also clears failed extraction markers.
-
-4.  **`"clear_cache": false`, `"selective_cache_clear": true`** (Test 2 Scenario)
-    - **Behavior:**
-        - `main_orchestrator.py` does *not* initiate cache clearing (as `clear_cache` is false).
-        - `passive_extraction_workflow_latest.py` *will* initiate a selective clear via its `CacheManager` using the `"smart_selective"` strategy.
-    - **`CacheManager`'s "smart_selective" strategy:**
-        - Modifies supplier cache files in `OUTPUTS/cached_products/` by *removing already analyzed/processed items* (those found in `linking_map.json`), leaving unanalyzed items in the file. This does *not* populate `cleared_for_manual_review.jsonl`.
-        - Preserves `ai_category_cache` and `linking_map.json`.
-    - **Impact:** Triggers `force_ai_category_progression = True` in `passive_extraction_workflow_latest.py` if supplier caches were modified, leading to fresh AI-driven supplier scraping for new data.
-
-### State Management for Resuming Operations
-The system uses primarily two mechanisms to "remember" its state and resume:
-
+### State Management Files
 1.  **`OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json`**:
     - **Purpose:** Critical record of supplier products successfully matched to an Amazon ASIN. Prevents re-analysis of these links.
-    - **Used by:** `passive_extraction_workflow_latest.py` (to skip processing), `main_orchestrator.py` and `CacheManager` (for selective clearing decisions).
-    - **Preservation:** Typically preserved during selective cache clears. De-duplicates entries by `supplier_product_identifier`.
+    - **Used by:** `passive_extraction_workflow_latest.py` to skip already processed products
+    - **Behavior:** Appends new entries, includes duplicate entry fallback protection
 
 2.  **`OUTPUTS/FBA_ANALYSIS/{supplier_name}_processing_state.json`**:
-    - **Purpose:** Tracks `last_processed_index` for a supplier's product list within the current run of `passive_extraction_workflow_latest.py`.
-    - **Used by:** `passive_extraction_workflow_latest.py` to resume iteration over the current batch of products for a supplier. Handles stale index relative to the current product list.
+    - **Purpose:** Tracks `last_processed_index` for a supplier's product list within the current run
+    - **Used by:** `passive_extraction_workflow_latest.py` to resume iteration from the correct position
+    - **Behavior:** Same file updated with current processing index
 
-### Further Details on Core Logic
-For more in-depth explanations of the cache clearing strategies, AI-scraping mechanisms, linking map management, and resume logic, including relevant code context and interactions between components, please refer to the dedicated document:
-**➡️ [`docs/SYSTEM_DEEP_DIVE.md`](SYSTEM_DEEP_DIVE.md)**
+## Important Notes
 
----
+### Critical Instructions
+- **Always use original production scripts** - NEVER generate separate test scripts
+- **Always verify by checking actual files** - NEVER trust logs alone
+- **Only modify tested configuration parameters** - Leave untested options unchanged
+- **Clear AI cache before testing** - Delete ai_category_cache files for fresh starts
+- **Use `passive_extraction_workflow_latest.py` directly** - This is the primary entry point, not `run_complete_fba_analysis.py`
+- **Ignore any test scripts** - For testing purposes, never use test scripts, always modify and test actual production scripts directly
 
-## Section E: Visual Workflow Diagram
+### System Limitations
+- Currently supports only Clearance King UK supplier
+- Requires manual Chrome setup with debug port
+- Keepa extension must be installed and active for fee calculations
+- OpenAI API key required for AI category suggestions
 
-```mermaid
-graph TD
-    A[run_complete_fba_analysis.py] --> B{main_orchestrator.py};
-    B --> C[Load system_config.json];
-    B --> MOD_CACHE_FLAGS{Read Cache Flags};
-    MOD_CACHE_FLAGS -- clear_cache:true --> CLR[Cache Clearing Ops by Orchestrator];
-    CLR -- selective_clear:true --> SEL_CLR_ORCH[selective_clear_cache_dirs];
-    CLR -- selective_clear:false --> FULL_CLR_ORCH[clear_cache_dirs];
-    SEL_CLR_ORCH --> LM_READ_ORCH(Reads linking_map.json);
-    SEL_CLR_ORCH --> SUP_CACHE_MOD[Modifies OUTPUTS/cached_products/];
-    SEL_CLR_ORCH -- If unanalyzed files deleted --> CLEARED_LOG[Writes to cleared_for_manual_review.jsonl];
-    SEL_CLR_ORCH --> AMZN_CACHE_MOD[Modifies OUTPUTS/FBA_ANALYSIS/amazon_cache/];
-    FULL_CLR_ORCH --> ALL_CACHE_WIPE[Wipes Configured Cache Dirs];
+### Script Consolidation Notes
+- **Primary Entry Point:** `passive_extraction_workflow_latest.py` contains ALL critical functionality
+- **Legacy Entry Point:** `run_complete_fba_analysis.py` is available but not used in current workflow
+- **No Missing Functionality:** All critical code snippets, workflow details, and functionality are preserved in the primary script
+- **Verified Integration:** All components properly integrate through the primary workflow script
 
-    B --> D[Initialize Components];
-    D --> D1[configurable_supplier_scraper.py];
-    D --> D2[amazon_playwright_extractor.py];
-    %% D --> D3[utils/fba_calculator.py - Inactive];
-    D --> D4[cache_manager.py];
-    D --> D5[supplier_parser.py - Config Driven];
-    D --> D6[system_monitor.py];
-    D --> D7[supplier_api.py - Config Driven];
-
-    B -- Triggers --> E{passive_extraction_workflow_latest.py};
-    E --> C; %% Reads system_config for its own cache manager
-    E --> PASSIVE_CACHE_FLAGS{Read Cache Flags for CacheManager};
-    PASSIVE_CACHE_FLAGS -- selective_cache_clear:true --> CM_INIT[Init CacheManager];
-    CM_INIT -- strategy:smart_selective --> CM_CLEAR[CacheManager.clear_cache()];
-    CM_CLEAR --> LM_READ_CM(Reads linking_map.json for selective);
-    CM_CLEAR --> SUP_CACHE_MOD_CM[Modifies OUTPUTS/cached_products/ by removing ANALYZED items];
-
-    E -- Uses --> D1;
-    E -- Uses --> D2;
-    %% E -- Uses --> D3; % Not anymore
-    E -- Uses --> D4; % CacheManager Instance
-
-    D1 -- Reads --> F[config/supplier_configs/*.json];
-    D1 -- Writes to/Reads from --> G[OUTPUTS/cached_products/];
-    E -- Reads --> PROC_STATE[OUTPUTS/FBA_ANALYSIS/*_processing_state.json];
-    E -- Reads --> LM[OUTPUTS/FBA_ANALYSIS/Linking map/linking_map.json];
-    E -- Reads/Writes --> AICACHE[OUTPUTS/FBA_ANALYSIS/ai_category_cache/];
-
-
-    E -- Identifies/Searches --> H[Amazon Product Search];
-    H -- Uses --> D2;
-    D2 -- Interacts with --> I[Chrome Browser + Extensions];
-    D2 -- Writes to/Reads from --> J[OUTPUTS/FBA_ANALYSIS/amazon_cache/];
-    E -- Updates --> LM;
-    E -- Updates --> PROC_STATE;
-
-    E -- Calculates --> L[Profitability Analysis (using Keepa fees)];
-    %% L -- Uses --> D3; % Not anymore
-
-    E -- Calls --> M[FBA_Financial_calculator.py];
-    M -- Reads --> G;
-    M -- Reads --> J;
-    M -- Reads --> LM;
-    M -- Writes --> N[OUTPUTS/FBA_ANALYSIS/financial_reports/*.csv];
-    B -- Generates --> O[OUTPUTS/FBA_ANALYSIS/report_*.json];
-    USER[User] --> A;
-
-    subgraph Configuration
-        C
-        F
-    end
-
-    subgraph Core Processing by Orchestrator
-        B
-        MOD_CACHE_FLAGS
-        CLR
-    end
-
-    subgraph Core Processing by Passive Workflow
-        E
-        PASSIVE_CACHE_FLAGS
-        CM_INIT
-        AICACHE
-        H
-        L
-    end
-
-    subgraph Data Sources & External
-        I
-    end
-
-    subgraph Output & Caching & State
-        G
-        J
-        LM
-        PROC_STATE
-        N
-        O
-        LOGS[logs/]
-        AMZN_CACHE_MOD
-        SUP_CACHE_MOD
-        SUP_CACHE_MOD_CM
-        CLEARED_LOG
-    end
-
-    D6 -- Writes to --> LOGS;
-    A -- Logs to --> LOGS;
-    E -- Logs to --> LOGS;
-
-    style A fill:#c9ffc9,stroke:#333,stroke-width:2px
-    style USER fill:#lightblue,stroke:#333,stroke-width:2px
-    style N fill:#ffebcc,stroke:#333,stroke-width:2px
-    style O fill:#ffebcc,stroke:#333,stroke-width:2px
-```
-
----
-
-## Section F: Future Integration Notes
-
-### 1. LangChain Integration
-- **Modularity:** The current structure with distinct components (scraper, extractor, parser, calculator) and a central orchestrator is conducive to LangChain integration. Each component can be wrapped as a LangChain Tool or part of a chain.
-- **Configuration-Driven:** The reliance on `system_config.json` and `supplier_configs/` allows for dynamic loading and behavior, which aligns with LangChain's ability to handle diverse data sources and custom agent behaviors.
-- **Supplier Scalability:** LangChain agents could dynamically select and configure supplier scrapers/parsers based on input, making it easier to add new suppliers by just adding a new configuration file and potentially a small routing logic update in the orchestrator or a LangChain router chain.
-- **Data Flow:** The data flow (Supplier Data -> Amazon Data -> Analysis) can be mapped to sequential chains in LangChain.
-- **Considerations for Deeper Integration:**
-    - Abstracting base classes for supplier interactions further.
-    - Defining standardized input/output schemas for each component (e.g., using Pydantic) to ensure compatibility within LangChain.
-
-### 2. Potential Enhancements
-- **Advanced Analytics & ML:** Integrate machine learning for sales prediction, trend analysis, or optimal pricing strategies.
-- **Multi-Platform Support:** Extend beyond Amazon to other e-commerce platforms by creating new "extractor" components.
-- **User Interface:** Develop a web-based UI (e.g., using Streamlit or Flask/FastAPI) for easier interaction, configuration, and report viewing.
-- **Robust Error Handling & Retries:** Enhance resilience with more sophisticated error handling, backoff strategies, and retry mechanisms, especially for network-dependent operations.
-- **Cloud Deployment:** Package the system for deployment on cloud platforms for scalability and continuous operation.
-- **Notification System:** Add notifications (email, Slack) for critical errors or when highly profitable products are found.
-- **Headless Chrome Management:** Improve management of the Chrome instance, potentially using Docker for consistency.
-
-### 3. Optimizing Supplier Category Scraping (Pre-Run Setup)
-- **URL Parameter Enhancement:** For suppliers where specific URL parameters can optimize product listing (e.g., increasing items per page `product_list_limit=48`, sorting by price `product_list_order=price`), these can be handled programmatically.
-  - **Strategy:** Instead of relying on the AI to guess or construct these parameters, it's more robust to:
-    1. Allow the AI to suggest base category URLs.
-    2. Before scraping products from an AI-suggested category, have the Python code (`passive_extraction_workflow_latest.py`) check for supplier-specific enhancement rules (e.g., defined in `config/supplier_configs/{supplier_name}.json`).
-    3. If rules exist, programmatically append the defined parameters to the base URL.
-  - **Benefit:** This ensures more comprehensive data is retrieved from each category page the AI selects, potentially improving the anlaysis quality and product discovery rate. This approach is particularly useful for long-duration runs where maximizing data from each selected category is important.
-
----
-
-## Section G: Key Configuration Settings (Quick Reference)
-
-This section highlights important "variable" settings in `config/system_config.json` that users might frequently adjust to control workflow behavior, testing, and data processing thresholds.
-
-### 1. System Behavior & Cache (`system` object):
-- `"test_mode": true/false`
-  - If `true`, can trigger bypass conditions (e.g., for AI scraping) and may enable mock data or simplified processing paths in some components.
-- `"clear_cache": true/false`
-  - If `true`, initiates a broader cache clearing at the start of `main_orchestrator.py`.
-- `"selective_cache_clear": true/false`
-  - Modifies the behavior of `clear_cache`. If both are `true`, `main_orchestrator.py` attempts a more selective clear. If `clear_cache` is `false` but this is `true`, `passive_extraction_workflow_latest.py` performs its own smart selective clear via `CacheManager`.
-- `"force_ai_category_suggestion": true/false`
-  - If `true`, forces the AI category suggestion step in `passive_extraction_workflow_latest.py` to run, regardless of cache state or other bypasses related to cache.
-- `"bypass_ai_scraping": true/false`
-  - A flag to directly bypass AI-driven supplier category scraping if certain conditions in `workflow_control.ai_scraping_triggers.bypass_conditions` are also met.
-- `"enable_supplier_parser": true/false`
-  - Toggles the use of the more detailed `SupplierDataParser` in `main_orchestrator.py`. If `false`, raw element data might be used from supplier scraping.
-
-### 2. OpenAI Integration (`integrations.openai` object):
-- `"enabled": true/false`
-  - Master switch for all OpenAI functionalities.
-- `"api_key": "sk-..."`
-  - Your OpenAI API key.
-- `"model": "gpt-4o-mini-2024-07-18"` (example)
-  - Default OpenAI model for general tasks. Specific components might override this (e.g., `passive_extraction_workflow_latest.py` for category suggestion).
-- `"max_tokens": 1000` (example)
-  - Default maximum tokens for OpenAI responses. Can be overridden by specific calls.
-- `"temperature": 0.1` (example)
-  - Controls randomness/creativity of OpenAI responses. Lower is more deterministic.
-
-### 3. Product Analysis Criteria (`analysis` object):
-- `"min_roi_percent": 30.0`
-- `"min_profit_per_unit": 0.75`
-- `"min_rating": 3.8`
-- `"min_reviews": 20`
-- `"max_sales_rank": 150000`
-- `"min_monthly_sales": 10`
-  - These numerical thresholds are used by `passive_extraction_workflow_latest.py` (`_is_product_meeting_criteria` method) to determine if a matched Amazon product is considered a profitable find.
-- `"target_categories": [...]`
-- `"excluded_categories": [...]`
-  - These lists of Amazon category names primarily guide the AI's prompt for supplier category selection.
-
-### 4. Workflow Control (`workflow_control.ai_scraping_triggers` object):
-- `"enabled": true/false`
-  - General switch for AI-driven category suggestion triggers.
-- `"bypass_conditions": {...}`
-  - Defines conditions (e.g., `test_mode`, `bypass_ai_scraping` flags) that can cause AI category suggestion to be skipped.
-- `"fallback_behavior": {...}`
-  - Specifies what to do if AI category suggestion is skipped (e.g., use predefined supplier category URLs).
-
-### 5. Cache Settings (`cache` object):
-- `"enabled": true/false`
-  - Global toggle for caching features.
-- `"ttl_hours": 24`
-  - Default Time-To-Live for cached items like supplier/Amazon product data.
-- `"selective_clear_config": {...}`
-  - Controls details of selective cache clearing (e.g., what to preserve, what specific types of old data to target).
-
-### 6. Command-Line Overrides (for `passive_extraction_workflow_latest.py` when run via `run_workflow_main`):
-- `--max-products`: (Default: 10) Controls how many products are analyzed from the supplier list in one run of the passive workflow. This is the `max_products_to_process` parameter.
-- `--supplier-url`, `--supplier-name`: Specify the target supplier.
-- `--min-price`: Overrides the minimum supplier product price for filtering.
-- `--force-config-reload`: Forces `passive_extraction_workflow_latest.py` to clear its supplier product cache and re-scrape, also implies `force_ai_category_progression`.
-- `--enable-quick-triage`: Enables an early ROI/profit check in `passive_extraction_workflow_latest.py`.
-
-It is recommended to review these settings in `config/system_config.json` and understand their impact before running extensive analyses.
-
---- 
+For technical implementation details, see `SYSTEM_DEEP_DIVE.md`
+For complete testing protocols, see `NEW_CHAT_HANDOFF_PROMPT.md`

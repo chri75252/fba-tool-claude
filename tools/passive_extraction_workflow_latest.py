@@ -25,6 +25,7 @@ import shutil
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path # ADDED IMPORT
+import aiohttp  # Added for async HTTP requests
 
 # Assuming OpenAI client; ensure it's installed: pip install openai
 from openai import OpenAI
@@ -61,22 +62,36 @@ log = logging.getLogger(__name__)
 
 # ──────────────────────── ①  Enhanced FBA Priority Patterns (Research-Based) ──────────────────────
 FBA_FRIENDLY_PATTERNS = {
-    "home_kitchen":      ["home","kitchen","dining","storage","decor","organization"],     # Priority #1
-    "pet_supplies":      ["pet","dog","cat","animal","bird","aquarium"],                  # Priority #2  
-    "beauty_care":       ["beauty","personal","skincare","grooming","cosmetic"],            # Priority #3
-    "sports_outdoor":    ["sport","fitness","camping","outdoor","exercise","yoga"],     # Priority #4
-    "office_stationery": ["office","stationery","desk","paper","business"],           # Priority #5
-    "diy_tools":         ["diy","tool","hardware","hand-tool","craft","workshop"],           # Priority #6
-    "baby_nursery":      ["baby","infant","nursery","toddler","child-safe"]               # Priority #7
+    "home_kitchen":      ["home","kitchen","dining","storage","decor","organization","household"],     # Priority #1
+    "pet_supplies":      ["pet","dog","cat","animal","bird","aquarium","fish"],                  # Priority #2
+    "beauty_care":       ["beauty","personal","skincare","grooming","cosmetic","health"],            # Priority #3
+    "sports_outdoor":    ["sport","fitness","camping","outdoor","exercise","yoga","garden"],     # Priority #4
+    "office_stationery": ["office","stationery","desk","paper","business","school"],           # Priority #5
+    "diy_tools":         ["diy","tool","hardware","hand-tool","craft","workshop","repair"],           # Priority #6
+    "baby_nursery":      ["baby","infant","nursery","toddler","child-safe","kids"],               # Priority #7
+    "toys_games":        ["toy","game","puzzle","educational","learning","play"],              # Priority #8
+    "automotive":        ["car","auto","vehicle","motorcycle","bike","cycling"],                # Priority #9
+    "kids_books":        ["kids book","children book","coloring book","sticker book","activity book","playbook","educational book","picture book","story book"],  # Priority #10
+    "clearance_value":   ["pound","poundline","50p","under","clearance","sale","discount","bargain","cheap","value","deal"],  # Priority #11 (Medium-Low)
+    "crafts_hobbies":    ["craft","hobby","sewing","knitting","art","creative","scrapbook","drawing"],  # Priority #12 (Lower)
+    "seasonal_items":    ["christmas","halloween","easter","valentine","seasonal","holiday","party"],  # Priority #13 (Lower)
+    "miscellaneous":     ["misc","other","general","various","assorted","mixed"]                # Priority #14 (Lower)
 }
 FBA_AVOID_PATTERNS = {
-    "dangerous_goods": ["battery","power","lithium","flammable","hazmat"],           # CRITICAL AVOID
-    "electronics":     ["electronic","tech","computer","phone","gadget","digital"],     # HIGH AVOID
-    "clothing":        ["clothing","fashion","apparel","shoe","sock","wear"],             # HIGH AVOID
-    "medical":         ["medical","pharma","medicine","healthcare","therapeutic"],          # HIGH AVOID
-    "food":            ["food","beverage","grocery","snack","drink","edible"],               # HIGH AVOID
-    "large_bulky":     ["appliance","sofa","mattress","wardrobe","furniture"],          # MEDIUM AVOID
-    "high_value":      ["jewelry","jewellery","watch","precious","gold","diamond"]      # MEDIUM AVOID
+    "dangerous_goods": ["battery","power","lithium","flammable","hazmat","explosive"],           # CRITICAL AVOID
+    "electronics":     ["electronic","tech","computer","phone","gadget","digital","tv"],     # HIGH AVOID
+    "clothing":        ["clothing","fashion","apparel","shoe","sock","wear","dress"],             # HIGH AVOID
+    "medical":         ["medical","pharma","medicine","healthcare","therapeutic","prescription"],          # HIGH AVOID
+    "food":            ["food","beverage","grocery","snack","drink","edible","alcohol"],               # HIGH AVOID
+    "large_bulky":     ["appliance","sofa","mattress","wardrobe","furniture","heavy"],          # MEDIUM AVOID
+    "high_value":      ["jewelry","jewellery","watch","precious","gold","diamond","expensive"],      # MEDIUM AVOID
+    "adult_books":     ["novel","fiction","romance","thriller","biography","autobiography","textbook","academic book","adult book","paperback novel"]  # AVOID adult reading books
+}
+
+# Third category for when FBA friendly categories are exhausted
+FBA_NEUTRAL_PATTERNS = {
+    "collectibles":    ["collectible","vintage","antique","memorabilia"],
+    "media_dvd_cd":    ["dvd","cd","music","movie","film","media"]  # Removed general "book" from here since it's now classified above
 }
 
 # ──────────────────────── ②  Add OpenAI client initialization (after imports) ────────────
@@ -788,7 +803,7 @@ class FixedAmazonExtractor(AmazonExtractor):
 
 
 class PassiveExtractionWorkflow:
-    def __init__(self, chrome_debug_port: int = 9222, ai_client: Optional[OpenAI] = None, max_cache_age_hours: int = 168, min_price: float = 0.1):
+    def __init__(self, chrome_debug_port: int = 9222, ai_client: Optional[OpenAI] = None, max_cache_age_hours: int = 336, min_price: float = 0.1):
         from pathlib import Path
         self.state_path = Path(OUTPUT_DIR) / f"passive_extraction_state_{datetime.now().strftime('%Y%m%d')}.json"
         self.chrome_debug_port = chrome_debug_port
@@ -1042,7 +1057,7 @@ class PassiveExtractionWorkflow:
         prompt = f"""
 AMAZON FBA UK CATEGORY ANALYSIS FOR: {supplier_name}
 
-You are an expert Amazon FBA consultant (UK marketplace).
+You are an expert Amazon FBA consultant specializing in UK marketplace product sourcing and category analysis.
 
 DISCOVERED CATEGORIES:
 {formatted}
@@ -1050,43 +1065,80 @@ DISCOVERED CATEGORIES:
 PREVIOUSLY PROCESSED CATEGORIES: {prev_cats or "None"}
 PREVIOUSLY PROCESSED PRODUCTS: {processed_products or "None"}
 
-Based on your FBA expertise, select categories that are most likely to contain profitable products for Amazon FBA UK.
+CRITICAL INSTRUCTIONS:
+1. ONLY select URLs that appear to be PRODUCT LISTING PAGES, not search forms or filters
+2. Avoid URLs containing: "search", "advanced", "filter", "sort", "login", "account"
+3. Prioritize URLs with clear category names like "home-kitchen", "beauty", "pet-supplies"
+4. Look for URLs ending in category names or containing "/category/" patterns
+5. Avoid URLs that look like individual product pages (containing specific product names)
+
+URL PATTERN ANALYSIS:
+- GOOD: "/home-kitchen.html", "/category/beauty", "/pet-supplies/"
+- BAD: "/catalogsearch/advanced/", "/search.php", "/filter.html"
+
+Based on your FBA expertise and URL pattern analysis, select categories most likely to contain profitable, scrapeable products for Amazon FBA UK.
 
 Return a JSON object with EXACTLY these keys:
 {{
-    "top_3_urls": [list of 3 best category URLs from the discovered categories],
+    "top_3_urls": [list of 3 best PRODUCT LISTING category URLs],
     "secondary_urls": [list of 3-5 backup category URLs],
-    "skip_urls": [list of category URLs to avoid],
-    "detailed_reasoning": {{"category_name": "reason for selection/skipping"}},
-    "progression_strategy": "description of your category selection strategy"
+    "skip_urls": [list of category URLs to avoid - include search/filter pages],
+    "detailed_reasoning": {{"category_name": "detailed reason for selection/skipping including URL pattern analysis"}},
+    "progression_strategy": "description of your category selection strategy focusing on product listing identification",
+    "url_pattern_confidence": {{"high_confidence": ["urls you're very confident contain products"], "medium_confidence": ["urls that might contain products"], "low_confidence": ["urls unlikely to contain products"]}}
 }}
 
-Prioritize categories likely to contain:
-- Home & Kitchen products
-- Pet Supplies
-- Beauty & Personal Care
-- Sports & Outdoors
-- Office & Stationery
-- DIY & Tools
-- Baby & Nursery products
+PRIORITIZE CATEGORIES LIKELY TO CONTAIN:
+HIGH PRIORITY:
+- Home & Kitchen products (high profit margins, consistent demand)
+- Pet Supplies (growing market, good margins)
+- Beauty & Personal Care (repeat purchases, brand loyalty)
+- Sports & Outdoors (seasonal opportunities)
+- Office & Stationery (business demand)
+- DIY & Tools (practical demand)
+- Baby & Nursery products (premium pricing potential)
+- Toys & Games (consistent demand)
+- Kids Books (coloring books, sticker books, activity books, picture books)
 
-Avoid categories with:
-- Electronics
-- Clothing/Fashion
-- Medical/Pharmaceutical
-- Food/Beverages
-- Large/bulky items
-- High-value jewelry
-- Dangerous goods (batteries, flammables)
+MEDIUM PRIORITY:
+- Clearance/Value categories (pound lines, 50p & under, clearance, sale, discount)
+- Crafts & Hobbies (creative supplies, art materials)
+- Seasonal items (Christmas, Halloween, party supplies)
+- Automotive accessories (small car accessories)
+
+AVOID CATEGORIES WITH:
+- Electronics (high competition, warranty issues)
+- Clothing/Fashion (size/fit issues, returns)
+- Medical/Pharmaceutical (regulatory restrictions)
+- Food/Beverages (expiry dates, regulations)
+- Large/bulky items (shipping costs, storage issues)
+- High-value jewelry (authentication, insurance)
+- Dangerous goods (batteries, flammables, restricted)
+- Adult Books (novels, fiction, textbooks, academic books - AVOID these)
+- Search/filter pages (no actual products)
+
+IMPORTANT BOOK DISTINCTION:
+- INCLUDE: Kids books, coloring books, sticker books, activity books, picture books
+- EXCLUDE: Adult novels, fiction, textbooks, academic books, biographies
+
+REASONING REQUIREMENTS:
+For each selected URL, explain:
+1. Why the URL pattern suggests it contains product listings
+2. What type of products you expect to find
+3. Why those products are suitable for FBA
+4. Estimated profit potential (High/Medium/Low)
 
 Return ONLY valid JSON, no additional text."""
         # ---------- AI CALL ----------
+        # Use search-enabled model for better category analysis
+        model_to_use = "gpt-4o-mini-search-preview-2025-03-11"  # Search-enabled model
+
         raw = await asyncio.to_thread(
             self.ai_client.chat.completions.create,
-            model="gpt-4o-mini",
+            model=model_to_use,
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
-            max_tokens=600,
+            max_tokens=1200,  # Increased for better reasoning
         )
 
         # ---------- STRICT VALIDATION ----------
@@ -1128,18 +1180,246 @@ Return ONLY valid JSON, no additional text."""
         ai["skip_urls"]  = list(set(ai.get("skip_urls",[]) + [u for u in ai["top_3_urls"] if self._classify_url(u)=="avoid"]))
         return ai
 
+    async def _validate_category_productivity(self, url: str) -> dict:
+        """Check if category URL actually contains products (Solution 3)"""
+        try:
+            log.info(f"Validating category productivity for: {url}")
+
+            # Quick scrape to count products on first page
+            session = await self.web_scraper._get_session()
+            async with session.get(url, timeout=aiohttp.ClientTimeout(total=15)) as response:
+                if response.status != 200:
+                    return {
+                        "url": url,
+                        "product_count": 0,
+                        "is_productive": False,
+                        "error": f"HTTP {response.status}"
+                    }
+
+                html_content = await response.text()
+
+            # Use the same product detection logic as the scraper
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(html_content, 'html.parser')
+
+            # Try configured selectors first
+            product_elements = []
+            try:
+                supplier_config = self.web_scraper.get_supplier_config(url)
+                if supplier_config and supplier_config.get("selectors", {}).get("product_container"):
+                    product_selector = supplier_config["selectors"]["product_container"]
+                    product_elements = soup.select(product_selector)
+            except Exception as e:
+                log.debug(f"Failed to use configured selectors for {url}: {e}")
+
+            # Fallback to generic selectors if no configured ones work
+            if not product_elements:
+                generic_selectors = [
+                    'div.product',
+                    '.product-item',
+                    '.product-container',
+                    '[class*="product"]',
+                    '.item'
+                ]
+                for selector in generic_selectors:
+                    product_elements = soup.select(selector)
+                    if product_elements:
+                        break
+
+            product_count = len(product_elements)
+            is_productive = product_count >= 2  # Minimum 2 products required
+
+            log.info(f"Category validation: {url} -> {product_count} products (productive: {is_productive})")
+
+            return {
+                "url": url,
+                "product_count": product_count,
+                "is_productive": is_productive,
+                "validation_method": "product_count_check"
+            }
+
+        except Exception as e:
+            log.warning(f"Category productivity validation failed for {url}: {e}")
+            return {
+                "url": url,
+                "product_count": 0,
+                "is_productive": False,
+                "error": str(e)
+            }
+
+    def _optimize_category_urls(self, urls: list, price_range: str = "low") -> list:
+        """Add optimization parameters to category URLs (Generic approach)"""
+        optimized_urls = []
+
+        for url in urls:
+            # Base parameters for better product retrieval (generic)
+            base_params = "product_list_limit=64&product_list_order=price&product_list_dir=asc"
+
+            # Note: Removed website-specific price_max parameter as requested
+            # Price filtering will be handled during scraping logic instead
+
+            # Add parameters to URL
+            if '?' in url:
+                optimized_url = f"{url}&{base_params}"
+            else:
+                optimized_url = f"{url}?{base_params}"
+
+            optimized_urls.append(optimized_url)
+            log.info(f"Optimized URL ({price_range} range): {url} -> {optimized_url}")
+
+        return optimized_urls
+
+    # COMMENTED OUT: Perplexity API integration for future use
+    # async def _get_category_suggestions_with_perplexity(self, supplier_url: str) -> dict:
+    #     """Use Perplexity API for enhanced category research"""
+    #     try:
+    #         import httpx
+    #
+    #         perplexity_api_key = "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"
+    #
+    #         prompt = f"""
+    #         Research the website {supplier_url} and identify the best product categories
+    #         for Amazon FBA sourcing. Focus on categories with:
+    #         - Small, lightweight products
+    #         - Good profit margins
+    #         - Consistent demand
+    #         - Low competition
+    #
+    #         Avoid categories with electronics, clothing, food, or dangerous goods.
+    #         Return specific category URLs if possible.
+    #         """
+    #
+    #         async with httpx.AsyncClient() as client:
+    #             response = await client.post(
+    #                 "https://api.perplexity.ai/chat/completions",
+    #                 headers={
+    #                     "Authorization": f"Bearer {perplexity_api_key}",
+    #                     "Content-Type": "application/json"
+    #                 },
+    #                 json={
+    #                     "model": "sonar-small-online",  # Lightweight, cost-effective
+    #                     "messages": [{"role": "user", "content": prompt}],
+    #                     "max_tokens": 500,
+    #                     "temperature": 0.1
+    #                 }
+    #             )
+    #
+    #             if response.status_code == 200:
+    #                 result = response.json()
+    #                 return {"perplexity_research": result["choices"][0]["message"]["content"]}
+    #             else:
+    #                 log.warning(f"Perplexity API error: {response.status_code}")
+    #                 return {"error": "Perplexity API failed"}
+    #
+    #     except Exception as e:
+    #         log.warning(f"Perplexity integration failed: {e}")
+    #         return {"error": str(e)}
+
+    def _classify_category_type(self, url: str, name: str = "") -> str:
+        """Classify category as friendly, avoid, or neutral for FBA"""
+        url_lower = url.lower()
+        name_lower = name.lower()
+        combined_text = f"{url_lower} {name_lower}"
+
+        # Check FBA friendly patterns
+        for category_type, keywords in FBA_FRIENDLY_PATTERNS.items():
+            if any(keyword in combined_text for keyword in keywords):
+                return "friendly"
+
+        # Check FBA avoid patterns
+        for category_type, keywords in FBA_AVOID_PATTERNS.items():
+            if any(keyword in combined_text for keyword in keywords):
+                return "avoid"
+
+        # Check neutral patterns
+        for category_type, keywords in FBA_NEUTRAL_PATTERNS.items():
+            if any(keyword in combined_text for keyword in keywords):
+                return "neutral"
+
+        return "unknown"
+
+    def _save_products_to_cache(self, products: list, cache_file_path: str):
+        """Save products to cache file for FBA calculator"""
+        try:
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(cache_file_path), exist_ok=True)
+
+            # Load existing cache if it exists
+            existing_products = []
+            if os.path.exists(cache_file_path):
+                try:
+                    with open(cache_file_path, 'r', encoding='utf-8') as f:
+                        existing_products = json.load(f)
+                except Exception as e:
+                    log.warning(f"Could not load existing cache: {e}")
+
+            # Merge with new products (avoid duplicates by URL)
+            existing_urls = {p.get('url', '') for p in existing_products}
+            new_products = [p for p in products if p.get('url', '') not in existing_urls]
+
+            all_products = existing_products + new_products
+
+            # Save to cache
+            with open(cache_file_path, 'w', encoding='utf-8') as f:
+                json.dump(all_products, f, indent=2, ensure_ascii=False)
+
+            log.info(f"Saved {len(all_products)} products to cache ({len(new_products)} new)")
+
+        except Exception as e:
+            log.error(f"Error saving products to cache: {e}")
+
+    def _check_category_exhaustion_status(self, discovered_categories: list, processed_categories: list) -> dict:
+        """Check how many categories of each type remain to be processed"""
+        friendly_total = 0
+        friendly_processed = 0
+        neutral_total = 0
+        neutral_processed = 0
+
+        for category in discovered_categories:
+            category_type = self._classify_category_type(category["url"], category.get("name", ""))
+            if category_type == "friendly":
+                friendly_total += 1
+                if category["url"] in processed_categories:
+                    friendly_processed += 1
+            elif category_type == "neutral":
+                neutral_total += 1
+                if category["url"] in processed_categories:
+                    neutral_processed += 1
+
+        friendly_remaining = friendly_total - friendly_processed
+        neutral_remaining = neutral_total - neutral_processed
+
+        return {
+            "friendly_total": friendly_total,
+            "friendly_processed": friendly_processed,
+            "friendly_remaining": friendly_remaining,
+            "neutral_total": neutral_total,
+            "neutral_processed": neutral_processed,
+            "neutral_remaining": neutral_remaining,
+            "should_continue": friendly_remaining > 0 or neutral_remaining > 0,
+            "phase": "friendly" if friendly_remaining > 0 else ("neutral" if neutral_remaining > 0 else "complete")
+        }
+
     # ──────────────────────── ④  Hierarchical selector ───────────────────────
     async def _hierarchical_category_selection(self, supplier_url, supplier_name):
         hist = self._load_history()
         
         # Use the new discover_categories method that returns dict format
         discovered_categories = await self.web_scraper.discover_categories(supplier_url)
-        
+
         if not discovered_categories:
             log.warning(f"No categories discovered for {supplier_url}, using fallback")
             # Fallback to basic homepage categories
             basic_cats = await self.web_scraper.get_homepage_categories(supplier_url)
             discovered_categories = [{"name": url.split('/')[-1] or "category", "url": url} for url in basic_cats[:10]]
+
+        # Check category exhaustion status
+        exhaustion_status = self._check_category_exhaustion_status(discovered_categories, hist["categories_scraped"])
+        log.info(f"Category exhaustion status: {exhaustion_status}")
+
+        if not exhaustion_status["should_continue"]:
+            log.info("All FBA-friendly and neutral categories have been processed. Scraping complete.")
+            return []
         
         ai_suggestions = await self._get_ai_suggested_categories_enhanced(
             supplier_url, supplier_name, discovered_categories,
@@ -1147,49 +1427,106 @@ Return ONLY valid JSON, no additional text."""
             processed_products=hist["products_processed"],
         )
         
-        # Save AI category suggestions to cache
+        # Validate category productivity (Solution 3)
+        log.info("Validating AI-suggested categories for product content...")
+        validated_urls = []
+        validation_results = []
+
+        for url in ai_suggestions["top_3_urls"]:
+            validation_result = await self._validate_category_productivity(url)
+            validation_results.append(validation_result)
+
+            if validation_result["is_productive"]:
+                validated_urls.append(url)
+                log.info(f"✅ Category validated: {url} ({validation_result['product_count']} products)")
+            else:
+                log.warning(f"❌ Category rejected: {url} ({validation_result['product_count']} products - below minimum of 2)")
+                # Add to skip_urls in AI suggestions
+                if url not in ai_suggestions.get("skip_urls", []):
+                    ai_suggestions.setdefault("skip_urls", []).append(url)
+
+        # Update AI suggestions with validated URLs
+        ai_suggestions["top_3_urls"] = validated_urls
+        ai_suggestions["validation_results"] = validation_results
+
+        # If no validated URLs, try secondary URLs
+        if not validated_urls and ai_suggestions.get("secondary_urls"):
+            log.warning("No productive primary URLs found. Validating secondary URLs...")
+            for url in ai_suggestions["secondary_urls"][:3]:  # Try up to 3 secondary URLs
+                validation_result = await self._validate_category_productivity(url)
+                if validation_result["is_productive"]:
+                    validated_urls.append(url)
+                    log.info(f"✅ Secondary category validated: {url}")
+                    if len(validated_urls) >= 3:  # Limit to 3 URLs
+                        break
+            ai_suggestions["top_3_urls"] = validated_urls
+
+        # Save AI category suggestions to cache (including validation results)
         try:
-            Path(AI_CATEGORY_CACHE_DIR).mkdir(parents=True, exist_ok=True) # MODIFIED HERE
+            Path(AI_CATEGORY_CACHE_DIR).mkdir(parents=True, exist_ok=True)
             cache_file_path = Path(AI_CATEGORY_CACHE_DIR) / f"{supplier_name.replace('.', '_')}_ai_category_cache.json"
+
+            # Add metadata to cache
+            cache_data = {
+                "supplier": supplier_name,
+                "url": supplier_url,
+                "timestamp": datetime.now().isoformat(),
+                "categories_discovered": len(discovered_categories),
+                "ai_suggestions": ai_suggestions,
+                "validation_summary": {
+                    "total_suggested": len(ai_suggestions.get("top_3_urls", [])),
+                    "productive_categories": len(validated_urls),
+                    "rejected_categories": len([r for r in validation_results if not r["is_productive"]])
+                }
+            }
+
             with open(cache_file_path, 'w', encoding='utf-8') as f:
-                json.dump(ai_suggestions, f, indent=2, ensure_ascii=False)
-            log.info(f"Saved AI category suggestions to {cache_file_path}")
+                json.dump(cache_data, f, indent=2, ensure_ascii=False)
+            log.info(f"Saved AI category suggestions with validation results to {cache_file_path}")
         except Exception as e:
             log.error(f"Failed to save AI category suggestions: {e}")
-        
+
         # Record AI decision in history
         self._record_ai_decision(hist, ai_suggestions)
-        
-        # Update history with new categories
-        hist["categories_scraped"] += ai_suggestions["top_3_urls"]
+
+        # Update history with validated categories only
+        hist["categories_scraped"] += validated_urls
         self._save_history(hist)
         
-        pages = []
-
-        # First, validate that the AI-suggested URLs actually exist
-        self.log.info("Validating AI-suggested category URLs...")
-        valid_ai_urls = await self.web_scraper.filter_valid_urls(ai_suggestions["top_3_urls"])
-
-        if not valid_ai_urls:
-            self.log.warning("All AI-suggested URLs failed validation (404 errors). Falling back to known working categories.")
-            # Fallback to known working categories from config
+        # Apply URL optimization to validated URLs
+        if validated_urls:
+            log.info("Applying URL optimization parameters...")
+            optimized_urls = self._optimize_category_urls(validated_urls, price_range="low")  # Start with low price range (£0-£10)
+            log.info(f"Optimized {len(validated_urls)} URLs with product display parameters")
+        else:
+            log.warning("No validated URLs to optimize. Using fallback categories.")
+            # Fallback to known working categories
             fallback_categories = [
                 f"{supplier_url.rstrip('/')}/pound-lines.html",
                 f"{supplier_url.rstrip('/')}/household.html",
                 f"{supplier_url.rstrip('/')}/health-beauty.html"
             ]
-            valid_ai_urls = await self.web_scraper.filter_valid_urls(fallback_categories)
+            # Validate fallback categories
+            fallback_validated = []
+            for url in fallback_categories:
+                validation_result = await self._validate_category_productivity(url)
+                if validation_result["is_productive"]:
+                    fallback_validated.append(url)
 
-        for url in valid_ai_urls:
-            # Get subpages for each validated category
-            subpages = await self.web_scraper.discover_subpages(url)
-            pages.extend(subpages[:2])  # First 2 sub-pages per category
+            if fallback_validated:
+                optimized_urls = self._optimize_category_urls(fallback_validated, price_range="low")
+                log.info(f"Using {len(optimized_urls)} validated fallback categories")
+            else:
+                log.error("No productive categories found. Cannot proceed with scraping.")
+                return []
 
-        # If no pages found, return the validated URLs
-        if not pages:
-            pages = valid_ai_urls
+        pages = []
 
-        self.log.info(f"Hierarchical selection returned {len(pages)} pages to scrape (after URL validation)")
+        # Process optimized URLs directly (no subpage discovery for now to keep it simple)
+        pages = optimized_urls
+
+        log.info(f"Hierarchical selection returned {len(pages)} optimized pages to scrape")
+        log.info(f"URLs to scrape: {pages}")
         return pages
 
     async def _fetch_sitemap_urls(self, base_url: str) -> List[str]:
@@ -1395,12 +1732,32 @@ Return ONLY valid JSON, no additional text."""
             self.last_processed_index = 0  # Reset index since we have new data
             log.info(f"Refreshed data contains {len(price_filtered_products)} products in price range")
             
-        log.info(f"Processing up to {max_products_to_process} products starting from index {self.last_processed_index}.")
-        products_to_analyze = price_filtered_products[self.last_processed_index:self.last_processed_index + max_products_to_process]
+        # UNLIMITED AMAZON ANALYSIS: Process all products with smart rate limiting
+        if max_products_to_process <= 0:
+            log.info(f"UNLIMITED MODE: Processing ALL {len(price_filtered_products)} products starting from index {self.last_processed_index} with smart rate limiting.")
+            products_to_analyze = price_filtered_products[self.last_processed_index:]
+        else:
+            log.info(f"LIMITED MODE: Processing up to {max_products_to_process} products starting from index {self.last_processed_index}.")
+            products_to_analyze = price_filtered_products[self.last_processed_index:self.last_processed_index + max_products_to_process]
+
+        # Smart rate limiting configuration
+        RATE_LIMIT_DELAY = 3.0  # 3 seconds between Amazon analyses
+        BATCH_DELAY = 15.0      # 15 seconds every 25 products
+        BATCH_SIZE = 25         # Process in batches of 25
 
         for i, product_data in enumerate(products_to_analyze):
             # Update last_processed_index for next run (absolute index in price_filtered_products)
             current_absolute_index = self.last_processed_index + i
+
+            # Smart rate limiting: delay between each product
+            if i > 0:  # Don't delay before the first product
+                log.debug(f"Rate limiting: waiting {RATE_LIMIT_DELAY}s before processing product {i+1}")
+                await asyncio.sleep(RATE_LIMIT_DELAY)
+
+            # Batch delay: longer pause every BATCH_SIZE products
+            if i > 0 and i % BATCH_SIZE == 0:
+                log.info(f"Batch delay: processed {i} products, waiting {BATCH_DELAY}s before continuing...")
+                await asyncio.sleep(BATCH_DELAY)
             state_data = {"last_processed_index": current_absolute_index + 1}  # +1 for next product
             try:
                 with open(state_file_path, 'w', encoding='utf-8') as f:
@@ -1416,31 +1773,43 @@ Return ONLY valid JSON, no additional text."""
             if supplier_ean or supplier_url:
                 # Create identifier for lookup in linking map
                 supplier_identifier = f"EAN_{supplier_ean}" if supplier_ean else f"URL_{supplier_url}"
-                
+
                 # Find the existing entry for more detailed feedback
-                existing_entry = next((link for link in self.linking_map 
+                existing_entry = next((link for link in self.linking_map
                                      if link.get("supplier_product_identifier") == supplier_identifier), None)
-                
+
                 if existing_entry:
                     # Extract details for enhanced message
                     supplier_title = existing_entry.get("supplier_title_snippet", "Unknown product")
                     amazon_asin = existing_entry.get("chosen_amazon_asin", "No ASIN found")
                     amazon_title = existing_entry.get("amazon_title_snippet", "No Amazon match")
                     match_method = existing_entry.get("match_method", "Unknown method")
-                    
-                    # Create an informative previously visited message
-                    log.info(f"✓ Previously visited product: {supplier_title}")
-                    log.info(f"  Product ID: {supplier_identifier}")
-                    if amazon_asin != "No ASIN found":
-                        log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
-                        log.info(f"  Match method: {match_method}")
+
+                    # UNLIMITED MODE: Process previously visited products for comprehensive analysis
+                    if max_products_to_process <= 0:
+                        log.info(f"🔄 UNLIMITED MODE: Re-processing previously visited product: {supplier_title}")
+                        log.info(f"  Product ID: {supplier_identifier}")
+                        if amazon_asin != "No ASIN found":
+                            log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
+                            log.info(f"  Match method: {match_method}")
+                        log.info(f"  Proceeding with fresh analysis...")
+                        # Track previously visited products but continue processing
+                        self.results_summary["products_previously_visited"] += 1
+                        # Continue to process this product instead of skipping
                     else:
-                        log.info(f"  Previous result: No Amazon match found")
-                    log.info(f"  Skipping to next product...")
-                    
-                    # Track previously visited products
-                    self.results_summary["products_previously_visited"] += 1
-                    continue
+                        # LIMITED MODE: Skip previously visited products
+                        log.info(f"✓ Previously visited product: {supplier_title}")
+                        log.info(f"  Product ID: {supplier_identifier}")
+                        if amazon_asin != "No ASIN found":
+                            log.info(f"  Previous Amazon match: {amazon_asin} - {amazon_title}")
+                            log.info(f"  Match method: {match_method}")
+                        else:
+                            log.info(f"  Previous result: No Amazon match found")
+                        log.info(f"  Skipping to next product...")
+
+                        # Track previously visited products
+                        self.results_summary["products_previously_visited"] += 1
+                        continue
             
             amazon_product_data = None
             asin_to_check = None # Initialize asin_to_check
@@ -1853,6 +2222,24 @@ Return ONLY valid JSON, no additional text."""
 
                 log.info(f"Found {len(product_elements_soup)} product elements in category {category_url}, page {current_page_num}")
 
+                # Check if we should stop based on price range (£0-£10 first, then £10-£20)
+                should_stop_scraping = False
+                if len(extracted_products) > 0:
+                    # Check last few products for price range
+                    recent_products = extracted_products[-min(5, len(extracted_products)):]
+                    prices = [p.get("price", 0) for p in recent_products if p.get("price")]
+
+                    if prices:
+                        avg_recent_price = sum(prices) / len(prices)
+                        # If we're in low price range (£0-£10) and seeing prices > £10, consider stopping
+                        if "price_range=low" in str(category_url) and avg_recent_price > 10.0:
+                            log.info(f"Price threshold reached: avg recent price £{avg_recent_price:.2f} > £10.00. Stopping current category.")
+                            should_stop_scraping = True
+                        # If we're in high price range (£10-£20) and seeing prices > £20, stop
+                        elif "price_range=high" in str(category_url) and avg_recent_price > 20.0:
+                            log.info(f"Price threshold reached: avg recent price £{avg_recent_price:.2f} > £20.00. Stopping current category.")
+                            should_stop_scraping = True
+
                 # Process elements from the current page
                 if use_two_step:
                     basic_products = []
@@ -1894,11 +2281,38 @@ Return ONLY valid JSON, no additional text."""
                             if isinstance(result, Exception): log.error(f"Error processing supplier product element: {result}")
                             elif result: extracted_products.append(result)
                         log.info(f"Processed batch of {len(batch)} products from supplier page {current_page_num}, total extracted so far: {len(extracted_products)}")
+
+                # Run FBA Financial Calculator every 50 products
+                if len(extracted_products) % 50 == 0 and len(extracted_products) > 0:
+                    log.info(f"Reached {len(extracted_products)} products. Running FBA Financial Calculator...")
+                    try:
+                        from FBA_Financial_calculator import run_calculations
+                        supplier_cache_file_path = os.path.join(current_supplier_cache_dir, f"{supplier_name.replace('.', '_')}_products_cache.json")
+                        financial_reports_output_path = os.path.join(current_output_dir, "financial_reports")
+                        os.makedirs(financial_reports_output_path, exist_ok=True)
+
+                        # Save current products to cache before running calculator
+                        self._save_products_to_cache(extracted_products, supplier_cache_file_path)
+
+                        financial_results = run_calculations(
+                            supplier_cache_path=supplier_cache_file_path,
+                            output_dir=financial_reports_output_path,
+                            amazon_scrape_dir=current_amazon_cache_dir
+                        )
+                        log.info(f"FBA Financial Calculator completed for {len(extracted_products)} products. Report: {financial_results.get('statistics', {}).get('output_file', 'N/A')}")
+                    except Exception as e:
+                        log.error(f"Error running FBA Financial Calculator at {len(extracted_products)} products: {e}")
+
+                # Check if we should stop due to price threshold
+                if should_stop_scraping:
+                    log.info(f"Stopping pagination for {category_url} due to price threshold.")
+                    break
+
                 # Attempt to get next page URL using the scraper's method
                 # This requires the current page's soup.
                 current_page_soup_for_pagination = BeautifulSoup(html_content, 'html.parser')
                 next_page_url_from_scraper = self.web_scraper.get_next_page_url(page_url_to_fetch, current_page_soup_for_pagination, current_page_num)
-                
+
                 if next_page_url_from_scraper:
                     category_url = next_page_url_from_scraper # Update category_url for the next iteration
                     current_page_num += 1
@@ -2614,7 +3028,7 @@ async def run_workflow_main():
     
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Amazon FBA Passive Extraction Workflow')
-    parser.add_argument('--max-products', type=int, default=10, help='Maximum number of products to process (default: 10)')
+    parser.add_argument('--max-products', type=int, default=0, help='Maximum number of products to process (default: 0 = unlimited with rate limiting)')
     parser.add_argument('--supplier-url', default=DEFAULT_SUPPLIER_URL, help=f'Supplier website URL (default: {DEFAULT_SUPPLIER_URL})')
     parser.add_argument('--supplier-name', '--supplier', default=DEFAULT_SUPPLIER_NAME, help=f'Supplier name (default: {DEFAULT_SUPPLIER_NAME})')
     parser.add_argument('--min-price', type=float, default=0.1, help='Minimum supplier product price in GBP (default: 0.1)')
@@ -2693,7 +3107,7 @@ async def run_workflow_main():
         except Exception as e: 
             log.error(f"Failed to initialize OpenAI client: {e}")
     
-    workflow_instance = PassiveExtractionWorkflow(chrome_debug_port=9222, ai_client=ai_client, max_cache_age_hours=168, min_price=min_price)
+    workflow_instance = PassiveExtractionWorkflow(chrome_debug_port=9222, ai_client=ai_client, max_cache_age_hours=336, min_price=min_price)
     workflow_instance.enable_quick_triage = enable_quick_triage
     
     # Force AI category progression if supplier cache was cleared OR if force_ai_category_suggestion is true

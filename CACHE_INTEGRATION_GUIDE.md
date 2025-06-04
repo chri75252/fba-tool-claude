@@ -22,21 +22,21 @@ Add the cache configuration to your `system_config.json`:
     "enabled": true,
     "global_settings": {
       "max_total_size_gb": 5.0,
-      "default_ttl_hours": 24,
+      "default_ttl_hours": 336,
       "backup_retention_days": 7,
       "validation_interval_hours": 6,
       "optimization_interval_hours": 24
     },
     "cache_types": {
       "supplier_cache": {
-        "ttl_hours": 168,
+        "ttl_hours": 336,
         "max_size_mb": 1000,
         "backup_enabled": true,
         "validation_enabled": true,
         "cleanup_strategy": "smart_selective"
       },
       "amazon_cache": {
-        "ttl_hours": 24,
+        "ttl_hours": 336,
         "max_size_mb": 2000,
         "backup_enabled": true,
         "validation_enabled": true,
@@ -183,13 +183,13 @@ class AmazonProcessor:
     async def process_amazon_data(self, asin_list):
         """Process Amazon data with intelligent caching"""
         
-        # Check if we need to clear old Amazon cache (24-hour TTL)
+        # Check if we need to clear old Amazon cache (336-hour TTL)
         cache_info = await self.cache_manager._get_cache_info(
             Path("OUTPUTS/FBA_ANALYSIS/amazon_cache"),
-            {"ttl_hours": 24, "max_size_mb": 2000}
+            {"ttl_hours": 336, "max_size_mb": 2000}
         )
-        
-        if cache_info['age_hours'] > 24:
+
+        if cache_info['age_hours'] > 336:
             print("🔄 Amazon cache expired, clearing old data...")
             await self.cache_manager.clear_cache("size_based", ["amazon_cache"])
         
@@ -446,7 +446,7 @@ def cache_manager():
             },
             "cache_types": {
                 "test_cache": {
-                    "ttl_hours": 24,
+                    "ttl_hours": 336,
                     "max_size_mb": 100
                 }
             }

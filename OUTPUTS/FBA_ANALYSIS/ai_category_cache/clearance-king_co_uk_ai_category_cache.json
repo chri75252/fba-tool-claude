@@ -1,15 +1,128 @@
 {
-  "top_3_urls": [
-    "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/",
-    "https://www.clearance-king.co.uk/books/educational-books.html",
-    "https://www.clearance-king.co.uk/catalogsearch/advanced/"
+  "ai_suggestion_history": [
+    {
+      "supplier": "clearance-king.co.uk",
+      "url": "https://www.clearance-king.co.uk",
+      "timestamp": "2025-06-03T21:55:12.619103",
+      "categories_discovered": 6,
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/books/educational-books.html",
+          "https://www.clearance-king.co.uk/catalogsearch/advanced/",
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/"
+        ],
+        "secondary_urls": [],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "Educational Books": "This category may contain interactive or activity-based books suitable for children and adults, making it a good fit for FBA.",
+          "Advanced Search": "This URL may lead to diverse options across multiple categories, potentially uncovering profitable products.",
+          "Others": "This category could have unique items that aren't clearly defined, offering potential hidden gems or niche products."
+        },
+        "progression_strategy": "I prioritized categories that align with high-demand consumer goods while considering the type of products that fit well with the FBA model. Categories containing books and a variety of items were selected for their potential profitability and lower competition."
+      },
+      "session_context": {
+        "previous_categories_count": 3,
+        "total_products_processed": 0
+      }
+    },
+    {
+      "supplier": "clearance-king.co.uk",
+      "url": "https://www.clearance-king.co.uk",
+      "timestamp": "2025-06-03T21:56:11.281171",
+      "categories_discovered": 6,
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/",
+          "https://www.clearance-king.co.uk/books/educational-books.html",
+          "https://www.clearance-king.co.uk/catalogsearch/advanced/"
+        ],
+        "secondary_urls": [],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "Home & Kitchen": "Potential for a wide range of products in home essentials and kitchen gadgets, which are always in demand.",
+          "Pet Supplies": "High demand for various pet accessories and supplies as pet ownership is popular.",
+          "Beauty & Personal Care": "Growing trend in beauty products and personal care items, especially budget-friendly options.",
+          "Sports & Outdoors": "Increased interest in outdoor activities and fitness, leading to demand for related products.",
+          "Office & Stationery": "Steady demand for office supplies and stationery, particularly with ongoing trends in remote work.",
+          "DIY & Tools": "DIY projects have gained popularity, driving demand for affordable tools and project supplies.",
+          "Baby & Nursery": "Continuous need for baby products as new parents actively seek cost-effective solutions.",
+          "Interactive or activity-based books": "Educational and interactive books for children are in constant demand, especially if they promote learning through engagement."
+        },
+        "progression_strategy": "The selected categories were chosen based on their alignment with trending consumer interests in home, personal care, and interactive products that are typically lightweight and have a lower return rate. Backup categories prioritized were those with the potential to incorporate activity-based books that are not purely reading materials."
+      },
+      "session_context": {
+        "previous_categories_count": 6,
+        "total_products_processed": 0
+      }
+    },
+    {
+      "supplier": "clearance-king.co.uk",
+      "url": "https://www.clearance-king.co.uk",
+      "timestamp": "2025-06-03T21:58:28.714166",
+      "categories_discovered": 6,
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/catalogsearch/advanced/",
+          "https://www.clearance-king.co.uk/books/educational-books.html",
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/"
+        ],
+        "secondary_urls": [],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "Catalogsearch Advanced": "This category allows for a broad search which can filter for specific product types, potentially revealing profitable items across various desirable categories such as Home & Kitchen, Sports & Outdoors, and DIY & Tools.",
+          "Books Educational Books": "Educational books can include interactive or activity-based titles, which are favorable for FBA. They can encourage learning and creativity, appealing to parents looking for resources for their children.",
+          "Others Id": "The 'Others' category might include a variety of product types that are not listed in traditional categories. This could potentially uncover hidden gems that fit the criteria of entry-level items for FBA."
+        },
+        "progression_strategy": "I prioritized categories likely to yield products that align with Amazon FBA's profitable niches. I focused on categories that facilitate extensive filtering to unearth unique products and the potential for higher margins, while avoiding any potential pitfalls of complex inventory types that do not lend themselves to Amazon's business model."
+      },
+      "session_context": {
+        "previous_categories_count": 3,
+        "total_products_processed": 0
+      }
+    },
+    {
+      "supplier": "clearance-king.co.uk",
+      "url": "https://www.clearance-king.co.uk",
+      "timestamp": "2025-06-03T22:00:12.044541",
+      "categories_discovered": 6,
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/",
+          "https://www.clearance-king.co.uk/books/educational-books.html"
+        ],
+        "secondary_urls": [],
+        "skip_urls": [
+          "https://www.clearance-king.co.uk/catalogsearch/advanced/"
+        ],
+        "detailed_reasoning": {
+          "Others": "The 'Others' category may include a variety of product types, offering potential for home & kitchen, pet supplies, beauty care, and more. It is worth exploring as it does not fall into high-risk categories.",
+          "Educational Books": "Educational books may include interactive products suitable for children, which can be beneficial for the baby & nursery or educational sectors."
+        },
+        "progression_strategy": "The strategy focuses on selecting categories that are likely to yield profitable products for Amazon FBA UK by prioritizing more diversified and flexible categories while avoiding riskier categories that align with electronics, food, and clothing. The primary goal is to identify products that fit within the selected profitable categories."
+      },
+      "session_context": {
+        "previous_categories_count": 2,
+        "total_products_processed": 0
+      }
+    }
   ],
-  "secondary_urls": [],
-  "skip_urls": [],
-  "detailed_reasoning": {
-    "Others": "This category is diverse and may contain products from various sub-segments, including potential home and kitchen items or DIY tools. However, it needs further exploration to assess profitability.",
-    "Educational Books": "While not a primary target category, educational books can include resources for parenting or nursery education, which may have potential for a niche market.",
-    "Catalogsearch Advanced": "This link appears to provide a search mechanism that might uncover additional products across various categories, potentially revealing profitable niches."
-  },
-  "progression_strategy": "The selection strategy focuses on categories that align with profitable niches suitable for Amazon FBA, prioritizing subcategories that cater to home, beauty, outdoor, and personal care products, while remaining cautious of any categories that may lead to low demand or market saturation."
+  "total_ai_calls": 4,
+  "supplier": "clearance-king.co.uk",
+  "url": "https://www.clearance-king.co.uk",
+  "last_updated": "2025-06-03T22:00:12.044563",
+  "latest_suggestions": {
+    "top_3_urls": [
+      "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/",
+      "https://www.clearance-king.co.uk/books/educational-books.html"
+    ],
+    "secondary_urls": [],
+    "skip_urls": [
+      "https://www.clearance-king.co.uk/catalogsearch/advanced/"
+    ],
+    "detailed_reasoning": {
+      "Others": "The 'Others' category may include a variety of product types, offering potential for home & kitchen, pet supplies, beauty care, and more. It is worth exploring as it does not fall into high-risk categories.",
+      "Educational Books": "Educational books may include interactive products suitable for children, which can be beneficial for the baby & nursery or educational sectors."
+    },
+    "progression_strategy": "The strategy focuses on selecting categories that are likely to yield profitable products for Amazon FBA UK by prioritizing more diversified and flexible categories while avoiding riskier categories that align with electronics, food, and clothing. The primary goal is to identify products that fit within the selected profitable categories."
+  }
 }
