@@ -6,6 +6,9 @@
     "test_mode": false,
     "clear_cache": false,
     "selective_cache_clear": false,
+    "force_ai_scraping": true,
+    "max_products_per_category": 5,
+    "max_analyzed_products": 2,
     "force_ai_category_suggestion": true,
     "bypass_ai_scraping": false,
     "enable_supplier_parser": false
