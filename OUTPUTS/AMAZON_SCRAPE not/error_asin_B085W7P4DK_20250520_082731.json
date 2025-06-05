@@ -1,6 +1,0 @@
-{
-  "asin_queried": "B085W7P4DK",
-  "timestamp": "2025-05-20T08:27:30.422957",
-  "error": "'AmazonExtractor' object has no attribute 'connect'",
-  "ai_extraction_diagnostic": "[AI diagnostic error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-gEUAN***********************************************************************************uzcA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}]"
-}

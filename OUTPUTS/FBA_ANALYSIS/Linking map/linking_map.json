@@ -2910,5 +2910,85 @@
     "amazon_title_snippet": "600 Swan Eco Extra Slim Biodegradable Filter Tips - 5 Packs ...",
     "amazon_ean_on_page": null,
     "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/swan-extra-slim-menthol-filter-tips-box-of-20-packs.html",
+    "supplier_title_snippet": "Swan Extra Slim Menthol Filter Tips - Box Of 20 Packs...",
+    "chosen_amazon_asin": "B00BMM8VF6",
+    "amazon_title_snippet": "Swan Menthol Extra Slim Filter Tips 120s x 20 Packs = 2400 F...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/clipper-butane-universal-gas-refill-300ml.html",
+    "supplier_title_snippet": "Clipper Butane Universal Gas Refill - 300Ml...",
+    "chosen_amazon_asin": "B08Y5M5V3X",
+    "amazon_title_snippet": "Sondiko Kitchen Blow Torch with Fuel Gauge S907, Refillable ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/fabric-stain-remover-trigger-spray-refills-in-lavender-pack-of-2.html",
+    "supplier_title_snippet": "Fabric Stain Remover Trigger Spray Refills In Lavender - Pac...",
+    "chosen_amazon_asin": "B0DSKH3PBM",
+    "amazon_title_snippet": "Fabric & Carpet Stain Remover Spray - Foam Cleaner 200ml to ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/happi-feet-shoe-freshener-lasts-up-to-6-weeks.html",
+    "supplier_title_snippet": "Happi Feet Shoe Freshener - Lasts Up To 6 Weeks...",
+    "chosen_amazon_asin": "B0DJ9S4GTC",
+    "amazon_title_snippet": "Benatural Essentials Antibacterial Colloidal Silver Shoe Fre...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/808901-no-0-frozen-wheelie-bin-number-25-ck-3.html",
+    "supplier_title_snippet": "Ashley High Vis Wheelie Bin Number - 4...",
+    "chosen_amazon_asin": "B0D2CLZWCW",
+    "amazon_title_snippet": "Happy Quokka Pack of 2 White Wheelie Bin Stickers Number, 17...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/807393-no-8-princes-wheelie-bin-number-25-ck.html",
+    "supplier_title_snippet": "807393 NO.8 PRINCES WHEELIE BIN NUMBER...",
+    "chosen_amazon_asin": "B08SYC59CH",
+    "amazon_title_snippet": "Pack of 4 Plain Wheelie bin Numbers (1 to 999) White bin Num...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/807409-no-9-princes-wheelie-bin-number-25-ck.html",
+    "supplier_title_snippet": "807409 NO.9 PRINCES WHEELIE BIN NUMBER...",
+    "chosen_amazon_asin": "B09K1MCYB2",
+    "amazon_title_snippet": "Pack of 4 Rainbow Wheelie bin Numbers (1 to 999) White bin N...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/7-fin-oil-filled-radiator-heater-1500-watts-8.html",
+    "supplier_title_snippet": "Kingavon Mini USB Portable Desk Top Fan - Black - 5V...",
+    "chosen_amazon_asin": "B079GV1P6F",
+    "amazon_title_snippet": "Status USB Desk Fan | 4 Inch Portable Mini Fan | 2 Speed Sma...",
+    "amazon_ean_on_page": "5022822199682",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/car-pride-quick-fix-tyre-repair-300ml.html",
+    "supplier_title_snippet": "Car Pride Quick Fix Tyre Repair - 300ml...",
+    "chosen_amazon_asin": "B000Y8WB8W",
+    "amazon_title_snippet": "Holts Tyreweld Puncture Sealant Emergency Tyre Repair Foam C...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/3-tier-cloth-dryer-metal-stand-maximum-load-7-kg.html",
+    "supplier_title_snippet": "3 Tier Cloth Dryer Metal Stand - Maximum Load 7 Kg...",
+    "chosen_amazon_asin": "B0F7FJVMC6",
+    "amazon_title_snippet": "AKH HOUSEWARE Clothes Drying Rack, with Sock Clips, Metal La...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
   }
 ]

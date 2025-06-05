@@ -380,6 +380,29 @@ New data extraction capabilities provide deeper market insights:
 - Provides competitive landscape insights
 - Helps identify market saturation levels
 
+### Critical System Fixes Implementation
+
+**Enhanced Amazon Cache Filename Logic:**
+The system now ALWAYS includes supplier context in Amazon cache filenames for complete traceability:
+- **Primary**: `amazon_{ASIN}_{supplier_EAN}.json` when EAN available
+- **Title-based**: `amazon_{ASIN}_title_{hash}.json` for title searches
+- **URL-based**: `amazon_{ASIN}_url_{hash}.json` when only URL available
+- **Fallback**: `amazon_{ASIN}_unknown_{timestamp}.json` for edge cases
+
+**Content-Based Failed Keepa Extraction Clearing:**
+Automatic cleanup of Amazon cache files with failed Keepa extractions:
+- **Detection**: Identifies files with timeout, failed, or error status indicators
+- **Content Analysis**: Removes files with missing/empty product details
+- **Configuration**: Controlled by `clear_failed_extractions` setting
+- **Safety**: Only removes genuinely failed extractions, preserves valid data
+
+**Keepa Retry Mechanism:**
+Built-in retry system for improved data extraction reliability:
+- **Initial Timeout**: 11 seconds for Product Details tab
+- **Extended Retry**: Additional 5 seconds if grid container not ready
+- **Total Timeout**: Up to 16 seconds for complete Keepa data extraction
+- **Failure Handling**: Proper status tracking for failed extractions
+
 ---
 
 ## 2. Multi-Cycle AI Testing - Expected Results

@@ -1,0 +1,126 @@
+{
+  "timestamp": "2025-06-05T21:25:45.670494",
+  "flag_type": "AI_CACHE_ERROR",
+  "severity": "WARNING",
+  "severity_escalated": false,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 1,
+    "severity_escalated": false,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-05T21:25:45.670033",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 1
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-05T21:25:45.670033",
+      "source_file_path": "C:\\Users\\chris\\Amazon-FBA-Agent-System\\Amazon-FBA-Agent-System-v3\\OUTPUTS\\FBA_ANALYSIS\\ai_category_cache\\clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-05T14:15:13.605191",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 15108,
+        "error_type": "AttributeError"
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1065,
+      "products_with_amazon_data": 210,
+      "products_with_complete_keepa": 44,
+      "current_processing_index": 358,
+      "processing_completion_rate": 33.6150234741784,
+      "amazon_cache_coverage": 19.718309859154928,
+      "keepa_success_rate": 20.952380952380953
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 58,
+      "latest_csv_file": "C:\\Users\\chris\\Amazon-FBA-Agent-System\\Amazon-FBA-Agent-System-v3\\OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250605_141451.csv",
+      "latest_csv_modification_time": "2025-06-05T14:14:51.094417",
+      "products_in_latest_csv": 30,
+      "complete_financial_records": 16,
+      "financial_data_completeness_rate": 53.333333333333336,
+      "fba_summary_files": 170,
+      "latest_fba_summary": {
+        "file": "C:\\Users\\chris\\Amazon-FBA-Agent-System\\Amazon-FBA-Agent-System-v3\\OUTPUTS\\FBA_ANALYSIS\\fba_summary_clearance-king_co_uk_20250605_141243.json",
+        "modification_time": "2025-06-05T14:14:49.915656",
+        "session_data": {
+          "total_supplier_products": 967,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 5,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-05T14:12:43.013261",
+          "end_time": "2025-06-05T14:14:49.915191"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 13.0,
+        "keepa_timeout_rate": 26.0,
+        "missing_ean_rate": 100.0,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 263.0379180908203,
+        "used_gb": 665.4630546569824,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.67069008959821
+      },
+      "fba_processes": [],
+      "process_count": 0,
+      "file_system": {
+        "amazon_cache_files": 210,
+        "csv_reports": 58,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 24.761904761904763,
+    "quality_grade": "CRITICAL",
+    "component_scores": {
+      "keepa_extraction": 20.952380952380953,
+      "financial_analysis": 53.333333333333336,
+      "ai_suggestions": 0
+    }
+  }
+}

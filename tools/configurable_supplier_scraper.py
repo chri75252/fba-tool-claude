@@ -847,8 +847,13 @@ class ConfigurableSupplierScraper:
             category_urls = set()
 
             # Comprehensive selectors for navigation elements
+            # Prioritize the most effective selectors first
             nav_selectors = [
-                'nav a[href]', '.navigation a[href]', '.nav a[href]', '.menu a[href]',
+                '.navigation ul li a',  # Primary navigation - most effective for clearance-king
+                '.navigation .level0 a',  # Magento-style navigation
+                '.nav-sections .level0 a',  # Alternative Magento navigation
+                'nav ul li a',  # Generic navigation
+                '.navigation a[href]', '.nav a[href]', '.menu a[href]',
                 '.main-menu a[href]', '.primary-menu a[href]', 'header a[href]',
                 '.header a[href]', '.category-menu a[href]', '.categories a[href]',
                 '#mainNav a[href]', '#main-navigation a[href]', 'ul.navbar-nav a[href]',
@@ -910,7 +915,11 @@ class ConfigurableSupplierScraper:
             'category', 'categories', 'cat', 'collection', 'dept', 'department', 'section',
             'products', 'items', 'group', 'range', 'shop', 'browse', 'listing', 'gallery',
             'view', 'filter', 'sort', 'type', 'style', 'gender', 'sale', 'offers', 'deals',
-            'brand/', 'manufacturer/', 'c/', 'p/', 'pg/', 'page/', 'shopby', 'product-list', 'product_list'
+            'brand/', 'manufacturer/', 'c/', 'p/', 'pg/', 'page/', 'shopby', 'product-list', 'product_list',
+            # Add specific clearance-king category patterns
+            'clearance', 'pound', '50p', 'baby', 'kids', 'gifts', 'toys', 'health', 'beauty',
+            'household', 'pets', 'smoking', 'stationery', 'crafts', 'mailing', 'supplies',
+            'pallet', 'books', 'electrical', 'clothing', 'fashion', 'garden', 'outdoor'
         ]
         path_and_query = (parsed_url.path + '?' + parsed_url.query).lower()
         if any(keyword in path_and_query for keyword in category_keywords): return True

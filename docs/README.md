@@ -109,6 +109,7 @@ The following settings exist in the configuration but have NOT been tested. Keep
 
 **TESTED PARAMETERS (Safe to Modify):**
 - `clear_cache`: false - We use existing cache data for efficiency
+- `clear_failed_extractions`: false - When true, automatically removes Amazon cache files with failed Keepa extractions
 - `force_ai_scraping`: true - Forces AI category suggestions regardless of cache state
 - `max_products_per_category`: Controls how many products to process per AI-suggested category
 - `max_analyzed_products`: Controls when to trigger new AI category suggestions
@@ -168,7 +169,11 @@ python tools/passive_extraction_workflow_latest.py --max-products 15
   - **Content**: Complete workflow summary with processed product counts
 - **Amazon Cache**: `OUTPUTS/FBA_ANALYSIS/amazon_cache/{ASIN}_{EAN}.json`
   - **Behavior**: Creates new file for each product
-  - **Naming**: Always uses EAN from supplier when adding to amazon cache file name for easier FBA_Financial_calculator identification and data retrieval from Linking map
+  - **Naming**: Enhanced filename logic ALWAYS includes supplier context for traceability:
+    - With EAN: `amazon_{ASIN}_{supplier_EAN}.json`
+    - Title-based: `amazon_{ASIN}_title_{hash}.json`
+    - URL-based: `amazon_{ASIN}_url_{hash}.json`
+    - Fallback: `amazon_{ASIN}_unknown_{timestamp}.json`
   - **Content**: Complete Amazon product data including Keepa metrics, FBA/FBM seller counts, pricing data
 - **State Files**: `OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json`
   - **Behavior**: Same file updated with current processing index
@@ -464,6 +469,10 @@ This directory contains various helper modules used by the core workflow scripts
       - `amazon_{ASIN}_{EAN_optional}.json`
     - **`ai_category_cache/`**: Caches AI-suggested categories for supplier sites.
       - `{supplier_name}_ai_categories.json`
+    - **`homepage_analysis/`**: ⚠️ **LEGACY/UNUSED** - Homepage analysis files from previous development sessions
+      - **Status**: NOT used by current system - can be safely ignored or deleted
+      - **Current Behavior**: System uses real-time category discovery instead of cached analysis
+      - Files: `clearance_king_nav_analysis_*.json`, `homepage_analysis_*.json`, `debug_homepage_scraping_*.json`
     - **`Linking map/`**: Stores the critical mapping between supplier products and Amazon ASINs.
       - `linking_map.json`
     - `fba_financial_report_{timestamp}.csv`: Financial reports generated directly in this directory
