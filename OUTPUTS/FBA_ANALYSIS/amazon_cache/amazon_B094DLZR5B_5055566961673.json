@@ -16,7 +16,7 @@
   "fulfilled_by_amazon": false,
   "seller_info_text": "DDTeck",
   "sold_by_amazon": false,
-  "sales_rank_ai_fallback": "Best Sellers Rank: #1,234 in Electronics (See Top 100 in Electronics)\n#12 in Headphones\n#45 in Bluetooth Headphones\n#78 in Wireless Headphones",
+  "sales_rank_ai_fallback": null,
   "rating": 5.0,
   "review_count": 1,
   "availability_text": "Only 12 left in stock.",

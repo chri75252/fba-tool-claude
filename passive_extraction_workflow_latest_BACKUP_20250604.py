@@ -5,6 +5,8 @@ enhanced product validation, and updated sales velocity logic.
 Uses Chrome with debug port for Amazon data (via AmazonExtractor) and a
 configurable web scraper for supplier sites.
 Integrates AI client for enhanced extraction capabilities and optimizes data processing.
+
+BACKUP CREATED: 2025-06-04 - Original root version backed up before consolidation
 """
 
 import os

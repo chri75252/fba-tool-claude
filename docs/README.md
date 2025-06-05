@@ -53,7 +53,6 @@ Amazon-FBA-Agent-System-v3/
 │   ├── cache_manager.py                      # Cache management
 │   ├── main_orchestrator.py                  # Legacy orchestrator
 │   └── utils/                                # Utility modules
-├── passive_extraction_workflow_latest.py     # PRIMARY ENTRY POINT (root level)
 ├── run_complete_fba_analysis.py             # Legacy entry point
 ├── OUTPUTS/
 │   ├── FBA_ANALYSIS/                         # Analysis results and reports
@@ -131,17 +130,17 @@ The following settings exist in the configuration but have NOT been tested. Keep
 cd C:\Users\chris\Amazon-FBA-Agent-System\Amazon-FBA-Agent-System-v3\
 
 # Standard run (processes products until max_analyzed_products reached)
-python passive_extraction_workflow_latest.py
+python tools/passive_extraction_workflow_latest.py
 
 # Custom product limit
-python passive_extraction_workflow_latest.py --max-products 20
+python tools/passive_extraction_workflow_latest.py --max-products 20
 ```
 
 ### Infinite Mode Operation
 ```bash
 # Infinite processing with automatic AI category progression
 # Runs until ALL AI-suggested categories are exhausted
-python passive_extraction_workflow_latest.py --max-products 0
+python tools/passive_extraction_workflow_latest.py --max-products 0
 ```
 
 ### Multi-Cycle AI Testing
@@ -150,7 +149,7 @@ python passive_extraction_workflow_latest.py --max-products 0
 # - Set max_products_per_category: 3
 # - Set max_analyzed_products: 5
 # Then run:
-python passive_extraction_workflow_latest.py --max-products 15
+python tools/passive_extraction_workflow_latest.py --max-products 15
 
 # Expected: 3 FBA summaries + 3 CSV files + 3 AI cache entries
 ```
@@ -248,7 +247,7 @@ mkdir OUTPUTS\FBA_ANALYSIS\amazon_cache
 mkdir OUTPUTS\cached_products
 
 # Restart with minimal test
-python passive_extraction_workflow_latest.py --max-products 5
+python tools/passive_extraction_workflow_latest.py --max-products 5
 ```
 
 ## Script Architecture and Workflow Documentation
@@ -259,7 +258,7 @@ This section details the purpose, role, inputs, outputs, and dependencies of eac
 
 ### Core Scripts
 
-#### 1. `passive_extraction_workflow_latest.py` (Project Root) - **PRIMARY ENTRY POINT**
+#### 1. `tools/passive_extraction_workflow_latest.py` - **PRIMARY ENTRY POINT**
 - **Status:** ✅ **Active** (Main workflow script - used directly)
 - **Purpose:** Implements the complete logic for extracting and processing product data from supplier websites and Amazon. This is the main script we use directly.
 - **Role in Workflow:** Primary entry point for all operations. Coordinates supplier product discovery (AI-driven), scraping (via `ConfigurableSupplierScraper`), Amazon product searching & data extraction (via `FixedAmazonExtractor`), data combination, profitability calculations (using Keepa fee data), and caching. Manages its own processing state and AI category progression.
@@ -279,10 +278,11 @@ This section details the purpose, role, inputs, outputs, and dependencies of eac
   - **Log File:** `fba_extraction_{YYYYMMDD}.log` (root) - Detailed logs for the workflow run
   - **Financial Report:** Calls `FBA_Financial_calculator.run_calculations` to generate `OUTPUTS/FBA_ANALYSIS/fba_financial_report_{timestamp}.csv`
 - **Dependencies:**
-  - `tools.amazon_playwright_extractor.AmazonExtractor`
-  - `tools.configurable_supplier_scraper.ConfigurableSupplierScraper`
-  - `tools.cache_manager.CacheManager`
-  - `tools.FBA_Financial_calculator.run_calculations`
+  - `amazon_playwright_extractor.AmazonExtractor`
+  - `configurable_supplier_scraper.ConfigurableSupplierScraper`
+  - `cache_manager.CacheManager`
+  - `FBA_Financial_calculator.run_calculations`
+  - `utils.fba_calculator.FBACalculator`
   - `openai.OpenAI` (optional)
   - `bs4.BeautifulSoup`, `playwright.async_api`, standard libraries
 
@@ -530,7 +530,7 @@ The system uses the following mechanisms for state management and resuming opera
 - **Always verify by checking actual files** - NEVER trust logs alone
 - **Only modify tested configuration parameters** - Leave untested options unchanged
 - **Clear AI cache before testing** - Delete ai_category_cache files for fresh starts
-- **Use `passive_extraction_workflow_latest.py` directly** - This is the primary entry point, not `run_complete_fba_analysis.py`
+- **Use `tools/passive_extraction_workflow_latest.py` directly** - This is the primary entry point, not `run_complete_fba_analysis.py`
 - **Ignore any test scripts** - For testing purposes, never use test scripts, always modify and test actual production scripts directly
 
 ### System Limitations

@@ -44,7 +44,7 @@ from configurable_supplier_scraper import ConfigurableSupplierScraper
 # Zero-token triage module available but not activated by default
 # from zero_token_triage_module import perform_zero_token_triage
 # Import FBA Calculator for accurate fee calculations
-# from tools.utils.fba_calculator import FBACalculator # Commented out
+from utils.fba_calculator import FBACalculator
 from cache_manager import CacheManager
 
 from playwright.async_api import async_playwright, Browser, Page, TimeoutError as PlaywrightTimeoutError
@@ -908,6 +908,71 @@ class PassiveExtractionWorkflow:
                 return self._get_default_history()
         return self._get_default_history()
 
+    def _load_ai_memory(self, supplier_name: str) -> Dict[str, Any]:
+        """
+        🧠 Load AI memory from AI cache file to prevent re-suggesting same categories.
+
+        Args:
+            supplier_name: Name of the supplier
+
+        Returns:
+            Dictionary containing AI memory data
+        """
+        try:
+            ai_cache_file = os.path.join(AI_CATEGORY_CACHE_DIR, f"{supplier_name.replace('.', '_')}_ai_category_cache.json")
+
+            if os.path.exists(ai_cache_file):
+                with open(ai_cache_file, 'r', encoding='utf-8') as f:
+                    content = f.read().strip()
+                    if not content:  # File is empty
+                        log.info(f"🧠 AI cache file is empty for {supplier_name} - starting fresh")
+                        raise ValueError("Empty file")
+                    ai_cache_data = json.loads(content)
+
+                # Extract all previously suggested URLs from AI history
+                previously_suggested_urls = set()
+                total_products_processed = 0
+
+                ai_history = ai_cache_data.get("ai_suggestion_history", [])
+                for entry in ai_history:
+                    ai_suggestions = entry.get("ai_suggestions", {})
+
+                    # Collect all suggested URLs
+                    top_urls = ai_suggestions.get("top_3_urls", [])
+                    secondary_urls = ai_suggestions.get("secondary_urls", [])
+
+                    previously_suggested_urls.update(top_urls)
+                    previously_suggested_urls.update(secondary_urls)
+
+                    # Track products processed
+                    session_context = entry.get("session_context", {})
+                    total_products_processed += session_context.get("total_products_processed", 0)
+
+                log.info(f"🧠 AI Memory loaded: {len(previously_suggested_urls)} previously suggested URLs, {total_products_processed} products processed")
+                log.debug(f"🧠 Previously suggested URLs: {list(previously_suggested_urls)}")
+
+                return {
+                    "previously_suggested_urls": list(previously_suggested_urls),
+                    "total_products_processed": total_products_processed,
+                    "ai_history": ai_history,
+                    "total_ai_calls": ai_cache_data.get("total_ai_calls", 0),
+                    "price_phase": ai_cache_data.get("price_phase", "low")  # Default to Phase 1
+                }
+            else:
+                log.info(f"🧠 No AI cache file found for {supplier_name} - starting fresh")
+
+        except Exception as e:
+            log.error(f"Error loading AI memory for {supplier_name}: {e}")
+
+        # Return default empty memory
+        return {
+            "previously_suggested_urls": [],
+            "total_products_processed": 0,
+            "ai_history": [],
+            "total_ai_calls": 0,
+            "price_phase": "low"  # Default to Phase 1
+        }
+
     def _get_default_history(self):
         """Get default history structure"""
         return {
@@ -1048,12 +1113,52 @@ class PassiveExtractionWorkflow:
         supplier_name: str,
         discovered_categories: list[dict],
         previous_categories: list[str] | None = None,
-        processed_products: list[str] | None = None,
+        processed_products: int | None = None,
     ) -> dict:
-        """FBA-aware AI selection with UK business intelligence & memory."""
+        """🧠 FBA-aware AI selection with UK business intelligence & enhanced memory."""
         prev_cats = previous_categories or []
-        friendly = [c for c in discovered_categories if self._classify_url(c["url"]) == "friendly" and c["url"] not in prev_cats][:100]
+
+        # 🧠 ENHANCED: Filter out previously suggested categories more thoroughly
+        available_categories = []
+        for c in discovered_categories:
+            if (self._classify_url(c["url"]) == "friendly" and
+                c["url"] not in prev_cats and
+                not any(prev_url in c["url"] or c["url"] in prev_url for prev_url in prev_cats)):
+                available_categories.append(c)
+
+        # Limit to reasonable number for AI processing
+        friendly = available_categories[:100]
         formatted = "\n".join(f'- {c["name"]}: {c["url"]}' for c in friendly)
+
+        # 🧠 ENHANCED: Include comprehensive memory context with failure tracking
+        memory_context = ""
+        if prev_cats:
+            memory_context = f"\n\n🧠 IMPORTANT - PREVIOUSLY SUGGESTED CATEGORIES (DO NOT REPEAT):\n"
+            for i, prev_cat in enumerate(prev_cats[-10:], 1):  # Show last 10 to avoid token limit
+                memory_context += f"{i}. {prev_cat}\n"
+            memory_context += "\n⚠️ You MUST suggest DIFFERENT categories that have NOT been suggested before!"
+
+        # Add failure tracking from AI memory
+        ai_memory = self._load_ai_memory(supplier_name)
+        failed_urls = []
+        failed_errors = {}
+
+        # Extract failed URLs from AI history
+        for entry in ai_memory.get("ai_history", []):
+            if isinstance(entry, dict) and "ai_suggestions" in entry:
+                suggestions = entry["ai_suggestions"]
+                if "failed_urls" in suggestions:
+                    failed_urls.extend(suggestions["failed_urls"])
+                if "failed_url_errors" in suggestions:
+                    failed_errors.update(suggestions["failed_url_errors"])
+
+        # Add failure context to prompt
+        if failed_urls:
+            memory_context += f"\n\n❌ FAILED CATEGORIES (DO NOT SUGGEST THESE):\n"
+            for i, failed_url in enumerate(set(failed_urls[-15:]), 1):  # Show last 15 failures
+                error_msg = failed_errors.get(failed_url, "Unknown error")
+                memory_context += f"{i}. {failed_url} (Error: {error_msg})\n"
+            memory_context += "\n⚠️ These URLs failed validation - DO NOT suggest them again!"
         prompt = f"""
 AMAZON FBA UK CATEGORY ANALYSIS FOR: {supplier_name}
 
@@ -1061,6 +1166,8 @@ You are an expert Amazon FBA consultant specializing in UK marketplace product s
 
 DISCOVERED CATEGORIES:
 {formatted}
+
+{memory_context}
 
 PREVIOUSLY PROCESSED CATEGORIES: {prev_cats or "None"}
 PREVIOUSLY PROCESSED PRODUCTS: {processed_products or "None"}
@@ -1130,8 +1237,13 @@ For each selected URL, explain:
 
 Return ONLY valid JSON, no additional text."""
         # ---------- AI CALL ----------
-        # Use search-enabled model for better category analysis
-        model_to_use = "gpt-4o-mini-search-preview-2025-03-11"  # Search-enabled model
+        # 🔧 FIXED: Use regular model since search-enabled model doesn't support json_object format
+        model_to_use = "gpt-4o-mini"  # Regular model that supports json_object
+
+        # Log API call details for debugging
+        log.info(f"🤖 OpenAI API Call - Model: {model_to_use}, Max Tokens: 1200")
+        log.info(f"🤖 Prompt Length: {len(prompt)} characters")
+        log.debug(f"🤖 Full Prompt: {prompt[:500]}..." if len(prompt) > 500 else f"🤖 Full Prompt: {prompt}")
 
         raw = await asyncio.to_thread(
             self.ai_client.chat.completions.create,
@@ -1140,6 +1252,13 @@ Return ONLY valid JSON, no additional text."""
             response_format={"type": "json_object"},
             max_tokens=1200,  # Increased for better reasoning
         )
+
+        # Log token usage
+        if hasattr(raw, 'usage') and raw.usage:
+            log.info(f"🤖 Token Usage - Input: {raw.usage.prompt_tokens}, Output: {raw.usage.completion_tokens}, Total: {raw.usage.total_tokens}")
+
+        # Save detailed API call log
+        self._save_api_call_log(prompt, raw, model_to_use, "category_suggestion")
 
         # ---------- STRICT VALIDATION ----------
         try:
@@ -1248,15 +1367,12 @@ Return ONLY valid JSON, no additional text."""
             }
 
     def _optimize_category_urls(self, urls: list, price_range: str = "low") -> list:
-        """Add optimization parameters to category URLs (Generic approach)"""
+        """Add optimization parameters to category URLs for better product retrieval"""
         optimized_urls = []
 
         for url in urls:
-            # Base parameters for better product retrieval (generic)
+            # Base parameters for better product retrieval (generic, no price filtering)
             base_params = "product_list_limit=64&product_list_order=price&product_list_dir=asc"
-
-            # Note: Removed website-specific price_max parameter as requested
-            # Price filtering will be handled during scraping logic instead
 
             # Add parameters to URL
             if '?' in url:
@@ -1265,9 +1381,124 @@ Return ONLY valid JSON, no additional text."""
                 optimized_url = f"{url}?{base_params}"
 
             optimized_urls.append(optimized_url)
-            log.info(f"Optimized URL ({price_range} range): {url} -> {optimized_url}")
+            log.info(f"Optimized URL (no price filtering): {url} -> {optimized_url}")
 
         return optimized_urls
+
+    def _save_api_call_log(self, prompt: str, response, model: str, call_type: str):
+        """Save detailed OpenAI API call logs for debugging and token tracking"""
+        try:
+            from pathlib import Path
+
+            # Create API logs directory
+            api_logs_dir = Path("OUTPUTS/FBA_ANALYSIS/api_logs")
+            api_logs_dir.mkdir(parents=True, exist_ok=True)
+
+            # Create log entry
+            log_entry = {
+                "timestamp": datetime.now().isoformat(),
+                "call_type": call_type,
+                "model": model,
+                "prompt_length": len(prompt),
+                "prompt": prompt,
+                "response_content": response.choices[0].message.content if response.choices else "No response",
+                "usage": {
+                    "prompt_tokens": response.usage.prompt_tokens if hasattr(response, 'usage') and response.usage else 0,
+                    "completion_tokens": response.usage.completion_tokens if hasattr(response, 'usage') and response.usage else 0,
+                    "total_tokens": response.usage.total_tokens if hasattr(response, 'usage') and response.usage else 0
+                }
+            }
+
+            # Save to daily log file
+            log_file = api_logs_dir / f"openai_api_calls_{datetime.now().strftime('%Y%m%d')}.jsonl"
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(log_entry, ensure_ascii=False) + '\n')
+
+            log.info(f"💾 API call logged to {log_file}")
+
+        except Exception as e:
+            log.warning(f"Failed to save API call log: {e}")
+
+    def _determine_price_phase(self, ai_memory: dict) -> str:
+        """Determine current price phase based on AI memory"""
+        # Check if Phase 2 has been initiated
+        if ai_memory.get("price_phase") == "medium":
+            return "medium"
+
+        # Default to Phase 1 (low price range)
+        return "low"
+
+    def _store_phase_2_continuation_point(self, category_url: str, page_num: int, products_scraped: int):
+        """Store pagination state for Phase 2 continuation"""
+        try:
+            from pathlib import Path
+
+            # Create continuation points file
+            continuation_file = Path("OUTPUTS/FBA_ANALYSIS/phase_2_continuation_points.json")
+            continuation_file.parent.mkdir(parents=True, exist_ok=True)
+
+            # Load existing continuation points
+            continuation_data = {}
+            if continuation_file.exists():
+                try:
+                    with open(continuation_file, 'r', encoding='utf-8') as f:
+                        continuation_data = json.load(f)
+                except Exception as e:
+                    log.warning(f"Could not load continuation points: {e}")
+
+            # Store continuation point for this category
+            base_url = category_url.split('?')[0]  # Remove any existing parameters
+            continuation_data[base_url] = {
+                "last_page": page_num,
+                "products_scraped": products_scraped,
+                "timestamp": datetime.now().isoformat(),
+                "phase_1_complete": True
+            }
+
+            # Save updated continuation points
+            with open(continuation_file, 'w', encoding='utf-8') as f:
+                json.dump(continuation_data, f, indent=2, ensure_ascii=False)
+
+            log.info(f"📍 Stored Phase 2 continuation point for {base_url}: page {page_num}, {products_scraped} products")
+
+        except Exception as e:
+            log.error(f"Failed to store Phase 2 continuation point: {e}")
+
+    def _reset_ai_memory_for_phase_2(self, supplier_name: str, current_memory: dict):
+        """Reset AI memory for Phase 2 while preserving Phase 1 history"""
+        try:
+            from pathlib import Path
+
+            cache_file_path = Path(AI_CATEGORY_CACHE_DIR) / f"{supplier_name.replace('.', '_')}_ai_category_cache.json"
+
+            if cache_file_path.exists():
+                with open(cache_file_path, 'r', encoding='utf-8') as f:
+                    cache_data = json.load(f)
+
+                # Add Phase 2 marker to cache
+                phase_2_entry = {
+                    "timestamp": datetime.now().isoformat(),
+                    "phase_transition": "Phase 1 (£0-£10) complete, starting Phase 2 (£10-£20)",
+                    "phase_1_summary": {
+                        "total_categories_processed": len(current_memory.get("previously_suggested_urls", [])),
+                        "total_products_processed": current_memory.get("total_products_processed", 0)
+                    }
+                }
+
+                cache_data["ai_suggestion_history"].append(phase_2_entry)
+                cache_data["last_updated"] = datetime.now().isoformat()
+                cache_data["price_phase"] = "medium"  # Mark as Phase 2
+
+                # Reset category suggestions for Phase 2 but keep history
+                cache_data["phase_2_started"] = datetime.now().isoformat()
+
+                with open(cache_file_path, 'w', encoding='utf-8') as f:
+                    json.dump(cache_data, f, indent=2, ensure_ascii=False)
+
+                log.info(f"🔄 Phase 2 transition recorded in AI cache: {cache_file_path}")
+
+        except Exception as e:
+            log.error(f"Failed to reset AI memory for Phase 2: {e}")
 
     # COMMENTED OUT: Perplexity API integration for future use
     # async def _get_category_suggestions_with_perplexity(self, supplier_url: str) -> dict:
@@ -1403,7 +1634,10 @@ Return ONLY valid JSON, no additional text."""
     # ──────────────────────── ④  Hierarchical selector ───────────────────────
     async def _hierarchical_category_selection(self, supplier_url, supplier_name):
         hist = self._load_history()
-        
+
+        # 🧠 FIXED: Load AI memory from AI cache file, not processing state
+        ai_memory = self._load_ai_memory(supplier_name)
+
         # Use the new discover_categories method that returns dict format
         discovered_categories = await self.web_scraper.discover_categories(supplier_url)
 
@@ -1413,18 +1647,28 @@ Return ONLY valid JSON, no additional text."""
             basic_cats = await self.web_scraper.get_homepage_categories(supplier_url)
             discovered_categories = [{"name": url.split('/')[-1] or "category", "url": url} for url in basic_cats[:10]]
 
-        # Check category exhaustion status
-        exhaustion_status = self._check_category_exhaustion_status(discovered_categories, hist["categories_scraped"])
+        # Check category exhaustion status using AI memory instead of processing state
+        exhaustion_status = self._check_category_exhaustion_status(discovered_categories, ai_memory["previously_suggested_urls"])
         log.info(f"Category exhaustion status: {exhaustion_status}")
 
-        if not exhaustion_status["should_continue"]:
-            log.info("All FBA-friendly and neutral categories have been processed. Scraping complete.")
+        # Determine current price phase based on AI memory
+        current_price_phase = self._determine_price_phase(ai_memory)
+        log.info(f"Current price phase: {current_price_phase}")
+
+        if not exhaustion_status["should_continue"] and current_price_phase == "low":
+            log.info("All categories processed in Phase 1 (£0-£10). Moving to Phase 2 (£10-£20)...")
+            # Reset AI memory for Phase 2 but keep track of Phase 1 completion
+            self._reset_ai_memory_for_phase_2(supplier_name, ai_memory)
+            current_price_phase = "medium"
+        elif not exhaustion_status["should_continue"] and current_price_phase == "medium":
+            log.info("All FBA-friendly and neutral categories have been processed in both phases. Scraping complete.")
             return []
-        
+
+        # 🧠 FIXED: Pass AI memory instead of processing state history
         ai_suggestions = await self._get_ai_suggested_categories_enhanced(
             supplier_url, supplier_name, discovered_categories,
-            previous_categories=hist["categories_scraped"],
-            processed_products=hist["products_processed"],
+            previous_categories=ai_memory["previously_suggested_urls"],
+            processed_products=ai_memory["total_products_processed"],
         )
         
         # Validate category productivity (Solution 3)
@@ -1461,17 +1705,28 @@ Return ONLY valid JSON, no additional text."""
                         break
             ai_suggestions["top_3_urls"] = validated_urls
 
-        # Save AI category suggestions to cache (including validation results)
+        # 🧠 FIXED: Save AI category suggestions to cache with proper appending
         try:
             Path(AI_CATEGORY_CACHE_DIR).mkdir(parents=True, exist_ok=True)
             cache_file_path = Path(AI_CATEGORY_CACHE_DIR) / f"{supplier_name.replace('.', '_')}_ai_category_cache.json"
 
-            # Add metadata to cache
-            cache_data = {
-                "supplier": supplier_name,
-                "url": supplier_url,
+            # Load existing cache data
+            existing_cache = {}
+            if cache_file_path.exists():
+                try:
+                    with open(cache_file_path, 'r', encoding='utf-8') as f:
+                        existing_cache = json.load(f)
+                except Exception as e:
+                    log.warning(f"Could not load existing AI cache: {e}")
+
+            # Create new entry for this AI suggestion session
+            new_entry = {
                 "timestamp": datetime.now().isoformat(),
-                "categories_discovered": len(discovered_categories),
+                "session_context": {
+                    "categories_discovered": len(discovered_categories),
+                    "total_products_processed": ai_memory["total_products_processed"] if isinstance(ai_memory["total_products_processed"], int) else 0,
+                    "previous_categories_count": len(ai_memory["previously_suggested_urls"]) if ai_memory["previously_suggested_urls"] else 0
+                },
                 "ai_suggestions": ai_suggestions,
                 "validation_summary": {
                     "total_suggested": len(ai_suggestions.get("top_3_urls", [])),
@@ -1480,9 +1735,35 @@ Return ONLY valid JSON, no additional text."""
                 }
             }
 
+            # Initialize or update cache structure
+            if not existing_cache:
+                cache_data = {
+                    "supplier": supplier_name,
+                    "url": supplier_url,
+                    "created": datetime.now().isoformat(),
+                    "last_updated": datetime.now().isoformat(),
+                    "total_ai_calls": 1,
+                    "ai_suggestion_history": [new_entry]
+                }
+            else:
+                # Append to existing history
+                cache_data = existing_cache
+                cache_data["last_updated"] = datetime.now().isoformat()
+                cache_data["total_ai_calls"] = cache_data.get("total_ai_calls", 0) + 1
+
+                # Ensure ai_suggestion_history exists
+                if "ai_suggestion_history" not in cache_data:
+                    cache_data["ai_suggestion_history"] = []
+
+                cache_data["ai_suggestion_history"].append(new_entry)
+
+            # Save updated cache
             with open(cache_file_path, 'w', encoding='utf-8') as f:
                 json.dump(cache_data, f, indent=2, ensure_ascii=False)
-            log.info(f"Saved AI category suggestions with validation results to {cache_file_path}")
+
+            log.info(f"🧠 Appended AI suggestion #{cache_data['total_ai_calls']} to cache: {cache_file_path}")
+            log.info(f"🧠 Total AI history entries: {len(cache_data['ai_suggestion_history'])}")
+
         except Exception as e:
             log.error(f"Failed to save AI category suggestions: {e}")
 
@@ -1493,13 +1774,19 @@ Return ONLY valid JSON, no additional text."""
         hist["categories_scraped"] += validated_urls
         self._save_history(hist)
         
-        # Apply URL optimization to validated URLs
+        # Apply URL optimization to validated URLs FIRST
         if validated_urls:
             log.info("Applying URL optimization parameters...")
-            optimized_urls = self._optimize_category_urls(validated_urls, price_range="low")  # Start with low price range (£0-£10)
-            log.info(f"Optimized {len(validated_urls)} URLs with product display parameters")
+            optimized_urls = self._optimize_category_urls(validated_urls, price_range=current_price_phase)
+            log.info(f"Optimized {len(validated_urls)} URLs with product display parameters for {current_price_phase} price phase")
+
+            # Update AI suggestions with optimized URLs and failure tracking
+            ai_suggestions["optimized_urls"] = optimized_urls
+            ai_suggestions["failed_urls"] = [r["url"] for r in validation_results if not r["is_productive"]]
+            ai_suggestions["failed_url_errors"] = {r["url"]: r.get("error", "Unknown") for r in validation_results if not r["is_productive"]}
         else:
             log.warning("No validated URLs to optimize. Using fallback categories.")
+            optimized_urls = []
             # Fallback to known working categories
             fallback_categories = [
                 f"{supplier_url.rstrip('/')}/pound-lines.html",
@@ -2030,7 +2317,210 @@ Return ONLY valid JSON, no additional text."""
         except Exception as e:
             log.error(f"Error running FBA_Financial_calculator: {e}")
 
+        # ──────────────────────── 🔄 CONTINUOUS LOOP LOGIC ────────────────────────
+        # Check if we should trigger a new AI category cycle after processing products
+        products_analyzed_this_session = len(products_to_analyze) - self.results_summary.get("products_previously_visited", 0)
+
+        # Determine if we should continue with new AI categories
+        should_continue_with_ai = self._should_trigger_new_ai_cycle(
+            products_analyzed_this_session=products_analyzed_this_session,
+            max_products_limit=max_products_to_process,
+            current_categories_exhausted=True  # Always consider exhausted after processing batch
+        )
+
+        if should_continue_with_ai and hasattr(self, 'ai_client') and self.ai_client:
+            log.info(f"🔄 TRIGGERING NEW AI CATEGORY CYCLE - Requesting fresh category suggestions...")
+
+            try:
+                # Get fresh AI category suggestions with proper memory
+                new_category_urls = await self._hierarchical_category_selection(supplier_url, supplier_name)
+
+                if new_category_urls:
+                    log.info(f"🎯 NEW AI CYCLE: Found {len(new_category_urls)} new categories to process")
+
+                    # Scrape new categories and get fresh products
+                    log.info("🔄 Scraping new AI-suggested categories...")
+                    fresh_supplier_products = []
+
+                    for category_url in new_category_urls:
+                        log.info(f"🔍 Scraping new category: {category_url}")
+                        category_products = await self._scrape_single_category(category_url, supplier_name)
+                        if category_products:
+                            fresh_supplier_products.extend(category_products)
+                            log.info(f"✅ Found {len(category_products)} products in {category_url}")
+
+                    if fresh_supplier_products:
+                        log.info(f"🎯 NEW AI CYCLE: Scraped {len(fresh_supplier_products)} fresh products from new categories")
+
+                        # Update supplier cache with new products
+                        if cache_supplier_data:
+                            try:
+                                # Load existing products from cache
+                                supplier_cache_file = os.path.join(SUPPLIER_CACHE_DIR, f"{supplier_name.replace('.', '_')}_products_cache.json")
+                                existing_products = []
+                                if os.path.exists(supplier_cache_file):
+                                    with open(supplier_cache_file, 'r', encoding='utf-8') as f:
+                                        existing_products = json.load(f)
+
+                                # Merge with new products to avoid duplicates
+                                all_products = existing_products + fresh_supplier_products
+
+                                # Remove duplicates based on URL
+                                seen_urls = set()
+                                unique_products = []
+                                for product in all_products:
+                                    if product.get("url") not in seen_urls:
+                                        unique_products.append(product)
+                                        seen_urls.add(product.get("url"))
+
+                                with open(supplier_cache_file, 'w', encoding='utf-8') as f:
+                                    json.dump(unique_products, f, indent=2, ensure_ascii=False)
+                                log.info(f"🔄 Updated supplier cache with {len(unique_products)} total products ({len(fresh_supplier_products)} new)")
+                            except Exception as e:
+                                log.error(f"Error updating supplier cache with new products: {e}")
+
+                        # Reset processing index to continue with new products
+                        self.last_processed_index = len(products_to_analyze)  # Start after previously processed products
+
+                        # Filter new products by price range
+                        valid_fresh_products = [
+                            p for p in fresh_supplier_products
+                            if p.get("title") and isinstance(p.get("price"), (float, int)) and p.get("price", 0) > 0 and p.get("url")
+                        ]
+                        price_filtered_fresh_products = [
+                            p for p in valid_fresh_products
+                            if self.min_price <= p.get("price", 0) <= MAX_PRICE
+                        ]
+
+                        if price_filtered_fresh_products:
+                            log.info(f"🎯 NEW AI CYCLE: {len(price_filtered_fresh_products)} new products meet price criteria [£{self.min_price}-£{MAX_PRICE}]")
+
+                            # Recursively call run() with new products to continue the cycle
+                            log.info("🔄 RECURSIVE CALL: Starting new cycle with fresh AI-suggested products...")
+                            additional_results = await self.run(
+                                supplier_url=supplier_url,
+                                supplier_name=supplier_name,
+                                max_products_to_process=max_products_to_process,
+                                cache_supplier_data=cache_supplier_data,
+                                force_config_reload=False,  # Don't clear cache again
+                                debug_smoke=debug_smoke,
+                                resume_from_last=True
+                            )
+
+                            # Merge results from recursive call
+                            if additional_results:
+                                profitable_results.extend(additional_results)
+                                log.info(f"🎯 CYCLE COMPLETE: Added {len(additional_results)} profitable products from new AI cycle")
+                        else:
+                            log.info("🔄 NEW AI CYCLE: No products from new categories meet price criteria")
+                    else:
+                        log.info("🔄 NEW AI CYCLE: No products found in new AI-suggested categories")
+                else:
+                    log.info("🔄 NEW AI CYCLE: No new categories suggested by AI - cycle complete")
+            except Exception as e:
+                log.error(f"Error during new AI category cycle: {e}")
+        else:
+            if not should_continue_with_ai:
+                log.info("🔄 No new AI cycle needed - workflow complete")
+            elif not hasattr(self, 'ai_client') or not self.ai_client:
+                log.info("🔄 No AI client available for new cycle")
+
         return profitable_results
+
+    def _should_trigger_new_ai_cycle(self, products_analyzed_this_session: int, max_products_limit: int,
+                                   current_categories_exhausted: bool = False) -> bool:
+        """
+        Determine if we should trigger a new AI category selection cycle.
+
+        Args:
+            products_analyzed_this_session: Number of products analyzed in current session
+            max_products_limit: Maximum products limit (0 = unlimited)
+            current_categories_exhausted: Whether current AI-suggested categories are exhausted
+
+        Returns:
+            bool: True if new AI cycle should be triggered
+        """
+        # 🔧 FIXED: Always trigger AI cycle when categories are exhausted, regardless of products analyzed
+        if current_categories_exhausted:
+            log.info(f"🔄 CATEGORIES EXHAUSTED: Triggering new AI cycle (products analyzed: {products_analyzed_this_session})")
+            return True
+
+        # For unlimited mode (max_products_limit = 0), trigger new cycle every 50 products
+        if max_products_limit <= 0:
+            cycle_interval = 50  # Trigger new AI cycle every 50 products in unlimited mode
+            if products_analyzed_this_session > 0 and products_analyzed_this_session % cycle_interval == 0:
+                log.info(f"🔄 UNLIMITED MODE: Triggering new AI cycle after {products_analyzed_this_session} products")
+                return True
+
+        # Check if we've reached a reasonable threshold for new suggestions
+        if products_analyzed_this_session >= 20:  # Trigger after analyzing 20+ products
+            log.info(f"🔄 THRESHOLD REACHED: Triggering new AI cycle after {products_analyzed_this_session} products")
+            return True
+
+        # 🔧 FIXED: For small batches (like testing), trigger after any processing
+        if products_analyzed_this_session >= 1 and max_products_limit <= 10:
+            log.info(f"🔄 SMALL BATCH MODE: Triggering new AI cycle after {products_analyzed_this_session} products (limit: {max_products_limit})")
+            return True
+
+        return False
+
+    async def _scrape_single_category(self, category_url: str, supplier_name: str) -> List[Dict[str, Any]]:
+        """
+        Scrape products from a single category URL.
+
+        Args:
+            category_url: URL of the category to scrape
+            supplier_name: Name of the supplier
+
+        Returns:
+            List of product dictionaries
+        """
+        try:
+            log.info(f"🔍 Scraping category: {category_url}")
+
+            # Get page content
+            html_content = await self.web_scraper.get_page_content(category_url)
+            if not html_content:
+                log.warning(f"Failed to get content from {category_url}")
+                return []
+
+            # Extract product elements
+            product_elements_soup = self.web_scraper.extract_product_elements(html_content, category_url)
+            if not product_elements_soup:
+                log.warning(f"No product elements found on {category_url}")
+                return []
+
+            log.info(f"Found {len(product_elements_soup)} product elements in {category_url}")
+
+            # Process products in batches
+            extracted_products = []
+            batch_size = 5
+
+            for i in range(0, len(product_elements_soup), batch_size):
+                batch = product_elements_soup[i:i+batch_size]
+                batch_tasks = [
+                    self._process_product_element(
+                        p_soup, str(p_soup), category_url,
+                        urlparse(category_url).scheme + "://" + urlparse(category_url).netloc,
+                        supplier_name
+                    ) for p_soup in batch
+                ]
+                batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
+
+                for result in batch_results:
+                    if isinstance(result, Exception):
+                        log.error(f"Error processing product element: {result}")
+                    elif result:
+                        extracted_products.append(result)
+
+                log.debug(f"Processed batch of {len(batch)} products from {category_url}")
+
+            log.info(f"✅ Extracted {len(extracted_products)} products from {category_url}")
+            return extracted_products
+
+        except Exception as e:
+            log.error(f"Error scraping category {category_url}: {e}")
+            return []
 
     async def _get_cached_amazon_data_by_asin(self, asin: str) -> Optional[Dict[str, Any]]:
         """Helper to get cached Amazon data by ASIN."""
@@ -2222,23 +2712,24 @@ Return ONLY valid JSON, no additional text."""
 
                 log.info(f"Found {len(product_elements_soup)} product elements in category {category_url}, page {current_page_num}")
 
-                # Check if we should stop based on price range (£0-£10 first, then £10-£20)
+                # Check for price-based stopping logic (Phase 1: £0-£10)
                 should_stop_scraping = False
                 if len(extracted_products) > 0:
                     # Check last few products for price range
-                    recent_products = extracted_products[-min(5, len(extracted_products)):]
+                    recent_products = extracted_products[-min(10, len(extracted_products)):]
                     prices = [p.get("price", 0) for p in recent_products if p.get("price")]
 
                     if prices:
-                        avg_recent_price = sum(prices) / len(prices)
-                        # If we're in low price range (£0-£10) and seeing prices > £10, consider stopping
-                        if "price_range=low" in str(category_url) and avg_recent_price > 10.0:
-                            log.info(f"Price threshold reached: avg recent price £{avg_recent_price:.2f} > £10.00. Stopping current category.")
+                        # Check if we've reached the £10 threshold (Phase 1 completion)
+                        prices_above_10 = [p for p in prices if p > 10.0]
+                        if len(prices_above_10) >= 5:  # If 5+ recent products are above £10
+                            avg_recent_price = sum(prices) / len(prices)
+                            log.info(f"Phase 1 (£0-£10) threshold reached: {len(prices_above_10)}/10 recent products above £10.00 (avg: £{avg_recent_price:.2f})")
+                            log.info(f"Stopping current category to move to next category in Phase 1.")
                             should_stop_scraping = True
-                        # If we're in high price range (£10-£20) and seeing prices > £20, stop
-                        elif "price_range=high" in str(category_url) and avg_recent_price > 20.0:
-                            log.info(f"Price threshold reached: avg recent price £{avg_recent_price:.2f} > £20.00. Stopping current category.")
-                            should_stop_scraping = True
+
+                            # Store pagination state for Phase 2 continuation
+                            self._store_phase_2_continuation_point(category_url, current_page_num, len(extracted_products))
 
                 # Process elements from the current page
                 if use_two_step:
@@ -3047,7 +3538,24 @@ async def run_workflow_main():
     enable_quick_triage = args.enable_quick_triage
 
     # Load system configuration for cache settings
-    config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+    # Use same robust path resolution as _load_openai_config
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    possible_config_paths = [
+        os.path.join(script_dir, "config", "system_config.json"),
+        os.path.join(os.path.dirname(script_dir), "config", "system_config.json"),
+        os.path.join(os.path.dirname(os.path.dirname(script_dir)), "config", "system_config.json"),
+        os.path.join(os.getcwd(), "config", "system_config.json")
+    ]
+
+    config_path = None
+    for path in possible_config_paths:
+        if os.path.exists(path):
+            config_path = path
+            break
+
+    if not config_path:
+        log.warning(f"system_config.json not found in any of: {possible_config_paths}")
+        config_path = possible_config_paths[1]  # Use parent directory as fallback for tools location
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             system_config = json.load(f)
@@ -3071,7 +3579,6 @@ async def run_workflow_main():
         log.info("System config: clear_cache=True, performing cache clear")
         try:
             # Simple cache clearing - delete supplier cache files directly
-            import os
             from pathlib import Path
 
             cache_dirs = [

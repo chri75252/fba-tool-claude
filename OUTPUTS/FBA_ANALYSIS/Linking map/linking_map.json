@@ -2822,5 +2822,93 @@
     "amazon_title_snippet": "Mr. Tronic Grey Cat 5E Ethernet Cable 5m, High Speed LAN Eth...",
     "amazon_ean_on_page": "8437018037056",
     "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5056175907397",
+    "supplier_title_snippet": "COOPER & PALS - COLLAPSABLE PORTABLE PET BOWL - ASSORTED COL...",
+    "chosen_amazon_asin": "B07VYPL81F",
+    "amazon_title_snippet": "2pk Collapsible Dog Bowls...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5056175997145",
+    "supplier_title_snippet": "RUBBER DOOR WEDGES CLIPSTRIP - PACK OF 2...",
+    "chosen_amazon_asin": "B07BT2SVF7",
+    "amazon_title_snippet": "FLORA GUARD 2 Pack Door Wedge Rubber - Heavy Duty Door Stops...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5055566961673",
+    "supplier_title_snippet": "Keep It Handy Super Glue - 3g - Pack of 2...",
+    "chosen_amazon_asin": "B094DLZR5B",
+    "amazon_title_snippet": "Super Glue Adhesive Kit Repair Metal Ceramic Rubber Glass Pl...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060082940194",
+    "supplier_title_snippet": "Spiral Adult Colouring Book - 2 Assorted Colours And Designs...",
+    "chosen_amazon_asin": "B0719VYXB5",
+    "amazon_title_snippet": "2 x Squiggle adult colouring in books, spiral bound...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/swan-slim-filter-tips-box-of-10-x-165.html",
+    "supplier_title_snippet": "Swan Slim Filter Tips - Box Of 10 x 165...",
+    "chosen_amazon_asin": "B00NKFUKCA",
+    "amazon_title_snippet": "10 PACK OF SWAN EXTRA SLIM CIGARETTE FILTER TIPS(HALF BOX) =...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/raw-natural-unrefined-tips-original-chemical-and-chlorine-free-box-of-50.html",
+    "supplier_title_snippet": "Raw Natural Unrefined Tips - Original - Chemical And Chlorin...",
+    "chosen_amazon_asin": "B08SK5T9DS",
+    "amazon_title_snippet": "Original RAW Paper Filter Tips Cards ROACHES UNREFINED & UNB...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/brass-20mm-smocking-gauze-pipe-screen-filter-box-of-100-packs.html",
+    "supplier_title_snippet": "Brass 20mm Smocking Gauze Pipe Screen Filter - Box of 100 Pa...",
+    "chosen_amazon_asin": "B079TZ6PCN",
+    "amazon_title_snippet": "Fenny's Creations 20mm Pipe Screens Gauzes Conical Steel Bra...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/zig-zag-finest-quality-resealable-slim-filter-tips-box-of-1500.html",
+    "supplier_title_snippet": "Zig Zag  Finest Quality Resealable Slim Filter Tips - Box Of...",
+    "chosen_amazon_asin": "B0CW3HXXRP",
+    "amazon_title_snippet": "Zig Zag Slim Filter Tips - 450 Quality Filters in a Re-Seala...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/zig-zag-slim-menthol-filter-tips-box-of-1500.html",
+    "supplier_title_snippet": "Zig Zag Slim Menthol Filter Tips - Box Of 1500...",
+    "chosen_amazon_asin": "B07VGSYK6T",
+    "amazon_title_snippet": "25 Bags of ZIG ZAG Menthol Slim Filters Tips Packs - 250 Tip...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/raw-authentic-cone-tips-maestro-pack-of-24.html",
+    "supplier_title_snippet": "Raw Authentic Cone Tips - Maestro - Pack of 24...",
+    "chosen_amazon_asin": "B073DBJ2RC",
+    "amazon_title_snippet": "RAW Tips Cone Maestro Conical Unbleached Filter Tips Wide Pe...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/swan-eco-extra-slim-pre-cut-filter-tips-box-of-20-packs.html",
+    "supplier_title_snippet": "Swan Eco Extra Slim Pre Cut Filter Tips - Box of 20 Packs...",
+    "chosen_amazon_asin": "B0DWN2JQGG",
+    "amazon_title_snippet": "600 Swan Eco Extra Slim Biodegradable Filter Tips - 5 Packs ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
   }
 ]
