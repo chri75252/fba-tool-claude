@@ -1,0 +1,645 @@
+{
+  "timestamp": "2025-06-06T01:50:32.017539",
+  "flag_type": "AMAZON_CACHE_READ_ERROR",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 24,
+    "severity_escalated": true,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-06T01:36:17.310294 to 2025-06-06T01:50:32.017122",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 2
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-06T01:36:17.310294",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B09F9PJ285_0711379894700.json",
+      "file_modification_time": "2025-06-04T09:27:08.631637",
+      "extracted_data": {
+        "file_name": "amazon_B09F9PJ285_0711379894700.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 7456,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:37:36.682847",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BMB6RRKP_5011397083236.json",
+      "file_modification_time": "2025-06-04T09:27:08.639763",
+      "extracted_data": {
+        "file_name": "amazon_B0BMB6RRKP_5011397083236.json",
+        "error_message": "'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8086,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:37:53.894843",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BW4KSNJT_5060544906355.json",
+      "file_modification_time": "2025-06-05T13:50:37.906136",
+      "extracted_data": {
+        "file_name": "amazon_B0BW4KSNJT_5060544906355.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8043,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:38:11.493573",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BZ7VSG26_5060965060179.json",
+      "file_modification_time": "2025-06-04T09:27:08.642092",
+      "extracted_data": {
+        "file_name": "amazon_B0BZ7VSG26_5060965060179.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 5646,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:38:46.725591",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0C9MYV1VG_5060914416071.json",
+      "file_modification_time": "2025-06-04T09:27:08.647660",
+      "extracted_data": {
+        "file_name": "amazon_B0C9MYV1VG_5060914416071.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1008: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1008: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 5640,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:38:55.641074",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0CP7FQRTM_0763022283430.json",
+      "file_modification_time": "2025-06-05T13:52:25.639790",
+      "extracted_data": {
+        "file_name": "amazon_B0CP7FQRTM_0763022283430.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1457: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1457: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8222,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:39:15.062114",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D2X1G3GH_5066113001070.json",
+      "file_modification_time": "2025-06-04T09:27:08.650661",
+      "extracted_data": {
+        "file_name": "amazon_B0D2X1G3GH_5066113001070.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1061: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1061: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 9630,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:39:24.829979",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D8THJKCF_5060066940295.json",
+      "file_modification_time": "2025-06-04T09:27:08.653897",
+      "extracted_data": {
+        "file_name": "amazon_B0D8THJKCF_5060066940295.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8064,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:39:55.984557",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DCZ4TWDM_5391534082491.json",
+      "file_modification_time": "2025-06-04T09:27:08.657285",
+      "extracted_data": {
+        "file_name": "amazon_B0DCZ4TWDM_5391534082491.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1040: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1040: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6904,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:40:05.669116",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DDC9S5R4_5060226063390.json",
+      "file_modification_time": "2025-06-04T09:27:08.659883",
+      "extracted_data": {
+        "file_name": "amazon_B0DDC9S5R4_5060226063390.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1416: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1416: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 13024,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:40:46.508399",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DYV8W1YL_5050375947849.json",
+      "file_modification_time": "2025-06-06T01:28:38.558554",
+      "extracted_data": {
+        "file_name": "amazon_B0DYV8W1YL_5050375947849.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1796: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1796: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 7481,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:41:09.251575",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0F1YL4S3P_5060120173799.json",
+      "file_modification_time": "2025-06-06T01:30:56.620360",
+      "extracted_data": {
+        "file_name": "amazon_B0F1YL4S3P_5060120173799.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1048: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1048: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8030,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:41:16.779097",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0F28LVPL8_5061064060305.json",
+      "file_modification_time": "2025-06-04T09:27:08.659883",
+      "extracted_data": {
+        "file_name": "amazon_B0F28LVPL8_5061064060305.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1072: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1072: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 10606,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:41:32.420779",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-04T09:27:08.659883",
+      "extracted_data": {
+        "file_name": "amazon_B0F8JD77JB_5060226063390.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1246: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1246: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 4949,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:47:44.080695",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B09F9PJ285_0711379894700.json",
+      "file_modification_time": "2025-06-04T09:27:08.631637",
+      "extracted_data": {
+        "file_name": "amazon_B09F9PJ285_0711379894700.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 7456,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:48:37.295806",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BMB6RRKP_5011397083236.json",
+      "file_modification_time": "2025-06-04T09:27:08.639763",
+      "extracted_data": {
+        "file_name": "amazon_B0BMB6RRKP_5011397083236.json",
+        "error_message": "'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8086,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:48:48.557526",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BW4KSNJT_5060544906355.json",
+      "file_modification_time": "2025-06-05T13:50:37.906136",
+      "extracted_data": {
+        "file_name": "amazon_B0BW4KSNJT_5060544906355.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8043,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:49:00.518865",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BZ7VSG26_5060965060179.json",
+      "file_modification_time": "2025-06-04T09:27:08.642092",
+      "extracted_data": {
+        "file_name": "amazon_B0BZ7VSG26_5060965060179.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 5646,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:49:28.288264",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0C9MYV1VG_5060914416071.json",
+      "file_modification_time": "2025-06-04T09:27:08.647660",
+      "extracted_data": {
+        "file_name": "amazon_B0C9MYV1VG_5060914416071.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1008: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1008: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 5640,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:49:36.183665",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0CP7FQRTM_0763022283430.json",
+      "file_modification_time": "2025-06-05T13:52:25.639790",
+      "extracted_data": {
+        "file_name": "amazon_B0CP7FQRTM_0763022283430.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1457: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1457: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8222,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:49:52.551476",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D2X1G3GH_5066113001070.json",
+      "file_modification_time": "2025-06-04T09:27:08.650661",
+      "extracted_data": {
+        "file_name": "amazon_B0D2X1G3GH_5066113001070.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1061: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1061: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 9630,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:50:00.555159",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D8THJKCF_5060066940295.json",
+      "file_modification_time": "2025-06-04T09:27:08.653897",
+      "extracted_data": {
+        "file_name": "amazon_B0D8THJKCF_5060066940295.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8064,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:50:24.052370",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DCZ4TWDM_5391534082491.json",
+      "file_modification_time": "2025-06-04T09:27:08.657285",
+      "extracted_data": {
+        "file_name": "amazon_B0DCZ4TWDM_5391534082491.json",
+        "error_message": "'charmap' codec can't decode byte 0x8f in position 1040: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1040: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6904,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T01:50:32.017122",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DDC9S5R4_5060226063390.json",
+      "file_modification_time": "2025-06-04T09:27:08.659883",
+      "extracted_data": {
+        "file_name": "amazon_B0DDC9S5R4_5060226063390.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1416: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1416: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 13024,
+        "error_type": "UnicodeDecodeError"
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1066,
+      "products_with_amazon_data": 98,
+      "products_with_complete_keepa": 54,
+      "current_processing_index": 41,
+      "processing_completion_rate": 3.8461538461538463,
+      "amazon_cache_coverage": 9.193245778611631,
+      "keepa_success_rate": 55.10204081632652
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 61,
+      "latest_csv_file": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250606_012112.csv",
+      "latest_csv_modification_time": "2025-06-06T01:21:12.774545",
+      "products_in_latest_csv": 10,
+      "complete_financial_records": 7,
+      "financial_data_completeness_rate": 70.0,
+      "fba_summary_files": 171,
+      "latest_fba_summary": {
+        "file": "OUTPUTS\\FBA_ANALYSIS\\fba_summary_clearance-king_co_uk_20250606_012027.json",
+        "modification_time": "2025-06-06T01:21:11.838997",
+        "session_data": {
+          "total_supplier_products": 1019,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-06T01:20:27.008797",
+          "end_time": "2025-06-06T01:21:11.839264"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 98,
+        "keepa_success_rate": 55.10204081632652,
+        "keepa_timeout_rate": 0.0,
+        "missing_ean_rate": 94.44444444444444,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 262.2809524536133,
+        "used_gb": 666.2200202941895,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.7522156517058
+      },
+      "fba_processes": [
+        {
+          "pid": 10596,
+          "name": "cmd.exe",
+          "status": "running",
+          "memory_mb": 5.03125
+        },
+        {
+          "pid": 20668,
+          "name": "python.exe",
+          "status": "running",
+          "memory_mb": 139.734375
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 98,
+        "csv_reports": 61,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 41.70068027210884,
+    "quality_grade": "POOR",
+    "component_scores": {
+      "keepa_extraction": 55.10204081632652,
+      "financial_analysis": 70.0,
+      "ai_suggestions": 0
+    }
+  }
+}

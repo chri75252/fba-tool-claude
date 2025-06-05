@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-06-06T01:53:07.490323",
+  "timestamp": "2025-06-06T01:52:41.707530",
   "flag_type": "INCOMPLETE_KEEPA_DATA",
   "severity": "URGENT",
   "severity_escalated": true,
   "requires_action": true,
   "alert_summary": {
-    "total_instances": 22,
+    "total_instances": 20,
     "severity_escalated": true,
     "original_severity": "WARNING",
-    "timespan": "2025-06-06T01:49:29.122397 to 2025-06-06T01:53:07.489840",
+    "timespan": "2025-06-06T01:49:29.122397 to 2025-06-06T01:52:41.707128",
     "data_sources_checked": [
       "amazon_cache",
       "ai_cache",
@@ -898,105 +898,17 @@
           "Referral Fee"
         ]
       }
-    },
-    {
-      "detection_timestamp": "2025-06-06T01:53:00.887816",
-      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D9H13G9S_5060623588496.json",
-      "file_modification_time": "2025-06-05T14:00:19.132504",
-      "extracted_data": {
-        "asin": "B0D9H13G9S",
-        "ean": "5060623588496",
-        "keepa_status": "Extraction process completed",
-        "supplier_product_name": "Unknown",
-        "keepa_data_fields": [
-          "Title",
-          "Sales Rank - Reference",
-          "Sales Rank - Display Group",
-          "Bought in past month",
-          "Reviews - Rating",
-          "Reviews - Rating Count",
-          "Last Price Change",
-          "Buy Box Seller",
-          "Lowest FBA Seller",
-          "FBA Pick&Pack Fee"
-        ],
-        "missing_fees": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      },
-      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
-      "resolution_suggestions": [
-        "Verify product is eligible for FBA",
-        "Check Keepa data extraction selectors",
-        "Verify product category has fee data",
-        "Check if product is restricted"
-      ],
-      "impact_assessment": "Cannot calculate accurate profit margins",
-      "data_quality_metrics": {
-        "has_fba_fee": false,
-        "has_referral_fee": false,
-        "total_keepa_fields": 42,
-        "missing_fee_types": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      }
-    },
-    {
-      "detection_timestamp": "2025-06-06T01:53:07.489840",
-      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DBHQNTR4_5016646097699.json",
-      "file_modification_time": "2025-06-04T09:27:08.655951",
-      "extracted_data": {
-        "asin": "B0DBHQNTR4",
-        "ean": "5016646097699",
-        "keepa_status": "Extraction process completed",
-        "supplier_product_name": "Unknown",
-        "keepa_data_fields": [
-          "Title",
-          "Sales Rank - Reference",
-          "Sales Rank - Display Group",
-          "Last Price Change",
-          "Buy Box Seller",
-          "FBA Pick&Pack Fee",
-          "Referral Fee %",
-          "Referral Fee based on current Buy Box price",
-          "Lowest FBM Seller",
-          "Total Offer Count"
-        ],
-        "missing_fees": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      },
-      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
-      "resolution_suggestions": [
-        "Verify product is eligible for FBA",
-        "Check Keepa data extraction selectors",
-        "Verify product category has fee data",
-        "Check if product is restricted"
-      ],
-      "impact_assessment": "Cannot calculate accurate profit margins",
-      "data_quality_metrics": {
-        "has_fba_fee": false,
-        "has_referral_fee": false,
-        "total_keepa_fields": 38,
-        "missing_fee_types": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      }
     }
   ],
   "progress_tracking": {
     "products_progress": {
       "total_supplier_products": 1066,
-      "products_with_amazon_data": 101,
-      "products_with_complete_keepa": 55,
-      "current_processing_index": 47,
-      "processing_completion_rate": 4.409005628517824,
-      "amazon_cache_coverage": 9.47467166979362,
-      "keepa_success_rate": 54.45544554455446
+      "products_with_amazon_data": 100,
+      "products_with_complete_keepa": 54,
+      "current_processing_index": 44,
+      "processing_completion_rate": 4.127579737335835,
+      "amazon_cache_coverage": 9.380863039399625,
+      "keepa_success_rate": 54.0
     },
     "financial_analysis_progress": {
       "csv_reports_generated": 61,
@@ -1036,19 +948,19 @@
     "data_quality_metrics": {
       "amazon_cache_quality": {
         "files_checked": 100,
-        "keepa_success_rate": 55.00000000000001,
+        "keepa_success_rate": 54.0,
         "keepa_timeout_rate": 0.0,
-        "missing_ean_rate": 94.54545454545455,
+        "missing_ean_rate": 94.44444444444444,
         "missing_fees_rate": 100.0
       },
       "linking_map_error": "'list' object has no attribute 'values'"
     },
     "system_health": {
       "disk_space": {
-        "free_gb": 262.2722816467285,
-        "used_gb": 666.2286911010742,
+        "free_gb": 262.2703094482422,
+        "used_gb": 666.2306632995605,
         "total_gb": 928.5009727478027,
-        "usage_percentage": 71.75314950176511
+        "usage_percentage": 71.7533619084878
       },
       "fba_processes": [
         {
@@ -1061,12 +973,12 @@
           "pid": 20668,
           "name": "python.exe",
           "status": "running",
-          "memory_mb": 138.76953125
+          "memory_mb": 138.33984375
         }
       ],
       "process_count": 2,
       "file_system": {
-        "amazon_cache_files": 101,
+        "amazon_cache_files": 100,
         "csv_reports": 61,
         "ai_cache_files": 1,
         "supplier_cache_files": 2
@@ -1074,10 +986,10 @@
     }
   },
   "data_quality_summary": {
-    "overall_quality_score": 41.48514851485149,
+    "overall_quality_score": 41.333333333333336,
     "quality_grade": "POOR",
     "component_scores": {
-      "keepa_extraction": 54.45544554455446,
+      "keepa_extraction": 54.0,
       "financial_analysis": 70.0,
       "ai_suggestions": 0
     }

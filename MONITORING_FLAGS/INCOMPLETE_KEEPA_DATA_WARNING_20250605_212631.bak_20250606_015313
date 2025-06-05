@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-06-06T01:53:07.490323",
+  "timestamp": "2025-06-06T01:53:00.888253",
   "flag_type": "INCOMPLETE_KEEPA_DATA",
   "severity": "URGENT",
   "severity_escalated": true,
   "requires_action": true,
   "alert_summary": {
-    "total_instances": 22,
+    "total_instances": 21,
     "severity_escalated": true,
     "original_severity": "WARNING",
-    "timespan": "2025-06-06T01:49:29.122397 to 2025-06-06T01:53:07.489840",
+    "timespan": "2025-06-06T01:49:29.122397 to 2025-06-06T01:53:00.887816",
     "data_sources_checked": [
       "amazon_cache",
       "ai_cache",
@@ -942,50 +942,6 @@
           "Referral Fee"
         ]
       }
-    },
-    {
-      "detection_timestamp": "2025-06-06T01:53:07.489840",
-      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0DBHQNTR4_5016646097699.json",
-      "file_modification_time": "2025-06-04T09:27:08.655951",
-      "extracted_data": {
-        "asin": "B0DBHQNTR4",
-        "ean": "5016646097699",
-        "keepa_status": "Extraction process completed",
-        "supplier_product_name": "Unknown",
-        "keepa_data_fields": [
-          "Title",
-          "Sales Rank - Reference",
-          "Sales Rank - Display Group",
-          "Last Price Change",
-          "Buy Box Seller",
-          "FBA Pick&Pack Fee",
-          "Referral Fee %",
-          "Referral Fee based on current Buy Box price",
-          "Lowest FBM Seller",
-          "Total Offer Count"
-        ],
-        "missing_fees": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      },
-      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
-      "resolution_suggestions": [
-        "Verify product is eligible for FBA",
-        "Check Keepa data extraction selectors",
-        "Verify product category has fee data",
-        "Check if product is restricted"
-      ],
-      "impact_assessment": "Cannot calculate accurate profit margins",
-      "data_quality_metrics": {
-        "has_fba_fee": false,
-        "has_referral_fee": false,
-        "total_keepa_fields": 38,
-        "missing_fee_types": [
-          "FBA Pick&Pack Fee",
-          "Referral Fee"
-        ]
-      }
     }
   ],
   "progress_tracking": {
@@ -993,8 +949,8 @@
       "total_supplier_products": 1066,
       "products_with_amazon_data": 101,
       "products_with_complete_keepa": 55,
-      "current_processing_index": 47,
-      "processing_completion_rate": 4.409005628517824,
+      "current_processing_index": 46,
+      "processing_completion_rate": 4.315196998123827,
       "amazon_cache_coverage": 9.47467166979362,
       "keepa_success_rate": 54.45544554455446
     },
@@ -1045,10 +1001,10 @@
     },
     "system_health": {
       "disk_space": {
-        "free_gb": 262.2722816467285,
-        "used_gb": 666.2286911010742,
+        "free_gb": 262.2666320800781,
+        "used_gb": 666.2343406677246,
         "total_gb": 928.5009727478027,
-        "usage_percentage": 71.75314950176511
+        "usage_percentage": 71.75375796280244
       },
       "fba_processes": [
         {
@@ -1061,7 +1017,7 @@
           "pid": 20668,
           "name": "python.exe",
           "status": "running",
-          "memory_mb": 138.76953125
+          "memory_mb": 138.5
         }
       ],
       "process_count": 2,

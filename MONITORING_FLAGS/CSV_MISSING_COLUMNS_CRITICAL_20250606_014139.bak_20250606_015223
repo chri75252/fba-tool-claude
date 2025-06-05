@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-06-06T01:52:15.850338",
+  "timestamp": "2025-06-06T01:41:39.613439",
   "flag_type": "CSV_MISSING_COLUMNS",
   "severity": "CRITICAL",
   "severity_escalated": false,
   "requires_action": true,
   "alert_summary": {
-    "total_instances": 2,
+    "total_instances": 1,
     "severity_escalated": false,
     "original_severity": "CRITICAL",
-    "timespan": "2025-06-06T01:41:39.612407 to 2025-06-06T01:52:15.849958",
+    "timespan": "2025-06-06T01:41:39.612407",
     "data_sources_checked": [
       "amazon_cache",
       "ai_cache",
@@ -16,74 +16,11 @@
       "supplier_cache",
       "linking_map"
     ],
-    "monitoring_cycles": 2
+    "monitoring_cycles": 1
   },
   "instances": [
     {
       "detection_timestamp": "2025-06-06T01:41:39.612407",
-      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250606_012112.csv",
-      "file_modification_time": "2025-06-06T01:21:12.774545",
-      "extracted_data": {
-        "csv_file_name": "fba_financial_report_20250606_012112.csv",
-        "missing_columns": [
-          "supplier_cost",
-          "amazon_price",
-          "profit_margin",
-          "fba_fees",
-          "referral_fees"
-        ],
-        "available_columns": [
-          "EAN",
-          "EAN_OnPage",
-          "ASIN",
-          "Title",
-          "SupplierURL",
-          "AmazonURL",
-          "bought_in_past_month",
-          "fba_seller_count",
-          "fbm_seller_count",
-          "total_offer_count",
-          "SupplierPrice_incVAT",
-          "SupplierPrice_exVAT",
-          "SellingPrice_incVAT",
-          "AmazonPrice_exVAT",
-          "ReferralFee",
-          "FBAFee",
-          "OutputVAT",
-          "InputVAT",
-          "NetProceeds",
-          "HMRC",
-          "NetProfit",
-          "ROI",
-          "Breakeven",
-          "ProfitMargin"
-        ],
-        "required_columns": [
-          "EAN",
-          "ASIN",
-          "supplier_cost",
-          "amazon_price",
-          "profit_margin",
-          "fba_fees",
-          "referral_fees"
-        ]
-      },
-      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
-      "resolution_suggestions": [
-        "Check FBA calculator column mapping",
-        "Verify Keepa data extraction completeness",
-        "Update CSV generation logic",
-        "Check Amazon cache data structure"
-      ],
-      "impact_assessment": "Cannot perform complete financial analysis",
-      "data_quality_metrics": {
-        "missing_columns_count": 5,
-        "total_columns": 24,
-        "missing_columns_percentage": 71.42857142857143
-      }
-    },
-    {
-      "detection_timestamp": "2025-06-06T01:52:15.849958",
       "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250606_012112.csv",
       "file_modification_time": "2025-06-06T01:21:12.774545",
       "extracted_data": {
@@ -149,12 +86,12 @@
   "progress_tracking": {
     "products_progress": {
       "total_supplier_products": 1066,
-      "products_with_amazon_data": 100,
+      "products_with_amazon_data": 87,
       "products_with_complete_keepa": 54,
-      "current_processing_index": 44,
-      "processing_completion_rate": 4.127579737335835,
-      "amazon_cache_coverage": 9.380863039399625,
-      "keepa_success_rate": 54.0
+      "current_processing_index": 40,
+      "processing_completion_rate": 3.75234521575985,
+      "amazon_cache_coverage": 8.161350844277674,
+      "keepa_success_rate": 62.06896551724138
     },
     "financial_analysis_progress": {
       "csv_reports_generated": 61,
@@ -193,8 +130,8 @@
     },
     "data_quality_metrics": {
       "amazon_cache_quality": {
-        "files_checked": 100,
-        "keepa_success_rate": 54.0,
+        "files_checked": 87,
+        "keepa_success_rate": 62.06896551724138,
         "keepa_timeout_rate": 0.0,
         "missing_ean_rate": 94.44444444444444,
         "missing_fees_rate": 100.0
@@ -203,28 +140,34 @@
     },
     "system_health": {
       "disk_space": {
-        "free_gb": 262.2704849243164,
-        "used_gb": 666.2304878234863,
+        "free_gb": 262.4297218322754,
+        "used_gb": 666.0712509155273,
         "total_gb": 928.5009727478027,
-        "usage_percentage": 71.75334300963046
+        "usage_percentage": 71.73619311828595
       },
       "fba_processes": [
         {
-          "pid": 10596,
+          "pid": 2388,
           "name": "cmd.exe",
           "status": "running",
-          "memory_mb": 5.03125
+          "memory_mb": 4.7578125
+        },
+        {
+          "pid": 20604,
+          "name": "cmd.exe",
+          "status": "running",
+          "memory_mb": 4.6953125
         },
         {
           "pid": 20668,
           "name": "python.exe",
           "status": "running",
-          "memory_mb": 132.20703125
+          "memory_mb": 111.2734375
         }
       ],
-      "process_count": 2,
+      "process_count": 3,
       "file_system": {
-        "amazon_cache_files": 100,
+        "amazon_cache_files": 87,
         "csv_reports": 61,
         "ai_cache_files": 1,
         "supplier_cache_files": 2
@@ -232,10 +175,10 @@
     }
   },
   "data_quality_summary": {
-    "overall_quality_score": 41.333333333333336,
+    "overall_quality_score": 44.02298850574713,
     "quality_grade": "POOR",
     "component_scores": {
-      "keepa_extraction": 54.0,
+      "keepa_extraction": 62.06896551724138,
       "financial_analysis": 70.0,
       "ai_suggestions": 0
     }

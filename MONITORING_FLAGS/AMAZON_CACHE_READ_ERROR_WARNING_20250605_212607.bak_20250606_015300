@@ -1,14 +1,14 @@
 {
-  "timestamp": "2025-06-06T01:52:54.567144",
+  "timestamp": "2025-06-06T01:52:47.751190",
   "flag_type": "AMAZON_CACHE_READ_ERROR",
   "severity": "WARNING",
   "severity_escalated": false,
   "requires_action": true,
   "alert_summary": {
-    "total_instances": 8,
+    "total_instances": 7,
     "severity_escalated": false,
     "original_severity": "WARNING",
-    "timespan": "2025-06-06T01:50:16.853204 to 2025-06-06T01:52:54.565941",
+    "timespan": "2025-06-06T01:50:16.853204 to 2025-06-06T01:52:47.750705",
     "data_sources_checked": [
       "amazon_cache",
       "ai_cache",
@@ -172,28 +172,6 @@
         "file_size_bytes": 9630,
         "error_type": "UnicodeDecodeError"
       }
-    },
-    {
-      "detection_timestamp": "2025-06-06T01:52:54.565941",
-      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0D8THJKCF_5060066940295.json",
-      "file_modification_time": "2025-06-04T09:27:08.653897",
-      "extracted_data": {
-        "file_name": "amazon_B0D8THJKCF_5060066940295.json",
-        "error_message": "'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
-        "file_exists": true
-      },
-      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8f in position 1311: character maps to <undefined>",
-      "resolution_suggestions": [
-        "Check file permissions",
-        "Verify JSON file format",
-        "Check disk space",
-        "Restart monitoring system"
-      ],
-      "impact_assessment": "Cannot analyze product data quality",
-      "data_quality_metrics": {
-        "file_size_bytes": 8064,
-        "error_type": "UnicodeDecodeError"
-      }
     }
   ],
   "progress_tracking": {
@@ -201,8 +179,8 @@
       "total_supplier_products": 1066,
       "products_with_amazon_data": 101,
       "products_with_complete_keepa": 55,
-      "current_processing_index": 45,
-      "processing_completion_rate": 4.221388367729831,
+      "current_processing_index": 44,
+      "processing_completion_rate": 4.127579737335835,
       "amazon_cache_coverage": 9.47467166979362,
       "keepa_success_rate": 54.45544554455446
     },
@@ -253,10 +231,10 @@
     },
     "system_health": {
       "disk_space": {
-        "free_gb": 262.26428985595703,
-        "used_gb": 666.2366828918457,
+        "free_gb": 262.26909255981445,
+        "used_gb": 666.2318801879883,
         "total_gb": 928.5009727478027,
-        "usage_percentage": 71.75401022146343
+        "usage_percentage": 71.753492967955
       },
       "fba_processes": [
         {
@@ -269,7 +247,7 @@
           "pid": 20668,
           "name": "python.exe",
           "status": "running",
-          "memory_mb": 138.46484375
+          "memory_mb": 138.40234375
         }
       ],
       "process_count": 2,
