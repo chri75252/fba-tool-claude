@@ -22,12 +22,18 @@ import base64
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 log = logging.getLogger(__name__)
 
-# OpenAI API Configuration
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# OpenAI API Configuration - Direct hardcoded
+OPENAI_API_KEY = "sk-1Qpnl6GxwJfBctXrxxQBSczbL9nmLw7KtyGkSrxmHdT3BlbkFJNpB73kWe-kFUVjXX5Ebq67l3KL2REkNGmdSkCtVbgA"
 OPENAI_MODEL_NAME = "gpt-4.1-mini-2025-04-14" # Unified model for text and vision
 
-# Ensure OUTPUT_DIR uses raw string or escaped backslashes for Windows paths
-OUTPUT_DIR = r"C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE"
+# Import file manager for standardized paths
+try:
+    from utils.file_manager import get_file_manager
+    fm = get_file_manager()
+    OUTPUT_DIR = str(fm.get_directory_path("cache_amazon", False))
+except ImportError:
+    # Fallback to old path if file manager not available
+    OUTPUT_DIR = r"C:\Users\chris\Amazon-FBA-Agent-System\OUTPUTS\AMAZON_SCRAPE"
 
 # Default timeouts and waits
 DEFAULT_NAVIGATION_TIMEOUT = 60000  # 60 seconds
@@ -40,19 +46,9 @@ class AmazonExtractor:
         self.chrome_debug_port = chrome_debug_port
         self.browser: Optional[Browser] = None
         
-        if ai_client:
-            self.ai_client = ai_client
-        else:
-            if OPENAI_API_KEY:
-                try:
-                    self.ai_client = OpenAI(api_key=OPENAI_API_KEY)
-                    log.info(f"OpenAI client initialized successfully with model {OPENAI_MODEL_NAME}.")
-                except Exception as e:
-                    self.ai_client = None
-                    log.error(f"Failed to initialize OpenAI client: {e}. AI fallbacks will be disabled.")
-            else:
-                self.ai_client = None
-                log.warning("OpenAI API key not provided. AI fallbacks will be disabled.")
+        # DISABLE AI features for now - force ai_client to None
+        self.ai_client = None
+        log.info("AI features disabled in amazon_playwright_extractor - using only traditional selectors.")
         
         self.openai_model = OPENAI_MODEL_NAME
         

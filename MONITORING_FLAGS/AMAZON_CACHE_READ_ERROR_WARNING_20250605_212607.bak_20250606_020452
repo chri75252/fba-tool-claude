@@ -1,0 +1,227 @@
+{
+  "timestamp": "2025-06-06T02:04:22.447483",
+  "flag_type": "AMAZON_CACHE_READ_ERROR",
+  "severity": "WARNING",
+  "severity_escalated": false,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 5,
+    "severity_escalated": false,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-06T02:03:02.826606 to 2025-06-06T02:04:22.446920",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 1
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-06T02:03:02.826606",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B09F9PJ285_0711379894700.json",
+      "file_modification_time": "2025-06-06T01:54:19.185569",
+      "extracted_data": {
+        "file_name": "amazon_B09F9PJ285_0711379894700.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1360: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 7456,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T02:03:54.915891",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BMB6RRKP_5011397083236.json",
+      "file_modification_time": "2025-06-06T01:54:19.192569",
+      "extracted_data": {
+        "file_name": "amazon_B0BMB6RRKP_5011397083236.json",
+        "error_message": "'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x8d in position 1366: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8086,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T02:04:06.396128",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BW4KSNJT_5060544906355.json",
+      "file_modification_time": "2025-06-06T01:54:19.193590",
+      "extracted_data": {
+        "file_name": "amazon_B0BW4KSNJT_5060544906355.json",
+        "error_message": "'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x9d in position 1430: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 8043,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T02:04:17.059752",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0BZ7VSG26_5060965060179.json",
+      "file_modification_time": "2025-06-06T01:54:19.194570",
+      "extracted_data": {
+        "file_name": "amazon_B0BZ7VSG26_5060965060179.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1342: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 5646,
+        "error_type": "UnicodeDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-06T02:04:22.446920",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\amazon_cache\\amazon_B0C1MZ46PF_8012979226925.json",
+      "file_modification_time": "2025-06-06T01:54:19.196571",
+      "extracted_data": {
+        "file_name": "amazon_B0C1MZ46PF_8012979226925.json",
+        "error_message": "'charmap' codec can't decode byte 0x90 in position 1391: character maps to <undefined>",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading Amazon cache file: 'charmap' codec can't decode byte 0x90 in position 1391: character maps to <undefined>",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart monitoring system"
+      ],
+      "impact_assessment": "Cannot analyze product data quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 7210,
+        "error_type": "UnicodeDecodeError"
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1066,
+      "products_with_amazon_data": 109,
+      "products_with_complete_keepa": 61,
+      "current_processing_index": 91,
+      "processing_completion_rate": 8.536585365853659,
+      "amazon_cache_coverage": 10.22514071294559,
+      "keepa_success_rate": 55.96330275229357
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 61,
+      "latest_csv_file": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250605_214247.csv",
+      "latest_csv_modification_time": "2025-06-06T01:54:19.400959",
+      "products_in_latest_csv": 8,
+      "complete_financial_records": 8,
+      "financial_data_completeness_rate": 100.0,
+      "fba_summary_files": 171,
+      "latest_fba_summary": {
+        "file": "OUTPUTS\\FBA_ANALYSIS\\fba_summary_clearance-king_co_uk_20250606_012027.json",
+        "modification_time": "2025-06-06T01:54:19.112386",
+        "session_data": {
+          "total_supplier_products": 1019,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-06T01:20:27.008797",
+          "end_time": "2025-06-06T01:21:11.839264"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 61.0,
+        "keepa_timeout_rate": 0.0,
+        "missing_ean_rate": 95.08196721311475,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 262.23546600341797,
+        "used_gb": 666.2655067443848,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.7571145642035
+      },
+      "fba_processes": [
+        {
+          "pid": 27312,
+          "name": "cmd.exe",
+          "status": "running",
+          "memory_mb": 5.1015625
+        },
+        {
+          "pid": 27548,
+          "name": "python.exe",
+          "status": "running",
+          "memory_mb": 112.3828125
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 109,
+        "csv_reports": 61,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 51.98776758409786,
+    "quality_grade": "POOR",
+    "component_scores": {
+      "keepa_extraction": 55.96330275229357,
+      "financial_analysis": 100.0,
+      "ai_suggestions": 0
+    }
+  }
+}
