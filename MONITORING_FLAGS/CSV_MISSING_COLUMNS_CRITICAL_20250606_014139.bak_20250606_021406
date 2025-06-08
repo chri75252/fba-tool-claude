@@ -1,0 +1,180 @@
+{
+  "timestamp": "2025-06-06T02:07:16.226005",
+  "flag_type": "CSV_MISSING_COLUMNS",
+  "severity": "CRITICAL",
+  "severity_escalated": false,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 1,
+    "severity_escalated": false,
+    "original_severity": "CRITICAL",
+    "timespan": "2025-06-06T02:07:16.225297",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 1
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-06T02:07:16.225297",
+      "source_file_path": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250605_214247.csv",
+      "file_modification_time": "2025-06-06T01:54:19.400959",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250605_214247.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1066,
+      "products_with_amazon_data": 112,
+      "products_with_complete_keepa": 63,
+      "current_processing_index": 100,
+      "processing_completion_rate": 9.380863039399625,
+      "amazon_cache_coverage": 10.506566604127581,
+      "keepa_success_rate": 56.25
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 61,
+      "latest_csv_file": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250605_214247.csv",
+      "latest_csv_modification_time": "2025-06-06T01:54:19.400959",
+      "products_in_latest_csv": 8,
+      "complete_financial_records": 8,
+      "financial_data_completeness_rate": 100.0,
+      "fba_summary_files": 171,
+      "latest_fba_summary": {
+        "file": "OUTPUTS\\FBA_ANALYSIS\\fba_summary_clearance-king_co_uk_20250606_012027.json",
+        "modification_time": "2025-06-06T01:54:19.112386",
+        "session_data": {
+          "total_supplier_products": 1019,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-06T01:20:27.008797",
+          "end_time": "2025-06-06T01:21:11.839264"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 63.0,
+        "keepa_timeout_rate": 0.0,
+        "missing_ean_rate": 95.23809523809523,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 262.2310333251953,
+        "used_gb": 666.2699394226074,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.75759196577364
+      },
+      "fba_processes": [
+        {
+          "pid": 27312,
+          "name": "cmd.exe",
+          "status": "running",
+          "memory_mb": 5.1015625
+        },
+        {
+          "pid": 27548,
+          "name": "python.exe",
+          "status": "running",
+          "memory_mb": 124.90625
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 112,
+        "csv_reports": 61,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 52.083333333333336,
+    "quality_grade": "POOR",
+    "component_scores": {
+      "keepa_extraction": 56.25,
+      "financial_analysis": 100.0,
+      "ai_suggestions": 0
+    }
+  }
+}

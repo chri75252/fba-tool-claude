@@ -169,11 +169,58 @@
     },
     "openai": {
       "enabled": true,
-      "api_key": "sk-02XZ3ucKVViULVaTp4_Ad6byZCT6Fofr-BwRsD5mTcT3BlbkFJ7_HTmTRScAn0m-ITc_CX5a2beXTOcbK1-Qmm0s6nwA",
-      "model": "gpt-4o-mini-search-preview-2025-03-11",
+      "api_key": "${OPENAI_API_KEY}",
+      "model": "gpt-4o-mini-2024-07-18",
       "max_tokens": 1200,
       "temperature": 0.1,
-      "web_search_enabled": true
+      "web_search_enabled": false
+    }
+  },
+  "ai_features": {
+    "category_selection": {
+      "enabled": true,
+      "disable_ai_category_selection": false,
+      "mode": "legacy",
+      "available_modes": {
+        "legacy": "Original 86-line prompt with detailed instructions",
+        "v2": "New 25-line clearance-first prompt optimized for arbitrage"
+      },
+      "dynamic_reordering": {
+        "enabled": false,
+        "trigger_interval_categories": 5,
+        "trigger_interval_products": 100
+      },
+      "manual_category_list": [
+        "https://www.clearance-king.co.uk/clearance-lines.html",
+        "https://www.clearance-king.co.uk/50p-under.html",
+        "https://www.clearance-king.co.uk/household.html",
+        "https://www.clearance-king.co.uk/baby-kids.html",
+        "https://www.clearance-king.co.uk/gifts-toys.html",
+        "https://www.clearance-king.co.uk/health-beauty.html",
+        "https://www.clearance-king.co.uk/pets.html",
+        "https://www.clearance-king.co.uk/stationery-crafts.html",
+        "https://www.clearance-king.co.uk/mailing-supplies.html",
+        "https://www.clearance-king.co.uk/smoking.html",
+        "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/"
+      ]
+    },
+    "product_matching": {
+      "quality_threshold": "medium",
+      "available_thresholds": ["low", "medium", "high"],
+      "skip_low_quality": true,
+      "ean_search_enabled": true,
+      "title_search_fallback": true
+    }
+  },
+  "processing_limits": {
+    "min_price_gbp": 0.1,
+    "max_price_gbp": 20.0,
+    "max_products_per_run": 0,
+    "max_categories_per_cycle": 3,
+    "category_validation": {
+      "enabled": true,
+      "min_products_per_category": 2,
+      "timeout_seconds": 15
     }
   },
   "security": {

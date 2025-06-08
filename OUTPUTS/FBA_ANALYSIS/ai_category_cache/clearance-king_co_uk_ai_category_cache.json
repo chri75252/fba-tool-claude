@@ -1,12 +1,35 @@
 {
-  "supplier": "clearance-king.co.uk",
-  "url": "https://www.clearance-king.co.uk/3-tier-cloth-dryer-metal-stand-maximum-load-7-kg.html",
-  "created": "2025-06-06T01:21:28.291254",
-  "last_updated": "2025-06-06T01:21:28.291257",
-  "total_ai_calls": 1,
+  "total_ai_calls": 2,
+  "session_id": "manual_force_20250607_150500",
+  "ai_calls": [
+    {
+      "timestamp": "2025-06-07T15:05:00",
+      "categories_suggested": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/clearance-lines.html",
+          "https://www.clearance-king.co.uk/50p-under.html",
+          "https://www.clearance-king.co.uk/household.html",
+          "https://www.clearance-king.co.uk/baby-kids.html",
+          "https://www.clearance-king.co.uk/gifts-toys.html",
+          "https://www.clearance-king.co.uk/health-beauty.html",
+          "https://www.clearance-king.co.uk/pets.html",
+          "https://www.clearance-king.co.uk/stationery-crafts.html",
+          "https://www.clearance-king.co.uk/mailing-supplies.html",
+          "https://www.clearance-king.co.uk/smoking.html",
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/"
+        ],
+        "secondary_urls": [],
+        "skip_urls": []
+      },
+      "ai_reasoning": "MANUAL OVERRIDE: Forcing all 14 high-priority categories for comprehensive backlog processing. All clearance and FBA-suitable categories prioritized for maximum arbitrage profit potential.",
+      "session_context": "Manual category injection to bypass faulty AI logic - Phase A backlog processing",
+      "progression_strategy": "Process all 14 remaining categories systematically starting with clearance-lines"
+    }
+  ],
+  "last_updated": "2025-06-07T15:51:10.403638",
   "ai_suggestion_history": [
     {
-      "timestamp": "2025-06-06T01:21:28.291228",
+      "timestamp": "2025-06-07T15:51:10.403602",
       "session_context": {
         "categories_discovered": 75,
         "total_products_processed": 0,
@@ -14,74 +37,56 @@
       },
       "ai_suggestions": {
         "top_3_urls": [
-          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
-          "https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
-          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          "https://www.clearance-king.co.uk/clearance-lines.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/50p-under.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
         ],
         "secondary_urls": [
-          "https://www.clearance-king.co.uk/garden-outdoor-living.html",
+          "https://www.clearance-king.co.uk/baby-kids.html",
+          "https://www.clearance-king.co.uk/gifts-toys.html",
+          "https://www.clearance-king.co.uk/health-beauty.html",
+          "https://www.clearance-king.co.uk/pets.html",
           "https://www.clearance-king.co.uk/stationery-crafts.html",
-          "https://www.clearance-king.co.uk/baby-kids.html"
-        ],
-        "skip_urls": [
+          "https://www.clearance-king.co.uk/mailing-supplies.html",
           "https://www.clearance-king.co.uk/smoking.html",
-          "https://www.clearance-king.co.uk/clothing-fashion/jackets.html",
-          "https://www.clearance-king.co.uk/electrical/home-appliances.html"
+          "https://www.clearance-king.co.uk/catalog/category/view/s/others/id/408/"
         ],
+        "skip_urls": [],
         "detailed_reasoning": {
-          "household": "The URL '/household.html' suggests it's a broad category with various home products, ideal for FBA due to high demand and profit margins. Products are expected to range from cleaning supplies to kitchen gadgets, suited for regular purchasing. High profit potential due to extensive categories.",
-          "toys-games": "The URL '/gifts-toys/toys-games.html' indicates a category focused on toys which generally have consistent demand, making them suitable for Amazon FBA. Expect to find a variety of children's toys, games, and educational products, all of which align with growing trends in children's entertainment. High profit potential due to repeat purchases.",
-          "health-beauty": "The URL '/health-beauty.html' signals a wide range of beauty and personal care products. This category has repeat purchase models which foster customer loyalty, suggesting a consistent demand. The expectation is to find skincare, haircare, and personal hygiene products, which typically yield high margins."
+          "manual_override": "AI disabled, using predefined high-priority categories"
         },
-        "progression_strategy": "The strategy focused on identifying categories that have clear potential for high-demand, scrapeable products suitable for Amazon FBA. The selection process prioritized broad, well-known product categories that are likely to attract buyers consistently. URLs were vetted for product listing indicators based on names and structures.",
-        "url_pattern_confidence": {
-          "high_confidence": [
-            "https://www.clearance-king.co.uk/household.html",
-            "https://www.clearance-king.co.uk/gifts-toys/toys-games.html",
-            "https://www.clearance-king.co.uk/health-beauty.html"
-          ],
-          "medium_confidence": [
-            "https://www.clearance-king.co.uk/garden-outdoor-living.html",
-            "https://www.clearance-king.co.uk/stationery-crafts.html",
-            "https://www.clearance-king.co.uk/baby-kids.html"
-          ],
-          "low_confidence": [
-            "https://www.clearance-king.co.uk/smoking.html",
-            "https://www.clearance-king.co.uk/electrical/home-appliances.html",
-            "https://www.clearance-king.co.uk/clothing-fashion/jackets.html"
-          ]
-        },
+        "progression_strategy": "manual backlog processing - clearance first",
         "validation_results": [
           {
+            "url": "https://www.clearance-king.co.uk/clearance-lines.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/50p-under.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
             "url": "https://www.clearance-king.co.uk/household.html",
-            "product_count": 48,
-            "is_productive": true,
-            "validation_method": "product_count_check"
-          },
-          {
-            "url": "https://www.clearance-king.co.uk/gifts-toys/toys-games.html",
-            "product_count": 48,
-            "is_productive": true,
-            "validation_method": "product_count_check"
-          },
-          {
-            "url": "https://www.clearance-king.co.uk/health-beauty.html",
             "product_count": 48,
             "is_productive": true,
             "validation_method": "product_count_check"
           }
         ],
         "optimized_urls": [
-          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
-          "https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
-          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          "https://www.clearance-king.co.uk/clearance-lines.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/50p-under.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
         ],
         "failed_urls": [],
         "failed_url_errors": {},
         "original_urls": [
-          "https://www.clearance-king.co.uk/household.html",
-          "https://www.clearance-king.co.uk/gifts-toys/toys-games.html",
-          "https://www.clearance-king.co.uk/health-beauty.html"
+          "https://www.clearance-king.co.uk/clearance-lines.html",
+          "https://www.clearance-king.co.uk/50p-under.html",
+          "https://www.clearance-king.co.uk/household.html"
         ]
       },
       "validation_summary": {

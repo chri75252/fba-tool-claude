@@ -1,0 +1,173 @@
+{
+  "timestamp": "2025-06-06T01:49:14.056941",
+  "flag_type": "NEW_PROCESS_STARTED",
+  "severity": "INFO",
+  "severity_escalated": false,
+  "requires_action": false,
+  "alert_summary": {
+    "total_instances": 1,
+    "severity_escalated": false,
+    "original_severity": "INFO",
+    "timespan": "2025-06-06T01:49:14.056378",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 1
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-06T01:49:14.056378",
+      "source_file_path": null,
+      "file_modification_time": null,
+      "extracted_data": {
+        "new_processes": [
+          {
+            "pid": 10596,
+            "name": "cmd.exe",
+            "cmdline": "C:\\WINDOWS\\system32\\cmd.exe /c C:\\Users\\chris\\Amazon-FBA-Agent-System\\Amazon-FBA-Agent-System-v3\\start_monitoring.bat ",
+            "status": "running",
+            "memory_mb": 5.0625,
+            "running_since": "2025-06-06T01:49:08.595800"
+          },
+          {
+            "pid": 20668,
+            "name": "python.exe",
+            "cmdline": "C:\\Python313\\python.exe tools/passive_extraction_workflow_latest.py --max-products 0",
+            "status": "running",
+            "memory_mb": 134.92578125,
+            "running_since": "2025-06-06T01:39:32.518087"
+          }
+        ],
+        "all_current_processes": [
+          {
+            "pid": 10596,
+            "name": "cmd.exe",
+            "cmdline": "C:\\WINDOWS\\system32\\cmd.exe /c C:\\Users\\chris\\Amazon-FBA-Agent-System\\Amazon-FBA-Agent-System-v3\\start_monitoring.bat ",
+            "status": "running",
+            "memory_mb": 5.0625,
+            "running_since": "2025-06-06T01:49:08.595800"
+          },
+          {
+            "pid": 20668,
+            "name": "python.exe",
+            "cmdline": "C:\\Python313\\python.exe tools/passive_extraction_workflow_latest.py --max-products 0",
+            "status": "running",
+            "memory_mb": 134.92578125,
+            "running_since": "2025-06-06T01:39:32.518087"
+          }
+        ]
+      },
+      "specific_issue": "New FBA processes detected: 2 processes",
+      "resolution_suggestions": [
+        "Monitor new processes for stability",
+        "Check if multiple instances are intended",
+        "Verify process resource usage",
+        "Ensure no process conflicts"
+      ],
+      "impact_assessment": "New processing capacity available",
+      "data_quality_metrics": {
+        "new_process_count": 2,
+        "total_process_count": 2,
+        "total_memory_mb": 139.98828125
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1066,
+      "products_with_amazon_data": 96,
+      "products_with_complete_keepa": 54,
+      "current_processing_index": 40,
+      "processing_completion_rate": 3.75234521575985,
+      "amazon_cache_coverage": 9.00562851782364,
+      "keepa_success_rate": 56.25
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 61,
+      "latest_csv_file": "OUTPUTS\\FBA_ANALYSIS\\financial_reports\\fba_financial_report_20250606_012112.csv",
+      "latest_csv_modification_time": "2025-06-06T01:21:12.774545",
+      "products_in_latest_csv": 10,
+      "complete_financial_records": 7,
+      "financial_data_completeness_rate": 70.0,
+      "fba_summary_files": 171,
+      "latest_fba_summary": {
+        "file": "OUTPUTS\\FBA_ANALYSIS\\fba_summary_clearance-king_co_uk_20250606_012027.json",
+        "modification_time": "2025-06-06T01:21:11.838997",
+        "session_data": {
+          "total_supplier_products": 1019,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-06T01:20:27.008797",
+          "end_time": "2025-06-06T01:21:11.839264"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 96,
+        "keepa_success_rate": 56.25,
+        "keepa_timeout_rate": 0.0,
+        "missing_ean_rate": 94.44444444444444,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 262.27639389038086,
+        "used_gb": 666.2245788574219,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.75270661115185
+      },
+      "fba_processes": [
+        {
+          "pid": 10596,
+          "name": "cmd.exe",
+          "status": "running",
+          "memory_mb": 5.0625
+        },
+        {
+          "pid": 20668,
+          "name": "python.exe",
+          "status": "running",
+          "memory_mb": 136.87109375
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 96,
+        "csv_reports": 61,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 42.083333333333336,
+    "quality_grade": "POOR",
+    "component_scores": {
+      "keepa_extraction": 56.25,
+      "financial_analysis": 70.0,
+      "ai_suggestions": 0
+    }
+  }
+}
