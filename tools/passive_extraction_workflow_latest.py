@@ -15,6 +15,7 @@ import sys
 import argparse
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional, Tuple, Set, Union
+from collections import defaultdict
 import re
 import time
 import xml.etree.ElementTree as ET
@@ -861,7 +862,9 @@ class PassiveExtractionWorkflow:
             "products_previously_visited": 0, # Track resumed products
             "profitable_products": 0,
             "errors": 0,
-            "start_time": datetime.now().isoformat()
+            "products_processed_total": 0,
+            "products_processed_per_category": {},
+            "start_time": datetime.now().isoformat(),
         }
         
         # Set up state tracking
@@ -1895,14 +1898,21 @@ Return ONLY valid JSON, no additional text."""
         
         return urls
 
-    async def run(self, supplier_url: str = DEFAULT_SUPPLIER_URL,
-                  supplier_name: str = DEFAULT_SUPPLIER_NAME,
-                  max_products_to_process: int = 50,
-                  cache_supplier_data: bool = True,
-                  force_config_reload: bool = False,
-                  debug_smoke: bool = False,
-                  resume_from_last: bool = True) -> List[Dict[str, Any]]:
+    async def run(
+        self,
+        supplier_url: str = DEFAULT_SUPPLIER_URL,
+        supplier_name: str = DEFAULT_SUPPLIER_NAME,
+        max_products_to_process: int = 50,
+        max_products_per_category: int = 0,
+        max_analyzed_products: int = 0,
+        cache_supplier_data: bool = True,
+        force_config_reload: bool = False,
+        debug_smoke: bool = False,
+        resume_from_last: bool = True,
+    ) -> List[Dict[str, Any]]:
         profitable_results: List[Dict[str, Any]] = []
+        processed_by_category: Dict[str, int] = defaultdict(int)
+        total_processed = 0
         session_id = f"{supplier_name.replace('.', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         log.info(f"Starting passive extraction workflow for supplier: {supplier_name} ({supplier_url})")
         log.info(f"Session ID: {session_id}")
@@ -1983,7 +1993,11 @@ Return ONLY valid JSON, no additional text."""
 
         if not supplier_products:
             log.info(f"Extracting products from {supplier_name}...")
-            supplier_products = await self._extract_supplier_products(supplier_url, supplier_name)
+            supplier_products = await self._extract_supplier_products(
+                supplier_url,
+                supplier_name,
+                max_products_per_category,
+            )
             if cache_supplier_data and supplier_products:
                 try:
                     with open(supplier_cache_file, 'w', encoding='utf-8') as f: 
@@ -2024,7 +2038,11 @@ Return ONLY valid JSON, no additional text."""
         if resume_from_last and self.last_processed_index >= len(price_filtered_products):
             log.info("All cached products have been processed in previous runs. Fetching fresh supplier data...")
             # Force refresh supplier cache by fetching fresh data
-            supplier_products = await self._extract_supplier_products(supplier_url, supplier_name)
+            supplier_products = await self._extract_supplier_products(
+                supplier_url,
+                supplier_name,
+                max_products_per_category,
+            )
             if cache_supplier_data and supplier_products:
                 try:
                     with open(supplier_cache_file, 'w', encoding='utf-8') as f: 
@@ -2061,6 +2079,16 @@ Return ONLY valid JSON, no additional text."""
         for i, product_data in enumerate(products_to_analyze):
             # Update last_processed_index for next run (absolute index in price_filtered_products)
             current_absolute_index = self.last_processed_index + i
+
+            category_key = product_data.get("source_category_url", "unknown")
+            if max_analyzed_products > 0 and total_processed >= max_analyzed_products:
+                log.info(
+                    f"Reached max_analyzed_products={max_analyzed_products}. Halting further analysis."
+                )
+                break
+
+            processed_by_category[category_key] += 1
+            total_processed += 1
 
             # Smart rate limiting: delay between each product
             if i > 0:  # Don't delay before the first product
@@ -2262,8 +2290,15 @@ Return ONLY valid JSON, no additional text."""
                 else:
                     log.info(f"Product does not meet criteria. ROI: {combined_data.get('roi_percent_calculated')}%, Profit: £{combined_data.get('estimated_profit_per_unit')}")
             else:
-                log.warning(f"Low quality match ({match_validation['match_quality']}) between supplier product '{product_data.get('title')}' and Amazon product '{amazon_product_data.get('title')}'. Skipping.")
+                log.warning(
+                    f"Low quality match ({match_validation['match_quality']}) between supplier product '{product_data.get('title')}' and Amazon product '{amazon_product_data.get('title')}'. Skipping."
+                )
                 log.debug(f"Match reasons: {match_validation.get('reasons', [])}")
+
+        self.results_summary["products_processed_total"] += total_processed
+        for cat, count in processed_by_category.items():
+            self.results_summary.setdefault("products_processed_per_category", {}).setdefault(cat, 0)
+            self.results_summary["products_processed_per_category"][cat] += count
         
         # D2: Stage-guard audit - Log triage stage completion
         log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected (Triage Setting: {'ENABLED' if self.enable_quick_triage else 'DISABLED'})")
@@ -2436,10 +2471,12 @@ Return ONLY valid JSON, no additional text."""
                                 supplier_url=supplier_url,
                                 supplier_name=supplier_name,
                                 max_products_to_process=new_max_products,
+                                max_products_per_category=max_products_per_category,
+                                max_analyzed_products=max_analyzed_products,
                                 cache_supplier_data=cache_supplier_data,
                                 force_config_reload=False,  # Don't clear cache again
                                 debug_smoke=debug_smoke,
-                                resume_from_last=True
+                                resume_from_last=True,
                             )
 
                             # Merge results from recursive call
@@ -2761,7 +2798,12 @@ Return ONLY valid JSON, no additional text."""
             
         return False
 
-    async def _extract_supplier_products(self, supplier_base_url: str, supplier_name: str) -> List[Dict[str, Any]]:
+    async def _extract_supplier_products(
+        self,
+        supplier_base_url: str,
+        supplier_name: str,
+        max_products_per_category: int = 0,
+    ) -> List[Dict[str, Any]]:
         extracted_products: List[Dict[str, Any]] = []
         
         # Set up state tracking path
@@ -2808,6 +2850,7 @@ Return ONLY valid JSON, no additional text."""
 
         for category_url in category_urls_to_process:
             log.info(f"Scraping supplier category: {category_url}")
+            products_in_category = 0
             
             # MODIFIED: Pagination for supplier category pages
             current_page_num = 1
@@ -2902,11 +2945,22 @@ Return ONLY valid JSON, no additional text."""
                         batch_tasks = [self._get_product_details(p["url"], p["title"], supplier_name, p["category_url_source"]) for p in batch]
                         batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
                         for result in batch_results:
-                            if isinstance(result, Exception): 
+                            if isinstance(result, Exception):
                                 log.error(f"Error processing product details: {result}")
-                            elif result: 
+                            elif result:
                                 extracted_products.append(result)
-                        log.info(f"Processed batch of {len(batch)} detailed products from page {current_page_num}, total extracted so far: {len(extracted_products)}")
+                                products_in_category += 1
+                                if max_products_per_category > 0 and products_in_category >= max_products_per_category:
+                                    log.info(
+                                        f"Reached max_products_per_category={max_products_per_category} for {category_url}. Stopping category scrape."
+                                    )
+                                    should_stop_scraping = True
+                                    break
+                        log.info(
+                            f"Processed batch of {len(batch)} detailed products from page {current_page_num}, total extracted so far: {len(extracted_products)}"
+                        )
+                        if should_stop_scraping:
+                            break
                 else: # Single-step
                     batch_size = 5
                     for i in range(0, len(product_elements_soup), batch_size):
@@ -2914,9 +2968,22 @@ Return ONLY valid JSON, no additional text."""
                         batch_tasks = [self._process_product_element(p_soup, str(p_soup), page_url_to_fetch, supplier_base_url, supplier_name) for p_soup in batch]
                         batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
                         for result in batch_results:
-                            if isinstance(result, Exception): log.error(f"Error processing supplier product element: {result}")
-                            elif result: extracted_products.append(result)
-                        log.info(f"Processed batch of {len(batch)} products from supplier page {current_page_num}, total extracted so far: {len(extracted_products)}")
+                            if isinstance(result, Exception):
+                                log.error(f"Error processing supplier product element: {result}")
+                            elif result:
+                                extracted_products.append(result)
+                                products_in_category += 1
+                                if max_products_per_category > 0 and products_in_category >= max_products_per_category:
+                                    log.info(
+                                        f"Reached max_products_per_category={max_products_per_category} for {category_url}. Stopping category scrape."
+                                    )
+                                    should_stop_scraping = True
+                                    break
+                        log.info(
+                            f"Processed batch of {len(batch)} products from supplier page {current_page_num}, total extracted so far: {len(extracted_products)}"
+                        )
+                        if should_stop_scraping:
+                            break
 
                 # Run FBA Financial Calculator every 50 products
                 if len(extracted_products) % 50 == 0 and len(extracted_products) > 0:
@@ -3701,9 +3768,13 @@ async def run_workflow_main():
     if not config_path:
         log.warning(f"system_config.json not found in any of: {possible_config_paths}")
         config_path = possible_config_paths[1]  # Use parent directory as fallback for tools location
+    max_products_per_category_cfg = 0
+    max_analyzed_products_cfg = 0
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             system_config = json.load(f)
+        max_products_per_category_cfg = system_config.get("system", {}).get("max_products_per_category", 0)
+        max_analyzed_products_cfg = system_config.get("system", {}).get("max_analyzed_products", 0)
     except Exception as e:
         log.warning(f"Failed to load system config from {config_path}: {e}")
         system_config = {}
@@ -3792,10 +3863,15 @@ async def run_workflow_main():
         
         # Assign the output of workflow_instance.run() to the results variable
         results = await workflow_instance.run(
-            supplier_url=supplier_url, supplier_name=supplier_name,
-            max_products_to_process=max_products, cache_supplier_data=True,
-            force_config_reload=force_config_reload, debug_smoke=debug_smoke,
-            resume_from_last=True
+            supplier_url=supplier_url,
+            supplier_name=supplier_name,
+            max_products_to_process=max_products,
+            max_products_per_category=max_products_per_category_cfg,
+            max_analyzed_products=max_analyzed_products_cfg,
+            cache_supplier_data=True,
+            force_config_reload=force_config_reload,
+            debug_smoke=debug_smoke,
+            resume_from_last=True,
         )
         
         if results: 
