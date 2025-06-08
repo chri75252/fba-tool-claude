@@ -2076,6 +2076,7 @@ Return ONLY valid JSON, no additional text."""
         BATCH_DELAY = 15.0      # 15 seconds every 25 products
         BATCH_SIZE = 25         # Process in batches of 25
 
+        limit_reached = False
         for i, product_data in enumerate(products_to_analyze):
             # Update last_processed_index for next run (absolute index in price_filtered_products)
             current_absolute_index = self.last_processed_index + i
@@ -2085,6 +2086,7 @@ Return ONLY valid JSON, no additional text."""
                 log.info(
                     f"Reached max_analyzed_products={max_analyzed_products}. Halting further analysis."
                 )
+                limit_reached = True
                 break
 
             processed_by_category[category_key] += 1
@@ -2299,6 +2301,10 @@ Return ONLY valid JSON, no additional text."""
         for cat, count in processed_by_category.items():
             self.results_summary.setdefault("products_processed_per_category", {}).setdefault(cat, 0)
             self.results_summary["products_processed_per_category"][cat] += count
+
+        if limit_reached:
+            log.info("Product processing limit reached. Ending workflow early.")
+            return profitable_results
         
         # D2: Stage-guard audit - Log triage stage completion
         log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected (Triage Setting: {'ENABLED' if self.enable_quick_triage else 'DISABLED'})")
@@ -2940,7 +2946,16 @@ Return ONLY valid JSON, no additional text."""
                     
                     batch_size = 5
                     for i in range(0, len(basic_products), batch_size):
+                        if max_products_per_category > 0 and products_in_category >= max_products_per_category:
+                            should_stop_scraping = True
+                            break
                         batch = basic_products[i:i+batch_size]
+                        if max_products_per_category > 0:
+                            remaining = max_products_per_category - products_in_category
+                            if remaining <= 0:
+                                should_stop_scraping = True
+                                break
+                            batch = batch[:remaining]
                         # Pass category_url_source for context if needed by _get_product_details
                         batch_tasks = [self._get_product_details(p["url"], p["title"], supplier_name, p["category_url_source"]) for p in batch]
                         batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
@@ -2964,7 +2979,16 @@ Return ONLY valid JSON, no additional text."""
                 else: # Single-step
                     batch_size = 5
                     for i in range(0, len(product_elements_soup), batch_size):
+                        if max_products_per_category > 0 and products_in_category >= max_products_per_category:
+                            should_stop_scraping = True
+                            break
                         batch = product_elements_soup[i:i+batch_size]
+                        if max_products_per_category > 0:
+                            remaining = max_products_per_category - products_in_category
+                            if remaining <= 0:
+                                should_stop_scraping = True
+                                break
+                            batch = batch[:remaining]
                         batch_tasks = [self._process_product_element(p_soup, str(p_soup), page_url_to_fetch, supplier_base_url, supplier_name) for p_soup in batch]
                         batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
                         for result in batch_results:
