@@ -1,0 +1,2305 @@
+{
+  "timestamp": "2025-06-08T19:23:21.040362",
+  "flag_type": "INCOMPLETE_KEEPA_DATA",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 2164,
+    "severity_escalated": true,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-07T14:54:59.608885 to 2025-06-08T19:23:19.864666",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 271
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-08T18:50:17.844387",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:50:22.572807",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:50:25.743713",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:50:30.296883",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:50:34.748009",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:50:39.296712",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:55:45.781942",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:55:50.183922",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:55:54.643357",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:55:59.139651",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:56:03.455382",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:56:07.304212",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:56:10.150154",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T18:56:14.251741",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:20.983791",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:24.897956",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:29.893314",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:34.503188",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:38.392653",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:42.298060",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:45.836951",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:01:49.109135",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:06:52.415591",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:06:55.961164",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:06:59.423748",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:07:01.352193",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:07:05.012170",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:07:08.347084",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:07:12.228226",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:07:15.471656",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:18.532885",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:21.975981",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:25.401772",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:28.930166",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:32.245142",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:35.597800",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:38.877693",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:12:41.069008",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:17:47.593584",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:17:49.371571",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:17:52.683708",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:17:55.906448",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:17:58.993719",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2J7PGM8_title_ccabe861.json",
+      "file_modification_time": "2025-06-06T07:06:59.724494",
+      "extracted_data": {
+        "asin": "B0F2J7PGM8",
+        "ean": "5061066491572",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Bought in past month",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 39,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:18:02.006461",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F7FJVMC6_title_9b243ec0.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F7FJVMC6",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 28,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:18:05.434405",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F8JD77JB_5060226063390.json",
+      "file_modification_time": "2025-06-06T01:54:19.213569",
+      "extracted_data": {
+        "asin": "B0F8JD77JB",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 29,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:18:08.590660",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F9XH4C2V_title_e7d6a870.json",
+      "file_modification_time": "2025-06-06T02:06:19.478227",
+      "extracted_data": {
+        "asin": "B0F9XH4C2V",
+        "ean": "5027355008852",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBA Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - EAN"
+        ],
+        "missing_fees": [
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": true,
+        "has_referral_fee": false,
+        "total_keepa_fields": 19,
+        "missing_fee_types": [
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:23:09.699181",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DN1T3NNG_title_d7b19978.json",
+      "file_modification_time": "2025-06-07T02:27:43.974296",
+      "extracted_data": {
+        "asin": "B0DN1T3NNG",
+        "ean": "5056422692496",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Sales Rank - Display Group",
+          "Reviews - Rating",
+          "Reviews - Rating Count",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 36,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:23:13.165583",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DNTR8BRN_title_e91b1f24.json",
+      "file_modification_time": "2025-06-06T02:08:07.482272",
+      "extracted_data": {
+        "asin": "B0DNTR8BRN",
+        "ean": "0716165256762",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Sub",
+          "Website Display Group - Name",
+          "ASIN"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 20,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:23:16.481761",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DP2K19SF_AT0127.json",
+      "file_modification_time": "2025-06-07T00:58:57.988095",
+      "extracted_data": {
+        "asin": "B0DP2K19SF",
+        "ean": "0717921328228",
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Sales Rank - Reference",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Lowest FBM Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Listed since",
+          "Categories - Root",
+          "Categories - Sub"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 27,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T19:23:19.864666",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0F2GDY15Z_4020-01.json",
+      "file_modification_time": "2025-06-07T01:17:36.270913",
+      "extracted_data": {
+        "asin": "B0F2GDY15Z",
+        "ean": null,
+        "keepa_status": "Extraction process completed",
+        "supplier_product_name": "Unknown",
+        "keepa_data_fields": [
+          "Title",
+          "Last Price Change",
+          "Buy Box Seller",
+          "Total Offer Count",
+          "Tracking since",
+          "Categories - Sub",
+          "ASIN",
+          "Product Codes - PartNumber",
+          "Manufacturer",
+          "Brand"
+        ],
+        "missing_fees": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      },
+      "specific_issue": "Missing critical fee data: FBA Pick&Pack Fee, Referral Fee",
+      "resolution_suggestions": [
+        "Verify product is eligible for FBA",
+        "Check Keepa data extraction selectors",
+        "Verify product category has fee data",
+        "Check if product is restricted"
+      ],
+      "impact_assessment": "Cannot calculate accurate profit margins",
+      "data_quality_metrics": {
+        "has_fba_fee": false,
+        "has_referral_fee": false,
+        "total_keepa_fields": 13,
+        "missing_fee_types": [
+          "FBA Pick&Pack Fee",
+          "Referral Fee"
+        ]
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 245,
+      "products_with_amazon_data": 282,
+      "products_with_complete_keepa": 263,
+      "current_processing_index": 10,
+      "processing_completion_rate": 4.081632653061225,
+      "amazon_cache_coverage": 115.10204081632654,
+      "keepa_success_rate": 93.26241134751773
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 87,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_173349.csv",
+      "latest_csv_modification_time": "2025-06-08T17:33:49.486302",
+      "products_in_latest_csv": 4,
+      "complete_financial_records": 4,
+      "financial_data_completeness_rate": 100.0,
+      "fba_summary_files": 198,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250608_173340.json",
+        "modification_time": "2025-06-08T17:33:45.752651",
+        "session_data": {
+          "total_supplier_products": 199,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-08T17:33:40.824990",
+          "end_time": "2025-06-08T17:33:45.925806"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 94.0,
+        "keepa_timeout_rate": 4.0,
+        "missing_ean_rate": 90.42553191489363,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 259.1814994812012,
+        "used_gb": 669.3194732666016,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 72.08602822308518
+      },
+      "fba_processes": [
+        {
+          "pid": 5769,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.9140625
+        },
+        {
+          "pid": 9496,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.94921875
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 282,
+        "csv_reports": 88,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 64.42080378250591,
+    "quality_grade": "FAIR",
+    "component_scores": {
+      "keepa_extraction": 93.26241134751773,
+      "financial_analysis": 100.0,
+      "ai_suggestions": 0
+    }
+  }
+}

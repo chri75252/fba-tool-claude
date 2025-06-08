@@ -2990,5 +2990,893 @@
     "amazon_title_snippet": "AKH HOUSEWARE Clothes Drying Rack, with Sock Clips, Metal La...",
     "amazon_ean_on_page": null,
     "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/digital-pal-virtual-reality-viewer-for-smart-phones.html",
+    "supplier_title_snippet": "Digital Pal Virtual Reality Viewer for Smart Phones...",
+    "chosen_amazon_asin": "B0D49YV587",
+    "amazon_title_snippet": "Pimax Crystal Light Prime PCVR Headset - 8K Resolution, Up t...",
+    "amazon_ean_on_page": "6977402870026",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/2-in-1-pot-sponge-scourer-dual-purpose-scrub.html",
+    "supplier_title_snippet": "2 In 1 Pot Sponge & Scourer - Dual Purpose Scrub...",
+    "chosen_amazon_asin": "B07QQKL598",
+    "amazon_title_snippet": "MR.SIGA Heavy Duty Scouring Pads, Household Scrubber for Kit...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/crocs-premium-pocket-lighter-with-pre-adjusted-flame-electronic-ignition-assorted-colours-pack-of-2.html",
+    "supplier_title_snippet": "Crocs Premium Pocket Lighter with Pre-Adjusted Flame - Elect...",
+    "chosen_amazon_asin": "B0F2J7PGM8",
+    "amazon_title_snippet": "ezkart | Pack of 5 - Multipack Assorted Colour Electronic Li...",
+    "amazon_ean_on_page": "5061066491572",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5056175999002",
+    "supplier_title_snippet": "LISSEAU SHEET FACE MASK - POMEGRANATE - 27G...",
+    "chosen_amazon_asin": "B09TY3MV6W",
+    "amazon_title_snippet": "7Days Hydrating Face Sheet Masks | Natural Biodegradable She...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413000061",
+    "supplier_title_snippet": "Pretty Cotton Wool Pleat - 50g...",
+    "chosen_amazon_asin": "B00692Q7PU",
+    "amazon_title_snippet": "Quest Pretty Cotton Wool Pleat 50 g...",
+    "amazon_ean_on_page": "5031413000061",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_049022821095",
+    "supplier_title_snippet": "STUDIO 35 BEAUTY FASHION COMPACT MIRROR...",
+    "chosen_amazon_asin": "B00YTZ2S0M",
+    "amazon_title_snippet": "MIRRORVANA 10X Magnifying Makeup Mirror on Stand for Bedroom...",
+    "amazon_ean_on_page": "0820103846370",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413913040",
+    "supplier_title_snippet": "Face Facts Hydrating Eye Cream with Soothing Aloe Vera - 25m...",
+    "chosen_amazon_asin": "B07QT6RP88",
+    "amazon_title_snippet": "Face Facts Hydrating Eye Cream | Aloe Vera Soothes + Calms |...",
+    "amazon_ean_on_page": "5031413913040",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413920185",
+    "supplier_title_snippet": "Face Facts Brightening Peel Off Glitter Mask - Silver - 60ml...",
+    "chosen_amazon_asin": "B091TVP6GC",
+    "amazon_title_snippet": "Face Facts Glitter Peel Off Mask, Brightening Silver...",
+    "amazon_ean_on_page": "5031413920185",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413928990",
+    "supplier_title_snippet": "Face Facts Printed Sheet Booty Masks - Orange Glow & Magic M...",
+    "chosen_amazon_asin": "B0D1X7DJRB",
+    "amazon_title_snippet": "Sheet Mask - Face Mask Set for Teenage Girls - Fun Animal Pr...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413929034",
+    "supplier_title_snippet": "Face Facts Printed Sheet Boob Masks - Perfect Pear & Perky P...",
+    "chosen_amazon_asin": "B0BH54SZDS",
+    "amazon_title_snippet": "Face Facts Girls Night Out Glowing Printed Sheet Mask...",
+    "amazon_ean_on_page": "5031413928839",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5055257877740",
+    "supplier_title_snippet": "Glamorize Secure Hold hair Grips - Pack of 250...",
+    "chosen_amazon_asin": "B00J2TC3LE",
+    "amazon_title_snippet": "250pc Hair Grips...",
+    "amazon_ean_on_page": "5055257877740",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413953145",
+    "supplier_title_snippet": "Pretty Cotton Wool Balls - White - Pack of 100...",
+    "chosen_amazon_asin": "B07CRYQ3PS",
+    "amazon_title_snippet": "Pretty Cotton Wool Balls - 100 White...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_AT0126",
+    "supplier_title_snippet": "AMERICAN TOUCH BODY CREAM - CARROT - 300ML...",
+    "chosen_amazon_asin": "B00UT4FVRE",
+    "amazon_title_snippet": "Women's AT0126 Orbit Series Stainless Steel Tourbillon Watch...",
+    "amazon_ean_on_page": "4894379331911",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_AT0127",
+    "supplier_title_snippet": "AMERICAN TOUCH BODY CREAM - VITMAIN E - 300ML...",
+    "chosen_amazon_asin": "B0DP2K19SF",
+    "amazon_title_snippet": "OTCRAFT 3D Embossing Folder for Card Making, Leaves Plastic ...",
+    "amazon_ean_on_page": "0717921328228",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413920215",
+    "supplier_title_snippet": "Face Facts Sparkling Peel Off Glitter Mask - Gold - 60ml...",
+    "chosen_amazon_asin": "B0BFJH12VL",
+    "amazon_title_snippet": "7th Heaven Birthday Cake Peel Off Face Masks (Pack of 3) Exf...",
+    "amazon_ean_on_page": "0083800064069",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413915495",
+    "supplier_title_snippet": "Head Shock Conditioning Printed Hair Mask - Coconut Oil & Co...",
+    "chosen_amazon_asin": "B07L5WH74Y",
+    "amazon_title_snippet": "Garnier Hair Food 3-in-1 Hair Treatment Mask, Smooths and No...",
+    "amazon_ean_on_page": "3600542231589",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413923377",
+    "supplier_title_snippet": "Head Shock Nourishing Printed Hair Mask - Banana Extract & G...",
+    "chosen_amazon_asin": "B0DH6ZZ4R5",
+    "amazon_title_snippet": "Sunny Isle Anti-Brass Color Enhancing Purple Hair Repair Mas...",
+    "amazon_ean_on_page": "0850054732248",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5031413965506",
+    "supplier_title_snippet": "Face Facts Pore Strips for Forehead & Chin - Vegan - Pack of...",
+    "chosen_amazon_asin": "B00JYFKW5U",
+    "amazon_title_snippet": "Face Facts Witch Hazel Forehead & Chin Pore Strips...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5056175945511",
+    "supplier_title_snippet": "COLLAPSIBLE PET BOWL - ASSORTED COLOURS- 13 X 5.5CM...",
+    "chosen_amazon_asin": "B08XTVM23M",
+    "amazon_title_snippet": "Keep It Handy Collapsible Pet Bowel...",
+    "amazon_ean_on_page": "5056175945511",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5053249231747",
+    "supplier_title_snippet": "Pets Play Portable Water Bottle - Assorted Colours - 20 x 6....",
+    "chosen_amazon_asin": "B07L3YBMGV",
+    "amazon_title_snippet": "1 Portable Pet Dog Sports Top Water Bottle Drinker Feeder Cu...",
+    "amazon_ean_on_page": "5053249231747",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060226063611",
+    "supplier_title_snippet": "Pet Buddies Automatic Pet Drink Dispenser - 2 Piece - Assort...",
+    "chosen_amazon_asin": "B0CQ7GLH2D",
+    "amazon_title_snippet": "Gardner Pet 3.85L Pet Water Dispenser, Cat Bowls with Stainl...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_3809200650810",
+    "supplier_title_snippet": "Tyker Denali Collapsible Pet Feeding Bowl - 16 x 9cm - Green...",
+    "chosen_amazon_asin": "B01MA6KKSD",
+    "amazon_title_snippet": "Tyker - Silicon Travel Dog Bowl - Folds Flat - Premium Quali...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_10544342",
+    "supplier_title_snippet": "MIXED GREETING CARDS FOR DIFFERENT OCASSIONS...",
+    "chosen_amazon_asin": "B0D4Y3L1CV",
+    "amazon_title_snippet": "S&O Thank You Cards with Envelopes - Blank Stylish papers fo...",
+    "amazon_ean_on_page": "0810050404938",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_7321011562855",
+    "supplier_title_snippet": "FASHION GIRL DUNI 10 PACK  PARTY LOOT BAGS...",
+    "chosen_amazon_asin": "B077C9HN6R",
+    "amazon_title_snippet": "XSMALL 15 Pcs Pink Party Bags – No Wrinkles Gift Bag with Ha...",
+    "amazon_ean_on_page": "6202281054527",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_4020-08",
+    "supplier_title_snippet": "GIFT BAG WITH ROPE HANDLE PURPLE...",
+    "chosen_amazon_asin": "B00E1OU1U0",
+    "amazon_title_snippet": "Quadro Spirit Decanter in Luxury Satin Presentation Gift Box...",
+    "amazon_ean_on_page": "8593410711731",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_4020-01",
+    "supplier_title_snippet": "GIFT BAG WHITE WITH BLACK ROPE HANDLE...",
+    "chosen_amazon_asin": "B0F2GDY15Z",
+    "amazon_title_snippet": "(10pieces) YTC1P-4020-01...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_4020-07",
+    "supplier_title_snippet": "GIFT BAG WITH ROPE HANDLE RED...",
+    "chosen_amazon_asin": "B00NJ6CHTY",
+    "amazon_title_snippet": "Quadro Set of 6 Spirit Tumblers...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015116210736",
+    "supplier_title_snippet": "MOSHI MONSTERS PARTY/LOOT BAGS, 8PK...",
+    "chosen_amazon_asin": "B01D8PGWP0",
+    "amazon_title_snippet": "Moshi Monster Gift Bags - Pack of 8 (Medium, Cartoon Pattern...",
+    "amazon_ean_on_page": "5015116210736",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015116218145",
+    "supplier_title_snippet": "HELLO KITTY AGE 7 GLITTERY BIRTHDAY CARD...",
+    "chosen_amazon_asin": "B0F2N2M8N4",
+    "amazon_title_snippet": "Hello Kitty Birthday Card...",
+    "amazon_ean_on_page": "5060992820104",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015116234008",
+    "supplier_title_snippet": "BIRTHDAY CARD AGE 6 WITH STARS DESIGN...",
+    "chosen_amazon_asin": "B0D987DG92",
+    "amazon_title_snippet": "Birthday Cards, Musical Pop Up Greeting Card w Lights, Blow ...",
+    "amazon_ean_on_page": "0796926641631",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5052109990084",
+    "supplier_title_snippet": "PARTY LOOT BAGS 8 PACK...",
+    "chosen_amazon_asin": "B0773NLR5G",
+    "amazon_title_snippet": "XSMALL 11 Pcs Pink Party Bags – No Wrinkles Gift Bag with Ha...",
+    "amazon_ean_on_page": "6202281050031",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5023668692481",
+    "supplier_title_snippet": "CANDY BOX - PINK - 9 X 9 X 6 CM - PACK OF 4...",
+    "chosen_amazon_asin": "B0811WGW4R",
+    "amazon_title_snippet": "TsunNee - Creative Hollow Paper Candy Boxes with Flowers and...",
+    "amazon_ean_on_page": "0785046512068",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5016575901586",
+    "supplier_title_snippet": "OFFICIAL ENGLAND RED GIFT BAG (LARGE) - LANDSCAPE 45.5x32.5c...",
+    "chosen_amazon_asin": "B0088CYK8A",
+    "amazon_title_snippet": "RED HEAVY DUTY OFFICIAL ENGLAND PART/GIFT BAG 45 X 33 CM...",
+    "amazon_ean_on_page": "5016575901586",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5023668692481",
+    "supplier_title_snippet": "CANDY BOX - BLUE - 9 X 9 X 6 CM - PACK OF 4...",
+    "chosen_amazon_asin": "B0811W25G6",
+    "amazon_title_snippet": "TsunNee - Creative Hollow Paper Candy Boxes with Flowers and...",
+    "amazon_ean_on_page": "0785046512082",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015934699294",
+    "supplier_title_snippet": "Grafix 3D Glitter Glue - Pack of 10...",
+    "chosen_amazon_asin": "B0BD874175",
+    "amazon_title_snippet": "HOVUK Glitter Glue Pens for Crafts – Set of 10 Colours, Non-...",
+    "amazon_ean_on_page": "5056601416660",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015934231678",
+    "supplier_title_snippet": "Grafix A4 Photo Paper - Pack of 12 Sheets...",
+    "chosen_amazon_asin": "B01N5UZZ30",
+    "amazon_title_snippet": "A4 Premium Photo Paper, Grafix Platinum, 220gsm Gloss, 12 Sh...",
+    "amazon_ean_on_page": "5015934231678",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060129255984",
+    "supplier_title_snippet": "GIFT REPUBLIC RED ADMIRAL PAPER WEIGHT...",
+    "chosen_amazon_asin": "B009O0HK14",
+    "amazon_title_snippet": "Gift Republic Papiliones Round Shaped Paper Weight-Multicolo...",
+    "amazon_ean_on_page": "5060129255984",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060345228960",
+    "supplier_title_snippet": "GIFT BOW & RIBBON SET...",
+    "chosen_amazon_asin": "B0CNYTF66D",
+    "amazon_title_snippet": "5 PCS 7 in(17.78cm) Large Pull Bows Wrapping Pull Bow Ribbon...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015934255339",
+    "supplier_title_snippet": "Grafix White Craft Glue...",
+    "chosen_amazon_asin": "B00BLPXPQ4",
+    "amazon_title_snippet": "XL MAGIC PAINTING BOOK - FRIENDLY ANIMALS - NO MESS PAINTING...",
+    "amazon_ean_on_page": "5015934255339",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_5015934655696",
+    "supplier_title_snippet": "Grafix A4 Refill Paper - 160 Page...",
+    "chosen_amazon_asin": "B08HVGWB9T",
+    "amazon_title_snippet": "Grafix A4 Refill Writing Paper, Ruled with Heading and Margi...",
+    "amazon_ean_on_page": "5015934655696",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767258591",
+    "supplier_title_snippet": "EXCLUSIVE TOP BLOKE FLASK FOR MEN  - COURAGEOUS & POSITIVELY...",
+    "chosen_amazon_asin": "B07ZMDT353",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Courageous...",
+    "amazon_ean_on_page": "0886767258591",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767258546",
+    "supplier_title_snippet": "TOP BLOKE'S PERSONAL RESERVE - ENGRAVED FLASK GIFT - AWESOME...",
+    "chosen_amazon_asin": "B07F9ZDT8K",
+    "amazon_title_snippet": "English Pewter Company 11oz Whisky Glass Tumbler with Monogr...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767258515",
+    "supplier_title_snippet": "TOP BLOKE HIP FLASK -DAD DASHING HERO...",
+    "chosen_amazon_asin": "B07ZMDVP1H",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Dad\"...",
+    "amazon_ean_on_page": "0886767258515",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260976",
+    "supplier_title_snippet": "CUSTOMIZED GENTLEMEN'S SIP - TOP BLOKE FLASK - WILLIAM...",
+    "chosen_amazon_asin": "B07ZMG1R85",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"William\"...",
+    "amazon_ean_on_page": "0886767260976",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260884",
+    "supplier_title_snippet": "PERSONALIZED GENT'S SPIRIT SIPPER - TOP BLOKE FLASK - TONY...",
+    "chosen_amazon_asin": "B07ZMFBV7M",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Tony\"...",
+    "amazon_ean_on_page": "0886767260884",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260853",
+    "supplier_title_snippet": "TOP BLOKE'S PERSONAL RESERVE - ENGRAVED FLASK GIFT - TIM...",
+    "chosen_amazon_asin": "B07ZMFC2C5",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Tim\"...",
+    "amazon_ean_on_page": "0886767260853",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260846",
+    "supplier_title_snippet": "TOP BLOKE - PRE-PERSONALIZED ENGRAVED MEN'S HIP FLASK - THOM...",
+    "chosen_amazon_asin": "B07ZMFRQQG",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Thomas\"...",
+    "amazon_ean_on_page": "0886767260846",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260785",
+    "supplier_title_snippet": "TOP BLOKE'S DISTINCT DECANTER - PERSONALIZED HIP FLASK - STU...",
+    "chosen_amazon_asin": "B07ZMFLT9G",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Stuart\"...",
+    "amazon_ean_on_page": "0886767260785",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "EAN_886767260440",
+    "supplier_title_snippet": "TOP BLOKE'S - CUSTOM ENGRAVED HIP FLASK FOR OLIVER...",
+    "chosen_amazon_asin": "B07ZMDGSQN",
+    "amazon_title_snippet": "Top Bloke Mens Gift Hip Flask for Him - Treat for\"Oliver\"...",
+    "amazon_ean_on_page": "0886767260440",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/creative-pot-hanger-assorted-b-g-b.html",
+    "supplier_title_snippet": "CREATIVE POT HANGER ASSORTED B/G/B...",
+    "chosen_amazon_asin": "B0DGTMN9S8",
+    "amazon_title_snippet": "Mabor 2Pcs Hanging Baskets for Plants Indoor, Boho Macrame P...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/bbq-skewers-6-pack.html",
+    "supplier_title_snippet": "BBQ SKEWERS - PACK OF 6...",
+    "chosen_amazon_asin": "B07N2SSWF2",
+    "amazon_title_snippet": "MATANA 250 Wooden Paddle Skewers, 18cm - Flat Bamboo Sticks ...",
+    "amazon_ean_on_page": "5060630690700",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/3-pack-cotton-string-balls.html",
+    "supplier_title_snippet": "COTTON STRING BALLS - PACK OF 3...",
+    "chosen_amazon_asin": "B0DYVX3Z2D",
+    "amazon_title_snippet": "3 Pack Cotton String Ball, 100% Cotton Roll Each 45m Long Id...",
+    "amazon_ean_on_page": "5060988509952",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/bbq-skewers-metal-8-pack.html",
+    "supplier_title_snippet": "BBQ SKEWERS METAL - PACK OF 8...",
+    "chosen_amazon_asin": "B0F21D3WGN",
+    "amazon_title_snippet": "20 PCS BBQ Metal Skewers Stainless Steel,7.87''/20cm Reusabl...",
+    "amazon_ean_on_page": "0671891467939",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/fig-olive-reusable-ice-cubes-20-pack.html",
+    "supplier_title_snippet": "FIg & Olive Reusable Ice Cubes - PACK OF 20...",
+    "chosen_amazon_asin": "B088RF2MHN",
+    "amazon_title_snippet": "16Pcs Stainless Steel Metal Ice Cubes Reusable - Metal Stone...",
+    "amazon_ean_on_page": "0710667617649",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/jumbo-wall-thermometer.html",
+    "supplier_title_snippet": "JUMBO WALL THERMOMETER...",
+    "chosen_amazon_asin": "B07WKKS4HB",
+    "amazon_title_snippet": "DOQAUS Digital Meat Thermometer, Instant Read Food Thermomet...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/20-pack-spring-plant-clips.html",
+    "supplier_title_snippet": "SPRING PLANT CLIPS - ASSORTED SIZES - PACK OF 20...",
+    "chosen_amazon_asin": "B0D2NJCZQH",
+    "amazon_title_snippet": "20Pcs Plant Stakes, Orchid Sticks and Clips Set, Garden Stic...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/binding-twine-3-pack.html",
+    "supplier_title_snippet": "BINDING TWINE - PACK OF 3...",
+    "chosen_amazon_asin": "B0D672RN21",
+    "amazon_title_snippet": "ZYBUX - Jute Twine String, 3 Ply 2.0mm Thick Garden Twine St...",
+    "amazon_ean_on_page": "5060673925982",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/refillable-multi-use-flexible-gas-lighter.html",
+    "supplier_title_snippet": "FLINT REFILLABLE MULTI-USE FLEXIBLE GAS LIGHTER - ASSORTED C...",
+    "chosen_amazon_asin": "B09QLB39KB",
+    "amazon_title_snippet": "Aspect Refillable 3 xBBQ LIGHTERS Assorted Colour BBQ Gas Li...",
+    "amazon_ean_on_page": "5060858314082",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/water-spray-atomiser-500ml.html",
+    "supplier_title_snippet": "WATER SPRAY ATOMISER - ASSORTED COLOURS - 500ML...",
+    "chosen_amazon_asin": "B015Y1DSFS",
+    "amazon_title_snippet": "DCS Pack of 5 Plastic Water Spray Bottles for Cleaning 750ml...",
+    "amazon_ean_on_page": "5055609521765",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/500ml-petshield-advanced-weed-killer-0-12-ck.html",
+    "supplier_title_snippet": "PEST SHIELD ADVANCED WEED KILLER - 500ML...",
+    "chosen_amazon_asin": "B0CVHBVS7D",
+    "amazon_title_snippet": "Fungus Gnat & Pest Smoke Bomb - 4 Pack | Quick-Release Perme...",
+    "amazon_ean_on_page": "5061001652631",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/rysons-weed-control-fabric.html",
+    "supplier_title_snippet": "Rysons Weed Control Fabric...",
+    "chosen_amazon_asin": "B08354XF38",
+    "amazon_title_snippet": "iropro 2m x 50m Heavy Duty Weed Control Membrane Garden Weed...",
+    "amazon_ean_on_page": "6242281351813",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/rysons-slug-snail-trap.html",
+    "supplier_title_snippet": "Rysons Slug & Snail Trap...",
+    "chosen_amazon_asin": "B0C53VHYRX",
+    "amazon_title_snippet": "Pimaja Snail Trap 8 Pieces Eco-friendly to Catch Slugs Snail...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/small-metal-shovel.html",
+    "supplier_title_snippet": "SMALL METAL COAL SHOVEL...",
+    "chosen_amazon_asin": "B07KYQYZK7",
+    "amazon_title_snippet": "Strong Metal Coal Shovel with Wooden Handle | 9-Inch-Wide Me...",
+    "amazon_ean_on_page": "5060507280751",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/glow-in-dark-stone-natural-polished.html",
+    "supplier_title_snippet": "GLOW IN DARK STONE NATURAL POLISHED...",
+    "chosen_amazon_asin": "B0DS4L3F76",
+    "amazon_title_snippet": "PATIKIL Glowing Stones, 300 Pcs Glow in the Dark Rocks for I...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/multipurpose-plastic-utility-tray.html",
+    "supplier_title_snippet": "MULTIPURPOSE PLASTIC UTILITY TRAY - BLACK -...",
+    "chosen_amazon_asin": "B07BL14R13",
+    "amazon_title_snippet": "Corby Richmond Compact Butler Tray Only in Black...",
+    "amazon_ean_on_page": "5060031417500",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/hand-weed-brush-30-cm.html",
+    "supplier_title_snippet": "HAND WEED BRUSH WITH SCRAPER - 30 CM...",
+    "chosen_amazon_asin": "B07RQVB1K2",
+    "amazon_title_snippet": "Weed Remover Tool Wire Brush Scraper Set with Metal Broom & ...",
+    "amazon_ean_on_page": "5060507280812",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/drainpipe-guards-2-pack.html",
+    "supplier_title_snippet": "DRAINPIPE GUARDS - PACK OF 2...",
+    "chosen_amazon_asin": "B07FKQLPFV",
+    "amazon_title_snippet": "Roshield Rat Drain Guard | Stop Rats within Drainage & Prope...",
+    "amazon_ean_on_page": "5060588160829",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/9l-galv-watering-can-0-6.html",
+    "supplier_title_snippet": "Ward Plastic Watering Can - Green - 1L...",
+    "chosen_amazon_asin": "B00SUSUVSK",
+    "amazon_title_snippet": "Green Toys Watering Can (Green)...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/rysons-pest-repellent-mats-2-pack.html",
+    "supplier_title_snippet": "Rysons Pest Repellent Mats - PACK OF 2...",
+    "chosen_amazon_asin": "B0DT5MX7XD",
+    "amazon_title_snippet": "Rat & Mouse Repellent Tins - Pack of 2 | Peppermint Oil Mice...",
+    "amazon_ean_on_page": "5061001654994",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/large-metal-shovel.html",
+    "supplier_title_snippet": "LARGE METAL SHOVEL...",
+    "chosen_amazon_asin": "B0DZX9G78Z",
+    "amazon_title_snippet": "PVEGOS Multifunctional Garden Shovel with Handle, Adjustable...",
+    "amazon_ean_on_page": "0762284944899",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/weed-brush-with-long-wooden-handle-1-2-m.html",
+    "supplier_title_snippet": "PATIO WEED BRUSH WITH LONG WOODEN HANDLE - 1.2 M...",
+    "chosen_amazon_asin": "B0CLGPMQ6L",
+    "amazon_title_snippet": "Garden Broom, Yard Brush Heavy Duty Outdoor 2-1, 50&66in, su...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/9l-galv-watering-can-0-5.html",
+    "supplier_title_snippet": "Plastic Watering Can - Green - 6.5L...",
+    "chosen_amazon_asin": "B0CWGPVTLZ",
+    "amazon_title_snippet": "Hardys 10L Green Rose Watering Can - Outdoor & Indoor Wateri...",
+    "amazon_ean_on_page": "5055521179778",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/5l-galv-watering-can-0-4.html",
+    "supplier_title_snippet": "GALVANISED WATERING CAN - SILVER - 5L...",
+    "chosen_amazon_asin": "B07P5MR4FG",
+    "amazon_title_snippet": "5L Vintage Victorian Galvanised Steel Garden Plant Watering ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/2pk-organic-tan-infused-cloth-vita.html",
+    "supplier_title_snippet": "VITA /LIBERATA ORGANIC TAN INFUSED FACE & BODY CLOTH PACK OF...",
+    "chosen_amazon_asin": "B0DLPDS56Y",
+    "amazon_title_snippet": "VITA LIBERATA Body Blur Medium 100ml & Mitt Bundle, Leg & Bo...",
+    "amazon_ean_on_page": "5060850672081",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/permanent-hair-dye-shade-7-red-chilli-0-24-ck.html",
+    "supplier_title_snippet": "Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 7...",
+    "chosen_amazon_asin": "B07D7B3WPQ",
+    "amazon_title_snippet": "Glamorise MagicLift Minimizer Wirefree Bra 1003 (Women's & W...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/permanent-hair-dye-shade-8-burgundy-0-24-ck.html",
+    "supplier_title_snippet": "Glamorize Advanced Creme Colour Permanent Hair Dye - Shade 8...",
+    "chosen_amazon_asin": "B01LX41P0D",
+    "amazon_title_snippet": "Glamorize Creme Colour Womens Permanent Hair Dye (6 Colour C...",
+    "amazon_ean_on_page": "5055257878532",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/permanent-hair-dye-blonde-exp-7-22-0-24-ck.html",
+    "supplier_title_snippet": "Glamorize Creme Colour Permanent Hair Dye - Shade No 2 - Blo...",
+    "chosen_amazon_asin": "B07RVJJ5VG",
+    "amazon_title_snippet": "Glamorize Women Hair Dye Light Blonde No.3 1pk Permanent Nat...",
+    "amazon_ean_on_page": "7426758662933",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/opal-london-three-arm-massager.html",
+    "supplier_title_snippet": "OPAL LONDON THREE ARM MASSAGER...",
+    "chosen_amazon_asin": "B0BGJVCSVX",
+    "amazon_title_snippet": "BONDIR R2 PRO Massage Gun - Articulating Deep Tissue Back Ma...",
+    "amazon_ean_on_page": "0810087977566",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/camay-soap-125g-classic-0-72-ck.html",
+    "supplier_title_snippet": "CAMAY SOAP - CLASSIC - 125G...",
+    "chosen_amazon_asin": "B005EII6XQ",
+    "amazon_title_snippet": "Camay Classic Soap 3 X 125gm...",
+    "amazon_ean_on_page": "3021620484473",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/foot-file-with-handle-blue.html",
+    "supplier_title_snippet": "FOOT FILE WITH HANDLE BLUE...",
+    "chosen_amazon_asin": "B08P4R44G1",
+    "amazon_title_snippet": "Essy Electric Foot File Hard Skin Remover with 5 Replacement...",
+    "amazon_ean_on_page": "5060700360267",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/body-puff-0-12-ck.html",
+    "supplier_title_snippet": "BODY PUFF - WHITE...",
+    "chosen_amazon_asin": "B08SQTH8N5",
+    "amazon_title_snippet": "VANZAVANZU Bath Loofah Large 80g Shower Sponge Body Scrubber...",
+    "amazon_ean_on_page": "0193499420005",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/opal-london-violet-face-brush.html",
+    "supplier_title_snippet": "OPAL LONDON VIOLET FACE BRUSH...",
+    "chosen_amazon_asin": "B01EFKBF4A",
+    "amazon_title_snippet": "DUcare Foundation Brush Kabuki Make Up Brush Flat Top Makeup...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pill-cutter-holder.html",
+    "supplier_title_snippet": "PILL CUTTER & HOLDER...",
+    "chosen_amazon_asin": "B0C9TFJYPW",
+    "amazon_title_snippet": "Fullicon Multiple Pill Cutter, Adjustable Pill Cutter for Sm...",
+    "amazon_ean_on_page": "4715219039333",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/50ml-neutro-robert-deo-rollon-0-6-ck.html",
+    "supplier_title_snippet": "NEUTRO ROBERT DEO ROLLON - 50ML...",
+    "chosen_amazon_asin": "B076VM5FT2",
+    "amazon_title_snippet": "Neutro Roberts Delicate 48h Powder Fresh roll on 50 ml...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/gel-bunion-protectors-12-48.html",
+    "supplier_title_snippet": "BIO GEL BUNION PROTECTORS - PACK OF 2...",
+    "chosen_amazon_asin": "B08HC9FSSK",
+    "amazon_title_snippet": "Promifun Gel Bunion Protector Shield, 10 Pack of Bunion Pads...",
+    "amazon_ean_on_page": "0723247974261",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/hot-water-bottle-2.html",
+    "supplier_title_snippet": "Home Smart - Hot Water Bottle Cover - Plush - 2L...",
+    "chosen_amazon_asin": "B09JWSVR9K",
+    "amazon_title_snippet": "Things2KeepUWarm Long Hot Water Bottle Seasonal Design (Grey...",
+    "amazon_ean_on_page": "5060692672355",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/hot-water-bottle-3.html",
+    "supplier_title_snippet": "Home Smart - Hot Water Bottle Cover - Fleece - Blue - 2L...",
+    "chosen_amazon_asin": "B0DJH3BRR3",
+    "amazon_title_snippet": "XXL Hot Water Bottle with Cover Extra Large 3.5L - Pasper - ...",
+    "amazon_ean_on_page": "8720589854604",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/hot-water-bottle-4.html",
+    "supplier_title_snippet": "Home Smart - Hot Water Bottle Cover - Fleece - 2L...",
+    "chosen_amazon_asin": "B0DN1T3NNG",
+    "amazon_title_snippet": "LKH Rubber Hot Water Bottle 0.5 Litre Pain Relief Comforting...",
+    "amazon_ean_on_page": "5056422692496",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/dog-squeaky-rubber-toy-blue-0-120.html",
+    "supplier_title_snippet": "DOG SQUEAKY RUBBER TOY BLUE...",
+    "chosen_amazon_asin": "B0DWHV6RS4",
+    "amazon_title_snippet": "Benebone Pawbler - Natural Rubber Interactive Enrichment Tre...",
+    "amazon_ean_on_page": "0810054210702",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/dog-squeaky-blue-bone-shape-toy-12-240-mgj5133.html",
+    "supplier_title_snippet": "DOG SQUEAKY BLUE BONE SHAPE TOY...",
+    "chosen_amazon_asin": "B0C5J2Y36Q",
+    "amazon_title_snippet": "LECHONG 5-PACK Squeaky Dog Toys, Cute Tough Plush Animal Dog...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/great-small-rope-knot-dog-toy.html",
+    "supplier_title_snippet": "GREAT & SMALL ROPE 2 KNOT DOG TOY...",
+    "chosen_amazon_asin": "B0C5MNYX3N",
+    "amazon_title_snippet": "Fur & Bone 10 Pcs Dog Toys - All Breeds Indestructible Dog T...",
+    "amazon_ean_on_page": "5059059051858",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/mechanical-mouse-0-8-6-48-ck.html",
+    "supplier_title_snippet": "MECHANICAL MOUSE - ASSORTED COLOURS...",
+    "chosen_amazon_asin": "B0DKG7P3V8",
+    "amazon_title_snippet": "ILUMEC Wireless Gaming Mouse with RGB Lighting, Rechargable ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/cat-play-toy-with-mouse-and-bell-with-elastic-string-colours-may-vary.html",
+    "supplier_title_snippet": "Cat Play Toy With Mouse and Bell With Elastic String - Colou...",
+    "chosen_amazon_asin": "B0B795TXW1",
+    "amazon_title_snippet": "bonitacrylic Kitty Kurlz Cat Toys, Magic Accordion Scratchin...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/cat-play-toy-with-feather-and-bells-colours-may-vary.html",
+    "supplier_title_snippet": "Cat Play Toy With Feather and Bells - Colours May Vary...",
+    "chosen_amazon_asin": "B0DZHBS9DX",
+    "amazon_title_snippet": "SRIZIAN 6 Pcs Cat Feather Toys with Bells, Feather Teaser Ca...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/dog-squeaky-chew-toy-blue-0-50.html",
+    "supplier_title_snippet": "DOG SQUEAKY CHEW TOY BLUE & RED...",
+    "chosen_amazon_asin": "B07QLT8WHG",
+    "amazon_title_snippet": "SHARLOVY Dog Squeaky Toys 5 Pack, Pet Crinkle Toy No Stuffin...",
+    "amazon_ean_on_page": "0711414222185",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pet-touch-doggy-play-balls-assorted-colours-6cm-pack-of-2.html",
+    "supplier_title_snippet": "Pet Touch Doggy Play Balls  - Assorted Colours - 6cm - Pack ...",
+    "chosen_amazon_asin": "B0DDJTKVPC",
+    "amazon_title_snippet": "Pets & Play Squeaky Dog Ball 6 Pack | Made Stronger, Tougher...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/squeaky-doggy-play-toy-slippers-assorted-colours-pack-of-2.html",
+    "supplier_title_snippet": "Squeaky Doggy Play Toy Slippers - Assorted Colours - Pack Of...",
+    "chosen_amazon_asin": "B092J2PC5L",
+    "amazon_title_snippet": "LEGEND SANDY Dog Squeaky Toys for Small Dogs, 12 Pack Puppy ...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/flying-disc-toy-for-pet-dogs-4-colours-colours-may-vary.html",
+    "supplier_title_snippet": "Flying Disc Toy For Pet Dogs - 4 Colours - Colours May Vary...",
+    "chosen_amazon_asin": "B08FST5KW6",
+    "amazon_title_snippet": "SKIPDAWG Dog Glow Disc Toy, Flying Disc Dog Toy Light Weight...",
+    "amazon_ean_on_page": "0782948464655",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pet-buddies-squeaky-doggy-play-toy-shapes-may-vary.html",
+    "supplier_title_snippet": "Pet Buddies Squeaky Doggy Play Toy - Shapes May Vary...",
+    "chosen_amazon_asin": "B0BQZCNLKF",
+    "amazon_title_snippet": "PetBuds Indestructible Dog Toys - Interactive 2 in 1 Treat a...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pets-that-play-pull-tug-dog-play-toy-for-small-medium-dogs-assorted-shapes-colours.html",
+    "supplier_title_snippet": "Pets That Play Pull & Tug Dog Play Toy for Small & Medium Do...",
+    "chosen_amazon_asin": "B00TZW1SCS",
+    "amazon_title_snippet": "Dog & Field 1/2lb Dog Training Dummies - Green. Canvas Train...",
+    "amazon_ean_on_page": "0711730175257",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pets-that-play-squeaky-dog-toy-for-small-medium-dogs-assorted-colours.html",
+    "supplier_title_snippet": "Pets That Play Squeaky Dog Toy - For Small / Medium Dogs - A...",
+    "chosen_amazon_asin": "B07VFH1QMC",
+    "amazon_title_snippet": "LEGEND SANDY Squeaky Plush Dog Toy Pack for Puppy, Small Stu...",
+    "amazon_ean_on_page": "0711414222536",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pets-that-play-dog-play-toy-for-small-medium-dogs-assorted-shapes.html",
+    "supplier_title_snippet": "Pets That Play Dog Play Toy - For Small / Medium Dogs - Asso...",
+    "chosen_amazon_asin": "B0DFPGJR8Y",
+    "amazon_title_snippet": "Interactive Dog Toys, 4 Pcs Hide and Seek Squeaky Puppy toys...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/pet-touch-combat-dog-squeaky-dog-play-toy-assorted-colours-16-x-6cm.html",
+    "supplier_title_snippet": "Pet Touch Combat Dog Squeaky Dog Play Toy - Assorted Colours...",
+    "chosen_amazon_asin": "B0CGL5KDSQ",
+    "amazon_title_snippet": "V-HANVER Indestructible Hedgehog Dog Toy 2 Pack - Tough & In...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5017403099864",
+    "supplier_title_snippet": "Blackspur Car Blade Fuse Assortment - Pack of 10...",
+    "chosen_amazon_asin": "B093L93DRC",
+    "amazon_title_snippet": "JOREST 168 Pcs Car Fuse Assorted Kit, 114 Mini Blade + 54 St...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5017403133209",
+    "supplier_title_snippet": "Blackspur Brass Padlock - 38mm...",
+    "chosen_amazon_asin": "B0CGDM67QX",
+    "amazon_title_snippet": "Blackspur - Iron Padlock - 4cm - Brass...",
+    "amazon_ean_on_page": "5017403133209",
+    "match_method": "EAN_search_partial_ok"
+  },
+  {
+    "supplier_product_identifier": "URL_https://www.clearance-king.co.uk/angry-birds-go-sticker-collection.html",
+    "supplier_title_snippet": "ANGRY BIRDS GO STICKER COLLECTION...",
+    "chosen_amazon_asin": "1409392643",
+    "amazon_title_snippet": "Angry Birds: Official Sticker Book...",
+    "amazon_ean_on_page": "9781409392644",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5017403099857",
+    "supplier_title_snippet": "Blackspur Mini Car Blade Fuse Assortment - Pack of 10...",
+    "chosen_amazon_asin": "B0BMGBBPTT",
+    "amazon_title_snippet": "JOREST 300Pcs Car Fuses Assorted Kit, 160 Mini Blade Fuse Au...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5055257879799",
+    "supplier_title_snippet": "Period Pain Relief Heat Patches - Pack of 2 - Exp: 03/20...",
+    "chosen_amazon_asin": "B0DH853P2H",
+    "amazon_title_snippet": "Tens Machine for Period Pain Relief - M50 Menstrual Relax - ...",
+    "amazon_ean_on_page": "5070003219605",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_8698532591220",
+    "supplier_title_snippet": "Titiz Coffee Cup - Designs May Vary - 400ml...",
+    "chosen_amazon_asin": "B0D2NM5RYW",
+    "amazon_title_snippet": "Generic Re-usable Ceramic Coffee Mug with Handle and Removab...",
+    "amazon_ean_on_page": null,
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_5060226063390",
+    "supplier_title_snippet": "Pets That Play - Premium Pet Bowl - 13.5cm x 5cm - 1 Pint...",
+    "chosen_amazon_asin": "B0B14C6F16",
+    "amazon_title_snippet": "Bonza Extra Large Collapsible Dog Bowl 1500 mL, Sturdy Reinf...",
+    "amazon_ean_on_page": "0810092254249",
+    "match_method": "title_search"
+  },
+  {
+    "supplier_product_identifier": "EAN_DTAG",
+    "supplier_title_snippet": "METAL DOG TAGS ASSORTED...",
+    "chosen_amazon_asin": "B0C71FT2PW",
+    "amazon_title_snippet": "LeCalla Father's Day Gifts Personalized Mothers Day Gifts Cu...",
+    "amazon_ean_on_page": null,
+    "match_method": "EAN_search_partial_ok"
   }
 ]

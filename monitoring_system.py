@@ -846,8 +846,12 @@ class FBAMonitoringSystem:
             # Only check Keepa data for matched products (EAN or title-based matches)
             # Skip unmatched products as they don't need Keepa data extraction
             filename = amazon_file.name
-            is_matched_product = ('_title_' in filename or
-                                (filename.count('_') >= 2 and not '_title_' in filename))
+            # Pattern analysis:
+            # EAN-matched: amazon_B003XLBV3S_5060226063390.json (3 parts)
+            # Title-matched: amazon_B0F7FJVMC6_title_9b243ec0.json (4 parts with 'title')
+            # Unmatched: amazon_B07JR7TM2N.json (2 parts)
+            filename_parts = filename.replace('.json', '').split('_')
+            is_matched_product = (len(filename_parts) >= 3)  # EAN or title matches have 3+ parts
 
             if not is_matched_product:
                 continue  # Skip unmatched products - they don't need Keepa data
@@ -931,8 +935,9 @@ class FBAMonitoringSystem:
 
                 # Check for incomplete fee data
                 elif keepa_data:
-                    has_fba_fee = any('fba' in str(v).lower() or 'pick' in str(v).lower() for v in keepa_data.values())
-                    has_referral_fee = any('referral' in str(v).lower() for v in keepa_data.values())
+                    # Check for fee data in KEYS (not values) since fee names are the keys
+                    has_fba_fee = any('fba' in str(k).lower() or 'pick' in str(k).lower() for k in keepa_data.keys())
+                    has_referral_fee = any('referral' in str(k).lower() for k in keepa_data.keys())
 
                     if not (has_fba_fee and has_referral_fee):
                         missing_fees = []

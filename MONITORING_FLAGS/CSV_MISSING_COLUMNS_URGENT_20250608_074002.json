@@ -1,0 +1,3261 @@
+{
+  "timestamp": "2025-06-08T07:40:02.989698",
+  "flag_type": "CSV_MISSING_COLUMNS",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 158,
+    "severity_escalated": true,
+    "original_severity": "CRITICAL",
+    "timespan": "2025-06-07T14:55:49.347115 to 2025-06-08T07:40:02.831362",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 158
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-08T02:16:05.552457",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_015616.csv",
+      "file_modification_time": "2025-06-08T01:56:16.418710",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_015616.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:22:31.746522",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_015616.csv",
+      "file_modification_time": "2025-06-08T01:56:16.418710",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_015616.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:29:02.436308",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_015616.csv",
+      "file_modification_time": "2025-06-08T01:56:16.418710",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_015616.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:35:29.523485",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_015616.csv",
+      "file_modification_time": "2025-06-08T01:56:16.418710",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_015616.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:42:01.365067",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:48:31.748546",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T02:55:03.723976",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:01:40.063957",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:08:12.268992",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:14:46.872891",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:21:26.024723",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:28:06.027270",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:34:44.298992",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:41:21.434713",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:48:04.866362",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:54:40.272762",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:01:21.180724",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:08:00.507741",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:14:42.435354",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:21:24.405453",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:28:05.024751",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:34:43.708405",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:41:26.231292",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:48:10.276118",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:54:50.965728",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:01:35.285920",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:08:13.014831",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:14:54.288044",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:21:36.816031",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:28:19.533597",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:34:59.065954",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:41:42.733266",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:48:30.059926",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:55:13.999658",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:01:57.266610",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:08:39.901324",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_023926.csv",
+      "file_modification_time": "2025-06-08T02:39:26.603769",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_023926.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:15:20.570331",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:21:57.094498",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:28:32.720804",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:35:05.874708",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:41:43.440659",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:48:22.193953",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:55:04.835974",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:01:48.328783",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:08:29.771381",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:15:10.759182",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_061012.csv",
+      "file_modification_time": "2025-06-08T06:10:12.762014",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_061012.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:21:43.835539",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_071524.csv",
+      "file_modification_time": "2025-06-08T07:15:24.181348",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_071524.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:28:14.824439",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_072500.csv",
+      "file_modification_time": "2025-06-08T07:25:00.296706",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_072500.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:34:15.507522",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_072500.csv",
+      "file_modification_time": "2025-06-08T07:25:00.296706",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_072500.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:40:02.831362",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_072500.csv",
+      "file_modification_time": "2025-06-08T07:25:00.296706",
+      "extracted_data": {
+        "csv_file_name": "fba_financial_report_20250608_072500.csv",
+        "missing_columns": [
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ],
+        "available_columns": [
+          "EAN",
+          "EAN_OnPage",
+          "ASIN",
+          "Title",
+          "SupplierURL",
+          "AmazonURL",
+          "bought_in_past_month",
+          "fba_seller_count",
+          "fbm_seller_count",
+          "total_offer_count",
+          "SupplierPrice_incVAT",
+          "SupplierPrice_exVAT",
+          "SellingPrice_incVAT",
+          "AmazonPrice_exVAT",
+          "ReferralFee",
+          "FBAFee",
+          "OutputVAT",
+          "InputVAT",
+          "NetProceeds",
+          "HMRC",
+          "NetProfit",
+          "ROI",
+          "Breakeven",
+          "ProfitMargin"
+        ],
+        "required_columns": [
+          "EAN",
+          "ASIN",
+          "supplier_cost",
+          "amazon_price",
+          "profit_margin",
+          "fba_fees",
+          "referral_fees"
+        ]
+      },
+      "specific_issue": "CSV missing required columns: supplier_cost, amazon_price, profit_margin, fba_fees, referral_fees",
+      "resolution_suggestions": [
+        "Check FBA calculator column mapping",
+        "Verify Keepa data extraction completeness",
+        "Update CSV generation logic",
+        "Check Amazon cache data structure"
+      ],
+      "impact_assessment": "Cannot perform complete financial analysis",
+      "data_quality_metrics": {
+        "missing_columns_count": 5,
+        "total_columns": 24,
+        "missing_columns_percentage": 71.42857142857143
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "error": "Error calculating products progress: Expecting value: line 1 column 1 (char 0)"
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 80,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_072500.csv",
+      "latest_csv_modification_time": "2025-06-08T07:25:00.296706",
+      "products_in_latest_csv": 20,
+      "complete_financial_records": 13,
+      "financial_data_completeness_rate": 65.0,
+      "fba_summary_files": 190,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250608_072455.json",
+        "modification_time": "2025-06-08T07:24:55.410115",
+        "session_data": {
+          "total_supplier_products": 298,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 0,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 1,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-08T07:24:55.232614",
+          "end_time": "2025-06-08T07:24:55.253346"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 92.0,
+        "keepa_timeout_rate": 6.0,
+        "missing_ean_rate": 90.21739130434783,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 257.2053527832031,
+        "used_gb": 671.2956199645996,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 72.29886017006203
+      },
+      "fba_processes": [
+        {
+          "pid": 5769,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.9140625
+        },
+        {
+          "pid": 9496,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.94921875
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 274,
+        "csv_reports": 81,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 21.666666666666668,
+    "quality_grade": "CRITICAL",
+    "component_scores": {
+      "keepa_extraction": 0,
+      "financial_analysis": 65.0,
+      "ai_suggestions": 0
+    }
+  }
+}

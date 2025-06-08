@@ -1,0 +1,239 @@
+{
+  "timestamp": "2025-06-06T18:53:07.780749",
+  "flag_type": "NEW_PROCESS_STARTED",
+  "severity": "INFO",
+  "severity_escalated": false,
+  "requires_action": false,
+  "alert_summary": {
+    "total_instances": 1,
+    "severity_escalated": false,
+    "original_severity": "INFO",
+    "timespan": "2025-06-06T18:53:07.754877",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 1
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-06T18:53:07.754877",
+      "source_file_path": null,
+      "file_modification_time": null,
+      "extracted_data": {
+        "new_processes": [
+          {
+            "pid": 2516,
+            "name": "bash",
+            "cmdline": "/bin/bash -c -l source /tmp/claude-shell-snapshot-77f6 && eval 'cd \"/mnt/c/Users/chris/Cloud-Drive_christianhaddad8@gmail.com/Cloud-Drive/Full/claude code/Amazon-FBA-Agent-System-v3\" && /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python tools/passive_extraction_workflow_latest.py --max-products 3 &' \\< /dev/null && pwd -P >| /tmp/claude-0c04-cwd",
+            "status": "sleeping",
+            "memory_mb": 1.80078125,
+            "running_since": "2025-06-06T18:41:33.640000"
+          },
+          {
+            "pid": 2519,
+            "name": "python",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python tools/passive_extraction_workflow_latest.py --max-products 3",
+            "status": "sleeping",
+            "memory_mb": 214.5859375,
+            "running_since": "2025-06-06T18:41:33.650000"
+          },
+          {
+            "pid": 2546,
+            "name": "node",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/lib/python3.12/site-packages/playwright/driver/node /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/lib/python3.12/site-packages/playwright/driver/package/cli.js run-driver",
+            "status": "sleeping",
+            "memory_mb": 175.2109375,
+            "running_since": "2025-06-06T18:42:54.770000"
+          },
+          {
+            "pid": 2564,
+            "name": "bash",
+            "cmdline": "/bin/bash -c -l source /tmp/claude-shell-snapshot-77f6 && eval 'cd \"/mnt/c/Users/chris/Cloud-Drive_christianhaddad8@gmail.com/Cloud-Drive/Full/claude code/Amazon-FBA-Agent-System-v3\" && /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python monitoring_system.py' \\< /dev/null && pwd -P >| /tmp/claude-3e53-cwd",
+            "status": "sleeping",
+            "memory_mb": 3.375,
+            "running_since": "2025-06-06T18:53:06.420000"
+          },
+          {
+            "pid": 2589,
+            "name": "python",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python monitoring_system.py",
+            "status": "running",
+            "memory_mb": 17.7265625,
+            "running_since": "2025-06-06T18:53:06.450000"
+          }
+        ],
+        "all_current_processes": [
+          {
+            "pid": 2516,
+            "name": "bash",
+            "cmdline": "/bin/bash -c -l source /tmp/claude-shell-snapshot-77f6 && eval 'cd \"/mnt/c/Users/chris/Cloud-Drive_christianhaddad8@gmail.com/Cloud-Drive/Full/claude code/Amazon-FBA-Agent-System-v3\" && /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python tools/passive_extraction_workflow_latest.py --max-products 3 &' \\< /dev/null && pwd -P >| /tmp/claude-0c04-cwd",
+            "status": "sleeping",
+            "memory_mb": 1.80078125,
+            "running_since": "2025-06-06T18:41:33.640000"
+          },
+          {
+            "pid": 2519,
+            "name": "python",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python tools/passive_extraction_workflow_latest.py --max-products 3",
+            "status": "sleeping",
+            "memory_mb": 214.5859375,
+            "running_since": "2025-06-06T18:41:33.650000"
+          },
+          {
+            "pid": 2546,
+            "name": "node",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/lib/python3.12/site-packages/playwright/driver/node /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/lib/python3.12/site-packages/playwright/driver/package/cli.js run-driver",
+            "status": "sleeping",
+            "memory_mb": 175.2109375,
+            "running_since": "2025-06-06T18:42:54.770000"
+          },
+          {
+            "pid": 2564,
+            "name": "bash",
+            "cmdline": "/bin/bash -c -l source /tmp/claude-shell-snapshot-77f6 && eval 'cd \"/mnt/c/Users/chris/Cloud-Drive_christianhaddad8@gmail.com/Cloud-Drive/Full/claude code/Amazon-FBA-Agent-System-v3\" && /mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python monitoring_system.py' \\< /dev/null && pwd -P >| /tmp/claude-3e53-cwd",
+            "status": "sleeping",
+            "memory_mb": 3.375,
+            "running_since": "2025-06-06T18:53:06.420000"
+          },
+          {
+            "pid": 2589,
+            "name": "python",
+            "cmdline": "/mnt/c/Users/chris/Amazon-FBA-Agent-System/venv/bin/python monitoring_system.py",
+            "status": "running",
+            "memory_mb": 17.7265625,
+            "running_since": "2025-06-06T18:53:06.450000"
+          }
+        ]
+      },
+      "specific_issue": "New FBA processes detected: 5 processes",
+      "resolution_suggestions": [
+        "Monitor new processes for stability",
+        "Check if multiple instances are intended",
+        "Verify process resource usage",
+        "Ensure no process conflicts"
+      ],
+      "impact_assessment": "New processing capacity available",
+      "data_quality_metrics": {
+        "new_process_count": 5,
+        "total_process_count": 5,
+        "total_memory_mb": 412.69921875
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 1157,
+      "products_with_amazon_data": 141,
+      "products_with_complete_keepa": 136,
+      "current_processing_index": 40,
+      "processing_completion_rate": 3.457216940363008,
+      "amazon_cache_coverage": 12.186689714779602,
+      "keepa_success_rate": 96.45390070921985
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 65,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250606_184254.csv",
+      "latest_csv_modification_time": "2025-06-06T18:42:54.604320",
+      "products_in_latest_csv": 37,
+      "complete_financial_records": 28,
+      "financial_data_completeness_rate": 75.67567567567568,
+      "fba_summary_files": 175,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250606_184229.json",
+        "modification_time": "2025-06-06T18:42:34.494127",
+        "session_data": {
+          "total_supplier_products": 1110,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 0,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 3,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-06T18:42:29.211784",
+          "end_time": "2025-06-06T18:42:33.789034"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 97.0,
+        "keepa_timeout_rate": 1.0,
+        "missing_ean_rate": 90.72164948453609,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 263.6684913635254,
+        "used_gb": 664.8324813842773,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 71.60277704575519
+      },
+      "fba_processes": [
+        {
+          "pid": 2516,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.80078125
+        },
+        {
+          "pid": 2519,
+          "name": "python",
+          "status": "sleeping",
+          "memory_mb": 214.5859375
+        },
+        {
+          "pid": 2546,
+          "name": "node",
+          "status": "sleeping",
+          "memory_mb": 175.2109375
+        },
+        {
+          "pid": 2564,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 3.375
+        },
+        {
+          "pid": 2589,
+          "name": "python",
+          "status": "running",
+          "memory_mb": 19.81640625
+        }
+      ],
+      "process_count": 5,
+      "file_system": {
+        "amazon_cache_files": 141,
+        "csv_reports": 66,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 57.37652546163184,
+    "quality_grade": "POOR",
+    "component_scores": {
+      "keepa_extraction": 96.45390070921985,
+      "financial_analysis": 75.67567567567568,
+      "ai_suggestions": 0
+    }
+  }
+}

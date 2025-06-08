@@ -1,0 +1,1311 @@
+{
+  "timestamp": "2025-06-08T08:26:16.383342",
+  "flag_type": "KEEPA_TIMEOUT_SPIKE",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 166,
+    "severity_escalated": true,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-07T14:54:52.333218 to 2025-06-08T08:26:16.162601",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 166
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-08T03:07:00.704054",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:13:35.322697",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:20:17.059349",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:26:52.738519",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:33:35.156899",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:40:12.272813",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:46:51.043986",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T03:53:34.635343",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:00:10.594581",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:06:50.184801",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:13:29.387660",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:20:11.551596",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:26:54.325706",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:33:35.259384",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:40:12.804618",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:46:55.903961",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T04:53:41.218070",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:00:21.927625",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:07:02.638146",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:13:42.839763",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:20:23.708324",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:27:05.673392",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:33:48.331657",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:40:28.203116",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:47:12.159662",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T05:53:59.848086",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:00:44.374794",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:07:27.174055",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:14:09.568913",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:20:43.270321",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:27:20.687183",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:33:54.143807",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:40:29.007801",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:47:07.822425",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T06:53:50.338685",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:00:34.653848",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:07:12.665112",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:13:55.048397",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:20:28.969581",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:27:02.690322",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:33:28.579537",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:39:19.256501",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:45:05.710387",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:50:55.006592",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T07:56:46.250975",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T08:02:37.471650",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T08:08:26.925057",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T08:14:21.408546",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T08:20:18.131870",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T08:26:16.162601",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/amazon_cache/amazon_B0DDJTKVPC_title_4a1cb138.json",
+      "file_modification_time": "2025-06-07T02:38:20.906354",
+      "extracted_data": {
+        "asin": "B0DDJTKVPC",
+        "ean": null,
+        "keepa_status": "Product details tab timeout (initial)",
+        "supplier_product_name": "Unknown",
+        "has_keepa_data": false
+      },
+      "specific_issue": "Keepa extraction timeout: Product details tab timeout (initial)",
+      "resolution_suggestions": [
+        "Check Keepa login status",
+        "Verify Chrome browser connection",
+        "Clear browser cache and cookies",
+        "Restart Chrome with debug port"
+      ],
+      "impact_assessment": "Product will have incomplete financial data",
+      "data_quality_metrics": {
+        "timeout_duration": null,
+        "retry_attempts": 0
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "error": "Error calculating products progress: Expecting value: line 1 column 1 (char 0)"
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 80,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_072500.csv",
+      "latest_csv_modification_time": "2025-06-08T07:25:00.296706",
+      "products_in_latest_csv": 20,
+      "complete_financial_records": 13,
+      "financial_data_completeness_rate": 65.0,
+      "fba_summary_files": 190,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250608_072455.json",
+        "modification_time": "2025-06-08T07:24:55.410115",
+        "session_data": {
+          "total_supplier_products": 298,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 0,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 1,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-08T07:24:55.232614",
+          "end_time": "2025-06-08T07:24:55.253346"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 92.0,
+        "keepa_timeout_rate": 6.0,
+        "missing_ean_rate": 90.21739130434783,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 257.31801986694336,
+        "used_gb": 671.1829528808594,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 72.28672587111706
+      },
+      "fba_processes": [
+        {
+          "pid": 5769,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.9140625
+        },
+        {
+          "pid": 9496,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.94921875
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 274,
+        "csv_reports": 81,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 21.666666666666668,
+    "quality_grade": "CRITICAL",
+    "component_scores": {
+      "keepa_extraction": 0,
+      "financial_analysis": 65.0,
+      "ai_suggestions": 0
+    }
+  }
+}
