@@ -23,6 +23,7 @@ import tools.passive_extraction_workflow_latest as wf
 @pytest.mark.asyncio
 async def test_run_workflow_main_passes_limits(monkeypatch):
     config_data = {"system": {"max_products_per_category": 3, "max_analyzed_products": 5, "max_products_per_cycle": 7}}
+
     config_json = json.dumps(config_data)
 
     orig_exists = os.path.exists

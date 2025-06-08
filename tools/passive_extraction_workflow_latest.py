@@ -2087,6 +2087,8 @@ Return ONLY valid JSON, no additional text."""
                     f"Reached max_analyzed_products={max_analyzed_products}. Halting further analysis."
                 )
                 limit_reached = True
+
+                
                 break
 
             processed_by_category[category_key] += 1
@@ -2305,6 +2307,7 @@ Return ONLY valid JSON, no additional text."""
         if limit_reached:
             log.info("Product processing limit reached. Ending workflow early.")
             return profitable_results
+
         
         # D2: Stage-guard audit - Log triage stage completion
         log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected (Triage Setting: {'ENABLED' if self.enable_quick_triage else 'DISABLED'})")
@@ -3804,6 +3807,7 @@ async def run_workflow_main():
         max_products_per_cycle_cfg = system_config.get("system", {}).get("max_products_per_cycle", 0)
         if max_products == 0:
             max_products = max_products_per_cycle_cfg
+
     except Exception as e:
         log.warning(f"Failed to load system config from {config_path}: {e}")
         system_config = {}
