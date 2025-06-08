@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-06-08T23:54:53.212966",
+  "timestamp": "2025-06-09T00:08:32.454317",
   "categories": {
     "total_categories_discovered": 7,
     "categories_analyzed": 0,
@@ -22,12 +22,12 @@
     "products_with_ean_match": 0,
     "products_with_title_match": 0,
     "products_unmatched": 0,
-    "current_processing_index": 16,
-    "processing_completion_percentage": 17.02127659574468
+    "current_processing_index": 39,
+    "processing_completion_percentage": 41.48936170212766
   },
   "amazon_data": {
-    "total_amazon_files": 284,
-    "ean_matched_products": 172,
+    "total_amazon_files": 295,
+    "ean_matched_products": 183,
     "title_matched_products": 104,
     "unmatched_products": 8,
     "products_with_amazon_data": 0
@@ -50,9 +50,9 @@
   },
   "processing": {
     "active_processing": true,
-    "estimated_time_remaining_minutes": 4680.0,
-    "processing_rate_products_per_minute": 0.016666666666666666,
-    "last_activity_timestamp": "2025-06-08T23:51:31.780252"
+    "estimated_time_remaining_minutes": 275.0,
+    "processing_rate_products_per_minute": 0.2,
+    "last_activity_timestamp": "2025-06-09T00:05:07.359218"
   },
   "ai_system": {
     "total_ai_calls": 1,

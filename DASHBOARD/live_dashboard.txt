@@ -1,13 +1,13 @@
 
 🚀 AMAZON FBA AGENT SYSTEM - LIVE DASHBOARD
 ============================================================
-Last Updated: 2025-06-08 23:54:53
+Last Updated: 2025-06-09 00:08:32
 
 📊 SYSTEM OVERVIEW
 ==============================
 Active Processing: 🟢 YES
-Processing Rate: 0.0 products/min
-Est. Time Remaining: 4680 minutes
+Processing Rate: 0.2 products/min
+Est. Time Remaining: 275 minutes
 
 📁 CATEGORIES
 ==============================
@@ -18,13 +18,13 @@ Productive Categories: 2
 📦 PRODUCTS
 ==============================
 Total Supplier Products: 94
-Current Processing Index: 16
-Processing Completion: 17.0%
+Current Processing Index: 39
+Processing Completion: 41.5%
 
 🛒 AMAZON DATA
 ==============================
-Total Amazon Files: 284
-EAN Matched Products: 172
+Total Amazon Files: 295
+EAN Matched Products: 183
 Title Matched Products: 104
 Unmatched Products: 8
 

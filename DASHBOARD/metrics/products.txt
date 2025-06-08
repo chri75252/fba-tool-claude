@@ -1,20 +1,20 @@
 📦 PRODUCTS DETAILED REPORT
 ==================================================
-Generated: 2025-06-08 23:54:53
+Generated: 2025-06-09 00:08:32
 
 SUMMARY:
 - Total Supplier Products: 94
-- Current Processing Index: 16
-- Completion: 17.0%
+- Current Processing Index: 39
+- Completion: 41.5%
 
 RECENT PROCESSING ACTIVITY:
-- amazon_B0FBGJC7Y9_5055257877573.json (23:51:31)
-- amazon_B0BCFCKNLL_4040491192606.json (22:13:16)
-- amazon_B0C5384QK3_SA42001.json (14:42:06)
-- amazon_B0C71FT2PW_DTAG.json (14:40:09)
-- amazon_B0C8TBLMPS_5021813118107.json (12:51:33)
-- amazon_B08BYGCZV5_5022896874386.json (12:40:32)
-- amazon_B0DHL8ZB23_05101061.json (12:37:59)
-- amazon_B0B14C6F16_5060226063390.json (11:55:14)
-- amazon_B0D2NM5RYW_8698532591220.json (10:52:21)
-- amazon_B0DH853P2H_5055257879799.json (08:43:21)
+- amazon_B00TPKH1TO_CF100.json (00:05:07)
+- amazon_B00YBPF9CE_SC-800.json (00:04:21)
+- amazon_B07FPR2626_BOXC6.json (00:03:25)
+- amazon_B000N41I3Q_5031383020489.json (00:02:43)
+- amazon_B0F6YWKQBP_5055257877573.json (00:02:03)
+- amazon_B0D1YMQL5P_8436033308028.json (00:00:01)
+- amazon_B0DLNYJ3YR_YAJF8Z199.json (23:59:02)
+- amazon_B0B3X9L435_071473121929.json (23:58:09)
+- amazon_B073S5LB8L_12999.json (23:56:48)
+- amazon_B0B9838JQQ_12930.json (23:56:07)

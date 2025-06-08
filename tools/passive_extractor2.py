@@ -912,9 +912,7 @@ class PassiveExtractionWorkflow:
             "products_previously_visited": 0, # Track resumed products
             "profitable_products": 0,
             "errors": 0,
-            "products_processed_total": 0,
-            "products_processed_per_category": {},
-            "start_time": datetime.now().isoformat(),
+            "start_time": datetime.now().isoformat()
         }
         
         # Set up state tracking
@@ -2529,7 +2527,6 @@ Return JSON with EXACTLY these keys:
         
         return urls
 
-<<<<<<< HEAD
     async def run(self, supplier_url: str = DEFAULT_SUPPLIER_URL,
                   supplier_name: str = DEFAULT_SUPPLIER_NAME,
                   max_products_to_process: int = 50,
@@ -2539,20 +2536,6 @@ Return JSON with EXACTLY these keys:
                   force_config_reload: bool = False,
                   debug_smoke: bool = False,
                   resume_from_last: bool = True) -> List[Dict[str, Any]]:
-=======
-    async def run(
-        self,
-        supplier_url: str = DEFAULT_SUPPLIER_URL,
-        supplier_name: str = DEFAULT_SUPPLIER_NAME,
-        max_products_to_process: int = 50,
-        max_products_per_category: int = 0,
-        max_analyzed_products: int = 0,
-        cache_supplier_data: bool = True,
-        force_config_reload: bool = False,
-        debug_smoke: bool = False,
-        resume_from_last: bool = True,
-    ) -> List[Dict[str, Any]]:
->>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
         profitable_results: List[Dict[str, Any]] = []
         processed_by_category: Dict[str, int] = defaultdict(int)
         total_processed = 0
@@ -2733,10 +2716,6 @@ Return JSON with EXACTLY these keys:
                 )
                 limit_reached = True
 
-<<<<<<< HEAD
-=======
-                
->>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
                 break
 
             processed_by_category[category_key] += 1
@@ -2942,20 +2921,8 @@ Return JSON with EXACTLY these keys:
                 else:
                     log.info(f"Product does not meet criteria. ROI: {combined_data.get('roi_percent_calculated')}%, Profit: £{combined_data.get('estimated_profit_per_unit')}")
             else:
-                log.warning(
-                    f"Low quality match ({match_validation['match_quality']}) between supplier product '{product_data.get('title')}' and Amazon product '{amazon_product_data.get('title')}'. Skipping."
-                )
+                log.warning(f"Low quality match ({match_validation['match_quality']}) between supplier product '{product_data.get('title')}' and Amazon product '{amazon_product_data.get('title')}'. Skipping.")
                 log.debug(f"Match reasons: {match_validation.get('reasons', [])}")
-
-        self.results_summary["products_processed_total"] += total_processed
-        for cat, count in processed_by_category.items():
-            self.results_summary.setdefault("products_processed_per_category", {}).setdefault(cat, 0)
-            self.results_summary["products_processed_per_category"][cat] += count
-
-        if limit_reached:
-            log.info("Product processing limit reached. Ending workflow early.")
-            return profitable_results
-
         
         # D2: Stage-guard audit - Log triage stage completion
         log.info(f"STAGE-COMPLETE: triage_stage - {self.results_summary['products_passed_triage']} passed, {self.results_summary['products_rejected_by_triage']} rejected (Triage Setting: {'ENABLED' if self.enable_quick_triage else 'DISABLED'})")
@@ -3142,7 +3109,7 @@ Return JSON with EXACTLY these keys:
                                 cache_supplier_data=cache_supplier_data,
                                 force_config_reload=False,  # Don't clear cache again
                                 debug_smoke=debug_smoke,
-                                resume_from_last=True,
+                                resume_from_last=True
                             )
 
                             # Merge results from recursive call
@@ -4473,10 +4440,6 @@ async def run_workflow_main():
         max_products_per_cycle_cfg = system_config.get("system", {}).get("max_products_per_cycle", 0)
         if max_products == 0:
             max_products = max_products_per_cycle_cfg
-<<<<<<< HEAD
-=======
-
->>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
     except Exception as e:
         log.warning(f"Failed to load system config from {config_path}: {e}")
         system_config = {}
@@ -4573,11 +4536,7 @@ async def run_workflow_main():
             cache_supplier_data=True,
             force_config_reload=force_config_reload,
             debug_smoke=debug_smoke,
-<<<<<<< HEAD
             resume_from_last=True
-=======
-            resume_from_last=True,
->>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
         )
         
         if results: 
@@ -4621,3 +4580,4 @@ if __name__ == "__main__":
     print(f"Profitability Criteria: Min ROI {MIN_ROI_PERCENT}%, Min Profit £{MIN_PROFIT_PER_UNIT}")
     print("="*80)
     asyncio.run(run_workflow_main())
+

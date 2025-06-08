@@ -1,6 +1,6 @@
 📁 CATEGORIES DETAILED REPORT
 ==================================================
-Generated: 2025-06-08 23:54:53
+Generated: 2025-06-09 00:08:32
 
 SUMMARY:
 - Total Categories Discovered: 7
@@ -8,10 +8,10 @@ SUMMARY:
 - Productive: 2
 
 CATEGORY URLS:
-  1. https://www.clearance-king.co.uk/50p-under.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
-  2. https://www.clearance-king.co.uk/pets/pet-accessories.html
-  3. https://www.clearance-king.co.uk/sales.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
-  4. https://www.clearance-king.co.uk/baby-kids/baby-care.html
-  5. https://www.clearance-king.co.uk/health-beauty.html
-  6. https://www.clearance-king.co.uk/gifts-toys/toys.html
-  7. https://www.clearance-king.co.uk/household/kitchenware/food-preparation.html
+  1. https://www.clearance-king.co.uk/health-beauty.html
+  2. https://www.clearance-king.co.uk/50p-under.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
+  3. https://www.clearance-king.co.uk/pets/pet-accessories.html
+  4. https://www.clearance-king.co.uk/gifts-toys/toys.html
+  5. https://www.clearance-king.co.uk/household/kitchenware/food-preparation.html
+  6. https://www.clearance-king.co.uk/sales.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
+  7. https://www.clearance-king.co.uk/baby-kids/baby-care.html
