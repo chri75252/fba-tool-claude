@@ -7,9 +7,9 @@
     "clear_cache": false,
     "selective_cache_clear": false,
     "force_ai_scraping": true,
-    "max_products_per_category": 0,
-    "max_analyzed_products": 0,
-    "max_products_per_cycle": 0,
+    "max_products_per_category": 3,
+    "max_analyzed_products": 5,
+    "max_products_per_cycle": 1,
     "force_ai_category_suggestion": true,
     "bypass_ai_scraping": false,
     "enable_supplier_parser": false
