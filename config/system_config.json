@@ -7,9 +7,15 @@
     "clear_cache": false,
     "selective_cache_clear": false,
     "force_ai_scraping": true,
+<<<<<<< HEAD
+    "max_products_per_category": 0,
+    "max_analyzed_products": 0,
+    "max_products_per_cycle": 0,
+=======
     "max_products_per_category": 3,
     "max_analyzed_products": 5,
     "max_products_per_cycle": 1,
+>>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
     "force_ai_category_suggestion": true,
     "bypass_ai_scraping": false,
     "enable_supplier_parser": false
@@ -104,8 +110,12 @@
     "fba_fees": {
       "referral_fee_rate": 0.15,
       "fulfillment_fee_minimum": 2.41,
-      "storage_fee_per_cubic_foot": 0.75
+      "storage_fee_per_cubic_foot": 0.75,
+      "prep_house_fixed_fee": 0.55
     }
+  },
+  "supplier": {
+    "prices_include_vat": true
   },
   "output": {
     "base_dir": "OUTPUTS/FBA_ANALYSIS",
@@ -169,11 +179,54 @@
     },
     "openai": {
       "enabled": true,
-      "api_key": "sk-02XZ3ucKVViULVaTp4_Ad6byZCT6Fofr-BwRsD5mTcT3BlbkFJ7_HTmTRScAn0m-ITc_CX5a2beXTOcbK1-Qmm0s6nwA",
-      "model": "gpt-4o-mini-search-preview-2025-03-11",
+      "api_key": "${OPENAI_API_KEY}",
+      "model": "gpt-4o-mini-2024-07-18",
       "max_tokens": 1200,
       "temperature": 0.1,
-      "web_search_enabled": true
+      "web_search_enabled": false
+    }
+  },
+  "ai_features": {
+    "category_selection": {
+      "enabled": true,
+      "disable_ai_category_selection": false,
+      "mode": "v2",
+      "available_modes": {
+        "legacy": "Original 86-line prompt with detailed instructions",
+        "v2": "New 25-line clearance-first prompt optimized for arbitrage",
+        "minimal": "Super terse 12-line prompt for fallback"
+      },
+      "dynamic_reordering": {
+        "enabled": false,
+        "trigger_interval_categories": 5,
+        "trigger_interval_products": 100
+      },
+      "fallbacks": {
+        "max_retries": 2,
+        "clear_cache_between_retries": true,
+        "alternate_prompts": ["v2", "legacy", "minimal"],
+        "temperature_escalation": [0.1, 0.3, 0.5],
+        "model_escalation": ["gpt-4o-mini-2024-07-18"]
+      }
+    },
+    "product_matching": {
+      "quality_threshold": "medium",
+      "available_thresholds": ["low", "medium", "high"],
+      "skip_low_quality": true,
+      "ean_search_enabled": true,
+      "title_search_fallback": true
+    }
+  },
+  "processing_limits": {
+    "min_price_gbp": 0.1,
+    "max_price_gbp": 20.0,
+    "max_products_per_run": 0,
+    "max_categories_per_cycle": 3,
+    "min_products_per_category": 2,
+    "category_validation": {
+      "enabled": true,
+      "min_products_per_category": 2,
+      "timeout_seconds": 15
     }
   },
   "security": {
@@ -187,7 +240,31 @@
     "request_timeout_seconds": 30,
     "retry_attempts": 3,
     "retry_delay_seconds": 2,
-    "batch_size": 50
+    "batch_size": 50,
+    "rate_limiting": {
+      "rate_limit_delay": 3.0,
+      "batch_delay": 15.0,
+      "ai_batch_size": 5
+    },
+    "timeouts": {
+      "navigation_timeout_ms": 60000,
+      "search_input_timeout_ms": 5000,
+      "results_wait_timeout_ms": 15000,
+      "selector_wait_timeout_ms": 20000,
+      "page_load_timeout_ms": 10000,
+      "http_request_timeout_seconds": 15,
+      "sitemap_timeout_seconds": 10
+    },
+    "matching_thresholds": {
+      "title_similarity": 0.25,
+      "brand_similarity": 0.85,
+      "high_title_similarity": 0.75,
+      "medium_title_similarity": 0.5,
+      "confidence_high": 0.75,
+      "confidence_medium": 0.45,
+      "ai_boost_threshold": 0.80,
+      "ai_penalty_threshold": 0.20
+    }
   },
   "workflow_control": {
     "ai_scraping_triggers": {

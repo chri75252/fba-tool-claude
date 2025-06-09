@@ -30,10 +30,26 @@ FINANCIAL_REPORTS_DIR = os.path.join(OUTPUT_DIR, "financial_reports")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(FINANCIAL_REPORTS_DIR, exist_ok=True)
 
-# Parameters
-VAT_RATE = 0.2
-PREP_COST = 0.5
+# Load configuration from system_config.json
+def load_system_config():
+    """Load system configuration including VAT and fee settings."""
+    try:
+        config_path = os.path.join(BASE_DIR, "config", "system_config.json")
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        return config
+    except Exception as e:
+        log.warning(f"Failed to load system config: {e}, using defaults")
+        return {}
+
+# Load configuration
+_config = load_system_config()
+
+# Parameters from config with fallbacks
+VAT_RATE = _config.get("amazon", {}).get("vat_rate", 0.2)
+PREP_COST = _config.get("amazon", {}).get("fba_fees", {}).get("prep_house_fixed_fee", 0.55)  # Updated default to 0.55
 SHIP_COST = 0.0
+SUPPLIER_PRICES_INCLUDE_VAT = _config.get("supplier", {}).get("prices_include_vat", True)
 
 # Global variable to cache the linking map
 _linking_map = None
@@ -318,23 +334,40 @@ def financials(supplier, amazon, supplier_price_inc_vat):
             if fba: fba_fee = fba
             
     selling_price_inc_vat = amazon_price
-    supplier_price_ex_vat = supplier_price_inc_vat / (1 + VAT_RATE)
+    
+    # Handle VAT calculations based on supplier price configuration
+    if SUPPLIER_PRICES_INCLUDE_VAT:
+        # Supplier prices already include VAT
+        supplier_price_ex_vat = supplier_price_inc_vat / (1 + VAT_RATE)
+        input_vat = supplier_price_inc_vat * VAT_RATE / (1 + VAT_RATE)
+    else:
+        # Supplier prices are ex-VAT
+        supplier_price_ex_vat = supplier_price_inc_vat  # This is actually ex-VAT
+        input_vat = supplier_price_ex_vat * VAT_RATE
+        supplier_price_inc_vat = supplier_price_ex_vat + input_vat  # Recalculate inc VAT
+    
     amazon_price_ex_vat = selling_price_inc_vat / (1 + VAT_RATE)
     output_vat = selling_price_inc_vat * VAT_RATE / (1 + VAT_RATE)
-    input_vat = supplier_price_inc_vat * VAT_RATE / (1 + VAT_RATE)
     net_proceeds = selling_price_inc_vat - referral_fee - fba_fee - output_vat
     hmrc = output_vat - input_vat
     net_profit = net_proceeds - hmrc - PREP_COST - SHIP_COST
-    roi = net_profit / supplier_price_ex_vat if supplier_price_ex_vat else 0
+    
+    # Fixed ROI calculation: ROI = (Net Profit / Total Cost) * 100
+    # Total cost = supplier cost + all fees
+    total_cost = supplier_price_ex_vat + PREP_COST + SHIP_COST
+    roi = (net_profit / total_cost) * 100 if total_cost > 0 else 0
+    
     breakeven = supplier_price_inc_vat + referral_fee + fba_fee + PREP_COST + SHIP_COST
-    profit_margin = net_profit / amazon_price_ex_vat if amazon_price_ex_vat else 0
+    
+    # Fixed Profit Margin calculation: Profit Margin = (Net Profit / Revenue) * 100
+    profit_margin = (net_profit / selling_price_inc_vat) * 100 if selling_price_inc_vat > 0 else 0
     return {
         'SupplierPrice_incVAT': supplier_price_inc_vat,
         'SupplierPrice_exVAT': supplier_price_ex_vat,
         'SellingPrice_incVAT': selling_price_inc_vat,
-        'AmazonPrice_exVAT': amazon_price_ex_vat,
         'ReferralFee': referral_fee,
         'FBAFee': fba_fee,
+        'PrepHouseFee': PREP_COST,  # Added prep house fee as separate column
         'OutputVAT': output_vat,
         'InputVAT': input_vat,
         'NetProceeds': net_proceeds,
@@ -425,12 +458,16 @@ def run_calculations(supplier_cache_path=None, output_dir=None, amazon_scrape_di
         if not amazon_url and 'asin_queried' in amazon:
             amazon_url = f"https://www.amazon.co.uk/dp/{amazon['asin_queried']}"
             
+        # Get Amazon title for the CSV
+        amazon_title = amazon.get('title', amazon.get('product_title', 'N/A'))
+        
         # Create the row data with improved fields
         row = {
             'EAN': ean,
             'EAN_OnPage': amazon.get('ean_on_page'),  # Include the EAN found on the Amazon page
             'ASIN': asin if asin else amazon.get('asin_queried', amazon.get('asin_from_details')),
-            'Title': title,
+            'SupplierTitle': title,  # Renamed for clarity
+            'AmazonTitle': amazon_title,  # Added Amazon product title
             'SupplierURL': sp.get('url'),
             'AmazonURL': amazon_url
         }
@@ -469,7 +506,7 @@ def run_calculations(supplier_cache_path=None, output_dir=None, amazon_scrape_di
         stats['profitable_count'] = df[df['ROI'] > 0.3].shape[0]
         stats['marginal_count'] = df[(df['ROI'] <= 0.3) & (df['ROI'] > 0)].shape[0] 
         stats['unprofitable_count'] = df[df['ROI'] <= 0].shape[0]
-        stats['top_5_by_roi'] = df.head(5)[['ASIN', 'EAN', 'Title', 'ROI', 'NetProfit', 'SellingPrice_incVAT', 'SupplierPrice_incVAT']].to_dict('records')
+        stats['top_5_by_roi'] = df.head(5)[['ASIN', 'EAN', 'SupplierTitle', 'ROI', 'NetProfit', 'SellingPrice_incVAT', 'SupplierPrice_incVAT']].to_dict('records')
     
     return {
         'dataframe': df,
@@ -494,7 +531,7 @@ def main():
         # Display statistics on results
         if 'ROI' in df.columns:
             print(f"\nTop 5 items by ROI:")
-            print(df.head(5)[['ASIN', 'EAN', 'Title', 'ROI', 'NetProfit', 'SellingPrice_incVAT', 'SupplierPrice_incVAT']])
+            print(df.head(5)[['ASIN', 'EAN', 'SupplierTitle', 'ROI', 'NetProfit', 'SellingPrice_incVAT', 'SupplierPrice_incVAT']])
             
             # Show profitability breakdown
             print(f"\nProfitability breakdown:")

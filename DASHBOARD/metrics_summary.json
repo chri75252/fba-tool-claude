@@ -1,0 +1,64 @@
+{
+  "timestamp": "2025-06-09T00:08:32.454317",
+  "categories": {
+    "total_categories_discovered": 7,
+    "categories_analyzed": 0,
+    "categories_with_products": 0,
+    "ai_suggested_categories": 7,
+    "productive_categories": 2,
+    "category_urls": [
+      "https://www.clearance-king.co.uk/sales.html?product_list_limit=0&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/50p-under.html?product_list_limit=0&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household/kitchenware/food-preparation.html",
+      "https://www.clearance-king.co.uk/pets/pet-accessories.html",
+      "https://www.clearance-king.co.uk/health-beauty.html",
+      "https://www.clearance-king.co.uk/gifts-toys/toys.html",
+      "https://www.clearance-king.co.uk/baby-kids/baby-care.html"
+    ]
+  },
+  "products": {
+    "total_supplier_products": 94,
+    "products_analyzed": 0,
+    "products_with_ean_match": 0,
+    "products_with_title_match": 0,
+    "products_unmatched": 0,
+    "current_processing_index": 39,
+    "processing_completion_percentage": 41.48936170212766
+  },
+  "amazon_data": {
+    "total_amazon_files": 295,
+    "ean_matched_products": 183,
+    "title_matched_products": 104,
+    "unmatched_products": 8,
+    "products_with_amazon_data": 0
+  },
+  "keepa_data": {
+    "products_with_keepa_data": 0,
+    "keepa_extraction_success": 0,
+    "keepa_timeouts": 0,
+    "keepa_missing_data": 0,
+    "incomplete_fee_data": 0,
+    "products_with_complete_fees": 0,
+    "error": "'charmap' codec can't decode byte 0x8f in position 336: character maps to <undefined>"
+  },
+  "financial": {
+    "csv_reports_generated": 88,
+    "products_in_latest_csv": 23,
+    "complete_financial_records": 23,
+    "latest_csv_timestamp": "2025-06-08T23:44:39.444932",
+    "financial_data_completeness_rate": 100.0
+  },
+  "processing": {
+    "active_processing": true,
+    "estimated_time_remaining_minutes": 275.0,
+    "processing_rate_products_per_minute": 0.2,
+    "last_activity_timestamp": "2025-06-09T00:05:07.359218"
+  },
+  "ai_system": {
+    "total_ai_calls": 1,
+    "successful_ai_calls": 1,
+    "ai_success_rate": 100.0,
+    "latest_ai_suggestion_timestamp": "2025-06-08T23:49:25.868728",
+    "ai_fallback_usage": 0
+  }
+}

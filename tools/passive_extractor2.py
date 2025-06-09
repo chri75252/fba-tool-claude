@@ -4454,6 +4454,7 @@ async def run_workflow_main():
             max_products_per_cycle_cfg,
             max_analyzed_products_cfg,
         )
+
         if max_products == 0:
             max_products = max_products_per_cycle_cfg
     except Exception as e:

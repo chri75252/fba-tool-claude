@@ -22,12 +22,11 @@ import xml.etree.ElementTree as ET
 import requests
 from urllib.parse import urlparse, parse_qs, urljoin
 import difflib # Added for enhanced title similarity
+import aiohttp # For async HTTP requests
 import shutil
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path # ADDED IMPORT
-import aiohttp  # Added for async HTTP requests
-
 # Assuming OpenAI client; ensure it's installed: pip install openai
 from openai import OpenAI
 # For enhanced HTML parsing
@@ -221,15 +220,21 @@ os.makedirs(AI_CATEGORY_CACHE_DIR, exist_ok=True)
 
 # Load OpenAI configuration from system config
 def _load_openai_config():
-    """Load OpenAI configuration from system_config.json"""
+    """Load OpenAI configuration from system_config.json with environment variable substitution"""
     try:
         config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
         
         openai_config = config.get("integrations", {}).get("openai", {})
+        api_key = openai_config.get("api_key", "")
+        
+        # Handle environment variable substitution for ${OPENAI_API_KEY}
+        if api_key == "${OPENAI_API_KEY}" or api_key.startswith("${") and api_key.endswith("}"):
+            api_key = os.getenv("OPENAI_API_KEY", "")
+        
         return {
-            "api_key": openai_config.get("api_key", ""),
+            "api_key": api_key,
             "model": openai_config.get("model", "gpt-4o-mini"),
             "enabled": openai_config.get("enabled", False)
         }
@@ -241,11 +246,56 @@ def _load_openai_config():
             "enabled": True
         }
 
-# Load OpenAI configuration
-_openai_config = _load_openai_config()
-OPENAI_API_KEY = _openai_config["api_key"]
-OPENAI_MODEL_NAME = _openai_config["model"]
-OPENAI_ENABLED = _openai_config["enabled"]
+
+# Load OpenAI configuration - Keep API keys hardcoded for reliability
+
+# Load OpenAI configuration - Direct hardcoded to avoid any API key issues
+
+OPENAI_API_KEY = "sk-_QrEsJ_Q6YlsXctdUYfVbwedrpT3tUXTjpTe7_F0ttT3BlbkFJ0TaojbrQAwM5Bsai1oW1pTe4P1xBRCxd7Mh8Fn5vkA"
+OPENAI_MODEL_NAME = "gpt-4o-mini-2024-07-18"
+OPENAI_ENABLED = True
+
+def _load_ai_features_config():
+    """Load AI features configuration from system_config.json"""
+    try:
+        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        
+        return config.get("ai_features", {})
+    except Exception as e:
+        log.warning(f"Failed to load AI features config from system_config.json: {e}")
+        return {}
+
+def _load_processing_limits_config():
+    """Load processing limits configuration from system_config.json"""
+    try:
+        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        
+        return config.get("processing_limits", {})
+    except Exception as e:
+        log.warning(f"Failed to load processing limits config from system_config.json: {e}")
+        return {}
+
+def _load_performance_config():
+    """Load performance configuration from system_config.json"""
+    try:
+        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        
+        return config.get("performance", {})
+    except Exception as e:
+        log.warning(f"Failed to load performance config from system_config.json: {e}")
+        return {}
+
+# Load OpenAI configuration - Direct hardcoded to avoid any API key issues
+OPENAI_API_KEY = "sk-_QrEsJ_Q6YlsXctdUYfVbwedrpT3tUXTjpTe7_F0ttT3BlbkFJ0TaojbrQAwM5Bsai1oW1pTe4P1xBRCxd7Mh8Fn5vkA"
+OPENAI_MODEL_NAME = "gpt-4o-mini-2024-07-18"
+OPENAI_ENABLED = True
+
 
 # REMOVED: SUPPLIER_CONFIGS dictionary, as this is now handled by ConfigurableSupplierScraper and supplier_config_loader.py
 
@@ -1116,6 +1166,34 @@ class PassiveExtractionWorkflow:
             
         return "\n".join(summary_lines)
 
+    def _get_category_performance_summary(self) -> str:
+        """Generate category performance summary for v2 prompt dynamic re-ordering"""
+        try:
+            # Load processing state to get category performance data
+            state_path = os.path.join(self.output_dir, f"{self.supplier_name}_processing_state.json")
+            if not os.path.exists(state_path):
+                return "CATEGORY PERFORMANCE: No previous performance data available."
+            
+            with open(state_path, 'r', encoding='utf-8') as f:
+                state = json.load(f)
+            
+            category_performance = state.get("category_performance", {})
+            if not category_performance:
+                return "CATEGORY PERFORMANCE: No performance metrics available yet."
+            
+            summary_lines = ["CATEGORY PERFORMANCE SUMMARY:"]
+            for url, metrics in sorted(category_performance.items(), 
+                                       key=lambda x: x[1].get('products_found', 0), reverse=True)[:5]:
+                products_found = metrics.get('products_found', 0)
+                profitable_count = metrics.get('profitable_products', 0)
+                avg_roi = metrics.get('avg_roi_percent', 0)
+                summary_lines.append(f"- {url.split('/')[-1]}: {products_found} products, {profitable_count} profitable, {avg_roi:.1f}% avg ROI")
+            
+            return "\n".join(summary_lines)
+        except Exception as e:
+            log.warning(f"Failed to generate category performance summary: {e}")
+            return "CATEGORY PERFORMANCE: Performance data unavailable."
+
     # ──────────────────────── ②  Enhanced AI method ──────────────────────────
     async def _get_ai_suggested_categories_enhanced(
         self,
@@ -1126,6 +1204,23 @@ class PassiveExtractionWorkflow:
         processed_products: int | None = None,
     ) -> dict:
         """🧠 FBA-aware AI selection with UK business intelligence & enhanced memory."""
+        # Load AI features configuration 
+        ai_config = _load_ai_features_config()
+        category_config = ai_config.get("category_selection", {})
+        
+        # Config-driven safety switch: Return manual list without AI calls if disabled in configuration
+        ai_disabled = category_config.get("disable_ai_category_selection", False)
+        
+        # Optional: Environment variable override for emergency testing (remove in production)
+        env_override = os.getenv('DISABLE_AI_CATEGORY_SELECTION', '').lower() == 'true'
+        if env_override:
+            log.warning("⚠️ EMERGENCY: AI disabled via environment variable - use config instead!")
+            ai_disabled = True
+        
+        if ai_disabled:
+            log.info("🚨 AI CATEGORY SELECTION DISABLED - Using dynamic category discovery")
+            return await self._dynamic_category_discovery(formatted, "")
+        
         prev_cats = previous_categories or []
 
         # 🧠 ENHANCED: Filter out previously suggested categories more thoroughly
@@ -1169,151 +1264,567 @@ class PassiveExtractionWorkflow:
                 error_msg = failed_errors.get(failed_url, "Unknown error")
                 memory_context += f"{i}. {failed_url} (Error: {error_msg})\n"
             memory_context += "\n⚠️ These URLs failed validation - DO NOT suggest them again!"
-        prompt = f"""
-AMAZON FBA UK CATEGORY ANALYSIS FOR: {supplier_name}
+        
+        # Select prompt based on AI_CATEGORY_MODE configuration
+        ai_mode = category_config.get("mode", "legacy").lower()
+        log.info(f"🤖 AI CATEGORY MODE: {ai_mode} (config: ai_features.category_selection.mode)")
+        
+        if ai_mode == "v2":
+            # Use the new 25-line clearance-first prompt (Phase B implementation)
+            category_performance_summary = self._get_category_performance_summary()
+            
+            prompt = f"""AMAZON FBA UK ARBITRAGE CATEGORY ANALYSIS
+ROLE: Expert clearance-arbitrage assistant.
 
-You are an expert Amazon FBA consultant specializing in UK marketplace product sourcing and category analysis.
+{category_performance_summary}
 
-DISCOVERED CATEGORIES FROM WEBSITE HOMEPAGE:
+DISCOVERED CATEGORIES:
 {formatted}
 
+INSTRUCTIONS
+1. Use ONLY URLs above.
+2. 🚨 CLEARANCE / DISCOUNT = HIGHEST priority.
+3. Return JSON:
+   ─ top_3_urls
+   ─ secondary_urls
+   ─ skip_urls
+   ─ detailed_reasoning
+   ─ progression_strategy
+
+CATEGORY PRIORITY:
+▸ HIGHEST : clearance, pound-lines, 50p-under, liquidation
+▸ HIGH    : home-kitchen, pet, beauty, baby, toys
+▸ MEDIUM  : seasonal, crafts, automotive
+▸ AVOID  : electronics, fashion, restricted, adult books
+
+Focus on maximum profit-per-pound. Return ONLY valid JSON."""
+        else:
+            # Use legacy 86-line prompt (current default)
+            prompt = f"""AMAZON FBA UK ARBITRAGE CATEGORY ANALYSIS FOR: {supplier_name}
+
+You are an expert arbitrage specialist focusing on discount sourcing for Amazon FBA UK.
+
+DISCOVERED CATEGORIES: {formatted}
 {memory_context}
 
-PREVIOUSLY PROCESSED CATEGORIES: {prev_cats or "None"}
-PREVIOUSLY PROCESSED PRODUCTS: {processed_products or "None"}
+**CRITICAL: Only select URLs from the DISCOVERED CATEGORIES list above.**
 
-🚨 CRITICAL INSTRUCTIONS - READ CAREFULLY:
-1. **YOU MUST ONLY SELECT URLs FROM THE "DISCOVERED CATEGORIES" LIST ABOVE**
-2. **DO NOT INVENT OR CREATE NEW URLs - ONLY USE THE PROVIDED ONES**
-3. **DO NOT SUGGEST URLs THAT ARE NOT IN THE DISCOVERED CATEGORIES LIST**
-4. ONLY select URLs that appear to be PRODUCT LISTING PAGES, not search forms or filters
-5. Avoid URLs containing: "search", "advanced", "filter", "sort", "login", "account"
-6. Prioritize URLs with clear category names that suggest product listings
-7. Avoid URLs that look like individual product pages (containing specific product names)
+ARBITRAGE PRIORITY (HIGHEST PROFIT POTENTIAL):
+🚨 HIGHEST PRIORITY - CLEARANCE & DISCOUNT CATEGORIES:
+- Clearance/Sale/Discount categories (maximum arbitrage profit)
+- Pound lines, 50p & under categories (extreme value sourcing)
+- End-of-line, liquidation, bulk discount sections
+- Value sections, special offers, wholesale clearance
 
-URL SELECTION RULES:
-- **ONLY SELECT FROM THE DISCOVERED CATEGORIES LIST ABOVE**
-- **DO NOT CREATE NEW URLs OR MODIFY EXISTING ONES**
-- GOOD patterns from the list: URLs ending in category names like "/household.html", "/baby-kids.html"
-- BAD patterns from the list: URLs containing "search", "advanced", "filter", "catalogsearch"
+HIGH PRIORITY - CONSISTENT ARBITRAGE CATEGORIES:
+- Home & Kitchen, Pet Supplies, Beauty & Personal Care
+- Baby products, Toys & Games, Office supplies
+- Kids activity books (coloring, stickers, puzzles)
 
-Based on your FBA expertise, select categories from the DISCOVERED CATEGORIES list that are most likely to contain profitable, scrapeable products for Amazon FBA UK.
+AVOID:
+- Electronics, Fashion, Medical, Food items
+- Adult books, Search/filter pages
+- Individual product pages
 
-⚠️ **IMPORTANT: ALL URLs in your response MUST come from the DISCOVERED CATEGORIES list above. Do not invent new URLs.**
-
-Return a JSON object with EXACTLY these keys:
+Return JSON with EXACTLY these keys:
 {{
-    "top_3_urls": [list of 3 best PRODUCT LISTING category URLs],
-    "secondary_urls": [list of 3-5 backup category URLs],
-    "skip_urls": [list of category URLs to avoid - include search/filter pages],
-    "detailed_reasoning": {{"category_name": "detailed reason for selection/skipping including URL pattern analysis"}},
-    "progression_strategy": "description of your category selection strategy focusing on product listing identification",
-    "url_pattern_confidence": {{"high_confidence": ["urls you're very confident contain products"], "medium_confidence": ["urls that might contain products"], "low_confidence": ["urls unlikely to contain products"]}}
+    "top_3_urls": [3 best category URLs from DISCOVERED list],
+    "secondary_urls": [3-5 backup URLs from DISCOVERED list],
+    "skip_urls": [URLs to avoid from DISCOVERED list],
+    "detailed_reasoning": {{"category": "brief reason"}},
+    "progression_strategy": "prioritize clearance first, then high-margin categories"
 }}
 
-PRIORITIZE CATEGORIES LIKELY TO CONTAIN:
-HIGH PRIORITY:
-- Home & Kitchen products (high profit margins, consistent demand)
-- Pet Supplies (growing market, good margins)
-- Beauty & Personal Care (repeat purchases, brand loyalty)
-- Sports & Outdoors (seasonal opportunities)
-- Office & Stationery (business demand)
-- DIY & Tools (practical demand)
-- Baby & Nursery products (premium pricing potential)
-- Toys & Games (consistent demand)
-- Kids Books (coloring books, sticker books, activity books, picture books)
+**Focus on arbitrage profit margins. Clearance categories = maximum profit opportunity.**"""
+        
+        # ---------- AI-FIRST FALLBACK LADDER ----------
+        return await self._ai_fallback_ladder(category_config, supplier_name, formatted, memory_context, ai_mode)
 
-MEDIUM PRIORITY:
-- Clearance/Value categories (pound lines, 50p & under, clearance, sale, discount)
-- Crafts & Hobbies (creative supplies, art materials)
-- Seasonal items (Christmas, Halloween, party supplies)
-- Automotive accessories (small car accessories)
-
-AVOID CATEGORIES WITH:
-- Electronics (high competition, warranty issues)
-- Clothing/Fashion (size/fit issues, returns)
-- Medical/Pharmaceutical (regulatory restrictions)
-- Food/Beverages (expiry dates, regulations)
-- Large/bulky items (shipping costs, storage issues)
-- High-value jewelry (authentication, insurance)
-- Dangerous goods (batteries, flammables, restricted)
-- Adult Books (novels, fiction, textbooks, academic books - AVOID these)
-- Search/filter pages (no actual products)
-
-IMPORTANT BOOK DISTINCTION:
-- INCLUDE: Kids books, coloring books, sticker books, activity books, picture books
-- EXCLUDE: Adult novels, fiction, textbooks, academic books, biographies
-
-REASONING REQUIREMENTS:
-For each selected URL, explain:
-1. Why the URL pattern suggests it contains product listings
-2. What type of products you expect to find
-3. Why those products are suitable for FBA
-4. Estimated profit potential (High/Medium/Low)
-
-Return ONLY valid JSON, no additional text."""
-        # ---------- AI CALL ----------
-        # 🔧 FIXED: Use regular model since search-enabled model doesn't support json_object format
-        model_to_use = "gpt-4o-mini"  # Regular model that supports json_object
-
-        # Log API call details for debugging
-        log.info(f"🤖 OpenAI API Call - Model: {model_to_use}, Max Tokens: 1200")
-        log.info(f"🤖 Prompt Length: {len(prompt)} characters")
-        log.debug(f"🤖 Full Prompt: {prompt[:500]}..." if len(prompt) > 500 else f"🤖 Full Prompt: {prompt}")
-
-        raw = await asyncio.to_thread(
-            self.ai_client.chat.completions.create,
-            model=model_to_use,
-            messages=[{"role": "user", "content": prompt}],
-            response_format={"type": "json_object"},
-            max_tokens=1200,  # Increased for better reasoning
-        )
-
-        # Log token usage
-        if hasattr(raw, 'usage') and raw.usage:
-            log.info(f"🤖 Token Usage - Input: {raw.usage.prompt_tokens}, Output: {raw.usage.completion_tokens}, Total: {raw.usage.total_tokens}")
-
-        # Save detailed API call log
-        self._save_api_call_log(prompt, raw, model_to_use, "category_suggestion")
-
-        # ---------- STRICT VALIDATION ----------
-        try:
-            ai = json.loads(raw.choices[0].message.content.strip())
-            # Fix: Add missing keys with default values instead of failing
-            required = {"top_3_urls", "secondary_urls", "skip_urls"}
-            if not required.issubset(ai):
-                self.log.warning(f"AI JSON missing keys: {required - set(ai)} - adding defaults")
-                # Add missing keys with defaults
-                if "top_3_urls" not in ai:
-                    ai["top_3_urls"] = [c["url"] for c in discovered_categories
-                                      if self._classify_url(c["url"]) == "friendly"
-                                      and c["url"] not in (previous_categories or [])][:3]
-                if "secondary_urls" not in ai:
-                    ai["secondary_urls"] = []
-                if "skip_urls" not in ai:
-                    ai["skip_urls"] = []
+    async def _ai_fallback_ladder(self, category_config: dict, supplier_name: str, formatted: str, memory_context: str, initial_mode: str) -> dict:
+        """Multi-tier AI-first fallback system with escalating prompts, temperatures, and models"""
+        fallback_config = category_config.get("fallbacks", {})
+        max_retries = fallback_config.get("max_retries", 2)
+        alternate_prompts = fallback_config.get("alternate_prompts", ["v2", "legacy", "minimal"])
+        temperature_escalation = fallback_config.get("temperature_escalation", [0.1, 0.3, 0.5])
+        model_escalation = fallback_config.get("model_escalation", ["gpt-4o-mini-2024-07-18"])
+        clear_cache = fallback_config.get("clear_cache_between_retries", True)
+        
+        log.info("🎯 AI-FIRST FALLBACK LADDER: Starting multi-tier AI category discovery")
+        
+        for attempt in range(max_retries + 1):
+            prompt_mode = alternate_prompts[min(attempt, len(alternate_prompts) - 1)]
+            temperature = temperature_escalation[min(attempt, len(temperature_escalation) - 1)]
+            model = model_escalation[min(attempt, len(model_escalation) - 1)]
             
-            # Ensure lists are actually lists
-            for key in ["top_3_urls", "secondary_urls", "skip_urls"]:
-                if not isinstance(ai[key], list):
-                    self.log.warning(f"AI JSON '{key}' is not a list - fixing")
-                    ai[key] = [ai[key]] if ai[key] else []
-                    
-        except Exception as e:
-            self.log.error("AI JSON invalid → %s – falling back to heuristic list", e)
-            friendly_urls = [c["url"] for c in discovered_categories
-                             if self._classify_url(c["url"]) == "friendly"
-                             and c["url"] not in (previous_categories or [])][:3]
-            ai = {"top_3_urls": friendly_urls,
-                  "secondary_urls": [],
-                  "skip_urls": [],
-                  "detailed_reasoning": {"fallback": "heuristic-friendly"},
-                  "progression_strategy": "simple-first-3"}
+            log.info(f"🔄 Fallback Attempt {attempt + 1}/{max_retries + 1}: mode={prompt_mode}, temp={temperature}, model={model}")
+            
+            try:
+                # Clear cache if configured
+                if clear_cache and attempt > 0:
+                    log.info("🧹 Clearing AI cache between fallback attempts")
+                    await self._clear_ai_cache()
+                
+                # Build prompt based on mode
+                prompt = await self._build_prompt(prompt_mode, formatted, memory_context)
+                
+                # Call AI with escalated parameters
+                result = await self._call_ai_with_params(prompt, temperature, model)
+                
+                if result:
+                    log.info(f"✅ AI Fallback Success on attempt {attempt + 1}")
+                    return result
+                
+            except Exception as e:
+                log.warning(f"❌ AI Fallback attempt {attempt + 1} failed: {str(e)}")
+                if attempt == max_retries:
+                    log.error("🚨 All AI fallback attempts exhausted - switching to dynamic category discovery")
+                    return await self._dynamic_category_discovery(formatted, memory_context)
+                
+        # Final fallback to dynamic category discovery
+        log.warning("🚨 AI fallback ladder failed - using dynamic category discovery")
+        return await self._dynamic_category_discovery(formatted, memory_context)
+    
+    async def _build_prompt(self, mode: str, formatted: str, memory_context: str) -> str:
+        """Build AI prompt based on mode"""
+        if mode == "v2":
+            return f"""ARBITRAGE CATEGORY SELECTION - PROFIT-FOCUSED
 
-        # hard filter avoid patterns
-        ai["top_3_urls"] = [u for u in ai["top_3_urls"] if self._classify_url(u) != "avoid"]
-        ai["skip_urls"]  = list(set(ai.get("skip_urls",[]) + [u for u in ai["top_3_urls"] if self._classify_url(u)=="avoid"]))
-        return ai
+DISCOVERED CATEGORIES: {formatted}
+{memory_context}
+
+**CRITICAL: Only select URLs from the DISCOVERED CATEGORIES list above.**
+
+ARBITRAGE PRIORITY (HIGHEST PROFIT POTENTIAL):
+🚨 HIGHEST PRIORITY - CLEARANCE & DISCOUNT CATEGORIES:
+- Clearance/Sale/Discount categories (maximum arbitrage profit)
+- Pound lines, 50p & under categories (extreme value sourcing)
+- End-of-line, liquidation, bulk discount sections
+
+HIGH PRIORITY - CONSISTENT ARBITRAGE CATEGORIES:
+- Home & Kitchen, Pet Supplies, Beauty & Personal Care
+- Baby products, Toys & Games, Office supplies
+
+Return JSON with EXACTLY these keys:
+{{
+    "top_3_urls": [3 best category URLs from DISCOVERED list],
+    "secondary_urls": [3-5 backup URLs from DISCOVERED list],
+    "skip_urls": [URLs to avoid from DISCOVERED list],
+    "detailed_reasoning": {{"category": "brief reason"}},
+    "progression_strategy": "prioritize clearance first, then high-margin categories"
+}}
+
+**Focus on arbitrage profit margins. Clearance categories = maximum profit opportunity.**"""
+        elif mode == "legacy":
+            # Original detailed prompt
+            return self._generate_legacy_prompt(formatted, memory_context)
+        elif mode == "minimal":
+            return f"""Select 3 best category URLs from: {formatted}
+Return JSON: {{"top_3_urls": [], "secondary_urls": [], "skip_urls": []}}"""
+        else:
+            return self._build_prompt("v2", formatted, memory_context)
+    
+    async def _call_ai_with_params(self, prompt: str, temperature: float, model: str) -> dict:
+        """Call AI with specific parameters"""
+        try:
+            raw = await asyncio.to_thread(
+                self.ai_client.chat.completions.create,
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                max_tokens=1200,
+                temperature=temperature
+            )
+            
+            result = json.loads(raw.choices[0].message.content.strip())
+            
+            # Validate required keys
+            required_keys = ["top_3_urls", "secondary_urls", "skip_urls"]
+            if all(key in result for key in required_keys):
+                return result
+            else:
+                log.warning(f"AI result missing required keys: {[k for k in required_keys if k not in result]}")
+                return None
+                
+        except Exception as e:
+            log.error(f"AI call failed: {e}")
+            return None
+    
+    async def _dynamic_category_discovery(self, formatted: str, memory_context: str) -> dict:
+        """Fallback to dynamic category discovery when AI fails"""
+        log.info("🔄 Using dynamic category discovery as AI fallback")
+        # Simple fallback logic - select first few URLs
+        lines = formatted.split('\n')
+        urls = [line.split(' - ')[0].strip() for line in lines if line.strip() and 'http' in line]
+        
+        return {
+            "top_3_urls": urls[:3] if len(urls) >= 3 else urls,
+            "secondary_urls": urls[3:6] if len(urls) > 3 else [],
+            "skip_urls": [],
+            "detailed_reasoning": {"category": "fallback selection"},
+            "progression_strategy": "dynamic discovery fallback"
+        }
+
+    def _generate_prompt_by_mode(self, mode: str, formatted: str, memory_context: str, supplier_name: str) -> str:
+        """Generate AI prompt based on the specified mode"""
+        if mode == "minimal":
+            return f"""ROLE: UK arbitrage assistant.
+INPUT: {formatted}
+OUT: JSON top_3_urls, secondary_urls, skip_urls.
+PRIORITY: clearance & discount first.
+FAIL if any URL not in INPUT."""
+            
+        elif mode == "v2":
+            return f"""AMAZON FBA UK ARBITRAGE CATEGORY ANALYSIS
+ROLE: Expert clearance-arbitrage assistant.
+
+DISCOVERED CATEGORIES:
+{formatted}
+
+INSTRUCTIONS
+1. Use ONLY URLs above.
+2. 🚨 CLEARANCE / DISCOUNT = HIGHEST priority.
+3. Return JSON:
+   ─ top_3_urls
+   ─ secondary_urls
+   ─ skip_urls
+   ─ detailed_reasoning
+   ─ progression_strategy
+
+CATEGORY PRIORITY:
+▸ HIGHEST : clearance, pound-lines, 50p-under, liquidation
+▸ HIGH    : home-kitchen, pet, beauty, baby, toys
+▸ MEDIUM  : seasonal, crafts, automotive
+▸ AVOID  : electronics, fashion, restricted, adult books
+
+Focus on maximum profit-per-pound. Return ONLY valid JSON."""
+            
+        else:  # legacy mode
+            return f"""AMAZON FBA UK ARBITRAGE CATEGORY ANALYSIS FOR: {supplier_name}
+
+You are an expert arbitrage specialist focusing on discount sourcing for Amazon FBA UK.
+
+DISCOVERED CATEGORIES: {formatted}
+{memory_context}
+
+**CRITICAL: Only select URLs from the DISCOVERED CATEGORIES list above.**
+
+ARBITRAGE PRIORITY (HIGHEST PROFIT POTENTIAL):
+🚨 HIGHEST PRIORITY - CLEARANCE & DISCOUNT CATEGORIES:
+- Clearance/Sale/Discount categories (maximum arbitrage profit)
+- Pound lines, 50p & under categories (extreme value sourcing)
+- End-of-line, liquidation, bulk discount sections
+- Value sections, special offers, wholesale clearance
+
+HIGH PRIORITY - CONSISTENT ARBITRAGE CATEGORIES:
+- Home & Kitchen, Pet Supplies, Beauty & Personal Care
+- Baby products, Toys & Games, Office supplies
+- Kids activity books (coloring, stickers, puzzles)
+
+AVOID:
+- Electronics, Fashion, Medical, Food items
+- Adult books, Search/filter pages
+- Individual product pages
+
+Return JSON with EXACTLY these keys:
+{{
+    "top_3_urls": [3 best category URLs from DISCOVERED list],
+    "secondary_urls": [3-5 backup URLs from DISCOVERED list],
+    "skip_urls": [URLs to avoid from DISCOVERED list],
+    "detailed_reasoning": {{"category": "brief reason"}},
+    "progression_strategy": "prioritize clearance first, then high-margin categories"
+}}
+
+**Focus on arbitrage profit margins. Clearance categories = maximum profit opportunity.**"""
+
+    async def _call_openai_with_params(self, prompt: str, model: str, temperature: float) -> dict:
+        """Make OpenAI API call with specified parameters and smart retry logic"""
+        # Function-calling wrapper for guaranteed valid JSON structure
+        system_fn = [{
+            "type": "function",
+            "function": {
+                "name": "return_categories",
+                "description": "Return categorized URLs for FBA arbitrage processing",
+                "parameters": {
+                "type": "object",
+                "properties": {
+                    "top_3_urls": {
+                        "type": "array", 
+                        "items": {"type": "string"},
+                        "description": "3 highest priority category URLs"
+                    },
+                    "secondary_urls": {
+                        "type": "array", 
+                        "items": {"type": "string"},
+                        "description": "3-5 backup category URLs"
+                    },
+                    "skip_urls": {
+                        "type": "array", 
+                        "items": {"type": "string"},
+                        "description": "URLs to avoid"
+                    },
+                    "detailed_reasoning": {
+                        "type": "object",
+                        "description": "Reasoning for category selection"
+                    },
+                    "progression_strategy": {
+                        "type": "string", 
+                        "description": "Strategy for category processing"
+                    }
+                },
+                "required": ["top_3_urls", "secondary_urls", "skip_urls"]
+                }
+            }
+        }]
+        
+        # Smart back-off on 429/502 errors
+        for attempt in range(3):
+            try:
+                raw = await asyncio.to_thread(
+                    self.ai_client.chat.completions.create,
+                    model=model,
+                    messages=[{"role": "user", "content": prompt}],
+                    tools=system_fn,
+                    tool_choice={"type": "function", "function": {"name": "return_categories"}},
+                    max_tokens=1200,
+                    temperature=temperature
+                )
+                
+                # Extract function call result
+                if raw.choices[0].message.tool_calls:
+                    function_call = raw.choices[0].message.tool_calls[0]
+                    if function_call.function.name == "return_categories":
+                        ai_result = json.loads(function_call.function.arguments)
+                        
+                        # Log token usage
+                        if hasattr(raw, 'usage') and raw.usage:
+                            log.info(f"🤖 Token Usage - Input: {raw.usage.prompt_tokens}, Output: {raw.usage.completion_tokens}, Total: {raw.usage.total_tokens}")
+                        
+                        return ai_result
+                
+                raise ValueError("No valid function call returned")
+                
+            except Exception as e:
+                # Smart back-off for rate limits and server errors
+                if hasattr(e, 'status_code') and e.status_code in (429, 502):
+                    backoff_time = 2 ** attempt  # 1s, 2s, 4s
+                    log.warning(f"Rate limit/server error (HTTP {e.status_code}), backing off {backoff_time}s...")
+                    await asyncio.sleep(backoff_time)
+                    continue
+                elif "rate_limit" in str(e).lower() or "429" in str(e):
+                    backoff_time = 2 ** attempt
+                    log.warning(f"Rate limit detected, backing off {backoff_time}s...")
+                    await asyncio.sleep(backoff_time)
+                    continue
+                    
+                # For other errors, don't retry
+                log.error(f"OpenAI API call failed (attempt {attempt + 1}): {e}")
+                if attempt == 2:  # Last attempt
+                    raise
+                    
+        raise Exception("All retry attempts exhausted")
+
+    def _result_valid(self, ai_result: dict) -> bool:
+        """Validate AI result has required keys and non-empty top_3_urls"""
+        try:
+            required_keys = {"top_3_urls", "secondary_urls", "skip_urls"}
+            if not required_keys.issubset(ai_result.keys()):
+                return False
+                
+            # Ensure top_3_urls is not empty and is actually a list
+            if not isinstance(ai_result["top_3_urls"], list) or len(ai_result["top_3_urls"]) == 0:
+                return False
+                
+            # Ensure no overlap between top_3_urls and skip_urls
+            top_urls = set(ai_result["top_3_urls"])
+            skip_urls = set(ai_result.get("skip_urls", []))
+            if top_urls.intersection(skip_urls):
+                return False
+                
+            return True
+            
+        except Exception:
+            return False
+
+    async def _urls_exist(self, urls: list[str]) -> bool:
+        """URL head-check validator - catches hallucinations before dynamic scrape fallback"""
+        try:
+            if not urls:
+                return False
+                
+            session = await self.web_scraper._get_session()
+            valid_urls = []
+            
+            # Check up to 6 URLs (top_3 + first 3 secondary)
+            check_urls = urls[:6]
+            
+            for url in check_urls:
+                try:
+                    async with session.head(url, timeout=aiohttp.ClientTimeout(total=5)) as response:
+                        if response.status == 200:
+                            valid_urls.append(url)
+                            
+                        # Some sites don't support HEAD, try GET with range
+                        elif response.status == 405:  # Method not allowed
+                            async with session.get(url, timeout=aiohttp.ClientTimeout(total=5), 
+                                                 headers={'Range': 'bytes=0-1024'}) as get_response:
+                                if get_response.status in (200, 206):  # OK or Partial Content
+                                    valid_urls.append(url)
+                                    
+                except Exception as e:
+                    log.debug(f"URL check failed for {url}: {e}")
+                    continue
+            
+            # Require at least 3 valid URLs to proceed with AI result
+            is_valid = len(valid_urls) >= 3
+            log.info(f"🔍 URL HEAD-CHECK: {len(valid_urls)}/{len(check_urls)} URLs valid (threshold: 3)")
+            
+            return is_valid
+            
+        except Exception as e:
+            log.warning(f"URL existence check failed: {e}")
+            return True  # Don't fail if we can't check - be permissive
+
+    async def _invalidate_ai_cache_entry(self, supplier_name: str):
+        """Delete the most recent AI cache entry for this supplier"""
+        try:
+            cache_file = os.path.join(AI_CATEGORY_CACHE_DIR, f"{supplier_name}_ai_category_cache.json")
+            if os.path.exists(cache_file):
+                with open(cache_file, 'r', encoding='utf-8') as f:
+                    cache_data = json.load(f)
+                
+                # Remove the most recent AI suggestion entry
+                if "ai_suggestion_history" in cache_data and cache_data["ai_suggestion_history"]:
+                    cache_data["ai_suggestion_history"].pop()
+                    cache_data["total_ai_calls"] = len(cache_data["ai_suggestion_history"])
+                    
+                    with open(cache_file, 'w', encoding='utf-8') as f:
+                        json.dump(cache_data, f, indent=2, ensure_ascii=False)
+                    
+                    log.info(f"🗑️ Invalidated most recent AI cache entry for {supplier_name}")
+                
+        except Exception as e:
+            log.warning(f"Failed to invalidate AI cache entry: {e}")
+
+    async def _dynamic_category_fallback(self, supplier_url: str) -> dict:
+        """Final fallback: dynamically discover categories from homepage"""
+        try:
+            log.info("🔍 DYNAMIC CATEGORY DISCOVERY: Scraping homepage for category links")
+            
+            # Get processing limits configuration
+            processing_limits = _load_processing_limits_config()
+            min_products = processing_limits.get("min_products_per_category", 2)
+            
+            # Discover all links from homepage
+            links = await self._discover_all_links_from_homepage(supplier_url)
+            
+            # Filter to valid categories with sufficient products
+            valid_categories = []
+            for url in links[:20]:  # Limit to first 20 links to avoid overload
+                try:
+                    product_count = await self._count_products_on_category_page(url)
+                    if product_count >= min_products:
+                        valid_categories.append(url)
+                        log.info(f"✅ Valid category found: {url} ({product_count} products)")
+                    
+                    if len(valid_categories) >= 10:  # Stop after finding 10 valid categories
+                        break
+                        
+                except Exception as e:
+                    log.debug(f"Failed to check {url}: {e}")
+                    continue
+            
+            if not valid_categories:
+                log.error("❌ No valid categories found in dynamic discovery")
+                valid_categories = [supplier_url]  # Use homepage as last resort
+            
+            return {
+                "top_3_urls": valid_categories[:3],
+                "secondary_urls": valid_categories[3:6],
+                "skip_urls": valid_categories[6:],
+                "detailed_reasoning": {"fallback": "dynamic-homepage-scrape"},
+                "progression_strategy": "dynamic fallback"
+            }
+            
+        except Exception as e:
+            log.error(f"Dynamic category fallback failed: {e}")
+            return {
+                "top_3_urls": [supplier_url],
+                "secondary_urls": [],
+                "skip_urls": [],
+                "detailed_reasoning": {"fallback": "emergency-homepage-only"},
+                "progression_strategy": "emergency fallback"
+            }
+
+    async def _discover_all_links_from_homepage(self, supplier_url: str) -> list[str]:
+        """Grab all <a href> links from supplier's homepage"""
+        try:
+            session = await self.web_scraper._get_session()
+            async with session.get(supplier_url, timeout=aiohttp.ClientTimeout(total=15)) as response:
+                if response.status != 200:
+                    return []
+                    
+                html = await response.text()
+                
+            from bs4 import BeautifulSoup
+            from urllib.parse import urljoin
+            soup = BeautifulSoup(html, "html.parser")
+            
+            links = []
+            for a in soup.find_all("a", href=True):
+                href = a.get("href")
+                if href:
+                    full_url = urljoin(supplier_url, href)
+                    # Filter out obvious non-category links
+                    if not any(skip in full_url.lower() for skip in ["javascript:", "mailto:", "#", "tel:"]):
+                        links.append(full_url)
+            
+            # Remove duplicates while preserving order
+            seen = set()
+            unique_links = []
+            for link in links:
+                if link not in seen:
+                    seen.add(link)
+                    unique_links.append(link)
+                    
+            log.info(f"🔍 Discovered {len(unique_links)} unique links from homepage")
+            return unique_links
+            
+        except Exception as e:
+            log.error(f"Failed to discover links from homepage: {e}")
+            return []
+
+    async def _count_products_on_category_page(self, category_url: str) -> int:
+        """Quickly fetch category page and count product items"""
+        try:
+            session = await self.web_scraper._get_session()
+            async with session.get(category_url, timeout=aiohttp.ClientTimeout(total=10)) as response:
+                if response.status != 200:
+                    return 0
+                    
+                html = await response.text()
+                
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(html, "html.parser")
+            
+            # Try multiple common product selectors
+            selectors = [
+                ".product-item",
+                ".product",
+                "[class*='product']",
+                ".item",
+                "[data-product]"
+            ]
+            
+            for selector in selectors:
+                products = soup.select(selector)
+                if products:
+                    return len(products)
+                    
+            return 0
+            
+        except Exception as e:
+            log.debug(f"Failed to count products on {category_url}: {e}")
+            return 0
 
     async def _validate_category_productivity(self, url: str) -> dict:
         """Check if category URL actually contains products (Solution 3)"""
@@ -1386,9 +1897,21 @@ Return ONLY valid JSON, no additional text."""
         """Add optimization parameters to category URLs for better product retrieval"""
         optimized_urls = []
 
+        # Load max_products_per_category from system config
+        try:
+            config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "system_config.json")
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            max_products = config.get("system", {}).get("max_products_per_category", 4)
+        except Exception as e:
+            log.warning(f"Failed to load max_products_per_category from config: {e}")
+            max_products = 4  # Default fallback
+            
+        log.info(f"🔧 Using max_products_per_category from config: {max_products}")
+
         for url in urls:
-            # Base parameters for better product retrieval (generic, no price filtering)
-            base_params = "product_list_limit=64&product_list_order=price&product_list_dir=asc"
+            # Base parameters for better product retrieval - use config value instead of hardcoded 64
+            base_params = f"product_list_limit={max_products}&product_list_order=price&product_list_dir=asc"
 
             # Add parameters to URL
             if '?' in url:
@@ -1397,9 +1920,117 @@ Return ONLY valid JSON, no additional text."""
                 optimized_url = f"{url}?{base_params}"
 
             optimized_urls.append(optimized_url)
-            log.info(f"Optimized URL (no price filtering): {url} -> {optimized_url}")
+            log.info(f"Optimized URL (limit={max_products}): {url} -> {optimized_url}")
 
         return optimized_urls
+
+    async def _apply_dynamic_reordering(self, category_urls: list, supplier_name: str) -> list:
+        """Apply dynamic re-ordering based on category performance metrics"""
+        try:
+            # Load AI features configuration for dynamic re-ordering settings
+            ai_config = _load_ai_features_config()
+            reordering_config = ai_config.get("category_selection", {}).get("dynamic_reordering", {})
+            
+            # Check if dynamic re-ordering is enabled
+            if not reordering_config.get("enabled", False):
+                log.debug("🔄 Dynamic re-ordering disabled in configuration")
+                return category_urls
+            
+            log.info("🔄 DYNAMIC RE-ORDERING: Analyzing category performance metrics")
+            
+            # Load historical performance data
+            performance_metrics = await self._load_category_performance_metrics(supplier_name)
+            
+            if not performance_metrics:
+                log.info("🔄 No historical performance data available - using original order")
+                return category_urls
+            
+            # Calculate performance scores for each category
+            scored_categories = []
+            for url in category_urls:
+                score = self._calculate_category_performance_score(url, performance_metrics)
+                scored_categories.append({
+                    "url": url,
+                    "score": score,
+                    "metrics": performance_metrics.get(url, {})
+                })
+            
+            # Sort by performance score (descending - best categories first)
+            scored_categories.sort(key=lambda x: x["score"], reverse=True)
+            
+            # Extract reordered URLs
+            reordered_urls = [category["url"] for category in scored_categories]
+            
+            # Log the re-ordering results
+            log.info(f"🔄 DYNAMIC RE-ORDERING RESULTS:")
+            for i, category in enumerate(scored_categories[:5]):  # Show top 5
+                metrics = category["metrics"]
+                log.info(f"  {i+1}. Score: {category['score']:.2f} | {category['url']}")
+                if metrics:
+                    log.info(f"     └─ Products: {metrics.get('products_found', 0)}, "
+                           f"Profitable: {metrics.get('profitable_products', 0)}, "
+                           f"Avg ROI: {metrics.get('avg_roi_percent', 0):.1f}%")
+            
+            return reordered_urls
+            
+        except Exception as e:
+            log.warning(f"🔄 Dynamic re-ordering failed: {e}")
+            return category_urls  # Return original order on error
+
+    async def _load_category_performance_metrics(self, supplier_name: str) -> dict:
+        """Load historical category performance metrics from processing state"""
+        try:
+            state_file = os.path.join(OUTPUT_DIR, f"{supplier_name}_processing_state.json")
+            if not os.path.exists(state_file):
+                return {}
+            
+            with open(state_file, 'r', encoding='utf-8') as f:
+                state_data = json.load(f)
+            
+            return state_data.get("category_performance", {})
+            
+        except Exception as e:
+            log.warning(f"Failed to load category performance metrics: {e}")
+            return {}
+
+    def _calculate_category_performance_score(self, category_url: str, performance_metrics: dict) -> float:
+        """Calculate a performance score for a category based on historical metrics"""
+        try:
+            metrics = performance_metrics.get(category_url, {})
+            
+            if not metrics:
+                # No historical data - return neutral score
+                return 50.0
+            
+            # Weight factors for different metrics
+            products_found = metrics.get("products_found", 0)
+            profitable_products = metrics.get("profitable_products", 0)
+            avg_roi_percent = metrics.get("avg_roi_percent", 0)
+            processing_time = metrics.get("avg_processing_time_seconds", 300)  # Default 5 min
+            
+            # Calculate component scores (0-100 scale)
+            products_score = min(products_found * 2, 100)  # 2 points per product, max 100
+            profitability_score = (profitable_products / max(products_found, 1)) * 100 if products_found > 0 else 0
+            roi_score = min(avg_roi_percent, 100) if avg_roi_percent > 0 else 0
+            efficiency_score = max(0, 100 - (processing_time / 10))  # Penalize slow categories
+            
+            # Weighted average
+            total_score = (
+                products_score * 0.3 +        # 30% weight on product count
+                profitability_score * 0.4 +   # 40% weight on profitability ratio
+                roi_score * 0.2 +              # 20% weight on ROI
+                efficiency_score * 0.1         # 10% weight on processing efficiency
+            )
+            
+            # Boost clearance categories (arbitrage priority)
+            if any(keyword in category_url.lower() for keyword in ["clearance", "50p", "pound", "sale", "discount"]):
+                total_score += 25  # 25-point clearance bonus
+                
+            return min(total_score, 100.0)  # Cap at 100
+            
+        except Exception as e:
+            log.warning(f"Failed to calculate performance score for {category_url}: {e}")
+            return 50.0  # Return neutral score on error
 
     def _save_api_call_log(self, prompt: str, response, model: str, call_type: str):
         """Save detailed OpenAI API call logs for debugging and token tracking"""
@@ -1898,6 +2529,17 @@ Return ONLY valid JSON, no additional text."""
         
         return urls
 
+<<<<<<< HEAD
+    async def run(self, supplier_url: str = DEFAULT_SUPPLIER_URL,
+                  supplier_name: str = DEFAULT_SUPPLIER_NAME,
+                  max_products_to_process: int = 50,
+                  max_products_per_category: int = 0,
+                  max_analyzed_products: int = 0,
+                  cache_supplier_data: bool = True,
+                  force_config_reload: bool = False,
+                  debug_smoke: bool = False,
+                  resume_from_last: bool = True) -> List[Dict[str, Any]]:
+=======
     async def run(
         self,
         supplier_url: str = DEFAULT_SUPPLIER_URL,
@@ -1910,6 +2552,7 @@ Return ONLY valid JSON, no additional text."""
         debug_smoke: bool = False,
         resume_from_last: bool = True,
     ) -> List[Dict[str, Any]]:
+>>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
         profitable_results: List[Dict[str, Any]] = []
         processed_by_category: Dict[str, int] = defaultdict(int)
         total_processed = 0
@@ -2071,10 +2714,12 @@ Return ONLY valid JSON, no additional text."""
             log.info(f"LIMITED MODE: Processing up to {max_products_to_process} products starting from index {self.last_processed_index}.")
             products_to_analyze = price_filtered_products[self.last_processed_index:self.last_processed_index + max_products_to_process]
 
-        # Smart rate limiting configuration
-        RATE_LIMIT_DELAY = 3.0  # 3 seconds between Amazon analyses
-        BATCH_DELAY = 15.0      # 15 seconds every 25 products
-        BATCH_SIZE = 25         # Process in batches of 25
+        # Smart rate limiting configuration from system_config.json
+        perf_config = _load_performance_config()
+        rate_config = perf_config.get("rate_limiting", {})
+        RATE_LIMIT_DELAY = rate_config.get("rate_limit_delay", 3.0)
+        BATCH_DELAY = rate_config.get("batch_delay", 15.0)
+        BATCH_SIZE = perf_config.get("batch_size", 25)
 
         limit_reached = False
         for i, product_data in enumerate(products_to_analyze):
@@ -2088,7 +2733,10 @@ Return ONLY valid JSON, no additional text."""
                 )
                 limit_reached = True
 
+<<<<<<< HEAD
+=======
                 
+>>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
                 break
 
             processed_by_category[category_key] += 1
@@ -2315,6 +2963,15 @@ Return ONLY valid JSON, no additional text."""
             log.warning(f"STAGE-GUARD WARNING: Triage was ENABLED and rejected all {len(products_to_analyze)} products processed in this batch. Check SellerAmp connectivity or criteria.")
         elif not self.enable_quick_triage and len(products_to_analyze) > 0 and len(profitable_results) == 0 :
              log.info(f"Triage was DISABLED. All {len(products_to_analyze)} products processed in this batch proceeded to full analysis. No profitable products found post-analysis in this batch.")
+
+        self.results_summary["products_processed_total"] += total_processed
+        for cat, count in processed_by_category.items():
+            self.results_summary.setdefault("products_processed_per_category", {}).setdefault(cat, 0)
+            self.results_summary["products_processed_per_category"][cat] += count
+
+        if limit_reached:
+            log.info("Product processing limit reached. Ending workflow early.")
+            return profitable_results
             
         # D2: Stage-guard audit - Log deep extraction stage completion
         total_deep_extractions = self.results_summary['products_passed_triage'] - self.results_summary['errors']
@@ -2572,6 +3229,12 @@ Return ONLY valid JSON, no additional text."""
                 return []
 
             log.info(f"Found {len(product_elements_soup)} product elements in {category_url}")
+
+            # Enforce max_products_per_category limit from config
+            max_products_per_category = self.config.get("max_products_per_category", 50)
+            if len(product_elements_soup) > max_products_per_category:
+                product_elements_soup = product_elements_soup[:max_products_per_category]
+                log.info(f"🔧 LIMITED to {max_products_per_category} products per config (max_products_per_category)")
 
             # Process products in batches
             extracted_products = []
@@ -2856,6 +3519,9 @@ Return ONLY valid JSON, no additional text."""
             category_paths = supplier_config.get("category_paths", ["/"])
             category_urls_to_process = [supplier_base_url.rstrip('/') + path for path in category_paths]
             log.info(f"Using traditional category paths: {category_paths}")
+        
+        # ──────────────────────── ⑥  Dynamic Re-ordering Hook ────────────────────────
+        category_urls_to_process = await self._apply_dynamic_reordering(category_urls_to_process, supplier_name)
 
         for category_url in category_urls_to_process:
             log.info(f"Scraping supplier category: {category_url}")
@@ -3807,7 +4473,10 @@ async def run_workflow_main():
         max_products_per_cycle_cfg = system_config.get("system", {}).get("max_products_per_cycle", 0)
         if max_products == 0:
             max_products = max_products_per_cycle_cfg
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
     except Exception as e:
         log.warning(f"Failed to load system config from {config_path}: {e}")
         system_config = {}
@@ -3904,7 +4573,11 @@ async def run_workflow_main():
             cache_supplier_data=True,
             force_config_reload=force_config_reload,
             debug_smoke=debug_smoke,
+<<<<<<< HEAD
+            resume_from_last=True
+=======
             resume_from_last=True,
+>>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
         )
         
         if results: 
@@ -3948,4 +4621,3 @@ if __name__ == "__main__":
     print(f"Profitability Criteria: Min ROI {MIN_ROI_PERCENT}%, Min Profit £{MIN_PROFIT_PER_UNIT}")
     print("="*80)
     asyncio.run(run_workflow_main())
-
