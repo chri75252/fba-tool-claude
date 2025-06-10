@@ -1,16 +1,16 @@
 💰 FINANCIAL ANALYSIS DETAILED REPORT
 ==================================================
-Generated: 2025-06-10 10:14:07
+Generated: 2025-06-10 23:43:58
 
 SUMMARY:
-- CSV Reports: 110
-- Products in Latest CSV: 23
-- Complete Records: 23
-- Completeness Rate: 100.0%
+- CSV Reports: 117
+- Products in Latest CSV: 0
+- Complete Records: 0
+- Completeness Rate: 0.0%
 
 RECENT CSV REPORTS:
-- fba_financial_report_20250610_100601.csv (2025-06-10 10:06:01, 0.0MB)
-- fba_financial_report_20250610_085820.csv (2025-06-10 08:58:20, 0.0MB)
-- fba_financial_report_20250610_085324.csv (2025-06-10 08:53:24, 0.0MB)
-- fba_financial_report_20250610_082922.csv (2025-06-10 08:29:22, 0.1MB)
-- fba_financial_report_20250610_081144.csv (2025-06-10 08:11:44, 0.1MB)
+- fba_financial_report_20250610_220108.csv (2025-06-10 22:01:08, 0.3MB)
+- fba_financial_report_20250610_214321.csv (2025-06-10 21:43:21, 0.3MB)
+- fba_financial_report_20250610_212237.csv (2025-06-10 21:22:37, 0.3MB)
+- fba_financial_report_20250610_202015.csv (2025-06-10 20:20:15, 0.3MB)
+- fba_financial_report_20250610_171845.csv (2025-06-10 17:18:45, 0.0MB)

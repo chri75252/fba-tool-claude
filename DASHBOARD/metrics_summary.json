@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-06-10T10:14:06.161720",
+  "timestamp": "2025-06-10T23:43:57.038957",
   "categories": {
-    "total_categories_discovered": 83,
+    "total_categories_discovered": 93,
     "categories_analyzed": 0,
     "categories_with_products": 0,
-    "ai_suggested_categories": 98,
-    "productive_categories": 50,
+    "ai_suggested_categories": 128,
+    "productive_categories": 65,
     "category_urls": [
       "https://www.clearance-king.co.uk/health-beauty/health-beauty/cosmetics.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
       "https://www.clearance-king.co.uk/garden-outdoor-living/outdoor-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
@@ -104,22 +104,52 @@
       "https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
       "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
       "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
-      "https://www.clearance-king.co.uk/household/kitchenware.html"
+      "https://www.clearance-king.co.uk/household/kitchenware.html",
+      "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/baby-kids.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/clothing-fashion.html",
+      "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty.html",
+      "https://www.clearance-king.co.uk/stationery-crafts.html",
+      "https://www.clearance-king.co.uk/garden-outdoor-living.html",
+      "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/health-beauty/shaving.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+      "https://www.clearance-king.co.uk/electrical/electrical-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
     ]
   },
   "products": {
-    "total_supplier_products": 863,
+    "total_supplier_products": 703,
     "products_analyzed": 0,
     "products_with_ean_match": 0,
     "products_with_title_match": 0,
     "products_unmatched": 0,
-    "current_processing_index": 106,
-    "processing_completion_percentage": 12.282734646581691
+    "current_processing_index": 108,
+    "processing_completion_percentage": 15.362731152204837
   },
   "amazon_data": {
-    "total_amazon_files": 1059,
-    "ean_matched_products": 410,
-    "title_matched_products": 641,
+    "total_amazon_files": 1609,
+    "ean_matched_products": 880,
+    "title_matched_products": 721,
     "unmatched_products": 8,
     "products_with_amazon_data": 0
   },
@@ -133,23 +163,24 @@
     "error": "'charmap' codec can't decode byte 0x8f in position 758: character maps to <undefined>"
   },
   "financial": {
-    "csv_reports_generated": 110,
-    "products_in_latest_csv": 23,
-    "complete_financial_records": 23,
-    "latest_csv_timestamp": "2025-06-10T10:06:01.629780",
-    "financial_data_completeness_rate": 100.0
+    "csv_reports_generated": 117,
+    "products_in_latest_csv": 0,
+    "complete_financial_records": 0,
+    "latest_csv_timestamp": "2025-06-10T22:01:08.034388",
+    "financial_data_completeness_rate": 0.0,
+    "error": "'charmap' codec can't decode byte 0x9d in position 5201: character maps to <undefined>"
   },
   "processing": {
     "active_processing": true,
-    "estimated_time_remaining_minutes": 1164.6153846153845,
-    "processing_rate_products_per_minute": 0.65,
-    "last_activity_timestamp": "2025-06-10T10:13:18.240554"
+    "estimated_time_remaining_minutes": 991.6666666666667,
+    "processing_rate_products_per_minute": 0.6,
+    "last_activity_timestamp": "2025-06-10T23:43:54.855498"
   },
   "ai_system": {
-    "total_ai_calls": 18,
-    "successful_ai_calls": 18,
+    "total_ai_calls": 23,
+    "successful_ai_calls": 23,
     "ai_success_rate": 100.0,
-    "latest_ai_suggestion_timestamp": "2025-06-10T08:30:31.345314",
+    "latest_ai_suggestion_timestamp": "2025-06-10T22:02:10.596767",
     "ai_fallback_usage": 0
   }
 }

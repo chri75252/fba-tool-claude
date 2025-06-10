@@ -2,8 +2,8 @@
   "supplier": "clearance-king.co.uk",
   "url": "https://www.clearance-king.co.uk",
   "created": "2025-06-09T19:51:15.685517",
-  "last_updated": "2025-06-10T08:30:31.345347",
-  "total_ai_calls": 18,
+  "last_updated": "2025-06-10T22:02:10.596781",
+  "total_ai_calls": 23,
   "ai_suggestion_history": [
     {
       "timestamp": "2025-06-09T19:51:15.685486",
@@ -1467,6 +1467,401 @@
           "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
           "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
           "https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 3,
+        "productive_categories": 3,
+        "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-10T20:20:45.393636",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 83
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/baby-kids.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "category_name": "The URLs selected are product listing pages that conform to the pattern of including clear category names ending with common retail or household terms. This suggests they are not search or filter pages and likely contain multiple product offerings.",
+          "product_list_limit": "Included in the URLs, which further indicates that they are intended for product listings."
+        },
+        "progression_strategy": "The strategy involved selecting URLs from discovered categories that were likely to contain actual product listings rather than search or filter pages. Priority was on categories that typically lead to more profitability and consumer interest.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/baby-kids.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "low_confidence": []
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [],
+        "failed_url_errors": {},
+        "original_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 3,
+        "productive_categories": 3,
+        "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-10T21:23:01.270416",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 85
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/clothing-fashion.html"
+        ],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "garden-outdoor-living": "This URL likely contains a variety of garden and outdoor products, suggested by the category name. Products here can include gardening tools, furniture, and outdoor decor, which are popular for FBA due to their seasonal sales and interest in home improvement. Profit potential is high due to growing consumer interest in outdoor living.",
+          "health-beauty/eyewear-accessories": "This URL likely features eyewear-related products such as accessories for glasses, which are lightweight and easy to store, making them suitable for FBA. The health and beauty category is known for repeat purchases, indicating good sales potential. Estimated profit potential is medium due to competition in beauty products.",
+          "household/kitchenware": "This URL suggests a range of kitchen-related products, including utensils and cookware. Kitchenware often has strong demand and represents consistent sales with good margins in the FBA model. Profit potential is medium-high as these products are practical and essential in households."
+        },
+        "progression_strategy": "I selected URLs that likely lead to product listing pages based on clear category names without filters. A focus on home goods, health and beauty, and outdoor living aligns with high-demand markets. This strategy also avoids previously suggested URLs, ensuring a fresh perspective for potential FBA products.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html",
+            "https://www.clearance-king.co.uk/household/kitchenware.html"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "low_confidence": [
+            "https://www.clearance-king.co.uk/clothing-fashion.html"
+          ]
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/household/kitchenware.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [],
+        "failed_url_errors": {},
+        "original_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html",
+          "https://www.clearance-king.co.uk/household/kitchenware.html"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 3,
+        "productive_categories": 3,
+        "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-10T21:43:42.307942",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 88
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/health-beauty.html",
+          "https://www.clearance-king.co.uk/stationery-crafts.html",
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html"
+        ],
+        "skip_urls": [
+          "https://www.clearance-king.co.uk/clothing-fashion/travel.html",
+          "https://www.clearance-king.co.uk/electrical/electric-blankets.html"
+        ],
+        "detailed_reasoning": {
+          "household": "The URL ends in '/household.html', indicating a broader product category likely containing various household products. These items usually have consistent demand and moderate to good profit margins, making them suitable for Amazon FBA.",
+          "gifts-toys": "The '/gifts-toys.html' indicates a popular category for children and gifting occasions. Products in this category often have steady sales and reasonable margins, suiting the FBA business model.",
+          "pets": "The '/pets.html' URL suggests a category focused on pet supplies. Pet products tend to have a growing market with repeat purchases, making this a profitable category for FBA.",
+          "health-beauty": "This category could also include products with high repeat purchase rates, indicating a potential stable revenue source.",
+          "stationery-crafts": "Craft and stationery items could capture creative consumers, supporting consistent demand.",
+          "garden-outdoor-living": "Items in this category may also yield seasonal opportunities, adding to overall product diversity."
+        },
+        "progression_strategy": "The selection strategy focuses on identifying URLs that end in clear category identifiers that are likely to contain product listings rather than search or filter pages. Prioritizing household, gifts/toys, and pet supplies aligns with high-demand, low-competition categories typically suited for Amazon FBA success.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/household.html",
+            "https://www.clearance-king.co.uk/gifts-toys.html",
+            "https://www.clearance-king.co.uk/pets.html"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/health-beauty.html",
+            "https://www.clearance-king.co.uk/stationery-crafts.html",
+            "https://www.clearance-king.co.uk/garden-outdoor-living.html"
+          ],
+          "low_confidence": []
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/household.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/gifts-toys.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/pets.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [],
+        "failed_url_errors": {},
+        "original_urls": [
+          "https://www.clearance-king.co.uk/household.html",
+          "https://www.clearance-king.co.uk/gifts-toys.html",
+          "https://www.clearance-king.co.uk/pets.html"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 3,
+        "productive_categories": 3,
+        "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-10T22:01:34.277942",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 91
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "skip_urls": [],
+        "detailed_reasoning": {
+          "household": "The URL ends with '/household.html' and includes a product list limit, suggesting multiple products in this category. Household products usually have high demand and consistent sales potential for Amazon FBA.",
+          "health-beauty": "The URL ends with '/health-beauty.html' and follows the product listing pattern. Health and beauty items move quickly on FBA due to repeat purchases, making them desirable.",
+          "garden-outdoor-living": "This URL indicates a product category ('/garden-outdoor-living.html'), suggesting various outdoor products. Such items often have seasonal spikes in demand and are popular among consumers."
+        },
+        "progression_strategy": "I prioritized the selection based on the likelihood of finding product listings that align with high-demand categories. The URLs were analyzed for indications of product listings by observing the category name structure and ensuring they were not linked to search or filter pages.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/household/kitchenware.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/pets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "low_confidence": []
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [],
+        "failed_url_errors": {},
+        "original_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 3,
+        "productive_categories": 3,
+        "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-10T22:02:10.596767",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 91
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/health-beauty/shaving.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/electrical/electrical-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "skip_urls": [
+          "https://www.clearance-king.co.uk/clothing-fashion/travel.html",
+          "https://www.clearance-king.co.uk/electrical/electric-blankets.html"
+        ],
+        "detailed_reasoning": {
+          "category_name": "Household Cleaning, Gifts & Toys, Baby Accessories",
+          "household_cleaning": "The URL suggests a cleaning category, likely containing various cleaning products, which are staples in any home and therefore have consistent demand. Suitable for FBA due to potential repeat purchases. Expected profit potential is medium due to varying price points.",
+          "gifts_toys": "This URL directs to a gift/toy section, which often includes a broad range of products appealing to various age groups. Toys have seasonal demand and are suitable for FBA due to brand loyalty and repeat demand. Profit potential is medium to high, especially during holiday seasons.",
+          "baby_accessories": "The URL leads to baby accessories, a desirable category for parents. Products in this category often have high margins and appeal strongly to consumers, making them suitable for FBA. Estimated profit potential is high due to the willingness to spend for baby needs."
+        },
+        "progression_strategy": "I selected URLs from the discovered categories that are likely to contain product listings based on their clear category naming and typical retail structure. My focus was primarily on household, gifts, and baby categories, which are known to have good demand and profit margins.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/health-beauty/shaving.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "https://www.clearance-king.co.uk/electrical/electrical-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+          ],
+          "low_confidence": []
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+            "product_count": 128,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [],
+        "failed_url_errors": {},
+        "original_urls": [
+          "https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
         ]
       },
       "validation_summary": {

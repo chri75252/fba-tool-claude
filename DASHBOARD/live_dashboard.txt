@@ -1,31 +1,31 @@
 
 🚀 AMAZON FBA AGENT SYSTEM - LIVE DASHBOARD
 ============================================================
-Last Updated: 2025-06-10 10:14:09
+Last Updated: 2025-06-10 23:43:57
 
 📊 SYSTEM OVERVIEW
 ==============================
 Active Processing: 🟢 YES
-Processing Rate: 0.7 products/min
-Est. Time Remaining: 1165 minutes
+Processing Rate: 0.6 products/min
+Est. Time Remaining: 992 minutes
 
 📁 CATEGORIES
 ==============================
-Total Categories Discovered: 83
-AI Suggested Categories: 98
-Productive Categories: 50
+Total Categories Discovered: 93
+AI Suggested Categories: 128
+Productive Categories: 65
 
 📦 PRODUCTS
 ==============================
-Total Supplier Products: 863
-Current Processing Index: 106
-Processing Completion: 12.3%
+Total Supplier Products: 703
+Current Processing Index: 108
+Processing Completion: 15.4%
 
 🛒 AMAZON DATA
 ==============================
-Total Amazon Files: 1059
-EAN Matched Products: 410
-Title Matched Products: 641
+Total Amazon Files: 1609
+EAN Matched Products: 880
+Title Matched Products: 721
 Unmatched Products: 8
 
 📈 KEEPA EXTRACTION
@@ -38,15 +38,15 @@ Incomplete Fee Data: 0
 
 💰 FINANCIAL ANALYSIS
 ==============================
-CSV Reports Generated: 110
-Products in Latest CSV: 23
-Complete Financial Records: 23
-Data Completeness Rate: 100.0%
+CSV Reports Generated: 117
+Products in Latest CSV: 0
+Complete Financial Records: 0
+Data Completeness Rate: 0.0%
 
 🤖 AI SYSTEM
 ==============================
-Total AI Calls: 18
-Successful AI Calls: 18
+Total AI Calls: 23
+Successful AI Calls: 23
 AI Success Rate: 100.0%
 
 ============================================================
