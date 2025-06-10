@@ -1,10 +1,70 @@
-# System Deep Dive: Technical Backend Details (v3.4)
+# System Deep Dive: Technical Backend Details (v3.5)
 
-**Version:** 3.4 (Multi-Tier AI-First Fallback System)
-**Date:** 2025-06-08
-**Purpose:** Technical reference for multi-tier AI fallback architecture
+**Version:** 3.5 (Enhanced Zero-Parameter Processing Analysis)
+**Date:** 2025-06-09
+**Purpose:** Technical reference for zero-parameter configuration behavior and multi-phase processing architecture
 
-This document provides detailed technical implementation details for the multi-tier AI-first fallback system, architectural insights, and optimization requirements for the Amazon FBA Agent System v3.4.
+This document provides detailed technical implementation details for the zero-parameter processing behavior, multi-phase price range logic, and comprehensive workflow analysis for the Amazon FBA Agent System v3.5.
+
+## CRITICAL FINDING: Zero-Parameter Configuration Behavior
+
+### Parameter Configuration Analysis (All Parameters Set to 0)
+
+**Configuration:**
+```json
+{
+  "max_products_per_category": 0,
+  "max_analyzed_products": 0, 
+  "max_products_per_cycle": 0
+}
+```
+
+**VERIFIED SYSTEM BEHAVIOR:**
+
+1. **max_products_per_category = 0**: ✅ UNLIMITED CATEGORY PROCESSING
+   - **Location**: Line 2963, 2967, 2982, 2996, 3000, 3014
+   - **Logic**: `if max_products_per_category > 0 and products_in_category >= max_products_per_category`
+   - **Result**: When set to 0, ALL conditions evaluate to FALSE, enabling unlimited product extraction per category
+   - **Pagination**: System continues through ALL pages until no more products found
+
+2. **max_analyzed_products = 0**: ✅ UNLIMITED PRODUCT ANALYSIS
+   - **Location**: Line 2084-2091  
+   - **Logic**: `if max_analyzed_products > 0 and total_processed >= max_analyzed_products`
+   - **Result**: When set to 0, condition never triggers, processing continues through ALL discovered products
+   - **Impact**: System processes EVERY product from ALL AI-suggested categories
+
+3. **max_products_per_cycle = 0**: ✅ UNLIMITED CYCLE PROCESSING  
+   - **Location**: Line 3819-3820
+   - **Logic**: `if max_products == 0: max_products = max_products_per_cycle_cfg`
+   - **Result**: Command line parameter inherits config value, enabling unlimited processing
+
+**DEFINITIVE CONCLUSION**: When all three parameters are set to 0, the system WILL continue running until ALL AI-suggested categories and ALL their pages are completely scraped and analyzed.
+
+## Multi-Phase Processing Architecture
+
+### Two-Phase Price Range System
+
+**Phase 1: Low Price Range (£0.1 - £10.0)**
+- **Trigger**: Default starting phase
+- **Logic Location**: Lines 2931-2940
+- **Termination Condition**: When 5+ of last 10 products exceed £10.00
+- **Continuation Storage**: `_store_phase_2_continuation_point()` (Line 1446-1480)
+
+**Phase 2: Medium Price Range (£10.0 - £20.0)**  
+- **Trigger**: Automatic transition from Phase 1
+- **Logic Location**: Lines 1493-1516
+- **Price Range**: £10.0 to £20.0 (MAX_PRICE = 20.0, Line 170)
+- **Memory Reset**: AI cache marked as "medium" phase with history preservation
+
+### Phase Transition Mechanics
+
+**Phase 1 → Phase 2 Transition**:
+1. **Detection**: 5+ recent products above £10.00 threshold
+2. **Storage**: Current pagination state saved to `phase_2_continuation_points.json`
+3. **AI Reset**: `_reset_ai_memory_for_phase_2()` preserves history, marks transition
+4. **Resume Logic**: Phase 2 continues from exact pagination point where Phase 1 stopped
+
+**VERIFIED**: System correctly resumes from memorized page and product index in Phase 2.
 
 ## Architecture Overview
 

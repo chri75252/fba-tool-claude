@@ -1,20 +1,61 @@
-# Amazon FBA Agent System v3.4 - Complete Documentation
+# Amazon FBA Agent System v3.5 - Complete Documentation
 
-**Version:** 3.4 (Multi-Tier AI-First Fallback System)
-**Date:** 2025-06-08
-**Status:** Production-Ready with AI-First Fallback Ladder
+**Version:** 3.5 (Zero-Parameter Processing Analysis & Multi-Phase Architecture)
+**Date:** 2025-06-09
+**Status:** Production-Ready with Verified Unlimited Processing Capabilities
 
 ## System Overview
 
-The Amazon FBA Agent System is a sophisticated automation platform that identifies profitable products by scraping supplier websites, matching them with Amazon listings, and calculating profitability metrics.
+The Amazon FBA Agent System is a sophisticated automation platform that identifies profitable products by scraping supplier websites, matching them with Amazon listings, and calculating profitability metrics with full zero-parameter unlimited processing capabilities.
+
+## CRITICAL DISCOVERY: Zero-Parameter Configuration Behavior
+
+### Unlimited Processing Configuration
+When configured with all parameters set to 0:
+```json
+{
+  "max_products_per_category": 0,
+  "max_analyzed_products": 0,
+  "max_products_per_cycle": 0
+}
+```
+
+**VERIFIED SYSTEM BEHAVIOR**: The system WILL continue running until ALL AI-suggested categories and ALL their pages are completely scraped and analyzed. This provides unlimited comprehensive processing capability.
+
+### Complete Workflow Sequence
+
+**Phase 1: AI Category Discovery & Validation**
+1. **Homepage Analysis**: System scrapes supplier homepage to discover all available categories
+2. **AI Category Selection**: OpenAI analyzes discovered categories and suggests optimal processing order
+3. **Category Validation**: Each AI-suggested category is validated for product content
+4. **URL Optimization**: Categories are enhanced with pagination parameters (`product_list_limit=64`)
+
+**Phase 2: Comprehensive Product Extraction (Phase 1: £0.1-£10.0)**
+1. **Category Processing**: Each AI-suggested category is processed sequentially
+2. **Pagination Logic**: System navigates through ALL pages (Page 1, 2, 3...) until no more products
+3. **Product Extraction**: Maximum 64 products per page are extracted with detailed information
+4. **Price Threshold Detection**: System monitors for products >£10.0 (5+ recent products triggers Phase 2)
+5. **State Persistence**: Current pagination state stored for Phase 2 continuation
+
+**Phase 3: Extended Price Range Processing (Phase 2: £10.0-£20.0)**
+1. **Phase Transition**: Automatic transition when Phase 1 price threshold reached
+2. **Memory Preservation**: AI cache updated with phase transition markers
+3. **Continuation Logic**: Processing resumes from exact pagination point where Phase 1 stopped
+4. **Extended Range**: System processes products in £10.0-£20.0 price range
+
+**Phase 4: Amazon Matching & Analysis**
+1. **EAN-Based Matching**: Primary matching using extracted EAN/UPC codes
+2. **Title Fallback**: Secondary matching using intelligent title similarity
+3. **Keepa Integration**: Comprehensive Amazon data extraction with fee calculations
+4. **Financial Analysis**: ROI, profit margins, and FBA viability assessment
 
 ### System Purpose and Workflow
 The system automates the process of finding profitable products for Amazon FBA by:
 1. **AI-Driven Category Discovery**: Uses OpenAI to intelligently suggest supplier categories to scrape
-2. **Supplier Product Scraping**: Extracts product data from supplier websites (currently Clearance King UK)
-3. **Amazon Product Matching**: Matches supplier products to Amazon listings using EAN/UPC codes and title fallback
-4. **Profitability Analysis**: Calculates FBA fees, profit margins, and ROI using Keepa data
-5. **Multi-Cycle Operation**: Automatically suggests new categories after processing batches, creating continuous discovery loops until ALL AI-suggested categories are exhausted
+2. **Unlimited Supplier Scraping**: Extracts ALL products from ALL AI-suggested categories and pages
+3. **Comprehensive Amazon Matching**: Matches supplier products to Amazon listings using EAN/UPC codes and title fallback
+4. **Multi-Phase Price Analysis**: Processes products across two price ranges (£0.1-£10.0, £10.0-£20.0)
+5. **Continuous Operation**: Automatically processes until ALL categories and pages are exhausted
 6. **Financial Reporting**: Generates comprehensive CSV reports with detailed financial analysis
 
 ### Key Features

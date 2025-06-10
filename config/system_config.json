@@ -7,15 +7,10 @@
     "clear_cache": false,
     "selective_cache_clear": false,
     "force_ai_scraping": true,
-<<<<<<< HEAD
     "max_products_per_category": 0,
     "max_analyzed_products": 0,
     "max_products_per_cycle": 0,
-=======
-    "max_products_per_category": 3,
-    "max_analyzed_products": 5,
-    "max_products_per_cycle": 1,
->>>>>>> 8bb3d6d6471751df9fed8b0f09901347e7f0a285
+
     "force_ai_category_suggestion": true,
     "bypass_ai_scraping": false,
     "enable_supplier_parser": false
@@ -179,7 +174,7 @@
     },
     "openai": {
       "enabled": true,
-      "api_key": "${OPENAI_API_KEY}",
+      "api_key": "sk-_QrEsJ_Q6YlsXctdUYfVbwedrpT3tUXTjpTe7_F0ttT3BlbkFJ0TaojbrQAwM5Bsai1oW1pTe4P1xBRCxd7Mh8Fn5vkA",
       "model": "gpt-4o-mini-2024-07-18",
       "max_tokens": 1200,
       "temperature": 0.1,

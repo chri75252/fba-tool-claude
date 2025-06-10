@@ -1,0 +1,1565 @@
+{
+  "timestamp": "2025-06-09T18:08:45.623362",
+  "flag_type": "PROCESSING_STUCK",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 821,
+    "severity_escalated": true,
+    "original_severity": "CRITICAL",
+    "timespan": "2025-06-07T15:25:58.652134 to 2025-06-09T18:08:43.986215",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 472
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-09T14:27:18.272239",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:19:51.836789",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 259.86394648333334,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:33:02.966400",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 6:58:43.764709",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1858.7294118166667,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:33:05.482301",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:25:39.046811",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 265.6507801833333,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:38:40.045767",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:04:20.844771",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1864.34741285,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:38:42.565044",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:31:16.128524",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 271.26880873333334,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:44:17.638084",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:09:58.437157",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1869.9739526166666,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:44:20.057423",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:36:53.620818",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 276.89368029999997,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:50:05.265128",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:15:46.064496",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1875.7677416000001,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:50:07.966896",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:42:41.530663",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 282.69217771666666,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:55:44.825694",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:21:25.625261",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1881.4270876833332,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T14:55:46.160937",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:48:19.725441",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 288.32875735,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:01:20.519028",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:27:01.318630",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1887.0219771666666,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:01:23.103247",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:53:56.651119",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 293.9441853166666,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:06:56.055301",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:32:36.854624",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1892.6142437333333,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:06:58.511986",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 4:59:32.076473",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 299.53460788333336,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:14:22.905970",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:40:03.703814",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1900.0617302333333,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:14:31.893054",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T10:06:15.316377",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 10,
+        "total_products": 13,
+        "file_modification_time": "2025-06-09T10:06:15.316377",
+        "stuck_since": "2025-06-09T10:07:26.434230",
+        "progress_percentage": 76.92307692307693
+      },
+      "specific_issue": "Processing stuck on index 10 for 5:07:05.454415",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 307.09090691666665,
+        "stuck_index": 10,
+        "total_products": 13,
+        "progress_percentage": 76.92307692307693,
+        "estimated_remaining_hours": 0.15
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:21:35.551496",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:47:16.346656",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1907.2724442666665,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:28:22.202181",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 7:54:02.996663",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1914.0499443833332,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:35:43.052763",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:01:23.850113",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1921.3975018833332,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:43:19.320183",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:09:00.114993",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1929.00191655,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:50:43.076408",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:16:23.873162",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1936.3978860333334,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T15:58:31.488620",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:24:12.283000",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1944.2047166666666,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:06:08.758831",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:31:49.554128",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1951.8259021333333,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:13:24.556565",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:39:05.351296",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1959.0891882666665,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:20:13.445418",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:45:54.238715",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1965.9039785833334,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:27:04.252932",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:52:45.048540",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1972.7508090000001,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:33:50.026469",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 8:59:30.822756",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1979.5137126,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:33:55.302532",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T16:33:44.384772",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 24,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T16:33:44.384772",
+        "stuck_since": "2025-06-09T15:58:39.643484",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 24 for 0:35:15.656009",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 35.26093348333333,
+        "stuck_index": 24,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:41:16.008329",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:06:56.799885",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1986.94666475,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:48:01.921344",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:13:42.717537",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 1993.71195895,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T16:54:42.531311",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:20:23.325871",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2000.3887645166665,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:01:25.912347",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:27:06.707282",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2007.1117880333334,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:08:04.042505",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:33:44.839867",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2013.7473311166666,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:14:40.861676",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:40:21.657953",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2020.3609658833334,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:21:24.453817",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:47:05.249397",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2027.0874899500002,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:21:29.325884",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T16:47:48.017982",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T16:47:48.017982",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 0:33:22.386213",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 33.37310355,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:28:08.887710",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 9:53:49.678489",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2033.8279748166667,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:28:14.169117",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T16:47:48.017982",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T16:47:48.017982",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 0:40:07.227833",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 40.12046388333333,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:34:51.892563",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:00:32.689253",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2040.5448208833334,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:34:57.145907",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T17:32:41.148645",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T17:32:41.148645",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 0:46:50.206090",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 46.836768166666666,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:41:41.197073",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:07:21.992388",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2047.3665398,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:41:45.554846",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T17:32:41.148645",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T17:32:41.148645",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 0:53:38.615399",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 53.64358998333333,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:48:26.062415",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:14:06.857654",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2054.1142942333336,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:48:30.763358",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T17:32:41.148645",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T17:32:41.148645",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 1:00:23.820564",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 60.3970094,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:55:02.418404",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:20:43.216184",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2060.720269733333,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T17:55:06.686784",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T17:32:41.148645",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T17:32:41.148645",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 1:06:59.747334",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 66.99578890000001,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T18:01:56.598118",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:27:37.394773",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2067.6232462166668,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T18:02:01.331667",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json",
+      "file_modification_time": "2025-06-09T17:32:41.148645",
+      "extracted_data": {
+        "supplier_name": "clearance-king_co_uk",
+        "stuck_index": 27,
+        "total_products": 0,
+        "file_modification_time": "2025-06-09T17:32:41.148645",
+        "stuck_since": "2025-06-09T16:48:06.934790",
+        "progress_percentage": 0
+      },
+      "specific_issue": "Processing stuck on index 27 for 1:13:54.391912",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 73.90653186666667,
+        "stuck_index": 27,
+        "total_products": 0,
+        "progress_percentage": 0,
+        "estimated_remaining_hours": 0
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T18:08:43.986215",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/Clearance King UK_processing_state.json",
+      "file_modification_time": "2025-06-08T07:31:18.075205",
+      "extracted_data": {
+        "supplier_name": "Clearance King UK",
+        "stuck_index": 0,
+        "total_products": 46,
+        "file_modification_time": "2025-06-08T07:31:18.075205",
+        "stuck_since": "2025-06-08T07:34:19.199161",
+        "progress_percentage": 0.0
+      },
+      "specific_issue": "Processing stuck on index 0 for 1 day, 10:34:24.782722",
+      "resolution_suggestions": [
+        "Check if FBA process is still running",
+        "Verify Chrome browser connection",
+        "Check for system resource issues",
+        "Restart processing from current index",
+        "Check for network connectivity issues"
+      ],
+      "impact_assessment": "No progress being made on product analysis",
+      "data_quality_metrics": {
+        "stuck_duration_minutes": 2074.4130453666667,
+        "stuck_index": 0,
+        "total_products": 46,
+        "progress_percentage": 0.0,
+        "estimated_remaining_hours": 2.3
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "error": "Error calculating products progress: Expecting value: line 1 column 1 (char 0)"
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 91,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250609_153101.csv",
+      "latest_csv_modification_time": "2025-06-09T15:31:01.260319",
+      "products_in_latest_csv": 26,
+      "complete_financial_records": 26,
+      "financial_data_completeness_rate": 100.0,
+      "fba_summary_files": 201,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250609_152538.json",
+        "modification_time": "2025-06-09T15:31:00.090357",
+        "session_data": {
+          "total_supplier_products": 190,
+          "products_analyzed_ean": 2,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "products_processed_total": 2,
+          "products_processed_per_category": {
+            "https://www.clearance-king.co.uk/household/home-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc": 2
+          },
+          "start_time": "2025-06-09T15:25:38.998409",
+          "end_time": "2025-06-09T15:31:00.095556"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 94.0,
+        "keepa_timeout_rate": 4.0,
+        "missing_ean_rate": 88.29787234042553,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 249.28716659545898,
+        "used_gb": 679.2138061523438,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 73.15165261941306
+      },
+      "fba_processes": [
+        {
+          "pid": 5769,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.9140625
+        },
+        {
+          "pid": 9496,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.94921875
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 300,
+        "csv_reports": 92,
+        "ai_cache_files": 3,
+        "supplier_cache_files": 4
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 33.333333333333336,
+    "quality_grade": "CRITICAL",
+    "component_scores": {
+      "keepa_extraction": 0,
+      "financial_analysis": 100.0,
+      "ai_suggestions": 0
+    }
+  }
+}

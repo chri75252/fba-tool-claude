@@ -1,17 +1,93 @@
 📁 CATEGORIES DETAILED REPORT
 ==================================================
-Generated: 2025-06-09 00:08:32
+Generated: 2025-06-10 10:14:09
 
 SUMMARY:
-- Total Categories Discovered: 7
-- AI Suggested: 7  
-- Productive: 2
+- Total Categories Discovered: 83
+- AI Suggested: 98  
+- Productive: 50
 
 CATEGORY URLS:
-  1. https://www.clearance-king.co.uk/health-beauty.html
-  2. https://www.clearance-king.co.uk/50p-under.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
-  3. https://www.clearance-king.co.uk/pets/pet-accessories.html
-  4. https://www.clearance-king.co.uk/gifts-toys/toys.html
-  5. https://www.clearance-king.co.uk/household/kitchenware/food-preparation.html
-  6. https://www.clearance-king.co.uk/sales.html?product_list_limit=0&product_list_order=price&product_list_dir=asc
-  7. https://www.clearance-king.co.uk/baby-kids/baby-care.html
+  1. https://www.clearance-king.co.uk/health-beauty/skin-care.html
+  2. https://www.clearance-king.co.uk/smoking/filter-tips.html
+  3. https://www.clearance-king.co.uk/health-beauty/health-beauty/cosmetics.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+  4. https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+  5. https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+  6. https://www.clearance-king.co.uk/health-beauty/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+  7. https://www.clearance-king.co.uk/pets/pet-food.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+  8. https://www.clearance-king.co.uk/electrical/electrical-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+  9. https://www.clearance-king.co.uk/baby-kids/baby-care.html
+ 10. https://www.clearance-king.co.uk/smoking.html
+ 11. https://www.clearance-king.co.uk/clearance-lines.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 12. https://www.clearance-king.co.uk/household/kitchenware/food-preparation.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 13. https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 14. https://www.clearance-king.co.uk/electrical/tv-audio-accessories.html
+ 15. https://www.clearance-king.co.uk/stationery-crafts/packaging.html
+ 16. https://www.clearance-king.co.uk/books.html
+ 17. https://www.clearance-king.co.uk/clothing-fashion/sunglasses.html
+ 18. https://www.clearance-king.co.uk/stationery-crafts/stationary-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 19. https://www.clearance-king.co.uk/pets/bird-feeders.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 20. https://www.clearance-king.co.uk/household/bathroom-accessories/toiletries.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 21. https://www.clearance-king.co.uk/health-beauty/eyewear-accessories.html
+ 22. https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 23. https://www.clearance-king.co.uk/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 24. https://www.clearance-king.co.uk/health-beauty/health-beauty.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 25. https://www.clearance-king.co.uk/health-beauty/shaving.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 26. https://www.clearance-king.co.uk/mailing-supplies/tapes.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 27. https://www.clearance-king.co.uk/household/bathroom-accessories/toiletries.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 28. https://www.clearance-king.co.uk/baby-kids.html
+ 29. https://www.clearance-king.co.uk/books/adult-s-books.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 30. https://www.clearance-king.co.uk/electrical/switches-sockets.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 31. https://www.clearance-king.co.uk/clothing-fashion/footwear-and-footcare/socks.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 32. https://www.clearance-king.co.uk/gifts-toys.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 33. https://www.clearance-king.co.uk/mailing-supplies/labels.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 34. https://www.clearance-king.co.uk/health-beauty/cosmetics.html
+ 35. https://www.clearance-king.co.uk/clothing-fashion/jackets.html
+ 36. https://www.clearance-king.co.uk/baby-kids/baby-changing.html
+ 37. https://www.clearance-king.co.uk/smoking/lighters.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 38. https://www.clearance-king.co.uk/clothing-fashion/camping.html
+ 39. https://www.clearance-king.co.uk/stationery-crafts.html
+ 40. https://www.clearance-king.co.uk/clothing-fashion/winter-textiles/ear-muffs.html
+ 41. https://www.clearance-king.co.uk/health-beauty/foot-care.html
+ 42. https://www.clearance-king.co.uk/electrical/computer-and-laptop-accessories.html
+ 43. https://www.clearance-king.co.uk/smoking/rolling-papers.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 44. https://www.clearance-king.co.uk/household/kitchenware.html
+ 45. https://www.clearance-king.co.uk/electrical/clocks.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 46. https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 47. https://www.clearance-king.co.uk/clothing-fashion/footwear-and-footcare.html
+ 48. https://www.clearance-king.co.uk/household/bathroom-accessories/toilet-brushes.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 49. https://www.clearance-king.co.uk/electrical/tablet-accessories.html
+ 50. https://www.clearance-king.co.uk/garden-outdoor-living/outdoor-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 51. https://www.clearance-king.co.uk/health-beauty/hair-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 52. https://www.clearance-king.co.uk/electrical/cables-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 53. https://www.clearance-king.co.uk/baby-kids.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 54. https://www.clearance-king.co.uk/books/educational-books.html
+ 55. https://www.clearance-king.co.uk/baby-kids/baby-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 56. https://www.clearance-king.co.uk/health-beauty/eyewear-accessories/eyecare-accessories.html
+ 57. https://www.clearance-king.co.uk/smoking/blunts.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 58. https://www.clearance-king.co.uk/garden-outdoor-living/pest-killers-deterrents.html
+ 59. https://www.clearance-king.co.uk/electrical/lightening-bulbs.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 60. https://www.clearance-king.co.uk/gifts-greetings.html
+ 61. https://www.clearance-king.co.uk/smoking/ashtrays-trays.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 62. https://www.clearance-king.co.uk/household.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 63. https://www.clearance-king.co.uk/household/cleaning.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 64. https://www.clearance-king.co.uk/mailing-supplies/envelopes.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 65. https://www.clearance-king.co.uk/health-beauty/shaving-wash-shower.html
+ 66. https://www.clearance-king.co.uk/household/home-food-storage.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 67. https://www.clearance-king.co.uk/health-beauty/eyewear-accessories/reading-glasses.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 68. https://www.clearance-king.co.uk/gifts-toys/toys-games.html
+ 69. https://www.clearance-king.co.uk/health-beauty/health-beauty/toiletries.html
+ 70. https://www.clearance-king.co.uk/household/laundry.html
+ 71. https://www.clearance-king.co.uk/gifts-toys/toys-games.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 72. https://www.clearance-king.co.uk/health-beauty/cosmetics/make-up-accessories.html
+ 73. https://www.clearance-king.co.uk/clothing-fashion/winter-textiles/hats.html
+ 74. https://www.clearance-king.co.uk/household/bathroom-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 75. https://www.clearance-king.co.uk/pets/pet-accessories.html?product_list_limit=64&product_list_order=price&product_list_dir=asc&product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 76. https://www.clearance-king.co.uk/books/children-s-books.html
+ 77. https://www.clearance-king.co.uk/gifts-toys/toys-games/games.html
+ 78. https://www.clearance-king.co.uk/smoking/cones-tubes.html
+ 79. https://www.clearance-king.co.uk/health-beauty/hand-nail-care.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 80. https://www.clearance-king.co.uk/stationery-crafts/poster.html
+ 81. https://www.clearance-king.co.uk/garden-outdoor-living.html?product_list_limit=64&product_list_order=price&product_list_dir=asc
+ 82. https://www.clearance-king.co.uk/health-beauty/toiletries.html
+ 83. https://www.clearance-king.co.uk/gifts-toys/toys-games/money-box.html?product_list_limit=64&product_list_order=price&product_list_dir=asc

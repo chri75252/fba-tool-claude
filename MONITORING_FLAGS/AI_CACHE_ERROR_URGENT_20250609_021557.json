@@ -1,0 +1,1217 @@
+{
+  "timestamp": "2025-06-09T02:15:58.172939",
+  "flag_type": "AI_CACHE_ERROR",
+  "severity": "URGENT",
+  "severity_escalated": true,
+  "requires_action": true,
+  "alert_summary": {
+    "total_instances": 331,
+    "severity_escalated": true,
+    "original_severity": "WARNING",
+    "timespan": "2025-06-07T15:12:42.487684 to 2025-06-09T02:15:57.623197",
+    "data_sources_checked": [
+      "amazon_cache",
+      "ai_cache",
+      "csv_reports",
+      "supplier_cache",
+      "linking_map"
+    ],
+    "monitoring_cycles": 331
+  },
+  "instances": [
+    {
+      "detection_timestamp": "2025-06-08T21:06:57.960593",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:12:28.344813",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:17:55.881369",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:23:26.632320",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:29:00.002745",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:34:32.858888",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:40:04.834448",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:45:33.153404",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:51:07.034008",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T21:56:33.583734",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:02:01.287342",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:07:30.521083",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T17:34:02.117504",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 12948,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:12:58.418104",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:18:25.549395",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:23:54.256603",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:29:20.754132",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:34:40.959258",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:40:01.383978",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:45:39.774171",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:51:04.078479",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T22:56:31.112720",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:01:55.308786",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:07:23.870851",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:14:31.316910",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:21:19.608029",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:28:10.067806",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:35:22.502013",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:42:17.387710",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T22:12:18.681751",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 6986,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:49:10.739349",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:48:47.403297",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "Expecting value: line 1 column 1 (char 0)",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: Expecting value: line 1 column 1 (char 0)",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 0,
+        "error_type": "JSONDecodeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-08T23:55:19.545681",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:01:55.547394",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:08:40.437242",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:15:25.599073",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:22:17.431643",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:29:07.216534",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:35:55.012466",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:42:46.213068",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:49:44.624256",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T00:56:42.285178",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:03:46.617342",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:10:55.710339",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:18:16.300855",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:25:28.982284",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:32:34.144913",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:39:37.564184",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:46:48.228548",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T01:54:06.525520",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T02:01:22.019270",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T02:08:40.883617",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    },
+    {
+      "detection_timestamp": "2025-06-09T02:15:57.623197",
+      "source_file_path": "OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json",
+      "file_modification_time": "2025-06-08T23:49:25.869387",
+      "extracted_data": {
+        "file_name": "clearance-king_co_uk_ai_category_cache.json",
+        "error_message": "'str' object has no attribute 'get'",
+        "file_exists": true
+      },
+      "specific_issue": "Error reading AI cache file: 'str' object has no attribute 'get'",
+      "resolution_suggestions": [
+        "Check file permissions",
+        "Verify JSON file format",
+        "Check disk space",
+        "Restart AI suggestion system"
+      ],
+      "impact_assessment": "Cannot analyze AI suggestion quality",
+      "data_quality_metrics": {
+        "file_size_bytes": 3351,
+        "error_type": "AttributeError"
+      }
+    }
+  ],
+  "progress_tracking": {
+    "products_progress": {
+      "total_supplier_products": 94,
+      "products_with_amazon_data": 295,
+      "products_with_complete_keepa": 276,
+      "current_processing_index": 39,
+      "processing_completion_rate": 41.48936170212766,
+      "amazon_cache_coverage": 313.82978723404256,
+      "keepa_success_rate": 93.55932203389831
+    },
+    "financial_analysis_progress": {
+      "csv_reports_generated": 88,
+      "latest_csv_file": "OUTPUTS/FBA_ANALYSIS/financial_reports/fba_financial_report_20250608_234439.csv",
+      "latest_csv_modification_time": "2025-06-08T23:44:39.444932",
+      "products_in_latest_csv": 23,
+      "complete_financial_records": 23,
+      "financial_data_completeness_rate": 100.0,
+      "fba_summary_files": 198,
+      "latest_fba_summary": {
+        "file": "OUTPUTS/FBA_ANALYSIS/fba_summary_clearance-king_co_uk_20250608_173340.json",
+        "modification_time": "2025-06-08T17:33:45.752651",
+        "session_data": {
+          "total_supplier_products": 199,
+          "products_analyzed_ean": 0,
+          "products_analyzed_title": 1,
+          "products_passed_triage": 0,
+          "products_rejected_by_triage": 0,
+          "products_previously_visited": 0,
+          "profitable_products": 0,
+          "errors": 0,
+          "start_time": "2025-06-08T17:33:40.824990",
+          "end_time": "2025-06-08T17:33:45.925806"
+        }
+      }
+    },
+    "ai_category_progress": {
+      "ai_cache_files": 1,
+      "error_reading_clearance-king_co_uk_ai_category_cache.json": "'str' object has no attribute 'get'",
+      "total_categories_suggested": 0,
+      "categories_validated_productive": 0,
+      "categories_scraped": 0,
+      "latest_suggestion_timestamp": null,
+      "duplicate_ai_suggestions": 0,
+      "duplicate_urls": []
+    },
+    "data_quality_metrics": {
+      "amazon_cache_quality": {
+        "files_checked": 100,
+        "keepa_success_rate": 94.0,
+        "keepa_timeout_rate": 4.0,
+        "missing_ean_rate": 88.29787234042553,
+        "missing_fees_rate": 100.0
+      },
+      "linking_map_error": "'list' object has no attribute 'values'"
+    },
+    "system_health": {
+      "disk_space": {
+        "free_gb": 258.1982307434082,
+        "used_gb": 670.3027420043945,
+        "total_gb": 928.5009727478027,
+        "usage_percentage": 72.1919267376428
+      },
+      "fba_processes": [
+        {
+          "pid": 5769,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.9140625
+        },
+        {
+          "pid": 9496,
+          "name": "bash",
+          "status": "sleeping",
+          "memory_mb": 1.94921875
+        }
+      ],
+      "process_count": 2,
+      "file_system": {
+        "amazon_cache_files": 295,
+        "csv_reports": 89,
+        "ai_cache_files": 1,
+        "supplier_cache_files": 2
+      }
+    }
+  },
+  "data_quality_summary": {
+    "overall_quality_score": 64.51977401129943,
+    "quality_grade": "FAIR",
+    "component_scores": {
+      "keepa_extraction": 93.55932203389831,
+      "financial_analysis": 100.0,
+      "ai_suggestions": 0
+    }
+  }
+}
