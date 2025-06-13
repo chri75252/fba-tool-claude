@@ -151,3 +151,85 @@
 
 ---
 *Analysis completed using ULTRATHINKING MODE with comprehensive code verification and behavioral testing.*
+
+## 📊 DATA SOURCE REFERENCE GUIDE (Added 2025-06-11)
+
+### Primary Data Sources for System Monitoring
+
+**Real-Time Metrics Source:**
+```
+/DASHBOARD/metrics_summary.json
+```
+- **Current Processing Index**: Line 146 (`current_processing_index`)
+- **Total Products**: Line 141 (`total_supplier_products`) 
+- **Categories Discovered**: Line 4 (`total_categories_discovered`)
+- **AI Suggested**: Line 8 (`ai_suggested_categories`)
+- **Amazon Files**: Line 150 (`total_amazon_files`)
+- **EAN Matches**: Line 152 (`ean_matched_products`)
+- **Processing Rate**: Line 176 (`processing_rate_products_per_minute`)
+
+**Live Dashboard:**
+```
+/DASHBOARD/live_dashboard.txt
+```
+- Human-readable summary updated every 30 seconds
+- Processing completion percentage (Line 22)
+- Estimated time remaining (Line 10)
+
+**Category Details:**
+```
+/DASHBOARD/metrics/categories.txt
+```
+- Complete list of 93 category URLs (Lines 11-103)
+- Productive categories count (Line 8)
+
+**Processing State:**
+```
+/OUTPUTS/FBA_ANALYSIS/clearance-king_co_uk_processing_state.json
+```
+- Current product index being processed
+- Used for resume capability
+
+**Product Cache:**
+```
+/OUTPUTS/cached_products/clearance-king_co_uk_products_cache.json
+```
+- All extracted products with EANs, prices, categories
+- Source category URLs for each product
+- Extraction timestamps
+
+**Emergency Backups:**
+```
+/OUTPUTS/cached_products/emergency_backups/
+```
+- Timestamped backup files for recovery
+- Processing state snapshots
+
+**AI Category Intelligence:**
+```
+/OUTPUTS/FBA_ANALYSIS/ai_category_cache/clearance-king_co_uk_ai_category_cache.json
+```
+- 23 AI suggestion sessions
+- Category productivity validation
+- AI-optimized processing order
+
+### Key Metrics Locations Summary:
+
+| Metric | File | Line/Section |
+|--------|------|-------------|
+| Processing Index | metrics_summary.json | Line 146 |
+| Total Products | metrics_summary.json | Line 141 |
+| Categories Found | metrics_summary.json | Line 4 |
+| AI Suggestions | metrics_summary.json | Line 8 |
+| Amazon Matches | metrics_summary.json | Line 152 |
+| Processing Rate | metrics_summary.json | Line 176 |
+| Category URLs | metrics/categories.txt | Lines 11-103 |
+| Product Details | cached_products/*.json | Full files |
+| System State | processing_state.json | Current index |
+
+### Analysis Methodology:
+- **Duplication Analysis**: Examined cached products for EAN/URL duplicates
+- **Category Overlap**: Analyzed URL patterns for parent/child relationships  
+- **AI Growth Tracking**: Monitored AI suggestion progression across sessions
+- **Performance Metrics**: Calculated rates, completion percentages, efficiency
+- **Phase Detection**: Analyzed price ranges and processing behavior

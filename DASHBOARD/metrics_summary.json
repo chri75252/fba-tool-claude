@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-06-10T23:43:57.038957",
+  "timestamp": "2025-06-11T14:43:26.553722",
   "categories": {
     "total_categories_discovered": 93,
     "categories_analyzed": 0,
@@ -143,12 +143,12 @@
     "products_with_ean_match": 0,
     "products_with_title_match": 0,
     "products_unmatched": 0,
-    "current_processing_index": 108,
-    "processing_completion_percentage": 15.362731152204837
+    "current_processing_index": 703,
+    "processing_completion_percentage": 100.0
   },
   "amazon_data": {
-    "total_amazon_files": 1609,
-    "ean_matched_products": 880,
+    "total_amazon_files": 2015,
+    "ean_matched_products": 1286,
     "title_matched_products": 721,
     "unmatched_products": 8,
     "products_with_amazon_data": 0
@@ -163,18 +163,18 @@
     "error": "'charmap' codec can't decode byte 0x8f in position 758: character maps to <undefined>"
   },
   "financial": {
-    "csv_reports_generated": 117,
+    "csv_reports_generated": 118,
     "products_in_latest_csv": 0,
     "complete_financial_records": 0,
-    "latest_csv_timestamp": "2025-06-10T22:01:08.034388",
+    "latest_csv_timestamp": "2025-06-11T10:59:14.582514",
     "financial_data_completeness_rate": 0.0,
-    "error": "'charmap' codec can't decode byte 0x9d in position 5201: character maps to <undefined>"
+    "error": "'charmap' codec can't decode byte 0x9d in position 2626: character maps to <undefined>"
   },
   "processing": {
-    "active_processing": true,
-    "estimated_time_remaining_minutes": 991.6666666666667,
-    "processing_rate_products_per_minute": 0.6,
-    "last_activity_timestamp": "2025-06-10T23:43:54.855498"
+    "active_processing": false,
+    "estimated_time_remaining_minutes": 0,
+    "processing_rate_products_per_minute": 0.0,
+    "last_activity_timestamp": "2025-06-11T10:59:10.775177"
   },
   "ai_system": {
     "total_ai_calls": 23,

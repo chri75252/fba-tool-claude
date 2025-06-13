@@ -816,8 +816,15 @@ class PassiveExtractionWorkflow:
         self.linking_map = None
         self.enable_quick_triage = False  # Default to False, can be enabled via CLI flag
         self.last_processed_index = 0  # Initialize index tracker for resume feature
+        self._processed_count = 0  # CRITICAL FIX: Track processed products for periodic saves
         self.linking_map = self._load_linking_map()
         self.history = self._load_history()
+        
+        # PHASE 4 FIX: Product cache periodic save support
+        self._current_extracted_products = []  # Track current extraction products
+        self._current_supplier_name = None     # Track current supplier for cache path
+        self._current_supplier_cache_path = None  # Track current supplier cache file path
+        
         # REMOVED: Fallback OpenAI client initialization using module-level OPENAI_API_KEY.
         # The ai_client should be passed in by the caller (e.g., MainOrchestrator)
         # after loading the configuration, to ensure the correct API key is used.
@@ -1114,6 +1121,103 @@ class PassiveExtractionWorkflow:
             summary_lines.append(f"... and {len(sorted_categories) - 5} more categories")
             
         return "\n".join(summary_lines)
+
+    # ──────────────────────── PHASE 3: SUBCATEGORY DEDUPLICATION ──────────────────────────
+    def _detect_parent_child_urls(self, urls: List[str]) -> Dict[str, List[str]]:
+        """
+        Detect parent-child URL relationships to prevent double processing.
+        Returns dict where keys are parent URLs and values are lists of child URLs.
+        
+        Example:
+        Input: ['/health-beauty.html', '/health-beauty/cosmetics.html', '/gifts-toys.html']
+        Output: {'/health-beauty.html': ['/health-beauty/cosmetics.html'], '/gifts-toys.html': []}
+        """
+        from urllib.parse import urlparse
+        
+        parent_child_map = {}
+        processed_urls = set()
+        
+        # Sort URLs by path depth (shorter paths first)
+        sorted_urls = sorted(urls, key=lambda url: urlparse(url).path.count('/'))
+        
+        for url in sorted_urls:
+            if url in processed_urls:
+                continue
+                
+            parsed_url = urlparse(url)
+            url_path = parsed_url.path.rstrip('/')
+            
+            # Find potential child URLs
+            child_urls = []
+            for other_url in sorted_urls:
+                if other_url == url or other_url in processed_urls:
+                    continue
+                    
+                other_parsed = urlparse(other_url)
+                other_path = other_parsed.path.rstrip('/')
+                
+                # Check if other_url is a child of current url
+                # Child URL should start with parent path + '/'
+                if other_path.startswith(url_path + '/') and other_path != url_path:
+                    # Additional validation: ensure it's direct child, not grandchild
+                    remaining_path = other_path[len(url_path + '/'):]
+                    if '/' not in remaining_path or remaining_path.count('/') <= 1:
+                        child_urls.append(other_url)
+                        processed_urls.add(other_url)
+            
+            parent_child_map[url] = child_urls
+            processed_urls.add(url)
+            
+        log.info(f"Parent-child URL analysis: {len(parent_child_map)} parent categories, "
+                f"{sum(len(children) for children in parent_child_map.values())} child categories")
+        
+        return parent_child_map
+
+    async def _filter_urls_by_subcategory_deduplication(self, category_urls: List[str]) -> List[str]:
+        """
+        Apply subcategory deduplication logic: only include subcategories if parent category has <2 products.
+        
+        This prevents double processing of URLs like:
+        - /health-beauty.html AND /health-beauty/cosmetics.html
+        - /gifts-toys.html AND /gifts-toys/toys-games.html
+        """
+        if not category_urls:
+            return category_urls
+            
+        # Detect parent-child relationships
+        parent_child_map = self._detect_parent_child_urls(category_urls)
+        
+        # Validate each parent category for product count
+        filtered_urls = []
+        validation_cache = {}  # Cache validation results to avoid duplicate checks
+        
+        for parent_url, child_urls in parent_child_map.items():
+            # Check parent category product count (use cache if available)
+            if parent_url not in validation_cache:
+                validation_result = await self._validate_category_productivity(parent_url)
+                validation_cache[parent_url] = validation_result
+            else:
+                validation_result = validation_cache[parent_url]
+            
+            parent_product_count = validation_result.get("product_count", 0)
+            
+            # CORE LOGIC: Apply subcategory deduplication rule
+            if parent_product_count >= 2:
+                # Parent has sufficient products - skip subcategories, use pagination only
+                filtered_urls.append(parent_url)
+                log.info(f"✅ PARENT CATEGORY SUFFICIENT: {parent_url} ({parent_product_count} products) "
+                        f"- SKIPPING {len(child_urls)} subcategories: {child_urls}")
+            else:
+                # Parent has <2 products - include subcategories for more products
+                filtered_urls.append(parent_url)
+                filtered_urls.extend(child_urls)
+                log.info(f"⚠️  PARENT CATEGORY INSUFFICIENT: {parent_url} ({parent_product_count} products) "
+                        f"- INCLUDING {len(child_urls)} subcategories: {child_urls}")
+        
+        log.info(f"SUBCATEGORY DEDUPLICATION: Reduced {len(category_urls)} URLs to {len(filtered_urls)} "
+                f"(eliminated {len(category_urls) - len(filtered_urls)} redundant subcategories)")
+        
+        return filtered_urls
 
     # ──────────────────────── ②  Enhanced AI method ──────────────────────────
     async def _get_ai_suggested_categories_enhanced(
@@ -1661,6 +1765,25 @@ Return ONLY valid JSON, no additional text."""
             # Fallback to basic homepage categories
             basic_cats = await self.web_scraper.get_homepage_categories(supplier_url)
             discovered_categories = [{"name": url.split('/')[-1] or "category", "url": url} for url in basic_cats[:10]]
+
+        # PHASE 3: SUBCATEGORY DEDUPLICATION - Apply before AI processing
+        log.info(f"PHASE 3: Applying subcategory deduplication to {len(discovered_categories)} discovered categories")
+        category_urls_only = [cat["url"] for cat in discovered_categories]
+        filtered_category_urls = await self._filter_urls_by_subcategory_deduplication(category_urls_only)
+        
+        # Rebuild discovered_categories with filtered URLs
+        filtered_discovered_categories = []
+        for cat in discovered_categories:
+            if cat["url"] in filtered_category_urls:
+                filtered_discovered_categories.append(cat)
+        
+        # Update discovered_categories with filtered results
+        original_count = len(discovered_categories)
+        discovered_categories = filtered_discovered_categories
+        eliminated_count = original_count - len(discovered_categories)
+        
+        log.info(f"PHASE 3 RESULT: Eliminated {eliminated_count} redundant subcategories, "
+                f"proceeding with {len(discovered_categories)} optimized categories")
 
         # Check category exhaustion status using AI memory instead of processing state
         exhaustion_status = self._check_category_exhaustion_status(discovered_categories, ai_memory["previously_suggested_urls"])
@@ -2768,6 +2891,14 @@ Return ONLY valid JSON, no additional text."""
                 self.linking_map.append(link_record)
                 log.info(f"Added to linking map: {supplier_identifier_for_map} -> {chosen_asin}")
                 
+                # CRITICAL FIX: Periodic saves every 40 products to prevent data loss
+                self._processed_count += 1
+                if self._processed_count % 40 == 0:
+                    log.info(f"🔄 PERIODIC SAVE triggered at product #{self._processed_count}")
+                    self._save_linking_map()
+                    self._save_product_cache()
+                    log.info(f"✅ PERIODIC SAVE completed - {len(self.linking_map)} linking entries saved")
+                
             except Exception as e:
                 log.error(f"Error caching Amazon data for ASIN {chosen_asin}: {e}")
 
@@ -2813,6 +2944,14 @@ Return ONLY valid JSON, no additional text."""
         max_products_per_category: int = 0,
     ) -> List[Dict[str, Any]]:
         extracted_products: List[Dict[str, Any]] = []
+        
+        # PHASE 4 FIX: Initialize product cache tracking for periodic saves
+        self._current_supplier_name = supplier_name
+        self._current_supplier_cache_path = os.path.join(
+            self.supplier_cache_dir, 
+            f"{supplier_name.replace('.', '_')}_products_cache.json"
+        )
+        self._current_extracted_products = extracted_products  # Reference to current list
         
         # Set up state tracking path
         from pathlib import Path
@@ -3756,6 +3895,27 @@ Return ONLY valid JSON, no additional text."""
                     os.remove(temp_path)
                 except:
                     pass
+
+    def _save_product_cache(self):
+        """
+        PHASE 4 FIX: Product cache periodic save implementation.
+        Saves current extracted products to prevent data loss during long-running processes.
+        """
+        try:
+            if not self._current_extracted_products or not self._current_supplier_cache_path:
+                log.debug("No current products or cache path available for periodic save")
+                return
+                
+            # Use the existing _save_products_to_cache method for consistency
+            self._save_products_to_cache(
+                self._current_extracted_products, 
+                self._current_supplier_cache_path
+            )
+            
+            log.info(f"🔄 PRODUCT CACHE periodic save: {len(self._current_extracted_products)} products saved to {os.path.basename(self._current_supplier_cache_path)}")
+            
+        except Exception as e:
+            log.error(f"Error in _save_product_cache periodic save: {e}")
 
 async def run_workflow_main():
     """
