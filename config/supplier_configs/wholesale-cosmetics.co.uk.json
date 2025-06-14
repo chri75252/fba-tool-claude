@@ -1,11 +1,11 @@
 {
-  "supplier_id": "cutpricewholesaler-com",
-  "supplier_name": "Cutpricewholesaler.Com",
-  "base_url": "https://www.cutpricewholesaler.com/",
+  "supplier_id": "wholesale-cosmetics-co-uk",
+  "supplier_name": "Wholesale-Cosmetics.Co.Uk",
+  "base_url": "https://www.wholesale-cosmetics.co.uk/",
   "field_mappings": {
     "product_item": [
       ".product-item",
-      ".product-list-item"
+      ".product"
     ],
     "title": [
       ".product-title",
@@ -20,29 +20,27 @@
     ],
     "url": [
       ".product-link",
-      ".product-item a"
+      ".product a"
     ],
     "image": [
       ".product-image img",
-      ".product-thumbnail"
+      ".product img"
     ],
     "ean": [
-      "meta[property='product:ean']",
-      "[data-ean]",
-      "/[0-9]{12,13}/"
+      "script:contains('ean')",
+      "meta[property='product:ean']"
     ],
     "barcode": [
-      "meta[property='product:barcode']",
-      "[data-barcode]",
-      "/[0-9]{12,13}/"
+      "script:contains('barcode')",
+      "meta[property='product:barcode']"
     ],
     "product_code": [
       ".product-code",
-      "[data-product-code]"
+      ".product-sku"
     ],
     "sku": [
       ".product-sku",
-      "[data-sku]"
+      ".sku"
     ]
   },
   "pagination": {
@@ -54,6 +52,6 @@
     ]
   },
   "auto_discovered": true,
-  "discovery_timestamp": "2025-06-14T20:54:22.159600",
+  "discovery_timestamp": "2025-06-14T20:45:50.436183",
   "success": true
 }

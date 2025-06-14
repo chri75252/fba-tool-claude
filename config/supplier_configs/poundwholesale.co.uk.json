@@ -28,12 +28,10 @@
       "meta[property='product:ean']"
     ],
     "barcode": [
-      "script:contains('barcode')",
-      "meta[property='product:barcode']"
+      "script:contains(/[0-9]{12,13}/)"
     ],
     "product_code": [
-      ".product-item .product-code",
-      ".product-item .sku"
+      ".product-item .product-code"
     ],
     "sku": [
       ".product-item .sku"
@@ -48,6 +46,6 @@
     ]
   },
   "auto_discovered": true,
-  "discovery_timestamp": "2025-06-14T15:08:27.979483",
+  "discovery_timestamp": "2025-06-14T20:54:48.603741",
   "success": true
 }
