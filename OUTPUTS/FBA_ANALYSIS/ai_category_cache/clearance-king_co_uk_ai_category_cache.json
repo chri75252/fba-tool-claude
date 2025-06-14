@@ -2,8 +2,8 @@
   "supplier": "clearance-king.co.uk",
   "url": "https://www.clearance-king.co.uk",
   "created": "2025-06-09T19:51:15.685517",
-  "last_updated": "2025-06-10T22:02:10.596781",
-  "total_ai_calls": 23,
+  "last_updated": "2025-06-14T18:13:50.236288",
+  "total_ai_calls": 24,
   "ai_suggestion_history": [
     {
       "timestamp": "2025-06-09T19:51:15.685486",
@@ -1868,6 +1868,89 @@
         "total_suggested": 3,
         "productive_categories": 3,
         "rejected_categories": 0
+      }
+    },
+    {
+      "timestamp": "2025-06-14T18:13:50.236251",
+      "session_context": {
+        "categories_discovered": 75,
+        "total_products_processed": 0,
+        "previous_categories_count": 93
+      },
+      "ai_suggestions": {
+        "top_3_urls": [
+          "https://www.clearance-king.co.uk/electrical/home-appliances.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household/home-essentials.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "secondary_urls": [
+          "https://www.clearance-king.co.uk/garden-outdoor-living/outdoor.html",
+          "https://www.clearance-king.co.uk/pets/pet-toys.html",
+          "https://www.clearance-king.co.uk/health-beauty/dental.html"
+        ],
+        "skip_urls": [
+          "https://www.clearance-king.co.uk/sales.html",
+          "https://www.clearance-king.co.uk/catalogsearch/advanced/",
+          "https://www.clearance-king.co.uk/50p-under.html",
+          "https://www.clearance-king.co.uk/gifts-toys/sensory-toys.html"
+        ],
+        "detailed_reasoning": {
+          "gifts-toys/sensory-toys.html": "This URL indicates a specific section focused on sensory toys, which are often in demand for children with sensory processing needs, making it likely to contain multiple relevant product listings. The expected products are sensory toys that trigger interest and engagement in kids, making them suitable for FBA due to steady demand and good profit margins.",
+          "electrical/home-appliances.html": "The pattern suggests a collection of various home appliances where customers look for specific necessities. Expect to find smaller electrical appliances like kettles, toasters, or blenders, which have a broad appeal. They are highly suitable for FBA as they have consistent sales, particularly in the home category, with medium to high profit potential.",
+          "household/home-essentials.html": "This category focuses on essential household items, indicating a broad range of product listings expected. This may include cleaning supplies, kitchen organizational items, and everyday necessities, making them highly practical for users. These products are also suitable for FBA due to steady consumer demand and good margins."
+        },
+        "progression_strategy": "The category selection was aimed at identifying URLs that suggest clear product groupings rather than individual products or search pages. Home essentials, sensory toys, and small appliances align with high-demand, profitable product classes. The strategy emphasizes categories likely to have stable demand and minimal returns, ensuring a lower risk for FBA sellers.",
+        "url_pattern_confidence": {
+          "high_confidence": [
+            "https://www.clearance-king.co.uk/gifts-toys/sensory-toys.html",
+            "https://www.clearance-king.co.uk/electrical/home-appliances.html",
+            "https://www.clearance-king.co.uk/household/home-essentials.html"
+          ],
+          "medium_confidence": [
+            "https://www.clearance-king.co.uk/garden-outdoor-living/outdoor.html",
+            "https://www.clearance-king.co.uk/pets/pet-toys.html",
+            "https://www.clearance-king.co.uk/health-beauty/dental.html"
+          ],
+          "low_confidence": []
+        },
+        "validation_results": [
+          {
+            "url": "https://www.clearance-king.co.uk/gifts-toys/sensory-toys.html",
+            "product_count": 1,
+            "is_productive": false,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/electrical/home-appliances.html",
+            "product_count": 44,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          },
+          {
+            "url": "https://www.clearance-king.co.uk/household/home-essentials.html",
+            "product_count": 48,
+            "is_productive": true,
+            "validation_method": "product_count_check"
+          }
+        ],
+        "optimized_urls": [
+          "https://www.clearance-king.co.uk/electrical/home-appliances.html?product_list_limit=64&product_list_order=price&product_list_dir=asc",
+          "https://www.clearance-king.co.uk/household/home-essentials.html?product_list_limit=64&product_list_order=price&product_list_dir=asc"
+        ],
+        "failed_urls": [
+          "https://www.clearance-king.co.uk/gifts-toys/sensory-toys.html"
+        ],
+        "failed_url_errors": {
+          "https://www.clearance-king.co.uk/gifts-toys/sensory-toys.html": "Unknown"
+        },
+        "original_urls": [
+          "https://www.clearance-king.co.uk/electrical/home-appliances.html",
+          "https://www.clearance-king.co.uk/household/home-essentials.html"
+        ]
+      },
+      "validation_summary": {
+        "total_suggested": 2,
+        "productive_categories": 2,
+        "rejected_categories": 1
       }
     }
   ]

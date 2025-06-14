@@ -27,20 +27,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config'))
 try:
     from config.supplier_config_loader import load_supplier_selectors, get_domain_from_url
 except ImportError:
-    try:
-        # Alternative path when run from tools directory
-        import sys
-        sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config'))
-        from supplier_config_loader import load_supplier_selectors, get_domain_from_url
-    except ImportError:
-        # Final fallback - define minimal functions
-        def load_supplier_selectors(domain: str):
-            """Fallback function to load selectors"""
-            return {}
-        def get_domain_from_url(url: str):
-            """Fallback function to get domain from URL"""
-            from urllib.parse import urlparse
-            return urlparse(url).netloc.replace("www.", "")
+    # Fallback for standalone execution
+    from supplier_config_loader import load_supplier_selectors, get_domain_from_url
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -435,36 +423,19 @@ Return ONLY a JSON object with these exact keys (no additional text):
   "product_item": ["selector1", "selector2"],
   "title": ["selector1", "selector2"], 
   "price": ["selector1", "selector2"],
-  "price_login_required": ["selector1", "selector2"],
   "url": ["selector1", "selector2"],
   "image": ["selector1", "selector2"],
   "ean": ["selector1", "selector2"],
-  "barcode": ["selector1", "selector2"],
-  "product_code": ["selector1", "selector2"],
-  "sku": ["selector1", "selector2"]
+  "barcode": ["selector1", "selector2"]
 }}
 
-CRITICAL REQUIREMENTS FOR POUNDWHOLESALE.CO.UK:
-1. PRICES: 
-   - CONFIRMED WORKING: meta[property="product:price:amount"] (contains actual price like "0.59")
-   - LOGIN REQUIRED: a.btn.customer-login-link.login-btn (contains "Log in to view prices")
-2. EAN/BARCODE: 
-   - CONFIRMED PATTERN: Search HTML content for 13-digit barcodes like 5060563215438
-   - Look in script tags, meta tags, and hidden data attributes
-3. PRODUCT CODES: Any alphanumeric identifiers, model numbers, SKUs
-
-PROVEN WORKING SELECTORS (USE THESE):
-- Price: meta[property="product:price:amount"]
-- Currency: meta[property="product:price:currency"]  
-- Login Required: a.btn.customer-login-link.login-btn
-- EAN Pattern: Search raw HTML for /[0-9]{13}/ or /[0-9]{12}/ patterns
-
 IMPORTANT RULES:
-1. ALWAYS include the confirmed working selectors above
-2. For EAN: Focus on finding ANY numeric identifiers 8-14 digits long
-3. For price: Include BOTH meta tag selectors AND login message selectors
-4. Look in script tags, meta tags, and structured data for EAN codes
-5. Provide the proven selectors plus additional fallback options
+1. Look for repeating product containers (divs, li elements, articles)
+2. Find title links, price text, product URLs, and images within those containers
+3. If you see "Login to view price" or similar, still include the price selector
+4. For EAN/barcode, look for product codes, SKUs, or identifier text
+5. Provide multiple selector options per field when possible
+6. Use specific CSS selectors (classes, IDs, attributes)
 
 HTML CONTENT:
 {truncated_html}"""
@@ -543,21 +514,13 @@ HTML CONTENT:
                     "next_button_selector": ["a.next", ".pagination .next a", "a[rel='next']"]
                 },
                 "auto_discovered": True,
-                "discovery_timestamp": datetime.now().isoformat(),
-                "success": True
+                "discovery_timestamp": datetime.now().isoformat()
             }
 
             # Save configuration if requested
             if save_config:
                 try:
-                    # Import save function with fallback
-                    try:
-                        from config.supplier_config_loader import save_supplier_selectors
-                    except ImportError:
-                        import sys
-                        sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config'))
-                        from supplier_config_loader import save_supplier_selectors
-                    
+                    from config.supplier_config_loader import save_supplier_selectors
                     success = save_supplier_selectors(domain, config)
                     if success:
                         log.info(f"Saved auto-discovered configuration for {domain}")
@@ -1259,54 +1222,20 @@ HTML CONTENT:
         self.session = None
 
     def extract_ean(self, product_page_soup, context_url: str = None):
-        """Extract EAN from the product page using multiple methods including HTML pattern search."""
-        
-        # FIRST: Try HTML pattern search for 8-14 digit codes (MOST RELIABLE)
-        html_content = str(product_page_soup)
-        ean_patterns = [
-            r'barcode[^>]*[>:]?\s*([0-9]{8,14})',
-            r'ean[^>]*[>:]?\s*([0-9]{8,14})',
-            r'gtin[^>]*[>:]?\s*([0-9]{8,14})',
-            r'upc[^>]*[>:]?\s*([0-9]{8,14})',
-            r'"([0-9]{13})"',  # 13-digit codes in quotes
-            r'"([0-9]{12})"',  # 12-digit codes in quotes
-            r'>([0-9]{13})<',  # 13-digit codes between tags
-            r'>([0-9]{12})<'   # 12-digit codes between tags
-        ]
-        
-        for pattern in ean_patterns:
-            matches = re.finditer(pattern, html_content, re.IGNORECASE)
-            for match in matches:
-                code = match.group(1).strip()
-                if len(code) >= 8 and code.isdigit():
-                    log.info(f"🎯 EAN found via pattern search: {code}")
-                    return code
-        
-        # SECOND: Try CSS selectors
+        """Extract EAN from the product page using multiple selectors."""
         selectors = [] # Default to empty list
         if context_url:
             domain = urlparse(context_url).netloc # Parse domain from product page URL
             selectors_config = self._get_selectors_for_domain(domain)
             selectors = selectors_config.get('field_mappings', {}).get('ean', [])
         
-        # Enhanced selectors for Poundwholesale specifically
-        if not selectors or 'poundwholesale' in (context_url or ''):
+        # Fallback to generic selectors if no domain-specific ones are found or context_url is None
+        if not selectors:
             selectors = [
-                # Meta tags (most reliable)
-                "meta[name='product:ean']",
-                "meta[property='product:ean']", 
-                "meta[name='product:gtin']",
-                "meta[property='product:gtin']",
-                # Script and data attributes
-                "script[type='application/ld+json']",
-                "[data-barcode]",
-                "[data-ean]", 
-                "[data-gtin]",
-                # Clearance King specific
                 "div.product-info-main div.ck-product-code-b-code span.ck-b-code-value b",
                 "div.product-info-main div.ck-product-code-b-code span.ck-b-code-value",
                 "table.additional-attributes-table td[data-th='EAN']",
-                "div.product.attribute.sku div.value[itemprop='sku']",
+                "div.product.attribute.sku div.value[itemprop='sku']", # SKUs can sometimes be EANs
                 "div.product.attribute.gtin div.value[itemprop='gtin13']"
             ]
         for selector in selectors:
@@ -1358,7 +1287,7 @@ async def test_new_suppliers():
         log.error("OpenAI API key not available. Cannot test AI selector discovery.")
         return
 
-    scraper = ConfigurableSupplierScraper(ai_client=ai_client, openai_model_name="gpt-4o-mini-2024-07-18")
+    scraper = ConfigurableSupplierScraper(ai_client=ai_client, openai_model_name="gpt-4o-mini-search-preview-2025-03-11")
     
     # Test URLs
     test_suppliers = [
@@ -1577,182 +1506,18 @@ async def test_scraper():
     await scraper.close_session()
     log.info("Scraper test finished.")
 
-async def run_validation_test(supplier_url: str, config_file: str, overrides: dict):
-    """Run validation test on specific supplier URL with overrides."""
-    print(f"="*80)
-    print(f"LIVE SELECTOR-EXTRACTION VALIDATION")
-    print(f"Supplier URL: {supplier_url}")
-    print(f"Config File: {config_file}")
-    print(f"Overrides: {json.dumps(overrides, indent=2)}")
-    print(f"="*80)
-    
-    # Create outputs directory
-    outputs_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "OUTPUTS", "supplier_data")
-    os.makedirs(outputs_dir, exist_ok=True)
-    
-    # Initialize AI client
-    ai_client = None
-    openai_api_key = "sk-A4Ey6Q3g_qjwbBwb0qcpfxyQ858Xa39d--IBJA46uHT3BlbkFJw34Wqh-Pc1TupmpD3OCj_Av9ibIcQUV-Q62b4WetIA"
-    if openai_api_key:
-        try:
-            from openai import OpenAI
-            ai_client = OpenAI(api_key=openai_api_key)
-            log.info("✅ OpenAI client initialized for validation testing.")
-        except Exception as e:
-            log.error(f"❌ Error initializing OpenAI client: {e}")
-            return False
-    
-    # Initialize scraper
-    scraper = ConfigurableSupplierScraper(ai_client=ai_client, openai_model_name="gpt-4o-mini-2024-07-18")
-    
-    try:
-        # Apply clear_cache if requested
-        if overrides.get("clear_cache", False):
-            log.info("🗑️  Clearing cache as requested...")
-        
-        # Test supplier configuration or auto-discovery
-        domain = get_domain_from_url(supplier_url)
-        log.info(f"🔍 Testing domain: {domain}")
-        
-        # Try to auto-configure the supplier
-        config_result = await scraper.auto_configure_supplier(supplier_url)
-        
-        if config_result.get("success", False):
-            log.info(f"✅ Auto-configuration successful for {domain}")
-            
-            # Test product extraction with limits
-            max_products = overrides.get("max_products", 40)
-            max_categories = overrides.get("max_categories", 8)
-            
-            log.info(f"📊 Testing with limits: {max_products} products, {max_categories} categories")
-            
-            # Get category URLs or use base URL
-            test_urls = [supplier_url]  # Start with base URL
-            
-            products_extracted = 0
-            categories_processed = 0
-            
-            for test_url in test_urls:
-                if categories_processed >= max_categories:
-                    break
-                    
-                log.info(f"\n🔍 Testing URL: {test_url}")
-                html = await scraper.get_page_content(test_url)
-                
-                if html:
-                    soup = BeautifulSoup(html, 'html.parser')
-                    product_elements = scraper.extract_product_elements(html, test_url)
-                    
-                    log.info(f"📦 Found {len(product_elements)} product elements")
-                    
-                    # Extract data from products (limited by max_products)
-                    for i, p_soup in enumerate(product_elements):
-                        if products_extracted >= max_products:
-                            break
-                            
-                        p_html = str(p_soup)
-                        log.info(f"\n--- Product {products_extracted + 1} ---")
-                        
-                        title = await scraper.extract_title(p_soup, p_html, test_url)
-                        price = await scraper.extract_price(p_soup, p_html, test_url)
-                        product_url = await scraper.extract_url(p_soup, p_html, test_url, supplier_url)
-                        image = await scraper.extract_image(p_soup, p_html, test_url, supplier_url)
-                        
-                        # Try to extract price from detail page (for sites requiring login)
-                        detail_price = None
-                        ean = None
-                        if product_url:
-                            detail_html = await scraper.get_page_content(product_url)
-                            if detail_html:
-                                detail_soup = BeautifulSoup(detail_html, 'html.parser')
-                                
-                                # Extract price from meta tags
-                                price_meta = detail_soup.select_one('meta[property="product:price:amount"]')
-                                if price_meta and price_meta.get('content'):
-                                    try:
-                                        detail_price = float(price_meta.get('content'))
-                                        log.info(f"  💰 Meta Price Found: £{detail_price}")
-                                    except:
-                                        pass
-                                
-                                # Check for login required message
-                                login_btn = detail_soup.select_one('a.btn.customer-login-link.login-btn')
-                                if login_btn:
-                                    log.info(f"  🔒 Login Required: {login_btn.get_text(strip=True)}")
-                                
-                                # Extract EAN using enhanced method
-                                ean = scraper.extract_ean(detail_soup, product_url)
-                        
-                        # Use detail page price if found, otherwise listing price
-                        final_price = detail_price if detail_price is not None else price
-                        
-                        log.info(f"  Title: {title}")
-                        log.info(f"  Price: {final_price}")
-                        log.info(f"  URL: {product_url}")
-                        log.info(f"  EAN: {ean or 'Not found'}")
-                        
-                        products_extracted += 1
-                        
-                        if i < min(3, len(product_elements) - 1):
-                            await asyncio.sleep(0.5)  # Brief pause
-                
-                categories_processed += 1
-            
-            log.info(f"\n✅ VALIDATION COMPLETE")
-            log.info(f"   Products extracted: {products_extracted}")
-            log.info(f"   Categories processed: {categories_processed}")
-            
-            return True
-            
-        else:
-            log.error(f"❌ Auto-configuration failed for {domain}")
-            return False
-            
-    except Exception as e:
-        log.error(f"❌ Validation test failed: {e}")
-        return False
-    finally:
-        await scraper.close_session()
-
-
 if __name__ == "__main__":
     import sys
-    import argparse
-    
-    # Set up argument parser
-    parser = argparse.ArgumentParser(description='ConfigurableSupplierScraper Validation Tool')
-    parser.add_argument('--url', type=str, help='Supplier URL to test')
-    parser.add_argument('--config', type=str, help='Config file path')
-    parser.add_argument('--override', type=str, help='JSON string with override parameters')
-    parser.add_argument('--new-suppliers', action='store_true', help='Test new supplier websites')
-    
-    args = parser.parse_args()
     
     print("="*80)
     print("ConfigurableSupplierScraper Test Run")
     print("="*80)
     
-    # Check for validation mode (--url, --config, --override)
-    if args.url and args.config and args.override:
-        try:
-            overrides = json.loads(args.override)
-            print(f"🚀 Running validation test mode...")
-            success = asyncio.run(run_validation_test(args.url, args.config, overrides))
-            if success:
-                print("✅ Validation test completed successfully")
-            else:
-                print("❌ Validation test failed")
-                sys.exit(1)
-        except json.JSONDecodeError as e:
-            print(f"❌ Invalid JSON in --override parameter: {e}")
-            sys.exit(1)
-    # Check for new suppliers mode
-    elif args.new_suppliers:
+    # Check command line arguments
+    if len(sys.argv) > 1 and sys.argv[1] == "--new-suppliers":
         print("Testing new supplier websites with AI selector discovery...")
         asyncio.run(test_new_suppliers())
     else:
         print("Running standard test on Clearance King...")
-        print("Usage examples:")
-        print("  --new-suppliers                    # Test Pound Wholesale and Cut Price Wholesaler")
-        print("  --url <URL> --config <CONFIG> --override <JSON>  # Validation mode")
+        print("Use --new-suppliers flag to test Pound Wholesale and Cut Price Wholesaler")
         asyncio.run(test_scraper())

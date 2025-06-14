@@ -1,0 +1,53 @@
+{
+  "supplier_id": "poundwholesale-co-uk",
+  "supplier_name": "Poundwholesale.Co.Uk",
+  "base_url": "https://www.poundwholesale.co.uk/",
+  "field_mappings": {
+    "product_item": [
+      ".product-item"
+    ],
+    "title": [
+      ".product-item .product-title",
+      ".product-item h2"
+    ],
+    "price": [
+      "meta[property='product:price:amount']",
+      "a.btn.customer-login-link.login-btn"
+    ],
+    "price_login_required": [
+      "a.btn.customer-login-link.login-btn"
+    ],
+    "url": [
+      ".product-item a.product-link"
+    ],
+    "image": [
+      ".product-item img.product-image"
+    ],
+    "ean": [
+      "script:contains('ean')",
+      "meta[property='product:ean']"
+    ],
+    "barcode": [
+      "script:contains('barcode')",
+      "meta[property='product:barcode']"
+    ],
+    "product_code": [
+      ".product-item .product-code",
+      ".product-item .sku"
+    ],
+    "sku": [
+      ".product-item .sku"
+    ]
+  },
+  "pagination": {
+    "pattern": "?page={page_num}",
+    "next_button_selector": [
+      "a.next",
+      ".pagination .next a",
+      "a[rel='next']"
+    ]
+  },
+  "auto_discovered": true,
+  "discovery_timestamp": "2025-06-14T15:08:27.979483",
+  "success": true
+}
